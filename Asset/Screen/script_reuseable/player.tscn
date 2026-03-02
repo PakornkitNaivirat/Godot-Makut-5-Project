@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://b63b3yeurta4d"]
+
+[ext_resource type="Script" uid="uid://co2wsp68kxxfm" path="res://Asset/Script/Re-use/player_movement.gd" id="1_f7rs0"]
+[ext_resource type="Script" uid="uid://ykj4cvdy31o5" path="res://Asset/Script/Re-use/player_animation.gd" id="2_f7rs0"]
+[ext_resource type="Texture2D" uid="uid://brij845n62w02" path="res://Asset/Spirte/Charactor/Jerome(2).png" id="3_yv0cs"]
+
+[sub_resource type="Animation" id="Animation_yv0cs"]
+length = 0.041670833
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animaton/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(925, 1302.884, 326, 1123.116)]
+}
+
+[sub_resource type="Animation" id="Animation_haid3"]
+resource_name = "idle"
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animaton/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(925, 1302.884, 326, 1123.116)]
+}
+
+[sub_resource type="Animation" id="Animation_t12pf"]
+resource_name = "move"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animaton/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.45, 0.65, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(80.838104, 80.237, 526.63855, 1054.763), Rect2(620, 80.23663, 476.47095, 1054.7634), Rect2(1100, 80.237, 466.7688, 1054.763), Rect2(1550, 101.98164, 466.76904, 1050.5481), Rect2(2075, 101.982, 466.769, 1050.548), Rect2(2533.6165, 101.982, 341.8994, 1050.548), Rect2(2900, 123.83136, 375.74756, 1046.3845), Rect2(3320.4553, 100.30444, 532.8982, 1069.9116)]
+}
+
+[sub_resource type="Animation" id="Animation_fo8ab"]
+resource_name = "phone"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animaton/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(2024.9548, 1320.1407, 416.7661, 1126.37)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fo8ab"]
+_data = {
+&"RESET": SubResource("Animation_yv0cs"),
+&"idle": SubResource("Animation_haid3"),
+&"move": SubResource("Animation_t12pf"),
+&"phone": SubResource("Animation_fo8ab")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7rs0"]
+size = Vector2(96, 23.25)
+
+[node name="Player" type="CharacterBody2D" unique_id=1775447557]
+script = ExtResource("1_f7rs0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=266598659]
+zoom = Vector2(0.7, 0.7)
+limit_left = 0
+limit_top = 0
+limit_right = 5760
+limit_bottom = 1080
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Animaton" type="Node2D" parent="." unique_id=1794324315 node_paths=PackedStringArray("player_movement", "animation_player", "sprite")]
+script = ExtResource("2_f7rs0")
+player_movement = NodePath("..")
+animation_player = NodePath("AnimationPlayer")
+sprite = NodePath("Sprite2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animaton" unique_id=2127482182]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_fo8ab")
+
+[node name="Sprite2D" type="Sprite2D" parent="Animaton" unique_id=1895706092]
+y_sort_enabled = true
+position = Vector2(4, -400)
+texture = ExtResource("3_yv0cs")
+region_enabled = true
+region_rect = Rect2(925, 1302.884, 326, 1123.116)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=906169502]
+position = Vector2(-1, 131)
+shape = SubResource("RectangleShape2D_f7rs0")

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c73ny583v40f1"]
+
+[ext_resource type="Script" uid="uid://c756kw7xrssdd" path="res://Asset/Script/Re-use/speech_box.gd" id="1_24v7o"]
+[ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Lexend-VariableFont_wght.ttf" id="2_24v7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk4yj"]
+bg_color = Color(0.9132075, 0.9144128, 0.98478884, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.1254902)
+shadow_size = 1
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rgywe"]
+font = ExtResource("2_24v7o")
+font_size = 24
+font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
+outline_color = Color(0.935218, 0.94488466, 0.66157347, 1)
+
+[node name="speech" type="Node2D" unique_id=1384000356]
+script = ExtResource("1_24v7o")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1325401852]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -54.0
+offset_right = 115.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_qk4yj")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1968734336]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=1289514828]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_rgywe")
+autowrap_mode = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1259039631]
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(2.25, 2.625)
+color = Color(0.9137255, 0.9137255, 0.9843137, 1)
+polygon = PackedVector2Array(-4, 0, 0, 8, 4, 0)

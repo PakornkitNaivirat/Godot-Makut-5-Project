@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://d15nra0twxhfs"]
+
+[ext_resource type="Texture2D" uid="uid://c74g4p5g67n4y" path="res://Asset/Spirte/Background/93_20260226200432.png" id="1_kdefs"]
+[ext_resource type="Texture2D" uid="uid://cfvrslsuf58p0" path="res://Asset/Spirte/Background/94_20260226200444.png" id="2_bunkr"]
+[ext_resource type="Texture2D" uid="uid://s1bh64r8j3m1" path="res://Asset/Spirte/Background/95_20260226200455.png" id="3_6cwxp"]
+[ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="4_irqf2"]
+[ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door.tscn" id="5_kdefs"]
+[ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/dialogue.tscn" id="6_bunkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhb3g"]
+size = Vector2(162.9375, 1005.75)
+
+[node name="IF_Floor1" type="Node2D" unique_id=550233188]
+y_sort_enabled = true
+
+[node name="BackGrounds" type="Node2D" parent="." unique_id=325507699]
+
+[node name="BG" type="Sprite2D" parent="BackGrounds" unique_id=360864549]
+texture = ExtResource("1_kdefs")
+centered = false
+
+[node name="BG2" type="Sprite2D" parent="BackGrounds" unique_id=93306522]
+position = Vector2(1920, 0)
+texture = ExtResource("2_bunkr")
+centered = false
+
+[node name="BG3" type="Sprite2D" parent="BackGrounds" unique_id=2123040374]
+position = Vector2(3840, 0)
+texture = ExtResource("3_6cwxp")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=566520416]
+
+[node name="CollisionLeft" type="CollisionShape2D" parent="StaticBody2D" unique_id=774110459]
+position = Vector2(-13.9375, 458.875)
+shape = SubResource("RectangleShape2D_xhb3g")
+
+[node name="CollisionRight" type="CollisionShape2D" parent="StaticBody2D" unique_id=2068350645]
+position = Vector2(5726.4688, 439.75)
+shape = SubResource("RectangleShape2D_xhb3g")
+
+[node name="Player" parent="." unique_id=1775447557 groups=["Player"] instance=ExtResource("4_irqf2")]
+position = Vector2(145, 726)
+scale = Vector2(0.3, 0.3)
+
+[node name="Door" parent="." unique_id=992689307 instance=ExtResource("5_kdefs")]
+next_scene_path = "res://Asset/Screen/BG/sod_sai.tscn"
+
+[node name="Dialogue" parent="." unique_id=410944203 instance=ExtResource("6_bunkr")]
+position = Vector2(1645, 655)
+dialog_text = Array[String](["Hi Mark ! How're you doing today?", "something on my face??", "Fine...!"])
+
+[node name="Dialogue2" parent="." unique_id=518290277 instance=ExtResource("6_bunkr")]
+position = Vector2(1084, 656)
+dialog_text = Array[String](["Testingd "])

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bmulk8ctw6ft3"]
+
+[ext_resource type="Texture2D" uid="uid://ctpus7o1763n1" path="res://Asset/Spirte/Background/92_20260226200420.png" id="1_s6364"]
+[ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_xjg88"]
+[ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door.tscn" id="3_xjg88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjvx"]
+size = Vector2(66, 975)
+
+[node name="SodSai" type="Node2D" unique_id=550629318]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1594503256]
+texture = ExtResource("1_s6364")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=947000999]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=221624245]
+position = Vector2(5, 414.5)
+shape = SubResource("RectangleShape2D_mxjvx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1219379595]
+position = Vector2(1891, 418)
+shape = SubResource("RectangleShape2D_mxjvx")
+
+[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("2_xjg88")]
+position = Vector2(91, 835)
+scale = Vector2(0.3, 0.3)
+
+[node name="Door" parent="." unique_id=992689307 instance=ExtResource("3_xjg88")]
+position = Vector2(-3500, 0)
+next_scene_path = "res://Asset/Screen/BG/if_f1.tscn"

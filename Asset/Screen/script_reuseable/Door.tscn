@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bjkuanxy54akj"]
+
+[ext_resource type="Script" uid="uid://8cui7wcpsws0" path="res://Asset/Script/Re-use/door.gd" id="1_nh7pf"]
+[ext_resource type="PackedScene" uid="uid://d0vajvj654ng8" path="res://Asset/Screen/script_reuseable/interaction.tscn" id="2_f3e1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmsvm"]
+size = Vector2(213, 321.5)
+
+[node name="Door" type="Area2D" unique_id=992689307]
+script = ExtResource("1_nh7pf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1605416872]
+position = Vector2(5273.5, 712)
+shape = SubResource("RectangleShape2D_mmsvm")
+
+[node name="interaction" parent="." unique_id=766295074 instance=ExtResource("2_f3e1l")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(5285, 424)
+rotation = 0.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
