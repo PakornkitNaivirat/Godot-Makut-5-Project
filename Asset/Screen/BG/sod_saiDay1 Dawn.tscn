@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bmulk8ctw6ft3"]
+
+[ext_resource type="Texture2D" uid="uid://c0ennimkdahlv" path="res://Asset/Spirte/Background/105_20260302200157.png" id="1_3fj0t"]
+[ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_farl7"]
+[ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door.tscn" id="3_v7ee3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjvx"]
+size = Vector2(195.5, 1209)
+
+[node name="SodSaiDay1 dawn" type="Node2D" unique_id=550629318]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1594503256]
+texture = ExtResource("1_3fj0t")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=947000999]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=221624245]
+position = Vector2(9.5, 531.5)
+shape = SubResource("RectangleShape2D_mxjvx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1219379595]
+position = Vector2(5692.75, 504)
+shape = SubResource("RectangleShape2D_mxjvx")
+
+[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("2_farl7")]
+position = Vector2(267, 917)
+scale = Vector2(0.3, 0.3)
+
+[node name="Our room" parent="." unique_id=992689307 instance=ExtResource("3_v7ee3")]
+position = Vector2(-4478, 103)
+next_scene_path = "res://Asset/Screen/BG/if_f1.tscn"
+
+[node name="Uni" parent="." unique_id=2029874542 instance=ExtResource("3_v7ee3")]
+position = Vector2(242, 98)
+next_scene_path = "res://Asset/Screen/BG/if_f1 Dawn.tscn"
