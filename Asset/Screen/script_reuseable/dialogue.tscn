@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sdstcnrm1avd"]
 
-[ext_resource type="Script" uid="uid://dpabg8gq18735" path="res://Asset/Script/Re-use/dialogue.gd" id="1_s2utg"]
+[ext_resource type="Script" uid="uid://dpabg8gq18735" path="res://Asset/Script/Re-use/Text-Dialogue/dialogue.gd" id="1_s2utg"]
 [ext_resource type="PackedScene" uid="uid://c73ny583v40f1" path="res://Asset/Screen/script_reuseable/Speech_bubble.tscn" id="2_tb75x"]
 [ext_resource type="Texture2D" uid="uid://cy7qojtc3f10w" path="res://Asset/Spirte/icon/image-removebg-preview.png" id="3_t6yef"]
 [ext_resource type="Texture2D" uid="uid://cs0ankx3w0t3k" path="res://Asset/Spirte/icon/image-removebg-preview (1).png" id="4_t6yef"]
@@ -139,7 +139,7 @@ region_enabled = true
 region_rect = Rect2(160.18427, 121.02631, 45.157913, 51.31582)
 
 [node name="PlayerSpot" type="Marker2D" parent="." unique_id=301342563]
-position = Vector2(-116, 70)
+position = Vector2(-148, 70)
 gizmo_extents = 31.7
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

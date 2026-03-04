@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d0vajvj654ng8"]
 
 [ext_resource type="Texture2D" uid="uid://b8wbms2q7d220" path="res://Asset/Spirte/icon/104_20260228171527-removebg-preview.png" id="1_tst66"]
-[ext_resource type="Script" uid="uid://dhrdvlaegcifm" path="res://Asset/Script/Re-use/icon_variet1.gd" id="2_o7jv1"]
+[ext_resource type="Script" uid="uid://dhrdvlaegcifm" path="res://Asset/Script/Re-use/LoadingScreen/icon_variet1.gd" id="2_o7jv1"]
 
 [sub_resource type="Animation" id="Animation_bunkr"]
 tracks/0/type = "value"

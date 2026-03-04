@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ennimkdahlv" path="res://Asset/Spirte/Background/105_20260302200157.png" id="1_3fj0t"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_farl7"]
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door.tscn" id="3_v7ee3"]
+[ext_resource type="PackedScene" uid="uid://dpxp8o3dufld4" path="res://Asset/Screen/script_reuseable/minigame_interaction.tscn" id="4_farl7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjvx"]
 size = Vector2(195.5, 1209)
@@ -29,8 +30,16 @@ scale = Vector2(0.3, 0.3)
 
 [node name="Our room" parent="." unique_id=992689307 instance=ExtResource("3_v7ee3")]
 position = Vector2(-4478, 103)
-next_scene_path = "res://Asset/Screen/BG/if_f1.tscn"
 
 [node name="Uni" parent="." unique_id=2029874542 instance=ExtResource("3_v7ee3")]
 position = Vector2(242, 98)
 next_scene_path = "res://Asset/Screen/BG/if_f1 Dawn.tscn"
+
+[node name="SodSaiBack" type="Marker2D" parent="Uni" unique_id=1908033096]
+position = Vector2(5282, 814)
+scale = Vector2(2, 2)
+
+[node name="Minigame-Interact" parent="." unique_id=157613088 instance=ExtResource("4_farl7")]
+position = Vector2(1397, 818)
+next_scene_path = "res://Asset/Screen/BG/minigame_1.tscn"
+minigame_id = "backpack"

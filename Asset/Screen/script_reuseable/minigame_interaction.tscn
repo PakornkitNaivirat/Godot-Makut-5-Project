@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dpxp8o3dufld4"]
+
+[ext_resource type="Script" uid="uid://cibklsxlw1xt6" path="res://Asset/Script/Re-use/MiniGame/minigame_interaction.gd" id="1_uod3f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a75xq"]
+size = Vector2(253.125, 338.5)
+
+[node name="Minigame-Interact" type="Area2D" unique_id=157613088]
+script = ExtResource("1_uod3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=602244326]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_a75xq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1448283550]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=794083188]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

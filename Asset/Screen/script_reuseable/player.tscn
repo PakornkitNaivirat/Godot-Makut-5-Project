@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b63b3yeurta4d"]
 
-[ext_resource type="Script" uid="uid://co2wsp68kxxfm" path="res://Asset/Script/Re-use/player_movement.gd" id="1_f7rs0"]
-[ext_resource type="Script" uid="uid://ykj4cvdy31o5" path="res://Asset/Script/Re-use/player_animation.gd" id="2_f7rs0"]
+[ext_resource type="Script" uid="uid://co2wsp68kxxfm" path="res://Asset/Script/Re-use/Movement-Player/player_movement.gd" id="1_f7rs0"]
+[ext_resource type="Script" uid="uid://ykj4cvdy31o5" path="res://Asset/Script/Re-use/Movement-Player/player_animation.gd" id="2_f7rs0"]
 [ext_resource type="Texture2D" uid="uid://brij845n62w02" path="res://Asset/Spirte/Charactor/Jerome(2).png" id="3_yv0cs"]
 
 [sub_resource type="Animation" id="Animation_yv0cs"]

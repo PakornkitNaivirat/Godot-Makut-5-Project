@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhb3g"]
 size = Vector2(162.9375, 1305.25)
 
-[node name="IF_Floor1" type="Node2D" unique_id=550233188]
+[node name="IF_Floor1 Day1 Dawn" type="Node2D" unique_id=550233188]
 y_sort_enabled = true
 
 [node name="BackGrounds" type="Node2D" parent="." unique_id=325507699]
@@ -35,25 +35,32 @@ scale = Vector2(0.4, 0.4)
 [node name="Camera2D" parent="Player" index="0" unique_id=266598659]
 zoom = Vector2(0.6, 0.6)
 
-[node name="Door" parent="." unique_id=992689307 instance=ExtResource("3_m7af1")]
+[node name="Go UP" parent="." unique_id=992689307 instance=ExtResource("3_m7af1")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-428, -186)
 next_scene_path = "res://Asset/Screen/BG/if_floor_7.tscn"
 
-[node name="CollisionShape2D" parent="Door" index="0" unique_id=1605416872]
+[node name="CollisionShape2D" parent="Go UP" index="0" unique_id=1605416872]
 position = Vector2(5274, 912)
 
-[node name="interaction" parent="Door" index="1" unique_id=766295074]
+[node name="interaction" parent="Go UP" index="1" unique_id=766295074]
 position = Vector2(5285, 387)
 
 [node name="Dialogue" parent="." unique_id=410944203 instance=ExtResource("4_ss5p0")]
-position = Vector2(2515, 604)
+position = Vector2(2492, 627)
 dialog_text = Array[String](["Hi Mark ! How're you doing today?", "something on my face??", "Fine...!"])
+
+[node name="CollisionShape2D" parent="Dialogue" index="0" unique_id=1060850475]
+position = Vector2(-28.5, 104.5)
 
 [node name="Dialogue2" parent="." unique_id=518290277 instance=ExtResource("4_ss5p0")]
 position = Vector2(1594, 627)
 dialog_text = Array[String](["Testingd "])
 
+[node name="IF Enter" type="Marker2D" parent="." unique_id=1326635737]
+position = Vector2(145, 861)
+
 [editable path="Player"]
-[editable path="Door"]
+[editable path="Go UP"]
+[editable path="Dialogue"]
