@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 LoadingScreen="*uid://bh5y6w8aq5rte"
+Global="*uid://c8m40fosh7tyv"
 
 [input]
 

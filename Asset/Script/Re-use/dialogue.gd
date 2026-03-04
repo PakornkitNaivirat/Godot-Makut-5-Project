@@ -78,6 +78,31 @@ func _process(delta):
 				
 			else: #กรณีคุยเสร็จแล้ว แต่ยังไม่ขยับให้ show animation ต่อ
 				if player:
+					var sprite = player.get_node("Animaton/Sprite2D")
+					var anim = player.get_node("Animaton/AnimationPlayer")
+					
+					#Calculate Distance
+					var distance = player.global_position.distance_to(player_start_pos)
+					var walk_speed = 200.0
+					var duration = distance / walk_speed
+					
+					# Flip
+					if sprite:
+						sprite.flip_h = (player_start_pos.x < player.global_position.x)
+					
+					if anim:
+						anim.play("move")
+					
+					# Go Back to old position
+					var move_back_tween = create_tween()
+					move_back_tween.tween_property(player, "global_position", player_start_pos, duration)\
+						.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+					
+					await move_back_tween.finished
+				
+					if anim:
+						anim.play("idle")
+						
 					player.is_locked = false
 					
 				speech_bubble.hide_dialogue()

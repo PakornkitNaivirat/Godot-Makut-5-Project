@@ -16,7 +16,6 @@ shape = SubResource("RectangleShape2D_mmsvm")
 [node name="interaction" parent="." unique_id=766295074 instance=ExtResource("2_f3e1l")]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(5285, 424)
-rotation = 0.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
