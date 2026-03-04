@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjkuanxy54akj"]
 
-[ext_resource type="Script" uid="uid://8cui7wcpsws0" path="res://Asset/Script/Re-use/door.gd" id="1_nh7pf"]
+[ext_resource type="Script" uid="uid://8cui7wcpsws0" path="res://Asset/Script/Re-use/LoadingScreen/door.gd" id="1_nh7pf"]
 [ext_resource type="PackedScene" uid="uid://d0vajvj654ng8" path="res://Asset/Screen/script_reuseable/interaction.tscn" id="2_f3e1l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmsvm"]

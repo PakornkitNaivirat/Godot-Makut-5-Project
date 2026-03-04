@@ -9,7 +9,7 @@ var collected_count = 0
 var max_items = 2
 
 func _ready():
-	if Global.is_minigame1_done == true:
+	if Global.minigame_status["backpack"] == true:
 		print("มินิเกมนี้เคยเล่นผ่านแล้ว! ทำการข้ามฉากทันที...")
 		anim.play("Full") 
 		LoadingScreen.transition_to_screenfunc(next_scene_path)
@@ -25,7 +25,7 @@ func add_item():
 	if collected_count >= max_items:
 		print("ของครบแล้ว! เปลี่ยนรูปกระเป๋า!")
 		
-		Global.is_minigame1_done = true
+		Global.minigame_status["backpack"] = true
 		
 		await tween.finished
 		anim.play("Full")

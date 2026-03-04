@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bh5y6w8aq5rte"]
 
-[ext_resource type="Script" uid="uid://dodunhk1p7xjy" path="res://Asset/Script/Re-use/loading_screen.gd" id="1_7645e"]
+[ext_resource type="Script" uid="uid://dodunhk1p7xjy" path="res://Asset/Script/Re-use/LoadingScreen/loading_screen.gd" id="1_7645e"]
 
 [sub_resource type="Animation" id="Animation_o6q6h"]
 resource_name = "Fade_out"

@@ -47,20 +47,6 @@ position = Vector2(5274, 912)
 [node name="interaction" parent="Go UP" index="1" unique_id=766295074]
 position = Vector2(5285, 387)
 
-[node name="Dead End" parent="." unique_id=1717462854 instance=ExtResource("3_m7af1")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(149, 542)
-next_scene_path = "res://Asset/Screen/BG/sod_saiDay1 Dawn.tscn"
-door_type = 1
-target_spawn_point_name = "SodSaiBack"
-
-[node name="CollisionShape2D" parent="Dead End" index="0" unique_id=1605416872]
-position = Vector2(8, 229)
-
-[node name="interaction" parent="Dead End" index="1" unique_id=766295074]
-position = Vector2(28, -78)
-
 [node name="Dialogue" parent="." unique_id=410944203 instance=ExtResource("4_ss5p0")]
 position = Vector2(2492, 627)
 dialog_text = Array[String](["Hi Mark ! How're you doing today?", "something on my face??", "Fine...!"])
@@ -77,5 +63,4 @@ position = Vector2(145, 861)
 
 [editable path="Player"]
 [editable path="Go UP"]
-[editable path="Dead End"]
 [editable path="Dialogue"]
