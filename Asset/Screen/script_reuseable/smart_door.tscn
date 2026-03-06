@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://raijymtl8r4u"]
+
+[ext_resource type="Script" uid="uid://bwf6j4te0017" path="res://Asset/Script/Re-use/LoadingScreen/smart_door.gd" id="1_1jwux"]
+[ext_resource type="PackedScene" uid="uid://d0vajvj654ng8" path="res://Asset/Screen/script_reuseable/interaction.tscn" id="2_ox506"]
+[ext_resource type="PackedScene" uid="uid://c73ny583v40f1" path="res://Asset/Screen/script_reuseable/Speech_bubble.tscn" id="3_na5js"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6unq"]
+size = Vector2(292, 305)
+
+[node name="Smart_Door" type="Area2D" unique_id=1423616178]
+script = ExtResource("1_1jwux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=247916205]
+position = Vector2(0, 142.5)
+shape = SubResource("RectangleShape2D_i6unq")
+
+[node name="interaction" parent="." unique_id=766295074 instance=ExtResource("2_ox506")]
+position = Vector2(0, -189)
+
+[node name="speech" parent="." unique_id=1384000356 instance=ExtResource("3_na5js")]
+position = Vector2(248, -488)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

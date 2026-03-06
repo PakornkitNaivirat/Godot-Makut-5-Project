@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2s3pa8ix1onh"
-path="res://.godot/imported/108_20260302235849.png-ce528f78a724b13ac271ad731a737a3a.ctex"
+uid="uid://lts383x2fbao"
+path="res://.godot/imported/Black-Screen.png-6f41857106ebbf5527650ba4e6eaeb4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Spirte/Background/108_20260302235849.png"
-dest_files=["res://.godot/imported/108_20260302235849.png-ce528f78a724b13ac271ad731a737a3a.ctex"]
+source_file="res://Asset/Spirte/Background/Black-Screen.png"
+dest_files=["res://.godot/imported/Black-Screen.png-6f41857106ebbf5527650ba4e6eaeb4e.ctex"]
 
 [params]
 

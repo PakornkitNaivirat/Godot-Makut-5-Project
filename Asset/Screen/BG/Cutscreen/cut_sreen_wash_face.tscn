@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://nm0k1x2w6j2b"]
+
+[ext_resource type="Texture2D" uid="uid://b35e1ayc5hf4p" path="res://Asset/Spirte/Background/Ref/89_20260226022043.png" id="1_4punc"]
+[ext_resource type="Script" uid="uid://2t752m1dphwh" path="res://Asset/Script/Cutscreen/cut_sreen_wash_face.gd" id="1_tunyr"]
+
+[sub_resource type="Animation" id="Animation_tunyr"]
+resource_name = "Cutscreen"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(264, 188), Vector2(264, 464.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.7699997, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1447, 330.75), Vector2(792, 330.75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("3:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.25, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.98),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_cutscene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_nvcyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(264, 464.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(792, 330.75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("3:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i76ca"]
+_data = {
+&"Cutscreen": SubResource("Animation_tunyr"),
+&"RESET": SubResource("Animation_nvcyr")
+}
+
+[node name="CutSreen_WashFace" type="Node2D" unique_id=743568235]
+script = ExtResource("1_tunyr")
+next_scene_path = "res://Asset/Screen/BG/bed_room.tscn"
+target_spawn_point_name = "Baht"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1773319244]
+offset_right = 1153.0
+offset_bottom = 676.0
+color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+
+[node name="1" type="Sprite2D" parent="." unique_id=822278891]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(264, 188.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4punc")
+region_enabled = true
+region_rect = Rect2(30.891907, 14.230347, 779.1104, 491.27777)
+
+[node name="2" type="Sprite2D" parent="." unique_id=92105488]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(264, 464.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4punc")
+region_enabled = true
+region_rect = Rect2(38.510498, 570.75525, 768.8578, 487.17944)
+
+[node name="3" type="Sprite2D" parent="." unique_id=635619115]
+position = Vector2(792, 330.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4punc")
+region_enabled = true
+region_rect = Rect2(820.01575, 16.187088, 1052.8007, 1041.388)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1819894767]
+libraries/ = SubResource("AnimationLibrary_i76ca")

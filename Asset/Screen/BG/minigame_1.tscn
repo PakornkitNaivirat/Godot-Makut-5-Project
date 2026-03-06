@@ -59,7 +59,7 @@ size = Vector2(250, 31)
 position = Vector2(242, 447)
 script = ExtResource("1_ttxwl")
 full_texture = ExtResource("1_ypk68")
-next_scene_path = "res://Asset/Screen/BG/sod_saiDay1 Dawn.tscn"
+next_scene_path = "res://Asset/Screen/BG/bed_room.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="BackPack" unique_id=1840321841]
 position = Vector2(3.0517578e-05, -2.9999695)
@@ -104,6 +104,20 @@ texture = ExtResource("4_yrfo1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Laptop" unique_id=1181834497]
 position = Vector2(5, 5.5)
 shape = SubResource("RectangleShape2D_yrfo1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=254609833]
+show_behind_parent = true
+offset_left = 2.0
+offset_top = 426.0
+offset_right = 1152.0
+offset_bottom = 647.0
+color = Color(0.6, 0.4509804, 0.3137255, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2091147924]
+show_behind_parent = true
+offset_right = 1152.0
+offset_bottom = 426.0
+color = Color(0.8784314, 0.8784314, 0.8784314, 1)
 
 [connection signal="area_entered" from="Items/Ipad" to="Items/Ipad" method="_on_area_entered"]
 [connection signal="area_exited" from="Items/Ipad" to="Items/Ipad" method="_on_area_exited"]
