@@ -79,7 +79,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7rs0"]
-size = Vector2(96, 23.25)
+size = Vector2(174, 152.625)
 
 [node name="Player" type="CharacterBody2D" unique_id=1775447557]
 script = ExtResource("1_f7rs0")
@@ -111,5 +111,5 @@ region_enabled = true
 region_rect = Rect2(925, 1302.884, 326, 1123.116)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=906169502]
-position = Vector2(-1, 131)
+position = Vector2(2, 66.3125)
 shape = SubResource("RectangleShape2D_f7rs0")

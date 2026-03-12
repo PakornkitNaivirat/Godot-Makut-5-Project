@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cys2j1l1cynba"]
+
+[ext_resource type="Script" uid="uid://cqn1f0jx21obg" path="res://Asset/Script/Cutscreen/cut_screen_meet_friend.gd" id="1_88ynr"]
+[ext_resource type="PackedScene" uid="uid://c73ny583v40f1" path="res://Asset/Screen/script_reuseable/Text/Speech_bubble.tscn" id="2_gig4g"]
+
+[node name="cut_screen_meet_friend" type="Node2D" unique_id=1010130167]
+script = ExtResource("1_88ynr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1600712129]
+offset_right = 1165.0
+offset_bottom = 664.0
+color = Color(0.09411765, 0.09411765, 0.09411765, 1)
+
+[node name="PosLeft" type="Marker2D" parent="." unique_id=462053978]
+position = Vector2(265, 361)
+
+[node name="PosRight" type="Marker2D" parent="." unique_id=1648675622]
+position = Vector2(869, 361)
+
+[node name="speech" parent="." unique_id=1384000356 instance=ExtResource("2_gig4g")]
+position = Vector2(265, 310)

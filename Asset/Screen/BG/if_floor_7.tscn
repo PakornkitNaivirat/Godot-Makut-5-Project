@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://daplfn1fud0mq"]
 
-[ext_resource type="Texture2D" uid="uid://f1oknafd2qh" path="res://Asset/Spirte/Background/Ref/107_20260302235630.png" id="1_cfnm7"]
+[ext_resource type="Texture2D" uid="uid://bsbrix0pt7btx" path="res://Asset/Spirte/Background/107_20260305181449.png" id="1_cexfh"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_13u2h"]
-[ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door.tscn" id="3_gwltk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23kup"]
 size = Vector2(245, 1181.5)
@@ -16,7 +15,7 @@ size = Vector2(81.5, 1109.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Backgrounds" unique_id=1286764903]
 y_sort_enabled = true
-texture = ExtResource("1_cfnm7")
+texture = ExtResource("1_cexfh")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=519373490]
@@ -30,8 +29,9 @@ position = Vector2(3.25, 548.25)
 shape = SubResource("RectangleShape2D_sjw5k")
 
 [node name="Player" parent="." unique_id=1775447557 instance=ExtResource("2_13u2h")]
-position = Vector2(101, 742)
-scale = Vector2(0.3, 0.3)
+position = Vector2(120, 733)
+scale = Vector2(0.4, 0.4)
+SPEED = 300.0
 
-[node name="Door" parent="." unique_id=992689307 instance=ExtResource("3_gwltk")]
-position = Vector2(-406, -69)
+[node name="FL7" type="Marker2D" parent="." unique_id=540028506]
+position = Vector2(120, 734)

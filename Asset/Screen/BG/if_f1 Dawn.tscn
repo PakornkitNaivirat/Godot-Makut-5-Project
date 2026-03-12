@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://birtuae8sb6wp" path="res://Asset/Spirte/Background/Ref/106_20260302235151.png" id="1_blow1"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_sothe"]
-[ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door.tscn" id="3_m7af1"]
-[ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/dialogue.tscn" id="4_ss5p0"]
+[ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_m7af1"]
+[ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue_1person.tscn" id="4_ss5p0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhb3g"]
 size = Vector2(162.9375, 1305.25)
@@ -31,6 +31,7 @@ shape = SubResource("RectangleShape2D_xhb3g")
 [node name="Player" parent="." unique_id=1775447557 groups=["Player"] instance=ExtResource("2_sothe")]
 position = Vector2(147, 859)
 scale = Vector2(0.4, 0.4)
+SPEED = 300.0
 
 [node name="Camera2D" parent="Player" index="0" unique_id=266598659]
 zoom = Vector2(0.6, 0.6)
@@ -40,6 +41,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-428, -186)
 next_scene_path = "res://Asset/Screen/BG/if_floor_7.tscn"
+target_spawn_point_name = "FL7"
 
 [node name="CollisionShape2D" parent="Go UP" index="0" unique_id=1605416872]
 position = Vector2(5274, 912)

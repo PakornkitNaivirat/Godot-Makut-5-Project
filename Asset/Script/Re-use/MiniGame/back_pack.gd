@@ -19,8 +19,8 @@ func add_item():
 	print("เก็บของได้: ", collected_count, "/", max_items)
 	
 	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(1.4, 1.4), 0.1)
 	tween.tween_property(self, "scale", Vector2(1.2, 1.2), 0.1)
-	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.1)
 	
 	if collected_count >= max_items:
 		print("ของครบแล้ว! เปลี่ยนรูปกระเป๋า!")
