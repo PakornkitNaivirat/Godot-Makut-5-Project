@@ -56,7 +56,8 @@ size = Vector2(250, 31)
 [node name="Minigame1" type="Node2D" unique_id=1415403903]
 
 [node name="BackPack" type="Area2D" parent="." unique_id=1687086712 groups=["backpack"]]
-position = Vector2(242, 447)
+position = Vector2(244.00002, 437)
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_ttxwl")
 full_texture = ExtResource("1_ypk68")
 next_scene_path = "res://Asset/Screen/BG/bed_room.tscn"

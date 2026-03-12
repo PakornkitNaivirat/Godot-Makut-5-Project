@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name PlayerController
 
-const SPEED = 350.0
+@export var SPEED: float = 375.0
 var direction = 0
 var is_locked = false
 

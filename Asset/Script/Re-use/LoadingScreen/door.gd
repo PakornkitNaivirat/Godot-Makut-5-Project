@@ -4,9 +4,19 @@ extends Area2D
 
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = "" 
+@export var disappear_after_event: String = ""
 
 var can_interact = false
 var current_player: Node2D = null 
+
+func _ready():
+	if interact_icon: interact_icon.hide()
+	
+	if disappear_after_event != "" and Global.event_flags.has(disappear_after_event):
+		if Global.event_flags[disappear_after_event] == true:
+			print("ทำ Event: " + disappear_after_event + " ไปแล้ว ลบประตูทิ้ง!")
+			self.queue_free()
+			return
 
 func _process(delta):
 	if can_interact and Input.is_action_just_pressed("interact"):
