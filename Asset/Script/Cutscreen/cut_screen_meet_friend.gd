@@ -36,9 +36,6 @@ var is_talking = false
 
 func _ready():
 	anim.play("Lecture")
-	Global.day_night = true
-	Global.minigame_status["gobackday1"] = true
-	Global.event_flags["gobackday1"] = true
 
 func start_talking(dialogue_key: String):
 	anim.pause()
@@ -68,15 +65,12 @@ func update_dialogue():
 	
 	if spot_node:
 		speech_bubble.global_position = spot_node.global_position
-	else:
-		print("⚠️ หาตำแหน่ง Node ชื่อ: '", target_node_name, "' ไม่เจอ! เช็คชื่อให้ตรงกันนะ")
 		
 	speech_bubble.show_dialogue(line_data["text"])
 
 func finish_cutscene():
-	print("คัตซีนจบแล้ว กำลังเปลี่ยนฉากกลับ...")
 	
-	Global.event_flags["washed_face"] = true 
+	Global.day_night = true
 	Global.load_exact_pos = false 
 	Global.target_spawn_name = target_spawn_point_name
 	

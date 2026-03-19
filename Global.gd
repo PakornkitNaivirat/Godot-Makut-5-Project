@@ -8,10 +8,12 @@ var minigame_status: Dictionary = {
 var event_flags: Dictionary = {
 	"wash_face": false,
 	"found_key": false,
-	"gobackday1": false       
+	"gobackday1": false,
+	"join_club_done": false
 }
 
 var day_night = false
+var current_day = 1
 
 var last_player_pos: Vector2 = Vector2.ZERO 
 var load_exact_pos: bool = false

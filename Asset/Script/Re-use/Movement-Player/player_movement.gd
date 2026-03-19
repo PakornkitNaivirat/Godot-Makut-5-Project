@@ -1,7 +1,9 @@
 extends CharacterBody2D
 class_name PlayerController
 
+@onready var message_sound = $AudioStreamPlayer
 @export var SPEED: float = 375.0
+
 var direction = 0
 var is_locked = false
 
@@ -17,8 +19,6 @@ func _ready() -> void:
 		
 		if spawn_point != null:
 			global_position = spawn_point.global_position
-		else:
-			print("หาจุดเกิดชื่อ ", Global.target_spawn_name, " ไม่เจอ! ให้เกิดที่ default แทน")
 			
 		Global.target_spawn_name = ""
 		
@@ -29,9 +29,13 @@ func _physics_process(delta: float) -> void:
 	
 	#Controll movement
 	direction = Input.get_axis("move_left", "move_right")
+	
 	if direction:
+		if not message_sound.playing:
+			message_sound.play()
 		velocity.x = direction * SPEED
 	else:
+		message_sound.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()

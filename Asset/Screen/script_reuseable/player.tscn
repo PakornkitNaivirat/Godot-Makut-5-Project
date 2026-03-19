@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://co2wsp68kxxfm" path="res://Asset/Script/Re-use/Movement-Player/player_movement.gd" id="1_f7rs0"]
 [ext_resource type="Script" uid="uid://ykj4cvdy31o5" path="res://Asset/Script/Re-use/Movement-Player/player_animation.gd" id="2_f7rs0"]
 [ext_resource type="Texture2D" uid="uid://brij845n62w02" path="res://Asset/Spirte/Charactor/Jerome(2).png" id="3_yv0cs"]
+[ext_resource type="AudioStream" uid="uid://c4m15qa75rqcw" path="res://Asset/Sounds/walk-concrete.mp3" id="4_d17si"]
 
 [sub_resource type="Animation" id="Animation_yv0cs"]
 length = 0.041670833
@@ -113,3 +114,7 @@ region_rect = Rect2(925, 1302.884, 326, 1123.116)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=906169502]
 position = Vector2(2, 66.3125)
 shape = SubResource("RectangleShape2D_f7rs0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=911953732]
+stream = ExtResource("4_d17si")
+volume_db = -1.0

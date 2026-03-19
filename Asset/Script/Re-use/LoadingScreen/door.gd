@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var interact_icon = $interaction
+@onready var message_sound = $AudioStreamPlayer
 
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = "" 
@@ -14,7 +15,6 @@ func _ready():
 	
 	if disappear_after_event != "" and Global.event_flags.has(disappear_after_event):
 		if Global.event_flags[disappear_after_event] == true:
-			print("ทำ Event: " + disappear_after_event + " ไปแล้ว ลบประตูทิ้ง!")
 			self.queue_free()
 			return
 
@@ -27,12 +27,11 @@ func _process(delta):
 			Global.target_spawn_name = target_spawn_point_name
 		
 		if next_scene_path != "":
-			print("กำลังเปลี่ยนฉากไปที่: ", next_scene_path)
+			message_sound.play()
 			LoadingScreen.transition_to_screenfunc(next_scene_path)
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		print("found")
 		can_interact = true
 		current_player = body 
 		interact_icon.show_icon()

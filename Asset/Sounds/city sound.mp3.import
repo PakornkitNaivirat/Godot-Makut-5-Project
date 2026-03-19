@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbkqqj7sxn77o"
+path="res://.godot/imported/city sound.mp3-bd45aeb95ffa13986b1a089b9eab4667.mp3str"
+
+[deps]
+
+source_file="res://Asset/Sounds/city sound.mp3"
+dest_files=["res://.godot/imported/city sound.mp3-bd45aeb95ffa13986b1a089b9eab4667.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

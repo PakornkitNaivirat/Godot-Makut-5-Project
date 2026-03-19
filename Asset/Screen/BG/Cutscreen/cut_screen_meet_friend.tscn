@@ -419,7 +419,7 @@ _data = {
 
 [node name="cut_screen_meet_friend" type="Node2D" unique_id=1010130167]
 script = ExtResource("1_88ynr")
-next_scene_path = "res://Asset/Screen/BG/floor_1_lift.tscn"
+next_scene_path = "res://Asset/Screen/BG/Day1/floor_1_lift.tscn"
 target_spawn_point_name = "Lift"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1600712129]
