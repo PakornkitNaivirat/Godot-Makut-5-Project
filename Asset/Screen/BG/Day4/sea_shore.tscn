@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dwhg8hr31jwtg"]
+
+[ext_resource type="Texture2D" uid="uid://dmss760fx04na" path="res://Asset/Spirte/Background/Day4/Sea_nos.bg.png" id="1_xsbu5"]
+[ext_resource type="Texture2D" uid="uid://b1dsh8tk8stw2" path="res://Asset/Spirte/Background/Day4/Stone.sea_bg.png" id="2_cuk6c"]
+[ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="3_ls15x"]
+
+[node name="Sea shore" type="Node2D" unique_id=1638767410]
+
+[node name="BG" type="Node2D" parent="." unique_id=403258599]
+
+[node name="Sea" type="Sprite2D" parent="BG" unique_id=343736257]
+y_sort_enabled = true
+texture = ExtResource("1_xsbu5")
+centered = false
+
+[node name="Rock" type="Sprite2D" parent="BG" unique_id=1794145801]
+z_index = 2
+y_sort_enabled = true
+texture = ExtResource("2_cuk6c")
+centered = false
+
+[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("3_ls15x")]
+position = Vector2(95, 627)
+scale = Vector2(0.3, 0.3)
+
+[node name="Camera2D" parent="Player" index="0" unique_id=266598659]
+zoom = Vector2(0.6, 0.6)
+
+[editable path="Player"]

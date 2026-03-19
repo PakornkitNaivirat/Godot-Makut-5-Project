@@ -1,33 +1,30 @@
 extends Area2D
 
 @onready var interact_icon = $interaction
-@onready var speech_bubble = $speech # ต้องมี Node สำหรับแสดงคำพูดติดไว้ด้วย
+@onready var speech_bubble = $speech
 
 @export_group("Door Settings")
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = ""
 
 @export_group("Condition Settings")
-# ใส่ ID มินิเกมที่ต้อง "ทำให้เสร็จ" ก่อนประตูจะเปิด
 @export var required_minigame_id: String = "" 
 
-# ข้อความที่จะพูดตอนที่มินิเกมยังไม่เสร็จ (คุยกับตัวเอง)
 @export_multiline var locked_dialogue: Array[String] = [
-	"ฉันยังไปไม่ได้...",
-	"ต้องจัดการภารกิจตรงนั้นให้เสร็จก่อน!"
+	""
 ]
 
 var can_interact = false
 var current_player: Node2D = null
 var is_talking = false
 var current_line = 0
+var is_busy = false
 
 func _process(_delta):
-	if can_interact and Input.is_action_just_pressed("interact"):
+	if can_interact and not is_busy and Input.is_action_just_pressed("interact"):
 		check_door_logic()
 
 func check_door_logic():
-	# 1. เช็คสถานะมินิเกมจาก Global
 	var is_minigame_done = false
 	if required_minigame_id != "" and Global.minigame_status.has(required_minigame_id):
 		is_minigame_done = Global.minigame_status[required_minigame_id]
@@ -35,7 +32,15 @@ func check_door_logic():
 	# --- กรณีที่ 1: มินิเกมเสร็จแล้ว -> ทำงานเป็นประตูข้ามฉาก ---
 	if is_minigame_done or required_minigame_id == "":
 		if next_scene_path != "":
-			print("ภารกิจเสร็จแล้ว! กำลังเปลี่ยนฉาก...")
+			is_busy = true
+			
+			if current_player:
+				current_player.is_locked = true
+				current_player.velocity = Vector2.ZERO
+				var anim = current_player.get_node_or_null("Animaton/AnimationPlayer")
+				if anim:
+					anim.play("idle")
+					
 			Global.load_exact_pos = false
 			Global.target_spawn_name = target_spawn_point_name
 			LoadingScreen.transition_to_screenfunc(next_scene_path)
@@ -51,6 +56,11 @@ func handle_dialogue():
 		current_line = 0
 		if current_player:
 			current_player.is_locked = true # อย่าลืมไปตั้งตัวแปร is_locked ในสคริปต์ Player
+			
+			current_player.velocity = Vector2.ZERO
+			var anim = current_player.get_node_or_null("Animaton/AnimationPlayer")
+			if anim:
+				anim.play("idle")
 		
 		interact_icon.hide_icon()
 		speech_bubble.show_dialogue(locked_dialogue[current_line])
@@ -78,7 +88,8 @@ func _on_body_exited(body):
 		can_interact = false
 		current_player = null
 		interact_icon.hide_icon()
-		# ถ้าเดินหนีตอนคุย ให้ปลดล็อคด้วย
+		is_busy = false
+	
 		if is_talking:
 			is_talking = false
 			speech_bubble.hide_dialogue()

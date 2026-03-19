@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cdi6dphm7pwfl"]
+
+[ext_resource type="Script" uid="uid://dw7tx4hdox1mb" path="res://Asset/Script/Re-use/LoadingScreen/AssetManagement.gd" id="1_hl06d"]
+[ext_resource type="Texture2D" uid="uid://bqtm5a52wy2v3" path="res://Asset/Spirte/Background/Day1/หน้าลิฟต์.png" id="1_q7rnk"]
+[ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_hl06d"]
+[ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_b6iat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqgoh"]
+size = Vector2(40, 1122)
+
+[node name="Floor1 Lift" type="Node2D" unique_id=1610990639]
+script = ExtResource("1_hl06d")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=584962915]
+position = Vector2(85, 0)
+texture = ExtResource("1_q7rnk")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=384518888]
+position = Vector2(85, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1427432449]
+position = Vector2(10, 551)
+shape = SubResource("RectangleShape2D_jqgoh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=354107250]
+position = Vector2(1916, 551)
+shape = SubResource("RectangleShape2D_jqgoh")
+
+[node name="Lift" type="Marker2D" parent="." unique_id=1065490451]
+position = Vector2(1113, 943)
+
+[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("2_hl06d")]
+position = Vector2(1256, 860)
+scale = Vector2(0.7, 0.7)
+
+[node name="Camera2D" parent="Player" index="0" unique_id=266598659]
+zoom = Vector2(0.6, 0.6)
+limit_right = 2100
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=898606314]
+offset_left = 2006.0
+offset_top = -9.0
+offset_right = 2102.0
+offset_bottom = 1101.0
+color = Color(0.288518, 0.28851798, 0.28851798, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=802404128]
+offset_left = -18.0
+offset_top = -9.0
+offset_right = 78.0
+offset_bottom = 1101.0
+color = Color(0.288518, 0.28851798, 0.28851798, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Day1_Day" type="Node2D" parent="." unique_id=1211609804]
+
+[node name="Door" parent="Day1_Day" unique_id=992689307 instance=ExtResource("3_b6iat")]
+position = Vector2(165, 804)
+next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
+target_spawn_point_name = "IF Back"
+
+[node name="Day1_Day2" type="Node2D" parent="." unique_id=1038037920]
+
+[node name="Door" parent="Day1_Day2" unique_id=1127317817 instance=ExtResource("3_b6iat")]
+position = Vector2(165, 804)
+next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
+target_spawn_point_name = "IF Back"
+
+[editable path="Player"]

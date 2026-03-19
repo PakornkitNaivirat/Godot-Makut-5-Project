@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b8qw3fpiqoayi"]
+
+[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://MiPancakeBold.ttf" id="1_0yln1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wa6x"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_nq8vl"]
+line_spacing = 2.0
+font = ExtResource("1_0yln1")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[node name="MessageBubble" type="MarginContainer" unique_id=1199863896]
+offset_left = -3.0
+offset_right = 271.0
+offset_bottom = 51.0
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=580164438]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1394764876]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BubbleBg" type="PanelContainer" parent="HBoxContainer" unique_id=326310530]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4wa6x")
+
+[node name="MessageText" type="Label" parent="HBoxContainer/BubbleBg" unique_id=243135016]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+label_settings = SubResource("LabelSettings_nq8vl")

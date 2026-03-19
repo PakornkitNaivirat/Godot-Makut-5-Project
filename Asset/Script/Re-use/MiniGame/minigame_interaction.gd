@@ -8,10 +8,8 @@ extends Area2D
 @export var minigame_id: String = ""
 
 @export_group("Conditions")
-# 🌟 1. เงื่อนไข "ก่อนเกิด": ต้องทำสิ่งนี้ก่อนถึงจะโผล่มา (เว้นว่าง = โผล่มาเลย)
 @export var required_event_id: String = ""
 
-# 🌟 2. เงื่อนไข "หลังเล่นจบ": พอเล่นมินิเกมเสร็จ จะให้ทำยังไงต่อ?
 @export_enum("หายไปเมื่อผ่านแล้ว", "ยังอยู่แต่กดไม่ได้", "แสดงตัวเมื่อผ่านแล้วเท่านั้น") var behavior_after_done: int = 0
 
 var can_interact = false
@@ -26,17 +24,13 @@ func _ready():
 	# อัปเดตสถานะตัวเองทันทีที่โหลดฉาก
 	update_state()
 
-# 🌟 ยุบรวม 2 ฟังก์ชันมาไว้ที่นี่ที่เดียว!
 func update_state():
-	# --- STEP 1: เช็คเงื่อนไขก่อนเกิด (Pre-condition) ---
 	if required_event_id != "" and Global.event_flags.has(required_event_id):
 		if Global.event_flags[required_event_id] == false:
-			# ยังไม่ผ่านเงื่อนไขบังคับ -> ซ่อนตัว ปิดการชน จบการทำงาน
 			self.hide()
 			monitoring = false
 			return 
 
-	# --- STEP 2: เช็คสถานะหลังเล่น (Post-condition) ---
 	var is_done = false
 	if minigame_id != "" and Global.minigame_status.has(minigame_id):
 		is_done = Global.minigame_status[minigame_id]
@@ -75,7 +69,6 @@ func _process(delta):
 			Global.target_spawn_name = "" 
 		
 		if next_scene_path != "":
-			print("กำลังเข้ามินิเกมที่: ", next_scene_path)
 			LoadingScreen.transition_to_screenfunc(next_scene_path)
 
 func _on_body_entered(body):

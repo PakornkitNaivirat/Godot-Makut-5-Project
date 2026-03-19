@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://nm0k1x2w6j2b"]
 
 [ext_resource type="Script" uid="uid://2t752m1dphwh" path="res://Asset/Script/Cutscreen/cut_sreen_wash_face.gd" id="1_tunyr"]
-[ext_resource type="Texture2D" uid="uid://cn38mlrlecu2b" path="res://Asset/Spirte/Background/CutScreen/Wash f.jr3.png" id="2_tunyr"]
+[ext_resource type="Texture2D" uid="uid://cn38mlrlecu2b" path="res://Asset/Spirte/Background/CutScreen/wash/Wash f.jr3.png" id="2_tunyr"]
 
 [sub_resource type="Animation" id="Animation_tunyr"]
 resource_name = "Cutscreen"
@@ -152,7 +152,7 @@ _data = {
 
 [node name="CutSreen_WashFace" type="Node2D" unique_id=743568235]
 script = ExtResource("1_tunyr")
-next_scene_path = "res://Asset/Screen/BG/bed_room.tscn"
+next_scene_path = "res://Asset/Screen/BG/Reuseable/bed_room.tscn"
 target_spawn_point_name = "Baht"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1773319244]

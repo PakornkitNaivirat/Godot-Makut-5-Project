@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://ck1bnegpnr86c"]
+
+[ext_resource type="Script" uid="uid://kllyvb25jnpd" path="res://Asset/Script/Re-use/LoadingScreen/change_day_night.gd" id="1_0mhvy"]
+[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://MiPancakeBold.ttf" id="2_ffp62"]
+
+[sub_resource type="Animation" id="Animation_2rim3"]
+resource_name = "NextDays"
+length = 4.0
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5, 1.625, 1.75, 1.875, 2, 2.125, 2.25, 2.375, 2.5, 2.625, 2.75, 2.875, 3, 3.125, 3.25, 3.375, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1369, 246), Vector2(398, 246), Vector2(398, 226), Vector2(398, 246), Vector2(398, 266), Vector2(398, 246), Vector2(398, 226), Vector2(398, 246), Vector2(398, 266), Vector2(398, 246), Vector2(398, 226), Vector2(398, 246), Vector2(398, 266), Vector2(398, 246), Vector2(398, 226), Vector2(398, 246), Vector2(398, 266), Vector2(398, 246), Vector2(398, 226), Vector2(398, 246), Vector2(398, 266), Vector2(398, 246), Vector2(398, 226), Vector2(398, 246), Vector2(398, 266), Vector2(398, 246), Vector2(-471, 266)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.62, 0.75, 0.87, 1, 1.12, 1.25, 1.37, 1.5, 1.62, 1.75, 1.87, 2, 2.12, 2.25, 2.37, 2.5, 2.62, 2.75, 2.87, 3, 3.12, 3.25, 3.37, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Next Day", "Next Day .", "Next Day ..", "Next Day ...", "Next Day", "Next Day .", "Next Day ..", "Next Day ...", "Next Day", "Next Day .", "Next Day ..", "Next Day ...", "Next Day", "Next Day .", "Next Day ..", "Next Day ...", "Next Day", "Next Day .", "Next Day ..", "Next Day ...", "Next Day", "Next Day .", "Next Day ..", "Next Day ...", "Next Day"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_finish"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_x7363"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1369, 246)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Next Day"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3nw68"]
+_data = {
+&"NextDays": SubResource("Animation_2rim3"),
+&"RESET": SubResource("Animation_x7363")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_wtbap"]
+font = ExtResource("2_ffp62")
+font_size = 100
+
+[node name="Change_DayNight" type="Node2D" unique_id=1706005816]
+script = ExtResource("1_0mhvy")
+next_scene_path = "res://Asset/Screen/BG/Reuseable/bed_room.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1481546756]
+offset_right = 1163.0
+offset_bottom = 660.0
+color = Color(0.096204735, 0.09620475, 0.096204735, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=606062431]
+libraries/ = SubResource("AnimationLibrary_3nw68")
+
+[node name="Label" type="Label" parent="." unique_id=502898391]
+offset_left = 1369.0
+offset_top = 246.0
+offset_right = 2007.0013
+offset_bottom = 409.9928
+text = "Next Day"
+label_settings = SubResource("LabelSettings_wtbap")

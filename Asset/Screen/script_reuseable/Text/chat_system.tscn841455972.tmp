@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c0m4pytonmc2e"]
+
+[ext_resource type="Script" uid="uid://ckb8kt1odm4ab" path="res://Asset/Script/Re-use/Text-Dialogue/message_bubble.gd" id="1_p3c4t"]
+
+[node name="ChatSystem" type="Control" unique_id=589452478]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_p3c4t")
+
+[node name="Panel" type="Panel" parent="." unique_id=1721244811]
+layout_mode = 0
+offset_left = 390.0
+offset_right = 744.0
+offset_bottom = 648.0
+
+[node name="ChatScroll" type="ScrollContainer" parent="Panel" unique_id=673738768]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.006
+anchor_bottom = 1.0
+offset_right = -0.12402344
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MessageList" type="VBoxContainer" parent="Panel/ChatScroll" unique_id=2124074398]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15

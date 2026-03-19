@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://c0m4pytonmc2e"]
+
+[ext_resource type="Script" uid="uid://ckb8kt1odm4ab" path="res://Asset/Script/Re-use/Text-Dialogue/message_bubble.gd" id="1_p3c4t"]
+[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://MiPancakeBold.ttf" id="2_upf0o"]
+[ext_resource type="Texture2D" uid="uid://duir3rxo7gmu8" path="res://Asset/Spirte/icon/image-Photoroom (4).png" id="3_xru4m"]
+[ext_resource type="Texture2D" uid="uid://drpl0m7enhkyh" path="res://Asset/Spirte/icon/image-Photoroom (6).png" id="4_dsbpk"]
+[ext_resource type="Texture2D" uid="uid://4wxa2wvsqw0h" path="res://Asset/Spirte/icon/image-Photoroom (5).png" id="5_ktyep"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kjn8a"]
+font = ExtResource("2_upf0o")
+font_size = 22
+
+[node name="ChatSystem" type="Control" unique_id=589452478]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 12.0
+offset_right = 40.0
+offset_bottom = 52.0
+mouse_filter = 2
+script = ExtResource("1_p3c4t")
+next_scene_path = "res://Asset/Screen/script_reuseable/Loading/change_day_night.tscn"
+
+[node name="Panel" type="Panel" parent="." unique_id=1721244811]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 79.0
+offset_right = 829.0
+offset_bottom = 636.0
+
+[node name="ChatScroll" type="ScrollContainer" parent="Panel" unique_id=673738768]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.006
+anchor_bottom = 1.0
+offset_right = -0.12402344
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="MessageList" type="VBoxContainer" parent="Panel/ChatScroll" unique_id=2124074398]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=155423318]
+layout_mode = 0
+offset_left = 333.0
+offset_top = -13.0
+offset_right = 829.0
+offset_bottom = 34.0
+color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1353582993]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 33.0
+offset_right = 829.0
+offset_bottom = 80.0
+color = Color(0.18039216, 0.18039216, 0.18039216, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1438072468]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 38.0
+offset_right = 580.0
+offset_bottom = 73.0
+text = "< Marine Conservation Club."
+label_settings = SubResource("LabelSettings_kjn8a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1529945870]
+position = Vector2(717.25, 59)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_xru4m")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1493340937]
+position = Vector2(757.25, 59)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_dsbpk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1462408472]
+position = Vector2(797.25, 59)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_ktyep")

@@ -15,7 +15,7 @@ shadow_offset = Vector2(0, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rgywe"]
 font = ExtResource("2_24v7o")
-font_size = 24
+font_size = 20
 font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 outline_color = Color(0.935218, 0.94488466, 0.66157347, 1)
 
@@ -23,7 +23,6 @@ outline_color = Color(0.935218, 0.94488466, 0.66157347, 1)
 script = ExtResource("1_24v7o")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1325401852]
-custom_minimum_size = Vector2(300, 0)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -46,13 +45,14 @@ theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=1289514828]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_rgywe")
 autowrap_mode = 2
+autowrap_trim_flags = 0
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1259039631]
 position = Vector2(4.7683716e-07, 0)
-scale = Vector2(2.25, 2.625)
+scale = Vector2(5, 5.833)
 color = Color(0.9137255, 0.9137255, 0.9843137, 1)
 polygon = PackedVector2Array(-4, 0, 0, 8, 4, 0)
