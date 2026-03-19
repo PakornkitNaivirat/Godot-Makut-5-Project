@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bsbrix0pt7btx" path="res://Asset/Spirte/Background/107_20260305181449.png" id="1_cexfh"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_13u2h"]
+[ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="3_cfnm7"]
+[ext_resource type="Texture2D" uid="uid://3mehouhet0tq" path="res://Asset/Spirte/Charactor/Bg.game.character .png" id="4_13u2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23kup"]
 size = Vector2(245, 1181.5)
@@ -10,6 +12,7 @@ size = Vector2(245, 1181.5)
 size = Vector2(81.5, 1109.5)
 
 [node name="IF_Floor7" type="Node2D" unique_id=919270474]
+y_sort_enabled = true
 
 [node name="Backgrounds" type="Node2D" parent="." unique_id=2073316537]
 
@@ -33,5 +36,34 @@ position = Vector2(120, 733)
 scale = Vector2(0.4, 0.4)
 SPEED = 300.0
 
+[node name="Dialogue" parent="." unique_id=410944203 instance=ExtResource("3_cfnm7")]
+position = Vector2(1861, 590)
+next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_screen_meet_friend.tscn"
+dialog_text = Array[String](["Hey!! You are late!", "player: Late for what? Class hasn’t even started yet.", "Ah… alright. Let’s head back to class then.", "player: Yeah. Before the professor shows up and checks attendance."])
+
+[node name="speech" parent="Dialogue" index="1" unique_id=1384000356]
+position = Vector2(2, -335)
+
+[node name="box" parent="Dialogue" index="4" unique_id=97389463]
+position = Vector2(5, -329)
+
+[node name="dot" parent="Dialogue" index="5" unique_id=1117769796]
+position = Vector2(-1.37, -331)
+
+[node name="PosNPC" parent="Dialogue" index="7" unique_id=309990384]
+position = Vector2(0, -334)
+
+[node name="PosPlayer" parent="Dialogue" index="8" unique_id=1232311272]
+position = Vector2(-148, -332)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dialogue" unique_id=792739011]
+position = Vector2(-3, -78)
+scale = Vector2(0.325, 0.325)
+texture = ExtResource("4_13u2h")
+region_enabled = true
+region_rect = Rect2(670.9729, 157.68504, 410.13013, 1317.7329)
+
 [node name="FL7" type="Marker2D" parent="." unique_id=540028506]
 position = Vector2(120, 734)
+
+[editable path="Dialogue"]
