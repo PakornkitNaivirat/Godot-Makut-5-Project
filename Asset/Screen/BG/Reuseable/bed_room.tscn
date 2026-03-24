@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://7iy362lkeqry"]
 
+[ext_resource type="Script" uid="uid://dw7tx4hdox1mb" path="res://Asset/Script/Re-use/LoadingScreen/AssetManagement.gd" id="1_g4wcj"]
 [ext_resource type="Texture2D" uid="uid://d0jtrspkgi4ts" path="res://Asset/Spirte/Background/Bedroom_game.png" id="1_umbdt"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_lq5bo"]
 [ext_resource type="PackedScene" uid="uid://dpxp8o3dufld4" path="res://Asset/Screen/script_reuseable/Loading/minigame_interaction.tscn" id="3_lq5bo"]
 [ext_resource type="PackedScene" uid="uid://dh8runqcexfbq" path="res://Asset/Screen/script_reuseable/Door/door_sideway.tscn" id="4_mnxv1"]
 [ext_resource type="PackedScene" uid="uid://raijymtl8r4u" path="res://Asset/Screen/script_reuseable/Door/smart_door.tscn" id="5_pnk2q"]
+[ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="7_3hubp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnxv1"]
 size = Vector2(221, 1298.5)
 
 [node name="Bed_room" type="Node2D" unique_id=379396278]
+script = ExtResource("1_g4wcj")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=717797366]
 y_sort_enabled = true
@@ -37,44 +40,68 @@ zoom = Vector2(0.6, 0.6)
 limit_right = 2300
 limit_bottom = 1200
 
-[node name="Minigame-Interact" parent="." unique_id=157613088 instance=ExtResource("3_lq5bo")]
-position = Vector2(892, 743)
-next_scene_path = "res://Asset/Screen/BG/Minigames/minigame_1.tscn"
-minigame_id = "backpack"
-required_event_id = "wash_face"
-
-[node name="CollisionShape2D" parent="Minigame-Interact" index="0" unique_id=602244326]
-position = Vector2(0, 132.375)
-
-[node name="Door_Sideway" parent="." unique_id=1165793304 instance=ExtResource("4_mnxv1")]
-position = Vector2(1671, 649)
-next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_sreen_wash_face.tscn"
-target_spawn_point_name = "Baht"
-disappear_after_event = "wash_face"
-
-[node name="CollisionShape2D" parent="Door_Sideway" index="0" unique_id=310829818]
-position = Vector2(495.5, 371.25)
-
-[node name="Smart_Door" parent="." unique_id=1423616178 instance=ExtResource("5_pnk2q")]
-position = Vector2(92, 886)
-next_scene_path = "res://Asset/Screen/BG/Reuseable/sod_saiDay1 Dawn.tscn"
-target_spawn_point_name = "Fontroom"
-required_minigame_id = "backpack"
-locked_dialogue = Array[String](["I can't go yet.", "I haven't packed my stuff yet. And I need to wash my face too."])
-
-[node name="CollisionShape2D" parent="Smart_Door" index="0" unique_id=247916205]
-position = Vector2(-29.5, 142.5)
-
-[node name="speech" parent="Smart_Door" index="2" unique_id=1384000356]
-position = Vector2(105, -377)
-
 [node name="Baht" type="Marker2D" parent="." unique_id=1089295454]
 position = Vector2(2073, 1061)
 
 [node name="Font" type="Marker2D" parent="." unique_id=1259210822]
 position = Vector2(176, 1061)
 
+[node name="Day1_Day" type="Node2D" parent="." unique_id=1779728722]
+
+[node name="Smart_Door" parent="Day1_Day" unique_id=1423616178 instance=ExtResource("5_pnk2q")]
+visible = false
+position = Vector2(92, 886)
+next_scene_path = "res://Asset/Screen/BG/Reuseable/sod_saiDay1 Dawn.tscn"
+target_spawn_point_name = "Fontroom"
+required_minigame_id = "backpack"
+locked_dialogue = Array[String](["I can't go yet.", "I haven't packed my stuff yet. And I need to wash my face too."])
+
+[node name="CollisionShape2D" parent="Day1_Day/Smart_Door" index="0" unique_id=247916205]
+position = Vector2(-29.5, 142.5)
+
+[node name="speech" parent="Day1_Day/Smart_Door" index="2" unique_id=1384000356]
+position = Vector2(105, -377)
+
+[node name="Door_Sideway" parent="Day1_Day" unique_id=1165793304 instance=ExtResource("4_mnxv1")]
+visible = false
+position = Vector2(1671, 649)
+next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_sreen_wash_face.tscn"
+target_spawn_point_name = "Baht"
+disappear_after_event = "wash_face"
+
+[node name="CollisionShape2D" parent="Day1_Day/Door_Sideway" index="0" unique_id=310829818]
+position = Vector2(495.5, 371.25)
+
+[node name="Minigame-Interact" parent="Day1_Day" unique_id=157613088 instance=ExtResource("3_lq5bo")]
+visible = false
+position = Vector2(892, 743)
+next_scene_path = "res://Asset/Screen/BG/Minigames/minigame_1.tscn"
+minigame_id = "backpack"
+required_event_id = "wash_face"
+
+[node name="CollisionShape2D" parent="Day1_Day/Minigame-Interact" index="0" unique_id=602244326]
+position = Vector2(0, 132.375)
+
+[node name="Day2_Day" type="Node2D" parent="." unique_id=1562161953]
+visible = false
+
+[node name="Dialogue" parent="Day2_Day" unique_id=410944203 instance=ExtResource("7_3hubp")]
+position = Vector2(225, 895)
+next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
+target_spawn_point_name = "IF Enter"
+behavior = 1
+
+[node name="box" parent="Day2_Day/Dialogue" index="4" unique_id=97389463]
+position = Vector2(5, -405)
+
+[node name="dot" parent="Day2_Day/Dialogue" index="5" unique_id=1117769796]
+position = Vector2(-1.37, -407)
+
+[node name="PosNPC" parent="Day2_Day/Dialogue" index="7" unique_id=309990384]
+position = Vector2(0, -398)
+
 [editable path="Player"]
-[editable path="Minigame-Interact"]
-[editable path="Door_Sideway"]
-[editable path="Smart_Door"]
+[editable path="Day1_Day/Smart_Door"]
+[editable path="Day1_Day/Door_Sideway"]
+[editable path="Day1_Day/Minigame-Interact"]
+[editable path="Day2_Day/Dialogue"]

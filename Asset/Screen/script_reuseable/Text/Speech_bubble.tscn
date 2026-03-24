@@ -50,9 +50,3 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_rgywe")
 autowrap_mode = 2
 autowrap_trim_flags = 0
-
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1259039631]
-position = Vector2(4.7683716e-07, 0)
-scale = Vector2(5, 5.833)
-color = Color(0.9137255, 0.9137255, 0.9843137, 1)
-polygon = PackedVector2Array(-4, 0, 0, 8, 4, 0)

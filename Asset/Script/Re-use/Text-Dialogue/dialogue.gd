@@ -3,6 +3,7 @@ extends Area2D
 @export var next_scene_path: String = "" 
 @export var target_spawn_point_name: String = ""
 @export_multiline var dialog_text: Array[String] = [""]
+@export_enum("ให้ขยับไปจุด", "ไม่ขยับไปจุด") var behavior: int = 0
 
 @onready var speech_bubble = $speech
 @onready var anim1 = $AnimationPlayer1
@@ -47,7 +48,8 @@ func start_dialogue():
 		player_start_pos = current_player.global_position
 		
 		# เรียกใช้ฟังก์ชันเดิน (ใช้ await เพื่อรอให้เดินเสร็จก่อน)
-		await move_player(current_player, $PlayerSpot.global_position)
+		if behavior == 0 :
+			await move_player(current_player, $PlayerSpot.global_position)
 		
 		# หันหน้าคุยกัน
 		var sprite = current_player.get_node_or_null("Animaton/Sprite2D")

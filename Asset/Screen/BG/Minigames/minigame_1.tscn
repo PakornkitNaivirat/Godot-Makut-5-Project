@@ -106,19 +106,125 @@ texture = ExtResource("4_yrfo1")
 position = Vector2(5, 5.5)
 shape = SubResource("RectangleShape2D_yrfo1")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=254609833]
-show_behind_parent = true
-offset_left = 2.0
-offset_top = 426.0
-offset_right = 1152.0
-offset_bottom = 647.0
-color = Color(0.6, 0.4509804, 0.3137255, 1)
+[node name="BG" type="Node2D" parent="." unique_id=1056575381]
+z_index = -10
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=2091147924]
+[node name="Wall" type="ColorRect" parent="BG" unique_id=1530490648]
 show_behind_parent = true
 offset_right = 1152.0
 offset_bottom = 426.0
 color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+
+[node name="Baseboard" type="ColorRect" parent="BG" unique_id=1311919191]
+offset_top = 406.0
+offset_right = 1152.0
+offset_bottom = 426.0
+color = Color(0.55295557, 0.5529556, 0.55295515, 1)
+
+[node name="WindowFrame" type="ColorRect" parent="BG" unique_id=312447265]
+offset_left = 780.0
+offset_top = 50.0
+offset_right = 1020.0
+offset_bottom = 320.0
+color = Color(0.48962224, 0.4896223, 0.48962176, 1)
+
+[node name="WindowSill" type="ColorRect" parent="BG" unique_id=1525321592]
+offset_left = 776.0
+offset_top = 220.0
+offset_right = 1024.0
+offset_bottom = 240.0
+color = Color(0.57160836, 0.4644444, 0.34715533, 1)
+
+[node name="Desk" type="ColorRect" parent="BG" unique_id=1203057527]
+offset_top = 426.0
+offset_right = 1152.0
+offset_bottom = 647.0
+color = Color(0.502, 0.329, 0.165, 1)
+
+[node name="DeskEdge" type="ColorRect" parent="BG" unique_id=708378170]
+offset_top = 426.0
+offset_right = 1152.0
+offset_bottom = 436.0
+color = Color(0.65, 0.47, 0.27, 1)
+
+[node name="DeskShadow" type="ColorRect" parent="BG" unique_id=171376716]
+offset_top = 436.0
+offset_right = 1152.0
+offset_bottom = 452.0
+color = Color(0.3, 0.18, 0.08, 0.3)
+
+[node name="Poster" type="ColorRect" parent="BG" unique_id=2052131808]
+offset_left = 50.0
+offset_top = 60.0
+offset_right = 200.0
+offset_bottom = 220.0
+color = Color(0.91, 0.85, 0.76, 1)
+
+[node name="PosterBorder" type="ColorRect" parent="BG" unique_id=381270115]
+offset_left = 50.0
+offset_top = 60.0
+offset_right = 200.0
+offset_bottom = 70.0
+color = Color(0.65, 0.4, 0.25, 1)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=18926795]
+
+[node name="Title" type="Label" parent="UI" unique_id=1966296783]
+offset_top = 8.0
+offset_right = 1152.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.25, 0.15, 0.05, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.5)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 28
+text = "Pack Your Bag!"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressLabel" type="Label" parent="UI" unique_id=1331577745]
+offset_top = 44.0
+offset_right = 1152.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.4, 0.25, 0.1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Items packed: 0 / 2"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBarBorder" type="ColorRect" parent="UI" unique_id=1888078470]
+offset_left = 424.0
+offset_top = 78.0
+offset_right = 728.0
+offset_bottom = 102.0
+color = Color(0.35, 0.25, 0.1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBarBG" type="ColorRect" parent="UI" unique_id=1031366158]
+offset_left = 426.0
+offset_top = 80.0
+offset_right = 726.0
+offset_bottom = 100.0
+color = Color(0.15, 0.1, 0.05, 0.6)
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBarFill" type="ColorRect" parent="UI" unique_id=1618346338]
+offset_left = 426.0
+offset_top = 80.0
+offset_right = 426.0
+offset_bottom = 100.0
+color = Color(0.85, 0.65, 0.2, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="HintLabel" type="Label" parent="UI" unique_id=1668458492]
+offset_top = 610.0
+offset_right = 1152.0
+offset_bottom = 647.0
+theme_override_colors/font_color = Color(0.85, 0.78, 0.68, 1)
+theme_override_font_sizes/font_size = 15
+text = "Drag items into the backpack!"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="Items/Ipad" to="Items/Ipad" method="_on_area_entered"]
 [connection signal="area_exited" from="Items/Ipad" to="Items/Ipad" method="_on_area_exited"]
