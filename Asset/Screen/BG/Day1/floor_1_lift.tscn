@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bqtm5a52wy2v3" path="res://Asset/Spirte/Background/Day1/หน้าลิฟต์.png" id="1_q7rnk"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_hl06d"]
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_b6iat"]
+[ext_resource type="PackedScene" uid="uid://dpxp8o3dufld4" path="res://Asset/Screen/script_reuseable/Loading/minigame_interaction.tscn" id="5_27sh4"]
+[ext_resource type="AudioStream" uid="uid://bbkqqj7sxn77o" path="res://Asset/Sounds/city sound.mp3" id="5_b6iat"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqgoh"]
 size = Vector2(40, 1122)
@@ -54,18 +56,20 @@ offset_bottom = 1101.0
 color = Color(0.288518, 0.28851798, 0.28851798, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Day1_Day" type="Node2D" parent="." unique_id=1211609804]
+[node name="Day1_Night" type="Node2D" parent="." unique_id=1211609804]
+visible = false
 
-[node name="Door" parent="Day1_Day" unique_id=992689307 instance=ExtResource("3_b6iat")]
+[node name="Door" parent="Day1_Night" unique_id=992689307 instance=ExtResource("3_b6iat")]
 position = Vector2(165, 804)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
 target_spawn_point_name = "IF Back"
 
-[node name="Day1_Day2" type="Node2D" parent="." unique_id=1038037920]
+[node name="Day2_Day" type="Node2D" parent="." unique_id=1038037920]
 
-[node name="Door" parent="Day1_Day2" unique_id=1127317817 instance=ExtResource("3_b6iat")]
-position = Vector2(165, 804)
-next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
-target_spawn_point_name = "IF Back"
+[node name="Minigame-Interact" parent="Day2_Day" unique_id=157613088 instance=ExtResource("5_27sh4")]
+position = Vector2(1116, 667)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1656031197]
+stream = ExtResource("5_b6iat")
 
 [editable path="Player"]

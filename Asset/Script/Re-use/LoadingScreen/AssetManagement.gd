@@ -1,10 +1,7 @@
 extends Node2D
 
-@onready var message_sound = $AudioStreamPlayer
-
 func _ready():
 	setup_daily_events()
-	message_sound.play()
 
 func setup_daily_events():
 	var today = Global.current_day
