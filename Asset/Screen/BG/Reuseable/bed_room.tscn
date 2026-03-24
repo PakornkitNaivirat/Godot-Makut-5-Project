@@ -49,7 +49,6 @@ position = Vector2(176, 1061)
 [node name="Day1_Day" type="Node2D" parent="." unique_id=1779728722]
 
 [node name="Smart_Door" parent="Day1_Day" unique_id=1423616178 instance=ExtResource("5_pnk2q")]
-visible = false
 position = Vector2(92, 886)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/sod_saiDay1 Dawn.tscn"
 target_spawn_point_name = "Fontroom"
@@ -63,7 +62,6 @@ position = Vector2(-29.5, 142.5)
 position = Vector2(105, -377)
 
 [node name="Door_Sideway" parent="Day1_Day" unique_id=1165793304 instance=ExtResource("4_mnxv1")]
-visible = false
 position = Vector2(1671, 649)
 next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_sreen_wash_face.tscn"
 target_spawn_point_name = "Baht"
@@ -73,7 +71,6 @@ disappear_after_event = "wash_face"
 position = Vector2(495.5, 371.25)
 
 [node name="Minigame-Interact" parent="Day1_Day" unique_id=157613088 instance=ExtResource("3_lq5bo")]
-visible = false
 position = Vector2(892, 743)
 next_scene_path = "res://Asset/Screen/BG/Minigames/minigame_1.tscn"
 minigame_id = "backpack"
@@ -83,7 +80,6 @@ required_event_id = "wash_face"
 position = Vector2(0, 132.375)
 
 [node name="Day2_Day" type="Node2D" parent="." unique_id=1562161953]
-visible = false
 
 [node name="Dialogue" parent="Day2_Day" unique_id=410944203 instance=ExtResource("7_3hubp")]
 position = Vector2(225, 895)
