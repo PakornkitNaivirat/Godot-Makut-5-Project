@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/night.gd" id="5_sothe"]
 [ext_resource type="PackedScene" uid="uid://raijymtl8r4u" path="res://Asset/Screen/script_reuseable/Door/smart_door.tscn" id="6_m7af1"]
 [ext_resource type="AudioStream" uid="uid://bbkqqj7sxn77o" path="res://Asset/Sounds/city sound.mp3" id="8_eo32s"]
+[ext_resource type="Texture2D" uid="uid://c1pybev64nirb" path="res://Asset/Spirte/Charactor/People_ game.png" id="9_385rw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhb3g"]
 size = Vector2(604.7344, 1305.25)
@@ -33,6 +34,7 @@ texture = ExtResource("1_blow1")
 centered = false
 
 [node name="Player" parent="Standard" unique_id=1775447557 groups=["Player"] instance=ExtResource("2_sothe")]
+z_index = 1
 position = Vector2(252, 859)
 scale = Vector2(0.4, 0.4)
 SPEED = 300.0
@@ -78,7 +80,6 @@ texture = SubResource("GradientTexture2D_blow1")
 texture_scale = 8.01
 
 [node name="Day1_Day" type="Node2D" parent="." unique_id=692753075]
-visible = false
 
 [node name="Smart_Door" parent="Day1_Day" unique_id=1423616178 instance=ExtResource("6_m7af1")]
 position = Vector2(103, 606)
@@ -104,16 +105,63 @@ position = Vector2(5274, 912)
 [node name="interaction" parent="Day1_Day/Go UP" index="1" unique_id=766295074]
 position = Vector2(5285, 387)
 
-[node name="Dialogue" parent="Day1_Day" unique_id=410944203 instance=ExtResource("4_ss5p0")]
+[node name="Dialogue2" parent="Day1_Day" unique_id=410944203 instance=ExtResource("4_ss5p0")]
 position = Vector2(2492, 627)
-dialog_text = Array[String](["player: Hi how're you?", "great?"])
+dialog_text = Array[String](["player : Hi how're you?", "great?"])
 
-[node name="CollisionShape2D" parent="Day1_Day/Dialogue" index="0" unique_id=1060850475]
+[node name="CollisionShape2D" parent="Day1_Day/Dialogue2" index="0" unique_id=1060850475]
 position = Vector2(-28.5, 104.5)
 
-[node name="Dialogue2" parent="Day1_Day" unique_id=518290277 instance=ExtResource("4_ss5p0")]
-position = Vector2(1594, 627)
-dialog_text = Array[String](["Testingd "])
+[node name="box" parent="Day1_Day/Dialogue2" index="4" unique_id=97389463]
+position = Vector2(-15, -236)
+
+[node name="dot" parent="Day1_Day/Dialogue2" index="5" unique_id=1117769796]
+position = Vector2(-21.37, -238)
+
+[node name="PlayerSpot" parent="Day1_Day/Dialogue2" index="6" unique_id=301342563]
+position = Vector2(-101, 215)
+
+[node name="PosNPC" parent="Day1_Day/Dialogue2" index="7" unique_id=309990384]
+position = Vector2(160, -201)
+
+[node name="PosPlayer" parent="Day1_Day/Dialogue2" index="8" unique_id=1232311272]
+position = Vector2(-204, -141)
+
+[node name="Dialogue1" parent="Day1_Day" unique_id=4015347 instance=ExtResource("4_ss5p0")]
+position = Vector2(1561, 654)
+dialog_text = Array[String](["player : h", "h"])
+
+[node name="speech" parent="Day1_Day/Dialogue1" index="1" unique_id=1384000356]
+position = Vector2(-34, -215)
+
+[node name="box" parent="Day1_Day/Dialogue1" index="4" unique_id=97389463]
+position = Vector2(-29, -266)
+
+[node name="dot" parent="Day1_Day/Dialogue1" index="5" unique_id=1117769796]
+position = Vector2(-35.37, -268)
+
+[node name="PlayerSpot" parent="Day1_Day/Dialogue1" index="6" unique_id=301342563]
+position = Vector2(-112, 174)
+
+[node name="PosNPC" parent="Day1_Day/Dialogue1" index="7" unique_id=309990384]
+position = Vector2(147, -258)
+
+[node name="PosPlayer" parent="Day1_Day/Dialogue1" index="8" unique_id=1232311272]
+position = Vector2(-215, -195)
+
+[node name="Sprite2D" type="Sprite2D" parent="Day1_Day" unique_id=2076789958]
+position = Vector2(1645, 637)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_385rw")
+region_enabled = true
+region_rect = Rect2(27.398193, 6.2321625, 248.79193, 671.0534)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Day1_Day" unique_id=790802454]
+position = Vector2(2591, 658)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_385rw")
+region_enabled = true
+region_rect = Rect2(253.54489, 393.2279, 258.43115, 679.08923)
 
 [node name="Day1_Night" type="Node2D" parent="." unique_id=754740302]
 visible = false
@@ -154,6 +202,7 @@ volume_db = -15.0
 [editable path="Standard/Player"]
 [editable path="Day1_Day/Smart_Door"]
 [editable path="Day1_Day/Go UP"]
-[editable path="Day1_Day/Dialogue"]
+[editable path="Day1_Day/Dialogue2"]
+[editable path="Day1_Day/Dialogue1"]
 [editable path="Day1_Night/Come down"]
 [editable path="Day1_Night/Go Home"]
