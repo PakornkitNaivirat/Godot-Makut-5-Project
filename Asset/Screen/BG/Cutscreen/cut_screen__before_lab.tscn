@@ -10,7 +10,7 @@ load_path = "res://.godot/imported/Untitled47.png-6fe519f64e2677703b5ac8bba29d90
 
 [sub_resource type="Animation" id="Animation_kui07"]
 resource_name = "Lift"
-length = 15.0
+length = 11.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -55,10 +55,10 @@ tracks/3/path = NodePath("1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 3.5, 7, 7.5, 7.625, 7.75, 7.875, 8, 8.125, 8.25, 8.375),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 3.5, 7, 7.5, 7.625, 7.75, 7.875, 8, 8.125, 8.25, 8.375, 8.5, 8.625, 8.75, 8.875, 9, 9.125, 9.25, 9.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(713, 325), Vector2(575, 325), Vector2(575, 325), Vector2(713, 325), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305)]
+"values": [Vector2(713, 325), Vector2(575, 325), Vector2(575, 325), Vector2(713, 325), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -115,11 +115,14 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(6.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(6.5, 10),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": ["part1"],
 "method": &"start_talking"
+}, {
+"args": [],
+"method": &"finish_cutscene"
 }]
 }
 
@@ -230,6 +233,8 @@ _data = {
 
 [node name="cut_screen__before_lab" type="Node2D" unique_id=67155952]
 script = ExtResource("1_kui07")
+next_scene_path = "res://Asset/Screen/BG/Day2/if_floor_4.tscn"
+target_spawn_point_name = "FL4"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=199823842]
 offset_right = 1165.0
@@ -258,5 +263,8 @@ region_rect = Rect2(586.5006, 43.297974, 741.8104, 1014.15356)
 [node name="speech" parent="." unique_id=1384000356 instance=ExtResource("4_j7y27")]
 position = Vector2(-234, 73)
 
-[node name="Test" type="Marker2D" parent="." unique_id=1749439260]
-position = Vector2(855, 251)
+[node name="right" type="Marker2D" parent="." unique_id=1749439260]
+position = Vector2(913, 251)
+
+[node name="left" type="Marker2D" parent="." unique_id=270247914]
+position = Vector2(257, 501)

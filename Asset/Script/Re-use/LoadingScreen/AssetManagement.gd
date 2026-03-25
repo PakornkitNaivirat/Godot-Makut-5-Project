@@ -6,9 +6,17 @@ func _ready():
 func setup_daily_events():
 	var today = Global.current_day
 	var is_night = Global.day_night
+	var is_dawn = Global.dawn
 	
 	# กำหนดคำต่อท้ายตามเวลา
-	var time_suffix = "_Night" if is_night else "_Day"
+	var time_suffix = ""
+	
+	if is_dawn:
+		time_suffix = "_Evening"    # ตอนเช้าตรู่
+	elif is_night:
+		time_suffix = "_Night"   # ตอนกลางคืน
+	else:
+		time_suffix = "_Day"     # 
 	
 	# ชื่อโหนดที่เราต้องการเก็บไว้ (เช่น "Day1_Day" หรือ "Day2_Night")
 	var target_node_name = "Day" + str(today) + time_suffix

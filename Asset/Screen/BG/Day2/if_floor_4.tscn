@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bts0se0x5ml2c"]
+
+[ext_resource type="Texture2D" uid="uid://dhpdanmctk7m1" path="res://Asset/Spirte/Background/Ref/BG/ไม่มีชื่อ 110_20260303154827.png" id="1_l6ndk"]
+[ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_sb8iv"]
+[ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_sb8iv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23k1o"]
+size = Vector2(245, 1181.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfd43"]
+size = Vector2(81.5, 1109.5)
+
+[node name="if_floor_4" type="Node2D" unique_id=1930813863]
+
+[node name="Backgrounds" type="Node2D" parent="." unique_id=190450542]
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds" unique_id=1953206531]
+y_sort_enabled = true
+texture = ExtResource("1_l6ndk")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=436313290]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=615596168]
+position = Vector2(5771.5, 525.25)
+shape = SubResource("RectangleShape2D_23k1o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1783384904]
+position = Vector2(3.25, 548.25)
+shape = SubResource("RectangleShape2D_sfd43")
+
+[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("2_sb8iv")]
+position = Vector2(120, 918)
+scale = Vector2(0.4, 0.4)
+SPEED = 300.0
+
+[node name="FL4" type="Marker2D" parent="." unique_id=1918131956]
+position = Vector2(5555, 945)
+
+[node name="Door" parent="." unique_id=992689307 instance=ExtResource("3_sb8iv")]
+position = Vector2(1417, 801)
+next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_screen_lab.tscn"

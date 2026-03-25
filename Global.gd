@@ -13,6 +13,7 @@ var event_flags: Dictionary = {
 }
 
 var day_night = false
+var dawn = false
 var current_day = 1
 
 var last_player_pos: Vector2 = Vector2.ZERO 

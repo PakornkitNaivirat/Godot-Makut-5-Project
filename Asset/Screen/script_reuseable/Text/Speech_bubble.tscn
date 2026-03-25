@@ -45,7 +45,7 @@ theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=1289514828]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(305, 0)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_rgywe")
 autowrap_mode = 2
