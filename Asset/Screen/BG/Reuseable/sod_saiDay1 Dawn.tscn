@@ -182,30 +182,42 @@ target_spawn_point_name = "IF Enter"
 position = Vector2(1315, 708)
 dialog_text = Array[String](["Hello.", "player : Hello.", "You want some?", "player : No Thank."])
 
+[node name="box" parent="Day1_Day/Dialogue" index="4" unique_id=97389463]
+position = Vector2(-20, -148)
+
+[node name="dot" parent="Day1_Day/Dialogue" index="5" unique_id=1117769796]
+position = Vector2(-26.369999, -150)
+
 [node name="PlayerSpot" parent="Day1_Day/Dialogue" index="6" unique_id=301342563]
 position = Vector2(-151, 237)
 
 [node name="PosNPC" parent="Day1_Day/Dialogue" index="7" unique_id=309990384]
-position = Vector2(136, -50)
+position = Vector2(77, -52)
 
 [node name="PosPlayer" parent="Day1_Day/Dialogue" index="8" unique_id=1232311272]
-position = Vector2(-255, -48)
+position = Vector2(-164, -48)
 
 [node name="Dialogue2" parent="Day1_Day" unique_id=514711223 instance=ExtResource("6_dg1li")]
 position = Vector2(2756, 686)
-dialog_text = Array[String](["Hello", "player : Hello", "You want some?", "player : No Thank."])
+dialog_text = Array[String](["Hello.", "player : Hello.", "You want some?", "player : No Thank."])
 
 [node name="CollisionShape2D" parent="Day1_Day/Dialogue2" index="0" unique_id=1060850475]
 position = Vector2(-32, 140)
+
+[node name="box" parent="Day1_Day/Dialogue2" index="4" unique_id=97389463]
+position = Vector2(-36, -139)
+
+[node name="dot" parent="Day1_Day/Dialogue2" index="5" unique_id=1117769796]
+position = Vector2(-42.37, -141)
 
 [node name="PlayerSpot" parent="Day1_Day/Dialogue2" index="6" unique_id=301342563]
 position = Vector2(-170, 276)
 
 [node name="PosNPC" parent="Day1_Day/Dialogue2" index="7" unique_id=309990384]
-position = Vector2(117, -57)
+position = Vector2(23, -32)
 
 [node name="PosPlayer" parent="Day1_Day/Dialogue2" index="8" unique_id=1232311272]
-position = Vector2(-258, -31)
+position = Vector2(-194, -26)
 
 [node name="Day1_Night" type="Node2D" parent="." unique_id=947725373]
 visible = false
