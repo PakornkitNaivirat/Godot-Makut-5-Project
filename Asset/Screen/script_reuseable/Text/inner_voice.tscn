@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d2ybh1a88pj1e"]
+
+[ext_resource type="Script" uid="uid://cp7g03s0un55x" path="res://Asset/Script/Re-use/Text-Dialogue/inner_voice.gd" id="1_88p42"]
+[ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Lexend-VariableFont_wght.ttf" id="2_v0af1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xai36"]
+font = ExtResource("2_v0af1")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InnerVoice" type="CanvasLayer" unique_id=1338924934]
+script = ExtResource("1_88p42")
+
+[node name="TextLabel" type="Label" parent="." unique_id=1339560125]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 14.0
+offset_bottom = 37.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_xai36")
+horizontal_alignment = 1

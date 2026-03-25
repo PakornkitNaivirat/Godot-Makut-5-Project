@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lts383x2fbao"
-path="res://.godot/imported/Black-Screen.png-eeabcb72194d5f1fd92024712c3c7557.ctex"
+path="res://.godot/imported/Black-Screen.png-4878bedfb70ddd93edc8b9a8ea1d604c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Spirte/Background/CutScreen/Black-Screen.png"
-dest_files=["res://.godot/imported/Black-Screen.png-eeabcb72194d5f1fd92024712c3c7557.ctex"]
+source_file="res://Asset/Spirte/Background/CutScreen/wash/Black-Screen.png"
+dest_files=["res://.godot/imported/Black-Screen.png-4878bedfb70ddd93edc8b9a8ea1d604c.ctex"]
 
 [params]
 

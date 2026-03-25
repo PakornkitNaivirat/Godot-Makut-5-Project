@@ -5,9 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://l70ofmrtktwj" path="res://Asset/Spirte/Background/CutScreen/Lift/Untitled57.png" id="2_vp7o3"]
 [ext_resource type="PackedScene" uid="uid://c73ny583v40f1" path="res://Asset/Screen/script_reuseable/Text/Speech_bubble.tscn" id="4_j7y27"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kui07"]
+load_path = "res://.godot/imported/Untitled47.png-6fe519f64e2677703b5ac8bba29d90c6.ctex"
+
 [sub_resource type="Animation" id="Animation_kui07"]
 resource_name = "Lift"
-length = 10.0
+length = 11.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -16,10 +19,10 @@ tracks/0/path = NodePath("1:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 3.5, 7, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_1dxd7"), ExtResource("1_1dxd7")]
+"values": [ExtResource("1_1dxd7"), ExtResource("1_1dxd7"), SubResource("CompressedTexture2D_kui07"), SubResource("CompressedTexture2D_kui07")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -28,10 +31,10 @@ tracks/1/path = NodePath("1:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3, 3.5, 7, 10, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -40,10 +43,10 @@ tracks/2/path = NodePath("1:region_rect")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 3.5, 7, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(583.1855, 34.71866, 752.1855, 1001.1848), Rect2(583.1855, 34.71866, 752.1855, 1001.1848)]
+"values": [Rect2(583.1855, 34.71866, 752.1855, 1001.1848), Rect2(583.1855, 34.71866, 752.1855, 1001.1848), Rect2(244.12653, 45.891716, 1452.4961, 985.62244), Rect2(244.12653, 45.891716, 1452.4961, 985.62244)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -52,10 +55,10 @@ tracks/3/path = NodePath("1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 3.5, 7, 7.5, 7.625, 7.75, 7.875, 8, 8.125, 8.25, 8.375, 8.5, 8.625, 8.75, 8.875, 9, 9.125, 9.25, 9.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(713, 325), Vector2(575, 325), Vector2(575, 325)]
+"values": [Vector2(713, 325), Vector2(575, 325), Vector2(575, 325), Vector2(713, 325), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305), Vector2(575, 325), Vector2(575, 340), Vector2(575, 325), Vector2(575, 305)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -112,11 +115,14 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(6.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(6.5, 10),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": ["part1"],
 "method": &"start_talking"
+}, {
+"args": [],
+"method": &"finish_cutscene"
 }]
 }
 
@@ -227,6 +233,8 @@ _data = {
 
 [node name="cut_screen__before_lab" type="Node2D" unique_id=67155952]
 script = ExtResource("1_kui07")
+next_scene_path = "res://Asset/Screen/BG/Day2/if_floor_4.tscn"
+target_spawn_point_name = "FL4"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=199823842]
 offset_right = 1165.0
@@ -255,5 +263,8 @@ region_rect = Rect2(586.5006, 43.297974, 741.8104, 1014.15356)
 [node name="speech" parent="." unique_id=1384000356 instance=ExtResource("4_j7y27")]
 position = Vector2(-234, 73)
 
-[node name="Test" type="Marker2D" parent="." unique_id=1749439260]
-position = Vector2(855, 251)
+[node name="right" type="Marker2D" parent="." unique_id=1749439260]
+position = Vector2(913, 251)
+
+[node name="left" type="Marker2D" parent="." unique_id=270247914]
+position = Vector2(257, 501)

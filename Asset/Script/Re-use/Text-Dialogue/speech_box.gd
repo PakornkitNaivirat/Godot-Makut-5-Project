@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var panel = $PanelContainer
 @onready var label = $PanelContainer/MarginContainer/Label
-@onready var tail = $Polygon2D
 
 @export var typing_speed: float = 0.05 
 

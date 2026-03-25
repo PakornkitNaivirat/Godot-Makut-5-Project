@@ -9,13 +9,22 @@ extends Node2D
 #Set บทพูด
 var all_dialogues = {
 	"part1": [
-		{"speaker": "right", "text": "(I hope I get in, even if I sent the form past the deadline.)"},
-		{"speaker": "right", "text": "(But hey!! If the form was still open for submission.)"},
-		{"speaker": "right", "text": "(it must mean they’re still accepting people. That has to be it!!.)"},
-		{"speaker": "left", "text": "(Anyway… no use worrying about it now.)"},
-		{"speaker": "left", "text": "(I should just focus on class.)"},
-		{"speaker": "left", "text": "(Today’s lab is on the fourth floor, so I’ll head up now.)"},
-		
+		{"speaker": "Friend", "text": "Hey… you look way too focused."},
+		{"speaker": "Me", "text": "Since when do you get here!?"},
+		{"speaker": "Friend2", "text": "About… one minute, twelve seconds, and thirty-two milliseconds ago."},
+		{"speaker": "Me2", "text": "Why are you being so specific?!"},
+		{"speaker": "Friend", "text": "Hey, relax—it was just a joke."},
+		{"speaker": "Friend", "text": "Anyway… did you end up signing up for the club?"},
+		{"speaker": "Friend", "text": "Yesterday was the last day, right?"},
+		{"speaker": "Me2", "text": "Uh… I mean, it said applications were open until 6 p.m., right?"},
+		{"speaker": "Me2", "text": "But I submitted mine around 3…"},
+		{"speaker": "Me2", "text": "and only realized afterward that the deadline had already passed."},
+		{"speaker": "Me2", "text": "Now I’m kinda worried I won’t get in."},
+		{"speaker": "Friend", "text": "Dude… why didn’t you double-check first?"},
+		{"speaker": "Me2", "text": "Heh… I was planning to sign up right away,"},
+		{"speaker": "Me2", "text": "but I got caught up doing something and kinda lost track of time."},
+		{"speaker": "Me2", "text": "By the time I remembered, I had already finished everything…"},
+		{"speaker": "Friend2", "text": "Well… I hope the application you sent still counts. Good luck."},
 	],
 	
 }
@@ -25,7 +34,7 @@ var current_line = 0
 var is_talking = false
 
 func _ready():
-	anim.play("Lift")
+	anim.play("Lab")
 
 func start_talking(dialogue_key: String):
 	anim.pause()

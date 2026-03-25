@@ -6,7 +6,7 @@ extends Control
 @onready var chat_scroll = $Panel/ChatScroll
 @onready var message_list = $Panel/ChatScroll/MessageList
 
-var bubble_scene = preload("res://Asset/Screen/script_reuseable/Text/message_bubble.tscn")
+var bubble_scene = preload("res://Asset/Screen/script_reuseable/Text/Chat/message_bubble.tscn")
 
 var chat_data = [
 	{"text": " [Marine Conservation Club Bot]\n Hey there! 👋\n Welcome to the Marine Conservation Club.\n\n If you're interested in joining, I can help\n you sign up real quick.\n Just type:\n - 'join' to apply\n - 'info' to learn more about the club", "is_me": false},
