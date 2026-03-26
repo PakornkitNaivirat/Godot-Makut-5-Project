@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bts0se0x5ml2c"]
 
-[ext_resource type="Texture2D" uid="uid://dhpdanmctk7m1" path="res://Asset/Spirte/Background/Ref/BG/ไม่มีชื่อ 110_20260303154827.png" id="1_l6ndk"]
+[ext_resource type="Script" uid="uid://b4royvvfx70ra" path="res://Asset/Script/Re-use/if_floor_4.gd" id="1_sfd43"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_sb8iv"]
+[ext_resource type="Texture2D" uid="uid://crinw4u17ut7j" path="res://Asset/Spirte/Background/Day2/Lab_ชั้น_4.png" id="2_sfd43"]
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_sb8iv"]
+[ext_resource type="Texture2D" uid="uid://3mehouhet0tq" path="res://Asset/Spirte/Charactor/Bg.game.character .png" id="5_10qlk"]
+[ext_resource type="PackedScene" uid="uid://clqvrvf2vsdlo" path="res://Asset/Screen/BG/Cutscreen/cut_scene_after_lab.tscn" id="5_sfd43"]
+[ext_resource type="PackedScene" uid="uid://db0kewuqkismm" path="res://Asset/Screen/BG/Cutscreen/cut_scene_after_lab_2.tscn" id="7_02igg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23k1o"]
 size = Vector2(245, 1181.5)
@@ -11,12 +15,13 @@ size = Vector2(245, 1181.5)
 size = Vector2(81.5, 1109.5)
 
 [node name="if_floor_4" type="Node2D" unique_id=1930813863]
+script = ExtResource("1_sfd43")
 
 [node name="Backgrounds" type="Node2D" parent="." unique_id=190450542]
 
 [node name="Sprite2D" type="Sprite2D" parent="Backgrounds" unique_id=1953206531]
 y_sort_enabled = true
-texture = ExtResource("1_l6ndk")
+texture = ExtResource("2_sfd43")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=436313290]
@@ -29,14 +34,41 @@ shape = SubResource("RectangleShape2D_23k1o")
 position = Vector2(3.25, 548.25)
 shape = SubResource("RectangleShape2D_sfd43")
 
-[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("2_sb8iv")]
+[node name="Player" parent="." unique_id=1775447557 groups=["player"] instance=ExtResource("2_sb8iv")]
 position = Vector2(120, 918)
 scale = Vector2(0.4, 0.4)
 SPEED = 300.0
 
+[node name="Day2_Day" type="Node2D" parent="." unique_id=1743086917]
+position = Vector2(1417, 801)
+
+[node name="Door" parent="Day2_Day" unique_id=992689307 instance=ExtResource("3_sb8iv")]
+position = Vector2(601, 0)
+next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_screen_lab.tscn"
+
+[node name="Day2_Evening" type="Node2D" parent="." unique_id=1700721196]
+
+[node name="Sprite2D" type="Sprite2D" parent="Day2_Evening" unique_id=1436165023]
+position = Vector2(1614, 771)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("5_10qlk")
+region_enabled = true
+region_rect = Rect2(668.24994, 186.54103, 407.36823, 1277.3412)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Day2_Evening" unique_id=1203023756]
+position = Vector2(1720, 783)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_10qlk")
+region_enabled = true
+region_rect = Rect2(1172.7219, 163.74548, 390.10693, 1291.1503)
+
+[node name="cut_scene_after_lab" parent="." unique_id=907743080 instance=ExtResource("5_sfd43")]
+layer = 6
+
+[node name="cut_scene_after_lab2" parent="." unique_id=1494927062 instance=ExtResource("7_02igg")]
+
+[node name="done" type="Marker2D" parent="." unique_id=1642929574]
+position = Vector2(1417, 948)
+
 [node name="FL4" type="Marker2D" parent="." unique_id=1918131956]
 position = Vector2(5555, 945)
-
-[node name="Door" parent="." unique_id=992689307 instance=ExtResource("3_sb8iv")]
-position = Vector2(1417, 801)
-next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_screen_lab.tscn"

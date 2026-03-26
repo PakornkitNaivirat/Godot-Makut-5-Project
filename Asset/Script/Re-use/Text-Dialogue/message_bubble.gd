@@ -1,67 +1,102 @@
 extends Control
 
+# 🌟 สร้าง Signal เผื่อไว้ให้โหนดอื่นรับรู้ตอนคุยจบ
+signal chat_finished_signal
+
+@export_group("Scene Transition")
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = ""
+
+@export_group("Chat Settings")
+@export var global_event_flag: String = "" # ชื่อ Event Flag ที่อยากให้เป็น true ตอนคุยจบ (เช่น "join_club_done")
+
+# 🌟 รูปแบบการพิมพ์: "คนพูด: ข้อความ" 
+# ถ้าเป็นเสียงในใจให้พิมพ์ว่า "Narrator: ข้อความ" หรือ "InnerVoice: ข้อความ"
+@export_multiline var chat_messages: Array[String] = [
+	"NPC: Hello there! Welcome to the club.",
+	"Narrator: ฉันหยิบโทรศัพท์ขึ้นมาพิมพ์ตอบกลับอย่างรวดเร็ว",
+	"ME: I want to join!",
+	"NPC: Thank you for applying."
+]
 
 @onready var chat_scroll = $Panel/ChatScroll
 @onready var message_list = $Panel/ChatScroll/MessageList
 
 var bubble_scene = preload("res://Asset/Screen/script_reuseable/Text/Chat/message_bubble.tscn")
 
-var chat_data = [
-	{"text": " [Marine Conservation Club Bot]\n Hey there! 👋\n Welcome to the Marine Conservation Club.\n\n If you're interested in joining, I can help\n you sign up real quick.\n Just type:\n - 'join' to apply\n - 'info' to learn more about the club", "is_me": false},
-	{"text": " join ", "is_me": true},
-	{"text": " Please Enter your name , student ID \n and phone number ", "is_me": false},
-	{"text": " 68XXXXXX Time 085-0XXXXXX ", "is_me": true},
-	{"text": " Thank you for applying to our club. \n We'll contact you back sooner. ", "is_me": false}
-]
-
 var current_index = 0
 
 func _input(event):
-	# กด Spacebar เพื่อเด้งข้อความถัดไป
-	if event.is_action_pressed("ui_accept"):
-		if current_index < chat_data.size():
-			var data = chat_data[current_index]
-			add_message(data["text"], data["is_me"])
-			current_index += 1
-		else:
-			finish_chat()
-	if event is InputEventMouseButton and event.pressed:
-		# ถ้ากลิ้งเมาส์ขึ้น
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			chat_scroll.scroll_vertical -= 40 # เลื่อนขึ้น (เลข 40 คือความเร็ว ปรับเพิ่มลดได้)
+	# กด Spacebar / Enter เพื่อเด้งข้อความถัดไป
+	if event.is_action_pressed("ui_accept") or event.is_action_pressed("interact"):
+		
+		# 🌟 ดักเช็คก่อนว่า InnerVoice กำลังพิมพ์อยู่ไหม ถ้าพิมพ์อยู่ให้ข้ามแอนิเมชันพิมพ์
+		if InnerVoice.visible and InnerVoice.is_typing():
+			InnerVoice.force_skip_typing()
 			
-		# ถ้ากลิ้งเมาส์ลง
+		else:
+			# ถ้าไม่ได้พิมพ์อยู่ (หรือพิมพ์เสร็จแล้ว) ค่อยไปประโยคถัดไป
+			if current_index < chat_messages.size():
+				var full_text = chat_messages[current_index]
+				process_and_add_message(full_text)
+				current_index += 1
+			else:
+				finish_chat()
+			
+	# ระบบเลื่อนเมาส์
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			chat_scroll.scroll_vertical -= 40 
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			chat_scroll.scroll_vertical += 40 # เลื่อนลง
+			chat_scroll.scroll_vertical += 40 
+
+# 🌟 ฟังก์ชันแยกส่วนข้อความว่าใครพูด (ซ้าย / ขวา / เสียงในใจ)
+func process_and_add_message(full_text: String):
+	var parts = full_text.split(":", true, 1)
+	var display_text = full_text
+	var is_me = false
+	var is_narrator = false # 🌟 ตัวแปรเช็คว่าเป็นเสียงในใจไหม
+	
+	if parts.size() > 1:
+		var speaker = parts[0].strip_edges().to_lower()
+		display_text = parts[1].strip_edges() # ตัดชื่อออก เอาแค่ข้อความด้านหลัง
+		
+		# เช็คชื่อคนพูด
+		if speaker == "narrator" or speaker == "innervoice" or speaker == "inner":
+			is_narrator = true
+		elif speaker == "me" or speaker == "player":
+			is_me = true
+			
+	if is_narrator:
+		# ถ้าเป็นเสียงในใจ ให้ส่งไปที่ InnerVoice
+		InnerVoice.speak(display_text)
+	else:
+		# ถ้าเป็นแชทปกติ ให้ซ่อน InnerVoice ก่อน (เผื่อประโยคที่แล้วเป็นบทบรรยาย)
+		InnerVoice.hide_text()
+		add_message(display_text, is_me)
 
 func add_message(text_content: String, is_me: bool):
 	var new_bubble = bubble_scene.instantiate()
 	message_list.add_child(new_bubble)
 	
 	var hbox = new_bubble.get_node("HBoxContainer")
-	#var avatar = hbox.get_node("Avatar")
 	var bubble_bg = hbox.get_node("BubbleBg")
 	var msg_label = bubble_bg.get_node("MessageText")
 	
-	# 3. ใส่ข้อความลงไป
 	msg_label.text = text_content
 
 	if text_content.length() < 35:
-		# ข้อความสั้น
 		msg_label.autowrap_mode = TextServer.AUTOWRAP_OFF
 		msg_label.custom_minimum_size.x = 0
 	else:
 		msg_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		
 		msg_label.custom_minimum_size.x = 350
 		
 	var style = bubble_bg.get_theme_stylebox("panel").duplicate()
 	
 	if is_me:
 		hbox.alignment = BoxContainer.ALIGNMENT_END
-		style.bg_color = Color("51c4d7ff") # สีส้มอมเหลือง
+		style.bg_color = Color("51c4d7ff") # สีส้มอมเหลือง/ฟ้า
 		msg_label.add_theme_color_override("font_color", Color.WHITE)
 	else:
 		hbox.alignment = BoxContainer.ALIGNMENT_BEGIN
@@ -76,20 +111,25 @@ func scroll_to_bottom():
 	await get_tree().process_frame
 	await get_tree().process_frame 
 	
-	
 	var scrollbar = chat_scroll.get_v_scroll_bar()
 	chat_scroll.scroll_vertical = scrollbar.max_value
 
 func finish_chat():
-	# ปิดระบบรับ Input ชั่วคราว 
 	set_process_input(false) 
+	
+	# 🌟 ซ่อน InnerVoice ตอนจบบทสนทนา เผื่อประโยคสุดท้ายเป็นเสียงในใจ
+	InnerVoice.hide_text()
+	
+	# เผื่อใช้เรียกอนิเมชั่นตอนคุยจบ
+	emit_signal("chat_finished_signal")
+	
+	if global_event_flag != "":
+		Global.event_flags[global_event_flag] = true 
+		get_tree().call_group("interactable_items", "update_state")
 	
 	Global.load_exact_pos = false
 	if target_spawn_point_name != "":
 		Global.target_spawn_name = target_spawn_point_name
 		
-	Global.event_flags["join_club_done"] = true 
-	get_tree().call_group("interactable_items", "update_state")
-	
 	if next_scene_path != "":
 		LoadingScreen.transition_to_screenfunc(next_scene_path)

@@ -16,6 +16,9 @@ var day_night = false
 var dawn = false
 var current_day = 1
 
+var play_cutscene_after_lab2 = false
+var play_cutscene_after_lab = false
+
 var last_player_pos: Vector2 = Vector2.ZERO 
 var load_exact_pos: bool = false
 var target_spawn_name: String = ""   

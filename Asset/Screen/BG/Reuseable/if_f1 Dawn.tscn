@@ -164,7 +164,6 @@ region_enabled = true
 region_rect = Rect2(253.54489, 393.2279, 258.43115, 679.08923)
 
 [node name="Day1_Night" type="Node2D" parent="." unique_id=754740302]
-visible = false
 position = Vector2(0, 673)
 
 [node name="Come down" parent="Day1_Night" unique_id=488113024 instance=ExtResource("6_m7af1")]

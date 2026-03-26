@@ -63,10 +63,16 @@ func start_dialogue():
 #คุยต่อ
 func continue_dialogue():
 	current_line += 1
-	if current_line < dialog_text.size():
-		update_speech_bubble()
+	if speech_bubble.visible and speech_bubble.label.visible_ratio < 0.99:
+		speech_bubble.force_skip_typing() # เร่งข้อความให้เต็ม
+		
 	else:
-		end_dialogue() # ถ้าข้อความหมดแล้ว ให้ไปฟังก์ชันจบการคุย
+		# ถ้าข้อความเต็มแล้ว ค่อยข้ามบรรทัด
+		current_line += 1
+		if current_line < dialog_text.size():
+			update_speech_bubble()
+		else:
+			end_dialogue()
 
 #จบบทพูด
 func end_dialogue():

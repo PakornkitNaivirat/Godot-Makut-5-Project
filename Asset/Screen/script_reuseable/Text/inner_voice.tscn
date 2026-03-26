@@ -5,13 +5,16 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_xai36"]
 font = ExtResource("2_v0af1")
+font_size = 22
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="InnerVoice" type="CanvasLayer" unique_id=1338924934]
+layer = 10
 script = ExtResource("1_88p42")
 
 [node name="TextLabel" type="Label" parent="." unique_id=1339560125]
+z_index = 2
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 14.0
