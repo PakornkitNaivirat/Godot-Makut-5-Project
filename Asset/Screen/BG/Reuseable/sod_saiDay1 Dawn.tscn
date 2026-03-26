@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_v7ee3"]
 [ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/night.gd" id="4_farl7"]
 [ext_resource type="AudioStream" uid="uid://bbkqqj7sxn77o" path="res://Asset/Sounds/city sound.mp3" id="6_a8cb0"]
+[ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="6_dg1li"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjvx"]
 size = Vector2(195.5, 1209)
@@ -176,7 +177,49 @@ position = Vector2(5611, 824)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
 target_spawn_point_name = "IF Enter"
 
+[node name="Dialogue" parent="Day1_Day" unique_id=410944203 instance=ExtResource("6_dg1li")]
+position = Vector2(1315, 708)
+dialog_text = Array[String](["Hello.", "player : Hello.", "You want some?", "player : No Thank."])
+
+[node name="box" parent="Day1_Day/Dialogue" index="4" unique_id=97389463]
+position = Vector2(-20, -148)
+
+[node name="dot" parent="Day1_Day/Dialogue" index="5" unique_id=1117769796]
+position = Vector2(-26.369999, -150)
+
+[node name="PlayerSpot" parent="Day1_Day/Dialogue" index="6" unique_id=301342563]
+position = Vector2(-151, 237)
+
+[node name="PosNPC" parent="Day1_Day/Dialogue" index="7" unique_id=309990384]
+position = Vector2(77, -52)
+
+[node name="PosPlayer" parent="Day1_Day/Dialogue" index="8" unique_id=1232311272]
+position = Vector2(-164, -48)
+
+[node name="Dialogue2" parent="Day1_Day" unique_id=514711223 instance=ExtResource("6_dg1li")]
+position = Vector2(2756, 686)
+dialog_text = Array[String](["Hello.", "player : Hello.", "You want some?", "player : No Thank."])
+
+[node name="CollisionShape2D" parent="Day1_Day/Dialogue2" index="0" unique_id=1060850475]
+position = Vector2(-32, 140)
+
+[node name="box" parent="Day1_Day/Dialogue2" index="4" unique_id=97389463]
+position = Vector2(-36, -139)
+
+[node name="dot" parent="Day1_Day/Dialogue2" index="5" unique_id=1117769796]
+position = Vector2(-42.37, -141)
+
+[node name="PlayerSpot" parent="Day1_Day/Dialogue2" index="6" unique_id=301342563]
+position = Vector2(-170, 276)
+
+[node name="PosNPC" parent="Day1_Day/Dialogue2" index="7" unique_id=309990384]
+position = Vector2(23, -32)
+
+[node name="PosPlayer" parent="Day1_Day/Dialogue2" index="8" unique_id=1232311272]
+position = Vector2(-194, -26)
+
 [node name="Day1_Night" type="Node2D" parent="." unique_id=947725373]
+visible = false
 
 [node name="Our room" parent="Day1_Night" unique_id=197402584 instance=ExtResource("3_v7ee3")]
 position = Vector2(763, 833)
@@ -204,3 +247,5 @@ stream = ExtResource("6_a8cb0")
 volume_db = -15.0
 
 [editable path="standard/Player"]
+[editable path="Day1_Day/Dialogue"]
+[editable path="Day1_Day/Dialogue2"]
