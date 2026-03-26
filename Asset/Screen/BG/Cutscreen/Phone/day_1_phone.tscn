@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c5oi80q6luomk"]
+
+[ext_resource type="PackedScene" uid="uid://c0m4pytonmc2e" path="res://Asset/Screen/script_reuseable/Text/Chat/chat_system.tscn" id="1_umfje"]
+
+[node name="Day1Phone" type="Node2D" unique_id=1811288602]
+
+[node name="ChatSystem" parent="." unique_id=589452478 instance=ExtResource("1_umfje")]
+chat_messages = Array[String](["NPC:    [Marine Conservation Club Bot]
+ Hey there! 👋
+ Welcome to the Marine Conservation Club.
+ If you're interested in joining, 
+
+ Just type:
+ - 'join' to apply
+ - 'info' to learn more about the club\"
+", "ME:    -join", "NPC: Please Enter these information
+-your name 
+-student ID 
+-phone number", "ME:    68XXXXXX Time 085-0XXXXXX", "NPC: Thank you for applying to our club.
+We'll contact you back sooner
+"])

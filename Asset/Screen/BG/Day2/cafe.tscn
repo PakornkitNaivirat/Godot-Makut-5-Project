@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bgwsdq8ckbhyp"]
+
+[ext_resource type="Texture2D" uid="uid://8tee11ip26ck" path="res://Asset/Spirte/Background/CutScreen/cafe/Cafénothavejr.png" id="1_7m5ys"]
+[ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_8rr2i"]
+[ext_resource type="PackedScene" uid="uid://dpxp8o3dufld4" path="res://Asset/Screen/script_reuseable/Loading/minigame_interaction.tscn" id="2_fxxct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxxct"]
+size = Vector2(306.5, 1181.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5tx4"]
+size = Vector2(158.5, 1109.5)
+
+[node name="Cafe" type="Node2D" unique_id=713423706]
+
+[node name="Backgrounds" type="Node2D" parent="." unique_id=1637301841]
+position = Vector2(91, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds" unique_id=1404086204]
+y_sort_enabled = true
+texture = ExtResource("1_7m5ys")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Backgrounds" unique_id=1741378538]
+offset_left = -362.0
+offset_bottom = 1079.0
+color = Color(0.09411765, 0.09411765, 0.09411765, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Backgrounds" unique_id=100062313]
+offset_left = 1919.0
+offset_top = 3.0
+offset_right = 2281.0
+offset_bottom = 1082.0
+color = Color(0.09411765, 0.09411765, 0.09411765, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1853873223]
+position = Vector2(91, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1912891705]
+position = Vector2(1973.25, 525.25)
+shape = SubResource("RectangleShape2D_fxxct")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=860133131]
+position = Vector2(41.75, 548.25)
+shape = SubResource("RectangleShape2D_i5tx4")
+
+[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("2_8rr2i")]
+position = Vector2(328, 953)
+scale = Vector2(0.8, 0.8)
+SPEED = 300.0
+
+[node name="Camera2D" parent="Player" index="0" unique_id=266598659]
+zoom = Vector2(0.6, 0.6)
+limit_right = 2100
+
+[node name="Cafe" type="Marker2D" parent="." unique_id=465621633]
+position = Vector2(1831, 959)
+
+[node name="Minigame-Interact" parent="." unique_id=157613088 instance=ExtResource("2_fxxct")]
+position = Vector2(810, 661)
+next_scene_path = "res://Asset/Screen/BG/Cutscreen/cafe_sit.tscn"
+
+[node name="Sprite2D" parent="Minigame-Interact" index="1" unique_id=1448283550]
+position = Vector2(-1, -515)
+
+[editable path="Player"]
+[editable path="Minigame-Interact"]

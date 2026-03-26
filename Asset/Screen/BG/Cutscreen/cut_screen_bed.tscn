@@ -250,7 +250,7 @@ _data = {
 
 [node name="cut_screen_bed" type="Node2D" unique_id=2028683668]
 script = ExtResource("1_ubqv7")
-next_scene_path = "res://Asset/Screen/script_reuseable/Text/Chat/chat_system.tscn"
+next_scene_path = "res://Asset/Screen/BG/Cutscreen/Phone/day_1_phone.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=8896898]
 offset_right = 1170.0

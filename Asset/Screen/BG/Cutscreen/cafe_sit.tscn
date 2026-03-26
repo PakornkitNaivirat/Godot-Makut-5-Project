@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://fhags4clkm0d"]
+
+[ext_resource type="Texture2D" uid="uid://gf3dfpc7mmkn" path="res://Asset/Spirte/Background/CutScreen/cafe/Caféhavejr.png" id="1_dkinf"]
+[ext_resource type="Script" uid="uid://ua7rdxlu51qw" path="res://Asset/Script/Cutscreen/cafe_sit.gd" id="1_lfua5"]
+
+[node name="Cafe_Sit" type="Node2D" unique_id=886926133]
+script = ExtResource("1_lfua5")
+next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_scene_cafe.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2122321497]
+position = Vector2(581, 321)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_dkinf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1493230577]
+modulate = Color(1, 1, 1, 0.43137255)
+offset_right = 1162.0
+offset_bottom = 658.0
+color = Color(0.09411765, 0.09411765, 0.09411765, 1)

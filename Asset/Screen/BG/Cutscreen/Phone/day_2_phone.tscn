@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bml2ftyvtwp0m"]
+
+[ext_resource type="PackedScene" uid="uid://c0m4pytonmc2e" path="res://Asset/Screen/script_reuseable/Text/Chat/chat_system.tscn" id="1_ulagq"]
+
+[node name="Day2_phone" type="Node2D" unique_id=337168972]
+
+[node name="ChatSystem" parent="." unique_id=589452478 instance=ExtResource("1_ulagq")]
+next_scene_path = "res://Asset/Screen/BG/Day2/if_floor_4.tscn"
+target_spawn_point_name = "done"
+chat_messages = Array[String](["NPC: - Hello, everyone! 🙏
+ This is the Marine Conservation Club's group.
+ I'm the club president. I'm very happy to be 
+ working with all of you!", "NPC: - Welcome to the newcomers! Though we only 
+ have two new members this round. 😭", "NPC: - Well, most people aren't really into this kind 
+ of thing. Honestly, ", "NPC: - It’s a good thing the president decided to let 
+ in the other person who submitted their form 
+ late! So, we got one more person, LMAO 🤣", "Narrator: He felt a pang of guilt .", "Narrator:  after reading the last message,", "Narrator:  so he quickly typed a reply", "ME: - I am so sorry for submitting the form late.
+ I didn't read the details carefully enough.
+ My apologies! TvT'
+", "NPC: - No worries! Anyway, now that you’re in 
+ the club, I hope you have a great time and 
+ enjoy the activities.'", "ME: - Thank you very much.  🙏😭😭
+ I look forward to working with you all!"])

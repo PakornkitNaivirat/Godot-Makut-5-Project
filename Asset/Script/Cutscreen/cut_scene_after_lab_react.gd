@@ -1,4 +1,4 @@
-extends "res://Asset/Script/Cutscreen/cut_screen_lab.gd"
+extends "res://Asset/Script/Cutscreen/cut_scene_after_lab.gd"
 
 var expressions: Dictionary = {
 	"1": {
@@ -17,26 +17,37 @@ var expressions: Dictionary = {
 		"speaking":  Rect2(717, 538, 552, 408),
 		"annoyed":   Rect2(1293, 48, 538, 398),
 	},
+	"3": {
+		"normal":    Rect2(1296,   54,   531, 395),  # <- แก้ตามจริง
+		"happy":     Rect2(699, 51,   521, 393),
+		"tired":     Rect2(718, 532,   556, 393),
+		"thinking":  Rect2(112,   46, 527, 393),
+		"speaking":  Rect2(1304, 533, 536, 398),
+		"annoyed":   Rect2(102, 521, 552, 417),
+	},
 }
 
 var reaction_data = {
 	"part1": [
-		{"speaker_sprite": "2", "expr": "normal"},    # line 0
-		{"speaker_sprite": "1", "expr": "tired"},  # line 1
-		{"speaker_sprite": "2", "expr": "speaking"},
-		{"speaker_sprite": "1", "expr": "tired"},
-		{"speaker_sprite": "2", "expr": "happy"},
-		{"speaker_sprite": "2", "expr": "thinking"},
-		{"speaker_sprite": "2", "expr": "thinking"},
-		{"speaker_sprite": "1", "expr": "tired"},
-		{"speaker_sprite": "1", "expr": "tired"},
-		{"speaker_sprite": "1", "expr": "tired"},
-		{"speaker_sprite": "1", "expr": "tired"},
+		{"speaker_sprite": "2", "expr": "annoyed"},    # line 0
 		{"speaker_sprite": "2", "expr": "annoyed"},
+		{"speaker_sprite": "2", "expr": "annoyed"},
+		{"speaker_sprite": "1", "expr": "annoyed"},
+		{"speaker_sprite": "1", "expr": "annoyed"},
+		{"speaker_sprite": "1", "expr": "annoyed"},
+		{"speaker_sprite": "3", "expr": "happy"},
+		{"speaker_sprite": "3", "expr": "happy"},
+		{"speaker_sprite": "2", "expr": "annoyed"},
+		{"speaker_sprite": "3", "expr": "speaking"},
+		{"speaker_sprite": "2", "expr": "speaking"},
+		{"speaker_sprite": "1", "expr": "speaking"},
+		{"speaker_sprite": "2", "expr": "happy"},
+		{"speaker_sprite": "2", "expr": "happy"},
+		{"speaker_sprite": "2", "expr": "happy"},
+		{"speaker_sprite": "2", "expr": "happy"},
 		{"speaker_sprite": "1", "expr": "tired"},
-		{"speaker_sprite": "1", "expr": "tired"},
-		{"speaker_sprite": "1", "expr": "tired"},
-		{"speaker_sprite": "2", "expr": "normal"},
+		{"speaker_sprite": "1", "expr": "speaking"},
+		
 	],
 }
 
@@ -74,7 +85,18 @@ func update_dialogue():
 # -------------------------------------------------------
 func _process(_delta):
 	if is_talking and not _is_reacting and Input.is_action_just_pressed("interact"):
-		_react_then_advance()
+		
+		var is_speech_typing = speech_bubble.visible and speech_bubble.label.visible_ratio < 0.99
+		var is_inner_typing = InnerVoice.visible and InnerVoice.is_typing()
+		
+		if is_speech_typing:
+			speech_bubble.force_skip_typing()
+			
+		elif is_inner_typing:
+			InnerVoice.force_skip_typing()
+			
+		else:
+			_react_then_advance()
 
 # -------------------------------------------------------
 # Coroutine หลัก
@@ -104,4 +126,5 @@ func _react_then_advance():
 	else:
 		is_talking = false
 		speech_bubble.hide_dialogue()
+		InnerVoice.hide_text() 
 		anim.play()

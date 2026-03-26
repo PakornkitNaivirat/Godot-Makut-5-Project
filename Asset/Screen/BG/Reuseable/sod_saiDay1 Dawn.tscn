@@ -51,7 +51,6 @@ scale = Vector2(2, 2)
 position = Vector2(763, 955)
 
 [node name="Night" type="Node2D" parent="." unique_id=954602175]
-visible = false
 script = ExtResource("4_farl7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Night" unique_id=1962474329]
@@ -166,7 +165,6 @@ texture = SubResource("GradientTexture2D_farl7")
 texture_scale = 8.01
 
 [node name="Day1_Day" type="Node2D" parent="." unique_id=1313761661]
-visible = false
 
 [node name="Our room" parent="Day1_Day" unique_id=992689307 instance=ExtResource("3_v7ee3")]
 position = Vector2(763, 833)
@@ -190,7 +188,6 @@ next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
 target_spawn_point_name = "IF Enter"
 
 [node name="Day2_Day" type="Node2D" parent="." unique_id=723201739]
-visible = false
 
 [node name="Our room" parent="Day2_Day" unique_id=1375754752 instance=ExtResource("3_v7ee3")]
 position = Vector2(763, 833)
