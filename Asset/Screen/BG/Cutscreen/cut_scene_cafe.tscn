@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://bb8x0fk3qbom8"]
+
+[ext_resource type="Texture2D" uid="uid://dhfp381gms447" path="res://Asset/Spirte/Background/CutScreen/cafe/Untitled31_20260323211623.png" id="1_416so"]
+[ext_resource type="Script" uid="uid://dagerhgjga6ha" path="res://Asset/Script/Cutscreen/cut_scene_cafe.gd" id="1_dav0b"]
+[ext_resource type="Texture2D" uid="uid://be4bestdn88a8" path="res://Asset/Spirte/Background/CutScreen/cafe/Untitled31_20260323211637.png" id="2_eosmo"]
+[ext_resource type="Texture2D" uid="uid://36s8r1ffh285" path="res://Asset/Spirte/Background/CutScreen/cafe/Untitled31_20260323211706.png" id="3_khihh"]
+[ext_resource type="Texture2D" uid="uid://gf3dfpc7mmkn" path="res://Asset/Spirte/Background/CutScreen/cafe/Caféhavejr.png" id="3_rivkt"]
+[ext_resource type="Texture2D" uid="uid://bdj4atjb7yqt8" path="res://Asset/Spirte/Background/CutScreen/cafe/Untitled31_20260323215849.png" id="5_dav0b"]
+[ext_resource type="PackedScene" uid="uid://c73ny583v40f1" path="res://Asset/Screen/script_reuseable/Text/Speech_bubble.tscn" id="7_rquia"]
+
+[sub_resource type="Animation" id="Animation_eosmo"]
+resource_name = "Pain2"
+length = 15.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 4, 4.5, 6, 8, 8.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(653, 330), Vector2(567, 330), Vector2(567, 330), Vector2(653, 330), Vector2(567, 330), Vector2(567, 330), Vector2(653, 330), Vector2(567, 330), Vector2(567, 330)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2, 4, 5.5, 6, 8, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 2.5, 4, 6, 6.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(653, 330), Vector2(567, 330), Vector2(567, 330), Vector2(653, 330), Vector2(567, 330), Vector2(567, 330)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 3.5, 4, 6, 7.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("1:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_416so"), ExtResource("1_416so"), ExtResource("3_khihh"), ExtResource("3_khihh"), ExtResource("3_rivkt"), ExtResource("3_rivkt")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("2:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_eosmo"), ExtResource("2_eosmo"), ExtResource("5_dav0b"), ExtResource("5_dav0b")]
+}
+
+[sub_resource type="Animation" id="Animation_khihh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(653, 330)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(653, 330)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("1:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_416so")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("2:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_eosmo")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rivkt"]
+_data = {
+&"Pain2": SubResource("Animation_eosmo"),
+&"RESET": SubResource("Animation_khihh")
+}
+
+[node name="cut_scene_cafe" type="Node2D" unique_id=1570436315]
+script = ExtResource("1_dav0b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=746314897]
+offset_right = 1173.0
+offset_bottom = 681.0
+color = Color(0.09411765, 0.09411765, 0.09411765, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2082531492]
+libraries/ = SubResource("AnimationLibrary_rivkt")
+
+[node name="1" type="Sprite2D" parent="." unique_id=649837493]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(653, 330)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_416so")
+
+[node name="2" type="Sprite2D" parent="." unique_id=812317699]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(653, 330)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_eosmo")
+
+[node name="speech" parent="." unique_id=1384000356 instance=ExtResource("7_rquia")]

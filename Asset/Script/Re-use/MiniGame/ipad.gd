@@ -3,6 +3,10 @@ extends Area2D
 @export var backpack: Node2D 
 
 var is_dragging = false
+var start_position: Vector2
+
+func _ready() -> void:
+	start_position = global_position
 
 func _process(delta: float) -> void:
 	if is_dragging:
@@ -40,3 +44,13 @@ func _input(event: InputEvent) -> void:
 							backpack.add_item()
 							
 						queue_free()
+					else:
+						return_to_start()
+				else:
+					return_to_start()
+					
+func return_to_start():
+	var move_tween = get_tree().create_tween()
+	
+	move_tween.tween_property(self, "global_position", start_position, 0.2)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

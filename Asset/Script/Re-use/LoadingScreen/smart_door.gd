@@ -65,17 +65,21 @@ func handle_dialogue():
 		interact_icon.hide_icon()
 		speech_bubble.show_dialogue(locked_dialogue[current_line])
 	else:
-		# กดคุยต่อ
-		current_line += 1
-		if current_line < locked_dialogue.size():
-			speech_bubble.show_dialogue(locked_dialogue[current_line])
+		if speech_bubble.visible and speech_bubble.label.visible_ratio < 0.99:
+			speech_bubble.force_skip_typing()
+			
 		else:
-			# คุยจบ ปลดล็อคตัวละคร
-			is_talking = false
-			speech_bubble.hide_dialogue()
-			if current_player:
-				current_player.is_locked = false
-			interact_icon.show_icon()
+			# ถ้าพิมพ์เสร็จแล้ว ค่อยกดเพื่อข้ามบรรทัดต่อไป
+			current_line += 1
+			if current_line < locked_dialogue.size():
+				speech_bubble.show_dialogue(locked_dialogue[current_line])
+			else:
+				# คุยจบ ปลดล็อคตัวละคร
+				is_talking = false
+				speech_bubble.hide_dialogue()
+				if current_player:
+					current_player.is_locked = false
+				interact_icon.show_icon()
 
 func _on_body_entered(body):
 	if body.name == "Player":
