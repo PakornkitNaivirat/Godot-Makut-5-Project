@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://dqnpdgtv7v2or"]
+
+[ext_resource type="Script" uid="uid://cxa1cj10rtn7i" path="res://main_menu.gd" id="1_ofq4o"]
+[ext_resource type="Texture2D" uid="uid://d23imxs5rt6o5" path="res://br_game.jr hello.png" id="2_fu7sn"]
+[ext_resource type="FontFile" uid="uid://bsxry52t07gud" path="res://Blue Winter.ttf" id="3_jix8l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+bg_color = Color(0.5647059, 0.8352941, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
+texture = ExtResource("2_fu7sn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe12f"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.29072073, 0.2907207, 0.2907207, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(0.5513578, 0.55135787, 0.5513578, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Main Menu" type="Node2D" unique_id=249127976]
+script = ExtResource("1_ofq4o")
+
+[node name="Panel" type="Panel" parent="." unique_id=289604219]
+offset_right = 1153.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_glbon")
+
+[node name="Panel2" type="Panel" parent="." unique_id=1965652722]
+offset_left = 184.0
+offset_top = 183.0
+offset_right = 937.15576
+offset_bottom = 608.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nlkkf")
+
+[node name="Button Manager" type="Control" parent="." unique_id=2036333309]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 307.0
+offset_top = 165.0
+offset_right = 678.0
+offset_bottom = 387.0
+
+[node name="Start" type="Button" parent="Button Manager" unique_id=984735017]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -23.0
+offset_right = 169.5
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+text = "Start"
+
+[node name="Options" type="Button" parent="Button Manager" unique_id=1966705742]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = 67.0
+offset_right = 168.5
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+text = "Options"
+
+[node name="Quit" type="Button" parent="Button Manager" unique_id=2098840798]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = 153.0
+offset_right = 168.5
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+text = "Quit"
+
+[node name="Label" type="Label" parent="." unique_id=2057583612]
+offset_left = 98.0
+offset_top = 43.0
+offset_right = 1023.0
+offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_font_sizes/font_size = 90
+text = "Saltwater Memories"
+
+[connection signal="pressed" from="Button Manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button Manager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Button Manager/Quit" to="." method="_on_quit_pressed"]

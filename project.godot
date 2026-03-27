@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Demo"
-run/main_scene="uid://7iy362lkeqry"
+run/main_scene="uid://dqnpdgtv7v2or"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,6 +24,7 @@ buses/default_bus_layout=""
 LoadingScreen="*uid://bh5y6w8aq5rte"
 Global="*uid://c8m40fosh7tyv"
 InnerVoice="*uid://d2ybh1a88pj1e"
+PauseMenu="*uid://ky51dhmbynt"
 
 [input]
 

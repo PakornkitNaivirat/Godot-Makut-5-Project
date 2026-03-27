@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://ky51dhmbynt"]
+
+[ext_resource type="Script" uid="uid://prtgyggpy8v0" path="res://pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="Shader" uid="uid://c2g10voe7kokf" path="res://new_shader.gdshader" id="2_05uyy"]
+[ext_resource type="FontFile" uid="uid://bsxry52t07gud" path="res://Blue Winter.ttf" id="3_05uyy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p81d2"]
+shader = ExtResource("2_05uyy")
+shader_parameter/lod = 0.32900003
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05uyy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p81d2"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nc7s"]
+bg_color = Color(0.15775332, 0.15775332, 0.15775332, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3xb4"]
+bg_color = Color(0.45995867, 0.45995867, 0.4599586, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Animation" id="Animation_2nc7s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.32900003]
+}
+
+[sub_resource type="Animation" id="Animation_d3xb4"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.32900003]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mxa3g"]
+_data = {
+&"RESET": SubResource("Animation_2nc7s"),
+&"blur": SubResource("Animation_d3xb4")
+}
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=232511245]
+process_mode = 3
+script = ExtResource("1_nwcfo")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1483355221]
+material = SubResource("ShaderMaterial_p81d2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 23.0
+offset_right = 50.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7254902)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=604832418]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.5
+offset_top = -56.5
+offset_right = 200.5
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_05uyy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=482719427]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=323830217]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2nc7s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d3xb4")
+text = "Resume"
+
+[node name="Options" type="Button" parent="PanelContainer/VBoxContainer" unique_id=54385124]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2nc7s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d3xb4")
+text = "Options"
+
+[node name="Quit Destop" type="Button" parent="PanelContainer/VBoxContainer" unique_id=7251485]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_05uyy")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2nc7s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d3xb4")
+text = "Quit to Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2122360761]
+libraries/ = SubResource("AnimationLibrary_mxa3g")
