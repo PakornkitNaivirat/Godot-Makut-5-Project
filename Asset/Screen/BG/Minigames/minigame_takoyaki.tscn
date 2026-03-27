@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bh6klo8j5u2eq" path="res://Asset/Script/Re-use/MiniGame/minigame_takoyaki.gd" id="1_0nvy3"]
 [ext_resource type="Texture2D" uid="uid://duir3rxo7gmu8" path="res://Asset/Spirte/icon/image-Photoroom (4).png" id="2_e32l6"]
+[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="3_0ul3a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1lrki"]
+font = ExtResource("3_0ul3a")
+font_size = 40
 
 [node name="MinigameTakoyaki" type="Control" unique_id=1184783639]
 layout_mode = 3
@@ -52,3 +57,11 @@ position = Vector2(200, 500)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1179329433]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 80.0
+offset_right = 538.0
+offset_bottom = 103.0
+label_settings = SubResource("LabelSettings_1lrki")

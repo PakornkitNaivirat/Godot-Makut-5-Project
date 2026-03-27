@@ -11,11 +11,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjvx"]
 size = Vector2(195.5, 1209)
 
-[sub_resource type="Gradient" id="Gradient_farl7"]
+[sub_resource type="Gradient" id="Gradient_dg1li"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_farl7"]
-gradient = SubResource("Gradient_farl7")
+gradient = SubResource("Gradient_dg1li")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
@@ -171,11 +171,13 @@ texture_scale = 8.01
 position = Vector2(763, 833)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/bed_room.tscn"
 target_spawn_point_name = "Font"
+behavior = 1
 
 [node name="Uni" parent="Day1_Day" unique_id=2029874542 instance=ExtResource("3_v7ee3")]
 position = Vector2(5611, 824)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
 target_spawn_point_name = "IF Enter"
+behavior = 1
 
 [node name="Dialogue" parent="Day1_Day" unique_id=410944203 instance=ExtResource("6_dg1li")]
 position = Vector2(1315, 708)
@@ -224,11 +226,13 @@ visible = false
 [node name="Our room" parent="Day1_Night" unique_id=197402584 instance=ExtResource("3_v7ee3")]
 position = Vector2(763, 833)
 next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_screen_bed.tscn"
+behavior = 1
 
 [node name="Uni" parent="Day1_Night" unique_id=331827014 instance=ExtResource("3_v7ee3")]
 position = Vector2(5611, 824)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
 target_spawn_point_name = "IF Enter"
+behavior = 1
 
 [node name="Day2_Day" type="Node2D" parent="." unique_id=723201739]
 
@@ -236,11 +240,13 @@ target_spawn_point_name = "IF Enter"
 position = Vector2(763, 833)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/bed_room.tscn"
 target_spawn_point_name = "Font"
+behavior = 1
 
 [node name="Uni" parent="Day2_Day" unique_id=626197130 instance=ExtResource("3_v7ee3")]
 position = Vector2(5611, 824)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
 target_spawn_point_name = "IF Enter"
+behavior = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=319982179]
 stream = ExtResource("6_a8cb0")

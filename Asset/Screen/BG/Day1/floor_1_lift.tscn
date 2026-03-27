@@ -57,12 +57,12 @@ color = Color(0.288518, 0.28851798, 0.28851798, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Day1_Night" type="Node2D" parent="." unique_id=1211609804]
-visible = false
 
 [node name="Door" parent="Day1_Night" unique_id=992689307 instance=ExtResource("3_b6iat")]
 position = Vector2(165, 804)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
 target_spawn_point_name = "IF Back"
+behavior = 1
 
 [node name="Day2_Day" type="Node2D" parent="." unique_id=1038037920]
 

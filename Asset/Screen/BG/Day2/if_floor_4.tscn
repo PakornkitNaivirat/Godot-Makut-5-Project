@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://crinw4u17ut7j" path="res://Asset/Spirte/Background/Day2/Lab_ชั้น_4.png" id="2_sfd43"]
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_sb8iv"]
 [ext_resource type="Texture2D" uid="uid://3mehouhet0tq" path="res://Asset/Spirte/Charactor/Bg.game.character .png" id="5_10qlk"]
+[ext_resource type="Script" uid="uid://b57lkdhq6xe04" path="res://Asset/Script/Cutscreen/After_lab/round 2/day_2_evening.gd" id="5_beib7"]
 [ext_resource type="PackedScene" uid="uid://clqvrvf2vsdlo" path="res://Asset/Screen/BG/Cutscreen/cut_scene_after_lab.tscn" id="5_sfd43"]
 [ext_resource type="PackedScene" uid="uid://db0kewuqkismm" path="res://Asset/Screen/BG/Cutscreen/cut_scene_after_lab_2.tscn" id="7_02igg"]
 
@@ -13,6 +14,90 @@ size = Vector2(245, 1181.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfd43"]
 size = Vector2(81.5, 1109.5)
+
+[sub_resource type="Animation" id="Animation_i245w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("B:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("B:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1614, 771)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("B:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_beib7"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("B:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("B:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1614, 771), Vector2(1839, 771)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("B:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i245w"]
+_data = {
+&"RESET": SubResource("Animation_i245w"),
+&"walk": SubResource("Animation_beib7")
+}
 
 [node name="if_floor_4" type="Node2D" unique_id=1930813863]
 script = ExtResource("1_sfd43")
@@ -45,22 +130,27 @@ position = Vector2(1417, 801)
 [node name="Door" parent="Day2_Day" unique_id=992689307 instance=ExtResource("3_sb8iv")]
 position = Vector2(601, 0)
 next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_screen_lab.tscn"
+behavior = 1
 
-[node name="Day2_Evening" type="Node2D" parent="." unique_id=1700721196]
+[node name="Day2_Evening" type="Node2D" parent="." unique_id=1700721196 groups=["after_lab"]]
+script = ExtResource("5_beib7")
 
-[node name="Sprite2D" type="Sprite2D" parent="Day2_Evening" unique_id=1436165023]
+[node name="B" type="Sprite2D" parent="Day2_Evening" unique_id=1436165023]
 position = Vector2(1614, 771)
 scale = Vector2(0.32, 0.32)
 texture = ExtResource("5_10qlk")
 region_enabled = true
 region_rect = Rect2(668.24994, 186.54103, 407.36823, 1277.3412)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Day2_Evening" unique_id=1203023756]
+[node name="G" type="Sprite2D" parent="Day2_Evening" unique_id=1203023756]
 position = Vector2(1720, 783)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_10qlk")
 region_enabled = true
 region_rect = Rect2(1172.7219, 163.74548, 390.10693, 1291.1503)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Day2_Evening" unique_id=1355159437]
+libraries/ = SubResource("AnimationLibrary_i245w")
 
 [node name="cut_scene_after_lab" parent="." unique_id=907743080 instance=ExtResource("5_sfd43")]
 layer = 6

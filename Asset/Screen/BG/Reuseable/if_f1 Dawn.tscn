@@ -103,7 +103,10 @@ disappear_after_event = "gobackday1"
 position = Vector2(5274, 912)
 
 [node name="interaction" parent="Day1_Day/Go UP" index="1" unique_id=766295074]
-position = Vector2(5285, 387)
+position = Vector2(5285, 613.9999)
+
+[node name="PlayerSpot" parent="Day1_Day/Go UP" index="3" unique_id=932668430]
+position = Vector2(5275, 618)
 
 [node name="Dialogue2" parent="Day1_Day" unique_id=410944203 instance=ExtResource("4_ss5p0")]
 position = Vector2(2492, 627)
@@ -164,6 +167,7 @@ region_enabled = true
 region_rect = Rect2(253.54489, 393.2279, 258.43115, 679.08923)
 
 [node name="Day1_Night" type="Node2D" parent="." unique_id=754740302]
+visible = false
 position = Vector2(0, 673)
 
 [node name="Come down" parent="Day1_Night" unique_id=488113024 instance=ExtResource("6_m7af1")]
@@ -180,6 +184,7 @@ y_sort_enabled = true
 position = Vector2(-5133, -830)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/sod_saiDay1 Dawn.tscn"
 target_spawn_point_name = "SodSaiBack"
+behavior = 1
 
 [node name="CollisionShape2D" parent="Day1_Night/Go Home" index="0" unique_id=1605416872]
 position = Vector2(5274, 912)
@@ -194,6 +199,9 @@ position = Vector2(4542, 714)
 next_scene_path = "res://Asset/Screen/BG/Day1/floor_1_lift.tscn"
 target_spawn_point_name = "Lift"
 
+[node name="PlayerSpot" parent="Day2_Day/Door" index="3" unique_id=932668430]
+position = Vector2(0, -280)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1473946805]
 stream = ExtResource("8_eo32s")
 volume_db = -15.0
@@ -205,3 +213,4 @@ volume_db = -15.0
 [editable path="Day1_Day/Dialogue1"]
 [editable path="Day1_Night/Come down"]
 [editable path="Day1_Night/Go Home"]
+[editable path="Day2_Day/Door"]

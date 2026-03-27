@@ -2,13 +2,19 @@ extends Control
 
 # --- ตั้งค่าเกม ---
 @export var target_spawn_point_name: String = "" 
-
 @export var win_condition: int = 5    # คีบให้ครบ 5 ลูกถึงจบ
+@export var time_limit: float = 30.0
+@export var max_misses: int = 3
+
+var time_left: float
+var miss_count: int = 0
 var success_count: int = 0
-var total_attempts: int = 0
+var total_attempts: int = 0 
 var speed: float = 400.0
 var direction: int = 1
+
 var is_active: bool = true
+var is_game_over: bool = false
 
 # --- อ้างอิง Node ---
 @onready var bg_bar = $BackgroundBar
@@ -18,14 +24,27 @@ var is_active: bool = true
 @onready var moving_tako = $MovingTakoyaki
 @onready var box_loc = $BoxLocation
 
+@onready var timer_label = get_node_or_null("TimerLabel")
+
 func _ready():
 	#ตั้งค่าเริ่มต้น
 	status_label.pivot_offset = status_label.size / 2 # ให้ขยายจากตรงกลาง
+	time_left = time_limit
+	miss_count = 0	
 	reset_game()
 
 func _process(delta):
+	if not is_game_over:
+		time_left -= delta
+		if timer_label:
+			timer_label.text = "Time: %.2f" % max(0.0, time_left)
+			
+		if time_left <= 0:
+			trigger_game_over("I ran out of time... I need to be faster!") # ข้อความเวลาหมด
+			return
+			
 	if not is_active: return
-	
+		
 	#ลูกศรวิ่ง
 	arrow.position.x += speed * delta * direction
 	var max_x = bg_bar.size.x - arrow.size.x
@@ -57,6 +76,9 @@ func on_success():
 	status_label.text = "SUCCESS! (" + str(success_count) + "/" + str(win_condition) + ")"
 	status_label.modulate = Color.GREEN
 	
+	if success_count >= win_condition:
+		is_game_over = true
+	
 	animate_status_label()
 	
 	# เก็บตำแหน่งเริ่มไว้ก่อน
@@ -71,6 +93,7 @@ func on_success():
 	await tween.finished
 	 
 	var landed_tako = moving_tako.duplicate()
+	landed_tako.add_to_group("landed_takoyaki")
 	add_child(landed_tako)
 	landed_tako.position = box_loc.position
 	
@@ -83,13 +106,48 @@ func on_success():
 	reset_game()
 
 func on_fail():
+	miss_count += 1
 	status_label.text = "MISS! TRY AGAIN"
 	status_label.modulate = Color.RED
 	animate_status_label()
 	screen_shake()
 	
+	if miss_count >= max_misses:
+		is_game_over = true
+		await get_tree().create_timer(1.0).timeout 
+		trigger_game_over("I messed up too many times... Let's focus and try again!") # ข้อความพลาดเกิน
+		return
+	
 	await get_tree().create_timer(1.0).timeout
 	is_active = true # ให้เล่นต่อ ไม่รีตำแหน่ง
+	
+func trigger_game_over(reason_text: String):
+	is_active = false
+	
+	if InnerVoice:
+		InnerVoice.speak(reason_text)
+		
+	# รอประมาณ 3 วินาทีให้ผู้เล่นอ่าน (สามารถปรับตัวเลขได้ตามความเหมาะสม)
+	await get_tree().create_timer(3.5).timeout
+	
+	if InnerVoice:
+		InnerVoice.hide_text()
+		
+	reset_entire_game()
+
+func reset_entire_game():
+	success_count = 0
+	miss_count = 0
+	time_left = time_limit
+	
+	# ลบทาโกะยากิที่ลงกล่องไปแล้วออกให้หมด
+	get_tree().call_group("landed_takoyaki", "queue_free")
+	
+	status_label.text = "TRY AGAIN!"
+	status_label.modulate = Color.WHITE
+	
+	is_game_over = false
+	reset_game()
 
 func reset_game():
 	if success_count >= win_condition:
@@ -99,6 +157,7 @@ func reset_game():
 		Global.load_exact_pos = false
 		Global.target_spawn_name = target_spawn_point_name
 		
+		Global.minigame_status["takoyaki"] == true
 		LoadingScreen.transition_to_screenfunc("res://Asset/Screen/BG/Day3/park_in.tscn")
 		queue_free()
 		return

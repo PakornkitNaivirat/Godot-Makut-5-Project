@@ -60,7 +60,6 @@ func update_dialogue():
 
 func finish_cutscene():
 	
-	Global.day_night = true
 	Global.load_exact_pos = false 
 	Global.target_spawn_name = target_spawn_point_name
 	

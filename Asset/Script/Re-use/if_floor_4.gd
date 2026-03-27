@@ -12,6 +12,10 @@ extends Node2D
 # คอยสั่งงานลูกน้องทีละแผนกตอนเริ่มฉาก
 # ==========================================
 func _ready():
+	print(Global.current_day)
+	print(Global.day_night)
+	print(Global.dawn)
+	
 	if InnerVoice:
 		InnerVoice.visible = false
 		

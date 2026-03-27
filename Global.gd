@@ -2,7 +2,8 @@ extends Node
 
 var minigame_status: Dictionary = {
 	"backpack": false,
-	"gobackday1" : false
+	"gobackday1" : false,
+	"takoyaki" : false
 }
 
 var event_flags: Dictionary = {
@@ -14,7 +15,7 @@ var event_flags: Dictionary = {
 
 var day_night = false
 var dawn = false
-var current_day = 1
+var current_day = 3
 
 var play_cutscene_after_lab2 = false
 var play_cutscene_after_lab = false
