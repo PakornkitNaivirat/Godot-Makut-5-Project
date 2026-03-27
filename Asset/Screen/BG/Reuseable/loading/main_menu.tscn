@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://dqnpdgtv7v2or"]
+[gd_scene format=3 uid="uid://sym2qx4ccb7m"]
 
-[ext_resource type="Script" uid="uid://cxa1cj10rtn7i" path="res://main_menu.gd" id="1_ofq4o"]
-[ext_resource type="Texture2D" uid="uid://d23imxs5rt6o5" path="res://br_game.jr hello.png" id="2_fu7sn"]
-[ext_resource type="FontFile" uid="uid://bsxry52t07gud" path="res://Blue Winter.ttf" id="3_jix8l"]
+[ext_resource type="Script" uid="uid://cxa1cj10rtn7i" path="res://Asset/Script/Re-use/LoadingScreen/main_menu.gd" id="1_jefr5"]
+[ext_resource type="Texture2D" uid="uid://dptltcflapnkb" path="res://Asset/Spirte/Background/CutScreen/Lecture/br_game.jr hello.png" id="2_gpqlj"]
+[ext_resource type="FontFile" uid="uid://bsxry52t07gud" path="res://Asset/font/Blue Winter.ttf" id="3_8855n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
 bg_color = Color(0.5647059, 0.8352941, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkkf"]
-texture = ExtResource("2_fu7sn")
+texture = ExtResource("2_gpqlj")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe12f"]
 bg_color = Color(1, 1, 1, 1)
@@ -32,7 +32,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="Main Menu" type="Node2D" unique_id=249127976]
-script = ExtResource("1_ofq4o")
+script = ExtResource("1_jefr5")
 
 [node name="Panel" type="Panel" parent="." unique_id=289604219]
 offset_right = 1153.0
@@ -68,7 +68,7 @@ offset_bottom = 58.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_fonts/font = ExtResource("3_8855n")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
@@ -89,7 +89,7 @@ offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_fonts/font = ExtResource("3_8855n")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
@@ -110,7 +110,7 @@ offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_fonts/font = ExtResource("3_8855n")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
@@ -122,7 +122,7 @@ offset_left = 98.0
 offset_top = 43.0
 offset_right = 1023.0
 offset_bottom = 161.0
-theme_override_fonts/font = ExtResource("3_jix8l")
+theme_override_fonts/font = ExtResource("3_8855n")
 theme_override_font_sizes/font_size = 90
 text = "Saltwater Memories"
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ck1bnegpnr86c"]
 
 [ext_resource type="Script" uid="uid://kllyvb25jnpd" path="res://Asset/Script/Re-use/LoadingScreen/change_day_night.gd" id="1_0mhvy"]
-[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://MiPancakeBold.ttf" id="2_ffp62"]
+[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="2_ffp62"]
 
 [sub_resource type="Animation" id="Animation_2rim3"]
 resource_name = "NextDays"

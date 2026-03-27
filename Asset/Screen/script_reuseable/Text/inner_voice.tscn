@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2ybh1a88pj1e"]
 
 [ext_resource type="Script" uid="uid://cp7g03s0un55x" path="res://Asset/Script/Re-use/Text-Dialogue/inner_voice.gd" id="1_88p42"]
-[ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Lexend-VariableFont_wght.ttf" id="2_v0af1"]
+[ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Asset/font/Lexend-VariableFont_wght.ttf" id="2_v0af1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xai36"]
 font = ExtResource("2_v0af1")

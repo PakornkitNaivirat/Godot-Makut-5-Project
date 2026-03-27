@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b7tyjekw1oxcr"]
+
+[ext_resource type="Script" uid="uid://bh6klo8j5u2eq" path="res://Asset/Script/Re-use/MiniGame/minigame_takoyaki.gd" id="1_0nvy3"]
+[ext_resource type="Texture2D" uid="uid://duir3rxo7gmu8" path="res://Asset/Spirte/icon/image-Photoroom (4).png" id="2_e32l6"]
+
+[node name="MinigameTakoyaki" type="Control" unique_id=1184783639]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0nvy3")
+target_spawn_point_name = "Takoyaki"
+
+[node name="BackgroundBar" type="ColorRect" parent="." unique_id=539313204]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 0
+offset_left = 375.0
+offset_top = 300.0
+offset_right = 775.0
+offset_bottom = 320.0
+localize_numeral_system = false
+color = Color(1, 0, 0, 1)
+
+[node name="TargetZone" type="ColorRect" parent="BackgroundBar" unique_id=1832356870]
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 170.0
+offset_right = 230.0
+offset_bottom = 20.0
+color = Color(0, 1, 0, 1)
+
+[node name="Arrow" type="ColorRect" parent="BackgroundBar" unique_id=359922511]
+layout_mode = 1
+anchors_preset = -1
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 25.0
+
+[node name="MovingTakoyaki" type="Sprite2D" parent="." unique_id=2108978343]
+position = Vector2(1000, 500)
+rotation = -6.28319
+scale = Vector2(0.446667, 0.397778)
+texture = ExtResource("2_e32l6")
+
+[node name="BoxLocation" type="Marker2D" parent="." unique_id=1660813930]
+position = Vector2(200, 500)
+
+[node name="StatusLabel" type="Label" parent="." unique_id=26571094]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ky51dhmbynt"]
 
-[ext_resource type="Script" uid="uid://prtgyggpy8v0" path="res://pause_menu.gd" id="1_nwcfo"]
-[ext_resource type="Shader" uid="uid://c2g10voe7kokf" path="res://new_shader.gdshader" id="2_05uyy"]
-[ext_resource type="FontFile" uid="uid://bsxry52t07gud" path="res://Blue Winter.ttf" id="3_05uyy"]
+[ext_resource type="Script" uid="uid://prtgyggpy8v0" path="res://Asset/Script/Re-use/LoadingScreen/pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="Shader" path="res://new_shader.gdshader" id="2_05uyy"]
+[ext_resource type="FontFile" uid="uid://bsxry52t07gud" path="res://Asset/font/Blue Winter.ttf" id="3_05uyy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p81d2"]
 shader = ExtResource("2_05uyy")

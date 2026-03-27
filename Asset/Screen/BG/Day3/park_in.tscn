@@ -146,6 +146,9 @@ position = Vector2(-10.37, -234)
 [node name="PosNPC" parent="Dialogue8" index="7" unique_id=309990384]
 position = Vector2(-30, -254)
 
+[node name="Takoyaki" type="Marker2D" parent="." unique_id=155975777]
+position = Vector2(4486, 784)
+
 [editable path="Player"]
 [editable path="Dialogue"]
 [editable path="Dialogue2"]

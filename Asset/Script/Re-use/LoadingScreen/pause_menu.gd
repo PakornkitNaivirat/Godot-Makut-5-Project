@@ -47,4 +47,4 @@ func _on_quit_pressed():
 	get_tree().paused = false
 	
 	# 3. เปลี่ยนฉากกลับหน้าหลัก
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://Asset/Screen/BG/Reuseable/loading/main_menu.tscn")

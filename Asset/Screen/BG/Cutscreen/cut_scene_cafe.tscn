@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bb8x0fk3qbom8"]
 
 [ext_resource type="Texture2D" uid="uid://dhfp381gms447" path="res://Asset/Spirte/Background/CutScreen/cafe/Untitled31_20260323211623.png" id="1_416so"]
-[ext_resource type="Script" uid="uid://dagerhgjga6ha" path="res://Asset/Script/Cutscreen/cut_scene_cafe.gd" id="1_dav0b"]
+[ext_resource type="Script" uid="uid://dqb12t8js0aod" path="res://Asset/Script/Cutscreen/cut_scene_cafe_react.gd" id="1_rquia"]
 [ext_resource type="Texture2D" uid="uid://be4bestdn88a8" path="res://Asset/Spirte/Background/CutScreen/cafe/Untitled31_20260323211637.png" id="2_eosmo"]
 [ext_resource type="Texture2D" uid="uid://36s8r1ffh285" path="res://Asset/Spirte/Background/CutScreen/cafe/Untitled31_20260323211706.png" id="3_khihh"]
 [ext_resource type="Texture2D" uid="uid://gf3dfpc7mmkn" path="res://Asset/Spirte/Background/CutScreen/cafe/Caféhavejr.png" id="3_rivkt"]
@@ -83,6 +83,17 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("2_eosmo"), ExtResource("2_eosmo"), ExtResource("5_dav0b"), ExtResource("5_dav0b")]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_khihh"]
@@ -167,7 +178,7 @@ _data = {
 }
 
 [node name="cut_scene_cafe" type="Node2D" unique_id=1570436315]
-script = ExtResource("1_dav0b")
+script = ExtResource("1_rquia")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=746314897]
 offset_right = 1173.0

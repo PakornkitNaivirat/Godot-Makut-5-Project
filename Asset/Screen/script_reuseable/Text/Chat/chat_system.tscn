@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0m4pytonmc2e"]
 
 [ext_resource type="Script" uid="uid://ckb8kt1odm4ab" path="res://Asset/Script/Re-use/Text-Dialogue/message_bubble.gd" id="1_p3c4t"]
-[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://MiPancakeBold.ttf" id="2_upf0o"]
+[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="2_upf0o"]
 [ext_resource type="Texture2D" uid="uid://duir3rxo7gmu8" path="res://Asset/Spirte/icon/image-Photoroom (4).png" id="3_xru4m"]
 [ext_resource type="Texture2D" uid="uid://drpl0m7enhkyh" path="res://Asset/Spirte/icon/image-Photoroom (6).png" id="4_dsbpk"]
 [ext_resource type="Texture2D" uid="uid://4wxa2wvsqw0h" path="res://Asset/Spirte/icon/image-Photoroom (5).png" id="5_ktyep"]

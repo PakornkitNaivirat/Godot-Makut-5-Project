@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cypwugaklep21"
-path="res://.godot/imported/MiPancakeBold.ttf-90e668ca0c9693ccd8bc7d5b53aa582b.fontdata"
+uid="uid://b76ougioslkln"
+path="res://.godot/imported/Lexend-VariableFont_wght.ttf-9698f66ae175e255726d6c7d5a0dbf6c.fontdata"
 
 [deps]
 
-source_file="res://MiPancakeBold.ttf"
-dest_files=["res://.godot/imported/MiPancakeBold.ttf-90e668ca0c9693ccd8bc7d5b53aa582b.fontdata"]
+source_file="res://Asset/font/Lexend-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/Lexend-VariableFont_wght.ttf-9698f66ae175e255726d6c7d5a0dbf6c.fontdata"]
 
 [params]
 

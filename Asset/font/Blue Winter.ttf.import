@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bsxry52t07gud"
-path="res://.godot/imported/Blue Winter.ttf-f1c7f035ba909f438f1edef959ec07a9.fontdata"
+path="res://.godot/imported/Blue Winter.ttf-5c03f8f450eb6313212ff7addf07a240.fontdata"
 
 [deps]
 
-source_file="res://Blue Winter.ttf"
-dest_files=["res://.godot/imported/Blue Winter.ttf-f1c7f035ba909f438f1edef959ec07a9.fontdata"]
+source_file="res://Asset/font/Blue Winter.ttf"
+dest_files=["res://.godot/imported/Blue Winter.ttf-5c03f8f450eb6313212ff7addf07a240.fontdata"]
 
 [params]
 

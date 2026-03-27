@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsy3vwsjilm8k"]
 
-[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://MiPancakeBold.ttf" id="1_8r0mk"]
+[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="1_8r0mk"]
 [ext_resource type="Script" uid="uid://cpom6w61bb543" path="res://Asset/Script/Cutscreen/cut_scene_ring.gd" id="1_rtf7r"]
 [ext_resource type="Texture2D" uid="uid://b0tn04wpc317m" path="res://Asset/Spirte/Background/CutScreen/Before_Cafe/Untitled58.png" id="2_psdbc"]
 

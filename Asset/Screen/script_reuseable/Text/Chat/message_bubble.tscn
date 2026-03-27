@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8qw3fpiqoayi"]
 
-[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://MiPancakeBold.ttf" id="1_0yln1"]
+[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="1_0yln1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wa6x"]
 corner_radius_top_left = 10
