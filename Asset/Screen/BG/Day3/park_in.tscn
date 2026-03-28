@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://5resd8ckbjvj"]
 
+[ext_resource type="Script" uid="uid://dyxbjc2booy1u" path="res://Asset/Script/Re-use/Except Scene/park_in.gd" id="1_murwx"]
 [ext_resource type="Texture2D" uid="uid://bi2v6ajw0f710" path="res://Asset/Spirte/Background/Day3/Untitled32.png" id="1_pg3p3"]
 [ext_resource type="Texture2D" uid="uid://duudt6yockwq1" path="res://Asset/Spirte/Background/Day3/Parkin_2.png" id="2_4olrs"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="3_yt5dy"]
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="4_ur5rl"]
 [ext_resource type="PackedScene" uid="uid://dpxp8o3dufld4" path="res://Asset/Screen/script_reuseable/Loading/minigame_interaction.tscn" id="5_in5ns"]
+[ext_resource type="Texture2D" uid="uid://c1pybev64nirb" path="res://Asset/Spirte/Charactor/People_ game.png" id="7_xhk3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg3p3"]
 size = Vector2(50, 1183)
 
 [node name="Park IN" type="Node2D" unique_id=2108259122]
+script = ExtResource("1_murwx")
 
 [node name="BG" type="Node2D" parent="." unique_id=1888176815]
 
@@ -20,7 +23,7 @@ centered = false
 
 [node name="Table" type="Sprite2D" parent="BG" unique_id=1828106493]
 modulate = Color(0.49315646, 0.49315646, 0.49315646, 0.54901963)
-z_index = 1
+z_index = 6
 y_sort_enabled = true
 position = Vector2(217, 195)
 scale = Vector2(0.9, 0.9)
@@ -158,16 +161,41 @@ position = Vector2(-10.37, -234)
 position = Vector2(-30, -254)
 
 [node name="Player" parent="." unique_id=1775447557 instance=ExtResource("3_yt5dy")]
+z_index = 5
 position = Vector2(111, 864)
 scale = Vector2(0.35, 0.35)
 
 [node name="Minigame-Interact" parent="." unique_id=157613088 instance=ExtResource("5_in5ns")]
 position = Vector2(4496, 601)
 next_scene_path = "res://Asset/Screen/BG/Minigames/minigame_takoyaki.tscn"
-required_event_id = "takoyaki"
+minigame_id = "takoyaki"
 
 [node name="Takoyaki" type="Marker2D" parent="Minigame-Interact" unique_id=155975777]
 position = Vector2(0, 263)
+
+[node name="Takoyaki" type="Node2D" parent="." unique_id=1570686543]
+
+[node name="Sprite2D" type="Sprite2D" parent="Takoyaki" unique_id=2110402879]
+position = Vector2(2657, 653)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("7_xhk3d")
+region_enabled = true
+region_rect = Rect2(988.0768, 40.999996, 209.04431, 674.9649)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Takoyaki" unique_id=920702485]
+position = Vector2(2529, 653)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_xhk3d")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(749.8749, 432.6131, 207.75586, 631.3201)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Takoyaki" unique_id=1857973346]
+position = Vector2(2722, 669)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("7_xhk3d")
+region_enabled = true
+region_rect = Rect2(1347.4741, 411.57944, 203.72974, 648.3915)
 
 [editable path="Market/Dialogue"]
 [editable path="Market/Dialogue2"]

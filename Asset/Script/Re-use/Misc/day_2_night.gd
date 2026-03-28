@@ -23,8 +23,10 @@ func _ready():
 	black.visible = true
 	
 	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.is_locked = true
+	
+	if Global.current_day == 2 and Global.day_night == true:
+		if player:
+			player.is_locked = true
 		
 	#if InnerVoice:
 		#InnerVoice.hide_text()

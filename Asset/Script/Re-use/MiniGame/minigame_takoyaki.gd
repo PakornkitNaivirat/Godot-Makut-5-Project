@@ -157,7 +157,8 @@ func reset_game():
 		Global.load_exact_pos = false
 		Global.target_spawn_name = target_spawn_point_name
 		
-		Global.minigame_status["takoyaki"] == true
+		Global.minigame_status["takoyaki"] = true
+		
 		LoadingScreen.transition_to_screenfunc("res://Asset/Screen/BG/Day3/park_in.tscn")
 		queue_free()
 		return

@@ -7,6 +7,8 @@ signal chat_finished_signal
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = ""
 
+@export var trigger_next_day: bool = false
+
 @export_group("Chat Settings")
 @export var global_event_flag: String = "" # ชื่อ Event Flag ที่อยากให้เป็น true ตอนคุยจบ (เช่น "join_club_done")
 
@@ -132,4 +134,12 @@ func finish_chat():
 		Global.target_spawn_name = target_spawn_point_name
 		
 	if next_scene_path != "":
-		LoadingScreen.transition_to_screenfunc(next_scene_path)
+		if trigger_next_day == true:
+			# ถ้าติ๊กถูกข้ามวันไว้ -> เอาที่อยู่ปลายทางไปฝาก Global แล้วเรียกฉาก NextDays
+			Global.pending_next_scene = next_scene_path
+			
+			# ⚠️ อย่าลืมแก้ Path ตรงนี้ให้ตรงกับที่อยู่ไฟล์ NextDays.tscn ของคุณนะครับ!
+			LoadingScreen.transition_to_screenfunc("res://Asset/Screen/script_reuseable/Loading/change_day_night.tscn")
+		else:
+			# ถ้าไม่ได้ติ๊กข้ามวัน -> โหลดไปฉากเป้าหมายตรงๆ เลย (เหมือนระบบเดิม)
+			LoadingScreen.transition_to_screenfunc(next_scene_path)

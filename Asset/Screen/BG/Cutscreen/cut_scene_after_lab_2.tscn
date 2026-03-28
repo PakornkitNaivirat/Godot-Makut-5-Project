@@ -216,8 +216,7 @@ _data = {
 
 [node name="cut_scene_after_lab2" type="CanvasLayer" unique_id=1494927062]
 script = ExtResource("1_45ivb")
-next_scene_path = "res://Asset/Screen/BG/Day2/cafe.tscn"
-target_spawn_point_name = "Cafe"
+next_scene_path = "res://Asset/Screen/script_reuseable/Loading/loading_cafe.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1836663653]
 modulate = Color(1, 1, 1, 0.5882353)

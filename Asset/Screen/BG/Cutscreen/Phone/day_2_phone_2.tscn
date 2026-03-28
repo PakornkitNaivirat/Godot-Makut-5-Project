@@ -5,6 +5,8 @@
 [node name="day_2_phone2" type="Node2D" unique_id=5602524]
 
 [node name="ChatSystem" parent="." unique_id=589452478 instance=ExtResource("1_jkyf3")]
+next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_scene_before_park_in.tscn"
+trigger_next_day = true
 chat_messages = Array[String](["Narrator: He opened the message", "NPC: - Hey everyone, would anyone be interested 
  in a meet-and-greet?", "NPC: - It would be a good chance for us to get to 
  know our new members!", "NPC: - Is anyone interested?  ", "ME: - I'm interested!   ", " NPC: - 'I'm interested too   ", "Narrator: He typed his reply at the same time", "Narrator: as the other newcomer. The other person", "Narrator: who joined with me is a girl? Could it be ", "Narrator: the same person I saw at the cafe?", "Narrator: (Wait, wait... what am I thinking? )", "Narrator: (There’s no way)", "Narrator: (it’s that big of a coincidence.)", "NPC: - Okay, so where should we go?", "NPC: - Let's go to Park In Market", "NPC: - Why choose that place?", "NPC: - Well, if we go to the market, we can grab 

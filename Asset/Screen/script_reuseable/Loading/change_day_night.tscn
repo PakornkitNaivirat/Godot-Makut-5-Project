@@ -85,7 +85,6 @@ font_size = 100
 
 [node name="Change_DayNight" type="Node2D" unique_id=1706005816]
 script = ExtResource("1_0mhvy")
-next_scene_path = "res://Asset/Screen/BG/Reuseable/bed_room.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1481546756]
 offset_right = 1163.0

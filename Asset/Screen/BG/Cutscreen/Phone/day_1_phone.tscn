@@ -5,6 +5,8 @@
 [node name="Day1Phone" type="Node2D" unique_id=1811288602]
 
 [node name="ChatSystem" parent="." unique_id=589452478 instance=ExtResource("1_umfje")]
+next_scene_path = "res://Asset/Screen/BG/Reuseable/bed_room.tscn"
+trigger_next_day = true
 chat_messages = Array[String](["NPC:    [Marine Conservation Club Bot]
  Hey there! 👋
  Welcome to the Marine Conservation Club.
