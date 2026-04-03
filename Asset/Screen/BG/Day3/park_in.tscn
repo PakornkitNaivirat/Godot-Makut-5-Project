@@ -197,6 +197,18 @@ texture = ExtResource("7_xhk3d")
 region_enabled = true
 region_rect = Rect2(1347.4741, 411.57944, 203.72974, 648.3915)
 
+[node name="Dialogue" parent="Takoyaki" unique_id=1882010452 instance=ExtResource("4_ur5rl")]
+position = Vector2(2660, 623)
+dialog_text = Array[String](["Narrator: (I wonder if these are the club members? )", "Narrator: (Well, only one way to find out.)", "Player:Um... excuse me, ", "Player:are you with the Marine Conservation Club?", "NPC: Hm?", "NPC:Ah, yes! You must be the other new member.", "NPC:Glad to meet you. I’m Kla, the club president", "Player:Nice to meet you! My name is Time", "Narrator:The others took turns introducing themselves ", "Narrator:until  it  reached the last person", "NPC:Alright everyone .I’d like to announce our first club activity", "NPC:Next Saturday, we’re having an event at Bang Saen Beach.", "NPC: I’ll send the full details in the group chat later", "Narrator:\"Understood!\" everyone replied in unison.
+", "NPC:Okay, that’s all for today. ", "NPC:You guys can head back or keep exploring. I'm taking off now.", "Narrator:(Should we head back now?)", "Narrator:(I don't think so. I think I'll go to a concert for a while.)"])
+behavior = 1
+
+[node name="PosNPC" parent="Takoyaki/Dialogue" index="7" unique_id=309990384]
+position = Vector2(-20, -166)
+
+[node name="PosPlayer" parent="Takoyaki/Dialogue" index="8" unique_id=1232311272]
+position = Vector2(-38, -97)
+
 [editable path="Market/Dialogue"]
 [editable path="Market/Dialogue2"]
 [editable path="Market/Dialogue3"]
@@ -206,3 +218,4 @@ region_rect = Rect2(1347.4741, 411.57944, 203.72974, 648.3915)
 [editable path="Market/Dialogue7"]
 [editable path="Market/Dialogue8"]
 [editable path="Player"]
+[editable path="Takoyaki/Dialogue"]
