@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://biybycql18lfe"]
+
+[ext_resource type="PackedScene" uid="uid://c0m4pytonmc2e" path="res://Asset/Screen/script_reuseable/Text/Chat/chat_system.tscn" id="1_jkyf3"]
+
+[node name="day_2_phone2" type="Node2D" unique_id=5602524]
+
+[node name="ChatSystem" parent="." unique_id=589452478 instance=ExtResource("1_jkyf3")]
+next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_scene_before_park_in.tscn"
+trigger_next_day = true
+chat_messages = Array[String](["Narrator: He opened the message", "NPC: - Hey everyone, would anyone be interested 
+ in a meet-and-greet?", "NPC: - It would be a good chance for us to get to 
+ know our new members!", "NPC: - Is anyone interested?  ", "ME: - I'm interested!   ", " NPC: - 'I'm interested too   ", "Narrator: He typed his reply at the same time", "Narrator: as the other newcomer. The other person", "Narrator: who joined with me is a girl? Could it be ", "Narrator: the same person I saw at the cafe?", "Narrator: (Wait, wait... what am I thinking? )", "Narrator: (There’s no way)", "Narrator: (it’s that big of a coincidence.)", "NPC: - Okay, so where should we go?", "NPC: - Let's go to Park In Market", "NPC: - Why choose that place?", "NPC: - Well, if we go to the market, we can grab 
+ food, shop for clothes", "NPC: - if you're interested, just type \"Acknowledged\"
+", "NPC: - Acknowledged!!' ^x6", "NPC: - Great! Which day works for everyone?", "NPC: - How about Saturday?", "NPC: - Let's meet at 5:30 PM in front of the 
+ market. Is that okay with everyone?'", "NPC: - ✅ ^5", "ME: - ✅", "NPC: - Alright, see you then", "Narrator: After he finished replying and settling", "Narrator:  on the meeting point, he lay in bed, thinking", "Narrator: about how exciting it would be to meet", "Narrator: everyone in the club. He hoped he would be able", "Narrator: to get along with them without too much trouble.", "Narrator: With that, he drifted off to sleep in his cozy bed."])

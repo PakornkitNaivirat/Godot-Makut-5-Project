@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bh6klo8j5u2eq" path="res://Asset/Script/Re-use/MiniGame/minigame_takoyaki.gd" id="1_0nvy3"]
 [ext_resource type="Texture2D" uid="uid://duir3rxo7gmu8" path="res://Asset/Spirte/icon/image-Photoroom (4).png" id="2_e32l6"]
 [ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="3_0ul3a"]
+[ext_resource type="Texture2D" uid="uid://cau42ginq50wb" path="res://Asset/Spirte/Prop/image_2026-03-04_161735370-Photoroom.png" id="3_f4yvr"]
 [ext_resource type="Texture2D" uid="uid://drpl0m7enhkyh" path="res://Asset/Spirte/icon/image-Photoroom (6).png" id="5_6hwa1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1lrki"]
@@ -51,8 +52,9 @@ rotation = -6.28319
 scale = Vector2(0.446667, 0.397778)
 texture = ExtResource("2_e32l6")
 
-[node name="BoxLocation" type="Marker2D" parent="." unique_id=412652463]
+[node name="BoxLocation" type="Sprite2D" parent="." unique_id=1458501831]
 position = Vector2(200, 500)
+texture = ExtResource("3_f4yvr")
 
 [node name="StatusLabel" type="Label" parent="." unique_id=26571094]
 layout_mode = 0
@@ -70,6 +72,5 @@ offset_bottom = 101.0
 label_settings = SubResource("LabelSettings_1lrki")
 
 [node name="Tongs" type="Sprite2D" parent="." unique_id=1714943530]
-position = Vector2(-186.5, -188)
-scale = Vector2(0.27148438, 0.265625)
+visible = false
 texture = ExtResource("5_6hwa1")

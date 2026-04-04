@@ -7,6 +7,7 @@
 [node name="ChatSystem" parent="." unique_id=589452478 instance=ExtResource("1_ulagq")]
 next_scene_path = "res://Asset/Screen/BG/Day2/if_floor_4.tscn"
 target_spawn_point_name = "done"
+trigger_next_day = false
 chat_messages = Array[String](["NPC: - Hello, everyone! 🙏
  This is the Marine Conservation Club's group.
  I'm the club president. I'm very happy to be 

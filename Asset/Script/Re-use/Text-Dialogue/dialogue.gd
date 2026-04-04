@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var next_scene_path: String = "" 
+@export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = ""
 @export_multiline var dialog_text: Array[String] = [""]
 @export_enum("ให้ขยับไปจุด", "ไม่ขยับไปจุด") var behavior: int = 0
@@ -52,7 +52,7 @@ func start_dialogue():
 			await move_player(current_player, $PlayerSpot.global_position)
 		
 		# หันหน้าคุยกัน
-		var sprite = current_player.get_node_or_null("Animaton/Sprite2D")
+		var sprite = current_player.get_node_or_null("Animaton/Sprite2D") # ระวังสะกด Animation ผิดนะ
 		if sprite:
 			sprite.flip_h = (global_position.x < current_player.global_position.x)
 			
@@ -62,22 +62,28 @@ func start_dialogue():
 
 #คุยต่อ
 func continue_dialogue():
-	current_line += 1
+	# 🌟 1. เช็คว่า InnerVoice กำลังพิมพ์อยู่ไหม
+	if InnerVoice and InnerVoice.visible and InnerVoice.is_typing():
+		InnerVoice.force_skip_typing()
+		return
+		
+	# 🌟 2. เช็คว่า speech_bubble ปกติ กำลังพิมพ์อยู่ไหม
 	if speech_bubble.visible and speech_bubble.label.visible_ratio < 0.99:
 		speech_bubble.force_skip_typing() # เร่งข้อความให้เต็ม
+		return
 		
+	# ถ้าข้อความเต็มแล้ว ค่อยข้ามบรรทัด (แก้บั๊ก current_line เบิ้ลของเดิม)
+	current_line += 1
+	if current_line < dialog_text.size():
+		update_speech_bubble()
 	else:
-		# ถ้าข้อความเต็มแล้ว ค่อยข้ามบรรทัด
-		current_line += 1
-		if current_line < dialog_text.size():
-			update_speech_bubble()
-		else:
-			end_dialogue()
+		end_dialogue()
 
 #จบบทพูด
 func end_dialogue():
 	is_busy = true
 	speech_bubble.hide_dialogue()
+	if InnerVoice: InnerVoice.hide_text() # 🌟 ปิดเสียงในใจด้วยตอนคุยจบ
 	
 	if next_scene_path != "":
 		print("กำลังเปลี่ยนฉากไปที่: ", next_scene_path)
@@ -118,26 +124,37 @@ func move_player(player: Node2D, target_pos: Vector2):
 	if anim:
 		anim.play("idle")
 
-# 
+# อัปเดตกล่องข้อความ
 func update_speech_bubble():
 	if current_line >= dialog_text.size(): return 
 	
 	var full_text = dialog_text[current_line]
 	var parts = full_text.split(":", true, 1) 
 	var display_text = full_text
+	var is_inner_voice = false # 🌟 ตัวแปรเช็คว่าเป็นเสียงในใจไหม
 	
 	if parts.size() > 1:
 		var speaker = parts[0].strip_edges().to_lower() 
 		display_text = parts[1].strip_edges() 
 		
-		if speaker == "player":
+		# 🌟 เช็คว่าเป็นเสียงในใจไหม
+		if speaker in ["narrator", "innervoice", "inner"]:
+			is_inner_voice = true
+		elif speaker == "player" or speaker == "me":
 			speech_bubble.global_position = pos_player.global_position
 		else:
 			speech_bubble.global_position = pos_npc.global_position
 	else:
 		speech_bubble.global_position = pos_npc.global_position
 
-	speech_bubble.show_dialogue(display_text)
+	# 🌟 แยกการแสดงผลระหว่าง InnerVoice กับ Speech Bubble ปกติ
+	if is_inner_voice:
+		speech_bubble.hide() # ซ่อนกล่องคำพูดปกติ
+		if InnerVoice: InnerVoice.speak(display_text)
+	else:
+		if InnerVoice: InnerVoice.hide_text() # ซ่อนเสียงในใจ
+		speech_bubble.show()
+		speech_bubble.show_dialogue(display_text)
 	
 #ตรวจจับการเข้า-ออกของผู้เล่น
 func _on_body_entered(body):
@@ -161,3 +178,4 @@ func _on_body_exited(body):
 		if is_talking:
 			is_talking = false
 			speech_bubble.hide_dialogue()
+			if InnerVoice: InnerVoice.hide_text() # 🌟 ป้องกันเสียงในใจค้างตอนเดินหนี

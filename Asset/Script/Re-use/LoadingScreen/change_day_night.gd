@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var next_scene_path: String = ""
-
 @onready var anim = $AnimationPlayer
 
 func _ready():
@@ -12,6 +10,8 @@ func _finish():
 	Global.current_day += 1
 	Global.day_night = false
 	
-	if next_scene_path != "":
-		LoadingScreen.transition_to_screenfunc(next_scene_path)
+	var next_scene = Global.pending_next_scene
 	
+	if next_scene != "":
+		Global.pending_next_scene = "" 
+		LoadingScreen.transition_to_screenfunc(next_scene)

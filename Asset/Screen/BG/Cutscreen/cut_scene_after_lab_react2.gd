@@ -1,5 +1,6 @@
 extends "res://Asset/Script/Cutscreen/cut_scene_after_lab_2.gd"
 
+
 var expressions: Dictionary = {
 	"1": {
 		"normal":    Rect2(723,   540,   554, 389),  # <- แก้ตามจริง
@@ -130,3 +131,6 @@ func _react_then_advance():
 		speech_bubble.hide_dialogue()
 		InnerVoice.hide_text() 
 		anim.play()
+		
+func fade():
+	get_tree().call_group("after_lab", "walk_away")

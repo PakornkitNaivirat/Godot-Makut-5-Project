@@ -3,6 +3,8 @@ extends Node2D
 func _ready():
 	setup_daily_events()
 	
+	print()
+	
 
 func setup_daily_events():
 	var today = Global.current_day

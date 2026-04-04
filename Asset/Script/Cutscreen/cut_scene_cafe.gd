@@ -9,7 +9,34 @@ extends Node2D
 #Set บทพูด
 var all_dialogues = {
 	"part1": [
-		{"speaker": "Narrator", "text": "He and his friends arrived at the shop on a motorcycle"},
+		{"speaker": "G", "text": "Hey, who were you staring at back there for so long?"},
+		{"speaker": "G", "text": "Someone you know?"},
+		{"speaker": "Narrator", "text": "His friend spoke up. He flinched for a moment beforeanswering hesitantly."},
+		{"speaker": "Me", "text": "Uh... well... how should I put it?"},
+		{"speaker": "Me", "text": "I don't know her, but by the time I realized it, I was already staring"},
+		{"speaker": "B", "text": "Wait, is this... love at first sight?!!!"},
+		{"speaker": "Me", "text": "Probably not. I just accidentally looked because she's pretty, that's all."},
+		{"speaker": "B", "text": "Ah... so you're a creep then"},
+		{"speaker": "Me", "text": "Hey! How did it turn into that?!"},
+		{"speaker": "B", "text": "Well, staring at a stranger for that long..."},
+		{"speaker": "B", "text": "if it's not love at first sight, it's definitely creepy, hahaha!"},
+		{"speaker": "Me", "text": "That’s true... I feel terrible now"},
+		{"speaker": "Narrator", "text": "His friend spoke with logic he couldn't argue with. "},
+		{"speaker": "Narrator", "text": "He quickly tried to change the subject to hide his embarrassment."},
+		{"speaker": "Me", "text": "Alright, alright, let's just start tutoring"},
+		{"speaker": "G", "text": "My, my, aren't we quick to change the subject, lover boy?"},
+		{"speaker": "B", "text": "You're usually not like this."},
+		{"speaker": "B", "text": "She must be really beautiful or exactly your type."},
+		{"speaker": "Narrator", "text": "Both of his friends continued to tease him playfully."},
+		{"speaker": "Me", "text": "I said! Let's! Tutor"},
+		{"speaker": "G", "text": "Whoa, are you mad now? How cute~"},
+		{"speaker": "B", "text": "It's actually pretty funny seeing you like this for once."},
+	],
+	"part2": [
+		{"speaker": "Narrator", "text": "They tutored each other until evening. When they stepped out of the shop, "},
+		{"speaker": "Narrator", "text": "he noticed she was already gone. He hopped onto his friend’s motorcycle"},
+		{"speaker": "Narrator", "text": "and they dropped him off at his dorm, He returned to his room "},
+		{"speaker": "Narrator", "text": "still feeling a lingering sense of guilt for having been so rude to her"},
 	],
 }
 
@@ -84,6 +111,8 @@ func finish_cutscene():
 	is_talking = false
 	self.visible = false
 	
+	Global.day_night = true
+	Global.dawn = false
 	Global.load_exact_pos = false 
 	Global.target_spawn_name = target_spawn_point_name
 	

@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://5resd8ckbjvj"]
 
+[ext_resource type="Script" uid="uid://dyxbjc2booy1u" path="res://Asset/Script/Re-use/Except Scene/park_in.gd" id="1_murwx"]
 [ext_resource type="Texture2D" uid="uid://bi2v6ajw0f710" path="res://Asset/Spirte/Background/Day3/Untitled32.png" id="1_pg3p3"]
 [ext_resource type="Texture2D" uid="uid://duudt6yockwq1" path="res://Asset/Spirte/Background/Day3/Parkin_2.png" id="2_4olrs"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="3_yt5dy"]
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="4_ur5rl"]
+[ext_resource type="PackedScene" uid="uid://dpxp8o3dufld4" path="res://Asset/Screen/script_reuseable/Loading/minigame_interaction.tscn" id="5_in5ns"]
+[ext_resource type="Texture2D" uid="uid://c1pybev64nirb" path="res://Asset/Spirte/Charactor/People_ game.png" id="7_xhk3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg3p3"]
 size = Vector2(50, 1183)
 
 [node name="Park IN" type="Node2D" unique_id=2108259122]
+script = ExtResource("1_murwx")
 
 [node name="BG" type="Node2D" parent="." unique_id=1888176815]
 
@@ -19,7 +23,7 @@ centered = false
 
 [node name="Table" type="Sprite2D" parent="BG" unique_id=1828106493]
 modulate = Color(0.49315646, 0.49315646, 0.49315646, 0.54901963)
-z_index = 1
+z_index = 6
 y_sort_enabled = true
 position = Vector2(217, 195)
 scale = Vector2(0.9, 0.9)
@@ -36,125 +40,182 @@ shape = SubResource("RectangleShape2D_pg3p3")
 position = Vector2(5763, 584)
 shape = SubResource("RectangleShape2D_pg3p3")
 
-[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("3_yt5dy")]
-position = Vector2(60, 827)
-scale = Vector2(0.4, 0.4)
+[node name="Market" type="Node2D" parent="." unique_id=1206912154]
 
-[node name="Dialogue" parent="." unique_id=410944203 instance=ExtResource("4_ur5rl")]
+[node name="Dialogue" parent="Market" unique_id=410944203 instance=ExtResource("4_ur5rl")]
 position = Vector2(1232, 613)
 dialog_text = Array[String](["Want some noodle?"])
 behavior = 1
 
-[node name="box" parent="Dialogue" index="4" unique_id=97389463]
+[node name="box" parent="Market/Dialogue" index="4" unique_id=97389463]
 position = Vector2(13, -227)
 
-[node name="dot" parent="Dialogue" index="5" unique_id=1117769796]
+[node name="dot" parent="Market/Dialogue" index="5" unique_id=1117769796]
 position = Vector2(6.63, -229)
 
-[node name="PosNPC" parent="Dialogue" index="7" unique_id=309990384]
+[node name="PosNPC" parent="Market/Dialogue" index="7" unique_id=309990384]
 position = Vector2(11, -226)
 
-[node name="Dialogue2" parent="." unique_id=1977783359 instance=ExtResource("4_ur5rl")]
+[node name="Dialogue2" parent="Market" unique_id=1977783359 instance=ExtResource("4_ur5rl")]
 position = Vector2(309, 622)
 dialog_text = Array[String](["Want some mooping?"])
 behavior = 1
 
-[node name="box" parent="Dialogue2" index="4" unique_id=97389463]
+[node name="box" parent="Market/Dialogue2" index="4" unique_id=97389463]
 position = Vector2(-44, -212)
 
-[node name="dot" parent="Dialogue2" index="5" unique_id=1117769796]
+[node name="dot" parent="Market/Dialogue2" index="5" unique_id=1117769796]
 position = Vector2(-50.37, -214)
 
-[node name="PosNPC" parent="Dialogue2" index="7" unique_id=309990384]
+[node name="PosNPC" parent="Market/Dialogue2" index="7" unique_id=309990384]
 position = Vector2(-55, -228)
 
-[node name="Dialogue3" parent="." unique_id=1994325166 instance=ExtResource("4_ur5rl")]
+[node name="Dialogue3" parent="Market" unique_id=1994325166 instance=ExtResource("4_ur5rl")]
 position = Vector2(1654, 617)
 dialog_text = Array[String](["Kamoo mai ja handsome."])
 behavior = 1
 
-[node name="box" parent="Dialogue3" index="4" unique_id=97389463]
+[node name="box" parent="Market/Dialogue3" index="4" unique_id=97389463]
 position = Vector2(18, -219)
 
-[node name="dot" parent="Dialogue3" index="5" unique_id=1117769796]
+[node name="dot" parent="Market/Dialogue3" index="5" unique_id=1117769796]
 position = Vector2(11.63, -221)
 
-[node name="PosNPC" parent="Dialogue3" index="7" unique_id=309990384]
+[node name="PosNPC" parent="Market/Dialogue3" index="7" unique_id=309990384]
 position = Vector2(2, -213)
 
-[node name="Dialogue4" parent="." unique_id=1356395480 instance=ExtResource("4_ur5rl")]
+[node name="Dialogue4" parent="Market" unique_id=1356395480 instance=ExtResource("4_ur5rl")]
 position = Vector2(3494, 583)
 dialog_text = Array[String](["Sticky rice mango 40 bath."])
 behavior = 1
 
-[node name="box" parent="Dialogue4" index="4" unique_id=97389463]
+[node name="CollisionShape2D" parent="Market/Dialogue4" index="0" unique_id=1060850475]
+position = Vector2(-28.5, 130.5)
+
+[node name="box" parent="Market/Dialogue4" index="4" unique_id=97389463]
 position = Vector2(3, -235)
 
-[node name="dot" parent="Dialogue4" index="5" unique_id=1117769796]
+[node name="dot" parent="Market/Dialogue4" index="5" unique_id=1117769796]
 position = Vector2(-3.37, -237)
 
-[node name="PosNPC" parent="Dialogue4" index="7" unique_id=309990384]
+[node name="PosNPC" parent="Market/Dialogue4" index="7" unique_id=309990384]
 position = Vector2(5, -238)
 
-[node name="Dialogue5" parent="." unique_id=671631226 instance=ExtResource("4_ur5rl")]
+[node name="Dialogue5" parent="Market" unique_id=671631226 instance=ExtResource("4_ur5rl")]
 position = Vector2(4050, 584)
 dialog_text = Array[String](["Fruit juice fruit juice."])
 behavior = 1
 
-[node name="box" parent="Dialogue5" index="4" unique_id=97389463]
+[node name="CollisionShape2D" parent="Market/Dialogue5" index="0" unique_id=1060850475]
+position = Vector2(-28.5, 130.5)
+
+[node name="box" parent="Market/Dialogue5" index="4" unique_id=97389463]
 position = Vector2(-25, -210)
 
-[node name="dot" parent="Dialogue5" index="5" unique_id=1117769796]
+[node name="dot" parent="Market/Dialogue5" index="5" unique_id=1117769796]
 position = Vector2(-31.37, -212)
 
-[node name="PosNPC" parent="Dialogue5" index="7" unique_id=309990384]
+[node name="PosNPC" parent="Market/Dialogue5" index="7" unique_id=309990384]
 position = Vector2(-7, -203)
 
-[node name="Dialogue6" parent="." unique_id=1212288120 instance=ExtResource("4_ur5rl")]
+[node name="Dialogue6" parent="Market" unique_id=1212288120 instance=ExtResource("4_ur5rl")]
 position = Vector2(716, 611)
 dialog_text = Array[String](["BBQ."])
 behavior = 1
 
-[node name="box" parent="Dialogue6" index="4" unique_id=97389463]
+[node name="box" parent="Market/Dialogue6" index="4" unique_id=97389463]
 position = Vector2(-43, -203)
 
-[node name="dot" parent="Dialogue6" index="5" unique_id=1117769796]
+[node name="dot" parent="Market/Dialogue6" index="5" unique_id=1117769796]
 position = Vector2(-49.37, -205)
 
-[node name="PosNPC" parent="Dialogue6" index="7" unique_id=309990384]
+[node name="PosNPC" parent="Market/Dialogue6" index="7" unique_id=309990384]
 position = Vector2(-5, -181)
 
-[node name="Dialogue7" parent="." unique_id=529221063 instance=ExtResource("4_ur5rl")]
+[node name="Dialogue7" parent="Market" unique_id=529221063 instance=ExtResource("4_ur5rl")]
 position = Vector2(5071, 587)
 dialog_text = Array[String](["Moo sate 5 piece 20 bath."])
 behavior = 1
 
-[node name="PosNPC" parent="Dialogue7" index="7" unique_id=309990384]
+[node name="CollisionShape2D" parent="Market/Dialogue7" index="0" unique_id=1060850475]
+position = Vector2(-28.5, 130.5)
+
+[node name="PosNPC" parent="Market/Dialogue7" index="7" unique_id=309990384]
 position = Vector2(-48, -249)
 
-[node name="Dialogue8" parent="." unique_id=1769013410 instance=ExtResource("4_ur5rl")]
+[node name="Dialogue8" parent="Market" unique_id=1769013410 instance=ExtResource("4_ur5rl")]
 position = Vector2(5559, 587)
 dialog_text = Array[String](["Booba 30 bath ja."])
 behavior = 1
 
-[node name="box" parent="Dialogue8" index="4" unique_id=97389463]
+[node name="CollisionShape2D" parent="Market/Dialogue8" index="0" unique_id=1060850475]
+position = Vector2(-28.5, 130.5)
+
+[node name="box" parent="Market/Dialogue8" index="4" unique_id=97389463]
 position = Vector2(-4, -232)
 
-[node name="dot" parent="Dialogue8" index="5" unique_id=1117769796]
+[node name="dot" parent="Market/Dialogue8" index="5" unique_id=1117769796]
 position = Vector2(-10.37, -234)
 
-[node name="PosNPC" parent="Dialogue8" index="7" unique_id=309990384]
+[node name="PosNPC" parent="Market/Dialogue8" index="7" unique_id=309990384]
 position = Vector2(-30, -254)
 
-[node name="Takoyaki" type="Marker2D" parent="." unique_id=155975777]
-position = Vector2(4486, 784)
+[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("3_yt5dy")]
+z_index = 5
+position = Vector2(111, 864)
+scale = Vector2(0.35, 0.35)
 
+[node name="Minigame-Interact" parent="." unique_id=157613088 instance=ExtResource("5_in5ns")]
+position = Vector2(4496, 601)
+next_scene_path = "res://Asset/Screen/BG/Minigames/minigame_takoyaki.tscn"
+minigame_id = "takoyaki"
+
+[node name="Takoyaki" type="Marker2D" parent="Minigame-Interact" unique_id=155975777]
+position = Vector2(0, 263)
+
+[node name="Takoyaki" type="Node2D" parent="." unique_id=1570686543]
+
+[node name="Sprite2D" type="Sprite2D" parent="Takoyaki" unique_id=2110402879]
+position = Vector2(2657, 653)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("7_xhk3d")
+region_enabled = true
+region_rect = Rect2(988.0768, 40.999996, 209.04431, 674.9649)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Takoyaki" unique_id=920702485]
+position = Vector2(2529, 653)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_xhk3d")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(749.8749, 432.6131, 207.75586, 631.3201)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Takoyaki" unique_id=1857973346]
+position = Vector2(2722, 669)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("7_xhk3d")
+region_enabled = true
+region_rect = Rect2(1347.4741, 411.57944, 203.72974, 648.3915)
+
+[node name="Dialogue" parent="Takoyaki" unique_id=1882010452 instance=ExtResource("4_ur5rl")]
+position = Vector2(2660, 623)
+dialog_text = Array[String](["Narrator: (I wonder if these are the club members? )", "Narrator: (Well, only one way to find out.)", "Player:Um... excuse me, ", "Player:are you with the Marine Conservation Club?", "NPC: Hm?", "NPC:Ah, yes! You must be the other new member.", "NPC:Glad to meet you. I’m Kla, the club president", "Player:Nice to meet you! My name is Time", "Narrator:The others took turns introducing themselves ", "Narrator:until  it  reached the last person", "NPC:Alright everyone .I’d like to announce our first club activity", "NPC:Next Saturday, we’re having an event at Bang Saen Beach.", "NPC: I’ll send the full details in the group chat later", "Narrator:\"Understood!\" everyone replied in unison.
+", "NPC:Okay, that’s all for today. ", "NPC:You guys can head back or keep exploring. I'm taking off now.", "Narrator:(Should we head back now?)", "Narrator:(I don't think so. I think I'll go to a concert for a while.)"])
+behavior = 1
+
+[node name="PosNPC" parent="Takoyaki/Dialogue" index="7" unique_id=309990384]
+position = Vector2(-20, -166)
+
+[node name="PosPlayer" parent="Takoyaki/Dialogue" index="8" unique_id=1232311272]
+position = Vector2(-38, -97)
+
+[editable path="Market/Dialogue"]
+[editable path="Market/Dialogue2"]
+[editable path="Market/Dialogue3"]
+[editable path="Market/Dialogue4"]
+[editable path="Market/Dialogue5"]
+[editable path="Market/Dialogue6"]
+[editable path="Market/Dialogue7"]
+[editable path="Market/Dialogue8"]
 [editable path="Player"]
-[editable path="Dialogue"]
-[editable path="Dialogue2"]
-[editable path="Dialogue3"]
-[editable path="Dialogue4"]
-[editable path="Dialogue5"]
-[editable path="Dialogue6"]
-[editable path="Dialogue7"]
-[editable path="Dialogue8"]
+[editable path="Takoyaki/Dialogue"]

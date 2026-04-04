@@ -14,10 +14,13 @@ position = Vector2(1.5, 7)
 shape = SubResource("RectangleShape2D_mmsvm")
 
 [node name="interaction" parent="." unique_id=766295074 instance=ExtResource("2_f3e1l")]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(1, 1, 1, 1)
 position = Vector2(13, -281)
+rotation = -0.16648261
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=626964593]
+
+[node name="PlayerSpot" type="Marker2D" parent="." unique_id=932668430]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

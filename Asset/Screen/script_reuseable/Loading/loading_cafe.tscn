@@ -1,14 +1,136 @@
 [gd_scene format=3 uid="uid://bs2j05ihar8bs"]
 
+[ext_resource type="Script" uid="uid://cav47o2tlg0jo" path="res://Asset/Script/Cutscreen/loading_cafe.gd" id="1_6jlyp"]
+[ext_resource type="Texture2D" uid="uid://lw7425qoq4fc" path="res://Asset/Spirte/Background/CutScreen/cafe/Untitled67 2.png" id="1_d1c3s"]
+
+[sub_resource type="Animation" id="Animation_6jlyp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:region_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("1:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(537.73834, 44.984497, 853.0822, 987.1786)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(564, 322)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_p3m8t"]
 resource_name = "cafe"
+length = 2.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:region_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("1:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(537.73834, 44.984497, 853.0822, 987.1786)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1920929e-07, 0.10000014, 0.2000001, 0.30000013, 0.4000001, 0.5000001, 0.60000014, 0.70000017, 0.8000002, 0.9000001, 1.0000001, 1.1000001, 1.2000002, 1.3000001, 1.4000001, 1.5, 1.6, 1.6999999, 1.8, 1.8999999, 2, 2.1, 2.1999998, 2.2999997, 2.4, 2.5, 2.6, 2.6999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(564, 330), Vector2(564, 345), Vector2(564, 330), Vector2(564, 315), Vector2(564, 330), Vector2(564, 345), Vector2(564, 330), Vector2(564, 315), Vector2(564, 330), Vector2(564, 345), Vector2(564, 330), Vector2(564, 315), Vector2(564, 330), Vector2(564, 345), Vector2(564, 330), Vector2(564, 315), Vector2(564, 330), Vector2(564, 345), Vector2(564, 330), Vector2(564, 315), Vector2(564, 330), Vector2(564, 345), Vector2(564, 330), Vector2(564, 315), Vector2(564, 330), Vector2(564, 345), Vector2(564, 330), Vector2(564, 315)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.50000006, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_cutscene"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d1c3s"]
 _data = {
+&"RESET": SubResource("Animation_6jlyp"),
 &"cafe": SubResource("Animation_p3m8t")
 }
 
 [node name="loading_cafe" type="Node2D" unique_id=1045142518]
+script = ExtResource("1_6jlyp")
+next_scene_path = "res://Asset/Screen/BG/Day2/cafe.tscn"
+target_spawn_point_name = "Cafe"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=83937307]
 offset_right = 1165.0
@@ -19,3 +141,9 @@ color = Color(0.09411765, 0.09411765, 0.09411765, 1)
 libraries/ = SubResource("AnimationLibrary_d1c3s")
 
 [node name="1" type="Sprite2D" parent="." unique_id=1593138730]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(564, 322)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_d1c3s")
+region_enabled = true
+region_rect = Rect2(537.73834, 44.984497, 853.0822, 987.1786)

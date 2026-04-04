@@ -18,7 +18,6 @@ offset_right = 40.0
 offset_bottom = 52.0
 mouse_filter = 2
 script = ExtResource("1_p3c4t")
-next_scene_path = "res://Asset/Screen/script_reuseable/Loading/change_day_night.tscn"
 
 [node name="Panel" type="Panel" parent="." unique_id=1721244811]
 layout_mode = 0
@@ -81,3 +80,18 @@ texture = ExtResource("4_dsbpk")
 position = Vector2(797.25, 59)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_ktyep")
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1445840474]
+layout_mode = 0
+offset_top = -42.0
+offset_right = 332.0
+offset_bottom = 683.0
+color = Color(0.38431373, 0.42352942, 0.65882355, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1370797425]
+layout_mode = 0
+offset_left = 828.0
+offset_top = -31.0
+offset_right = 1160.0
+offset_bottom = 694.0
+color = Color(0.38545233, 0.42255795, 0.65708554, 1)
