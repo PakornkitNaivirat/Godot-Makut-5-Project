@@ -10,10 +10,9 @@ signal chat_finished_signal
 @export var trigger_next_day: bool = false
 
 @export_group("Chat Settings")
-@export var global_event_flag: String = "" # ชื่อ Event Flag ที่อยากให้เป็น true ตอนคุยจบ (เช่น "join_club_done")
+@export var global_event_flag: String = "" # ชื่อ Event Flag ที่อยากให้เป็น true ตอนคุยจบ
 
 # 🌟 รูปแบบการพิมพ์: "คนพูด: ข้อความ" 
-# ถ้าเป็นเสียงในใจให้พิมพ์ว่า "Narrator: ข้อความ" หรือ "InnerVoice: ข้อความ"
 @export_multiline var chat_messages: Array[String] = [
 	"NPC: Hello there! Welcome to the club.",
 	"Narrator: ฉันหยิบโทรศัพท์ขึ้นมาพิมพ์ตอบกลับอย่างรวดเร็ว",
@@ -23,6 +22,8 @@ signal chat_finished_signal
 
 @onready var chat_scroll = $Panel/ChatScroll
 @onready var message_list = $Panel/ChatScroll/MessageList
+# ดึงโหนดเสียงมาใช้งาน (อ้างอิงจากชื่อโหนดใน Scene ของคุณ)
+@onready var message_sound = $MessageSound
 
 var bubble_scene = preload("res://Asset/Screen/script_reuseable/Text/Chat/message_bubble.tscn")
 
@@ -32,12 +33,12 @@ func _input(event):
 	# กด Spacebar / Enter เพื่อเด้งข้อความถัดไป
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("interact"):
 		
-		# 🌟 ดักเช็คก่อนว่า InnerVoice กำลังพิมพ์อยู่ไหม ถ้าพิมพ์อยู่ให้ข้ามแอนิเมชันพิมพ์
+		# 🌟 ดักเช็คก่อนว่า InnerVoice กำลังพิมพ์อยู่ไหม
 		if InnerVoice.visible and InnerVoice.is_typing():
 			InnerVoice.force_skip_typing()
 			
 		else:
-			# ถ้าไม่ได้พิมพ์อยู่ (หรือพิมพ์เสร็จแล้ว) ค่อยไปประโยคถัดไป
+			# ถ้าไม่ได้พิมพ์อยู่ ค่อยไปประโยคถัดไป
 			if current_index < chat_messages.size():
 				var full_text = chat_messages[current_index]
 				process_and_add_message(full_text)
@@ -52,28 +53,25 @@ func _input(event):
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			chat_scroll.scroll_vertical += 40 
 
-# 🌟 ฟังก์ชันแยกส่วนข้อความว่าใครพูด (ซ้าย / ขวา / เสียงในใจ)
+# 🌟 ฟังก์ชันแยกส่วนข้อความว่าใครพูด
 func process_and_add_message(full_text: String):
 	var parts = full_text.split(":", true, 1)
 	var display_text = full_text
 	var is_me = false
-	var is_narrator = false # 🌟 ตัวแปรเช็คว่าเป็นเสียงในใจไหม
+	var is_narrator = false 
 	
 	if parts.size() > 1:
 		var speaker = parts[0].strip_edges().to_lower()
-		display_text = parts[1].strip_edges() # ตัดชื่อออก เอาแค่ข้อความด้านหลัง
+		display_text = parts[1].strip_edges()
 		
-		# เช็คชื่อคนพูด
 		if speaker == "narrator" or speaker == "innervoice" or speaker == "inner":
 			is_narrator = true
 		elif speaker == "me" or speaker == "player":
 			is_me = true
 			
 	if is_narrator:
-		# ถ้าเป็นเสียงในใจ ให้ส่งไปที่ InnerVoice
 		InnerVoice.speak(display_text)
 	else:
-		# ถ้าเป็นแชทปกติ ให้ซ่อน InnerVoice ก่อน (เผื่อประโยคที่แล้วเป็นบทบรรยาย)
 		InnerVoice.hide_text()
 		add_message(display_text, is_me)
 
@@ -81,6 +79,16 @@ func add_message(text_content: String, is_me: bool):
 	var new_bubble = bubble_scene.instantiate()
 	message_list.add_child(new_bubble)
 	
+	# --- [ส่วนที่แก้ไข] สั่งเล่นเสียงข้อความเข้า/ออก ---
+	if message_sound:
+		# ถ้าเราเป็นคนส่ง (is_me) อาจจะปรับ Pitch ให้ต่างกันนิดหน่อยเพื่อให้เสียงดูมีมิติ
+		if is_me:
+			message_sound.pitch_scale = 1.1
+		else:
+			message_sound.pitch_scale = 1.0
+		message_sound.play()
+	# -------------------------------------------
+
 	var hbox = new_bubble.get_node("HBoxContainer")
 	var bubble_bg = hbox.get_node("BubbleBg")
 	var msg_label = bubble_bg.get_node("MessageText")
@@ -98,7 +106,7 @@ func add_message(text_content: String, is_me: bool):
 	
 	if is_me:
 		hbox.alignment = BoxContainer.ALIGNMENT_END
-		style.bg_color = Color("51c4d7ff") # สีส้มอมเหลือง/ฟ้า
+		style.bg_color = Color("51c4d7ff") 
 		msg_label.add_theme_color_override("font_color", Color.WHITE)
 	else:
 		hbox.alignment = BoxContainer.ALIGNMENT_BEGIN
@@ -118,11 +126,7 @@ func scroll_to_bottom():
 
 func finish_chat():
 	set_process_input(false) 
-	
-	# 🌟 ซ่อน InnerVoice ตอนจบบทสนทนา เผื่อประโยคสุดท้ายเป็นเสียงในใจ
 	InnerVoice.hide_text()
-	
-	# เผื่อใช้เรียกอนิเมชั่นตอนคุยจบ
 	emit_signal("chat_finished_signal")
 	
 	if global_event_flag != "":
@@ -135,11 +139,7 @@ func finish_chat():
 		
 	if next_scene_path != "":
 		if trigger_next_day == true:
-			# ถ้าติ๊กถูกข้ามวันไว้ -> เอาที่อยู่ปลายทางไปฝาก Global แล้วเรียกฉาก NextDays
 			Global.pending_next_scene = next_scene_path
-			
-			# ⚠️ อย่าลืมแก้ Path ตรงนี้ให้ตรงกับที่อยู่ไฟล์ NextDays.tscn ของคุณนะครับ!
 			LoadingScreen.transition_to_screenfunc("res://Asset/Screen/script_reuseable/Loading/change_day_night.tscn")
 		else:
-			# ถ้าไม่ได้ติ๊กข้ามวัน -> โหลดไปฉากเป้าหมายตรงๆ เลย (เหมือนระบบเดิม)
 			LoadingScreen.transition_to_screenfunc(next_scene_path)

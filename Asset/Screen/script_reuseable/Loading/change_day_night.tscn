@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kllyvb25jnpd" path="res://Asset/Script/Re-use/LoadingScreen/change_day_night.gd" id="1_0mhvy"]
 [ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="2_ffp62"]
+[ext_resource type="AudioStream" uid="uid://c8ifmdx4r3s36" path="res://Asset/Sounds/ไก่ร้อง.mp3" id="3_ffp62"]
 
 [sub_resource type="Animation" id="Animation_2rim3"]
 resource_name = "NextDays"
@@ -101,3 +102,8 @@ offset_right = 2007.0013
 offset_bottom = 409.9928
 text = "Next Day"
 label_settings = SubResource("LabelSettings_wtbap")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=603907936]
+stream = ExtResource("3_ffp62")
+volume_db = -18.841
+autoplay = true

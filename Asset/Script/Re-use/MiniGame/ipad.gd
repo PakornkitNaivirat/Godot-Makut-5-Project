@@ -23,11 +23,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		
 		if event.pressed:
-			if pop != null:
-				pop.play()
+			
 			var distance = get_global_mouse_position().distance_to(global_position)
 			if distance < 100:
 				is_dragging = true
+				pop.play()
 				
 				var tween = get_tree().create_tween()
 				tween.tween_property(self, "scale", Vector2(1.2, 1.2), 0.1)
