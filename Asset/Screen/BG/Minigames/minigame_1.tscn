@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bdsvhfjswmjef" path="res://Asset/Spirte/Prop/image-Photoroom (7).png" id="8_ohpix"]
 [ext_resource type="Texture2D" uid="uid://5guhv3bitjsf" path="res://Asset/Spirte/Prop/image-Photoroom (11).png" id="9_nopin"]
 [ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="10_nyj2t"]
-[ext_resource type="Script" uid="uid://e4kcxkym1gs6" path="res://Asset/Screen/BG/Minigames/checklist_manager.gd" id="11_nopin"]
+[ext_resource type="Script" path="res://Asset/Screen/BG/Minigames/checklist_manager.gd" id="11_nopin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a44ql"]
 size = Vector2(262, 287)
@@ -120,7 +120,7 @@ shape = SubResource("RectangleShape2D_fo8v7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Items/Ipad" unique_id=898885108]
 stream = ExtResource("3_ha34s")
-volume_db = -9.751
+volume_db = -18.959
 pitch_scale = 2.36
 
 [node name="Laptop" type="Area2D" parent="Items" unique_id=1338081611 node_paths=PackedStringArray("backpack")]
@@ -141,7 +141,7 @@ shape = SubResource("RectangleShape2D_yrfo1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Items/Laptop" unique_id=1792580566]
 stream = ExtResource("3_ha34s")
-volume_db = -9.751
+volume_db = -18.959
 pitch_scale = 2.36
 
 [node name="Mug" type="Area2D" parent="Items" unique_id=1201051716 node_paths=PackedStringArray("backpack")]
@@ -160,6 +160,11 @@ texture = ExtResource("6_ha34s")
 position = Vector2(7, -59.5)
 shape = SubResource("RectangleShape2D_6t0he")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Items/Mug" unique_id=142905836]
+stream = ExtResource("3_ha34s")
+volume_db = -18.959
+pitch_scale = 2.36
+
 [node name="Keys" type="Area2D" parent="Items" unique_id=1288354201 node_paths=PackedStringArray("backpack")]
 z_index = 20
 position = Vector2(119, 611)
@@ -175,6 +180,11 @@ texture = ExtResource("7_6t0he")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Keys" unique_id=1759192604]
 position = Vector2(-13, -69)
 shape = SubResource("RectangleShape2D_e30m5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Items/Keys" unique_id=1460570330]
+stream = ExtResource("3_ha34s")
+volume_db = -18.959
+pitch_scale = 2.36
 
 [node name="BG" type="Node2D" parent="." unique_id=1056575381]
 z_index = -10

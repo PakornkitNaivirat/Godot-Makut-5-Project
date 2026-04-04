@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5ms5cbvh8trm"
+path="res://.godot/imported/IPHONE NOTIFICATION SOUND EFFECT (PINGDING) - SoundsAreUs (128k).mp3-fe19f88d2c160b61a1994a480e2236ce.mp3str"
+
+[deps]
+
+source_file="res://Asset/Sounds/IPHONE NOTIFICATION SOUND EFFECT (PINGDING) - SoundsAreUs (128k).mp3"
+dest_files=["res://.godot/imported/IPHONE NOTIFICATION SOUND EFFECT (PINGDING) - SoundsAreUs (128k).mp3-fe19f88d2c160b61a1994a480e2236ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

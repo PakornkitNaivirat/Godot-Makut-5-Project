@@ -5,6 +5,9 @@ extends Node2D
 #func _ready() -> void:
 	#BackgroundMusic.play_music("res://Asset/Sounds/bedroomlagun.mp3")
 	
+func _ready() -> void:
+	pass # Replace with function body.
+	BackgroundMusic.play_music
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

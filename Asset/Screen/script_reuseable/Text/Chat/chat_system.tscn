@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://duir3rxo7gmu8" path="res://Asset/Spirte/icon/image-Photoroom (4).png" id="3_xru4m"]
 [ext_resource type="Texture2D" uid="uid://drpl0m7enhkyh" path="res://Asset/Spirte/icon/image-Photoroom (6).png" id="4_dsbpk"]
 [ext_resource type="Texture2D" uid="uid://4wxa2wvsqw0h" path="res://Asset/Spirte/icon/image-Photoroom (5).png" id="5_ktyep"]
+[ext_resource type="AudioStream" uid="uid://qb0g7vuheqmj" path="res://Asset/Sounds/massage.mp3" id="6_1iney"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kjn8a"]
 font = ExtResource("2_upf0o")
@@ -95,3 +96,6 @@ offset_top = -31.0
 offset_right = 1160.0
 offset_bottom = 694.0
 color = Color(0.38545233, 0.42255795, 0.65708554, 1)
+
+[node name="MessageSound" type="AudioStreamPlayer" parent="." unique_id=1292101041]
+stream = ExtResource("6_1iney")

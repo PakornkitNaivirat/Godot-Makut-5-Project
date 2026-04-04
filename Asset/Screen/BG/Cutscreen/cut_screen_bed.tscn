@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bal37kbbsgbew" path="res://Asset/Script/Cutscreen/cut_screen_bed.gd" id="1_ubqv7"]
 [ext_resource type="Texture2D" uid="uid://c6r53folrl8i0" path="res://Asset/Spirte/Background/CutScreen/Bedtime/Bed1.png" id="2_los7a"]
 [ext_resource type="Texture2D" uid="uid://bcgs0r24i6uss" path="res://Asset/Spirte/Background/CutScreen/Bedtime/Bed2.png" id="3_8ihwf"]
+[ext_resource type="AudioStream" uid="uid://dm5ympff6w8qt" path="res://Asset/Sounds/opendoor.mp3" id="4_los7a"]
 
 [sub_resource type="Animation" id="Animation_mly7b"]
 resource_name = "Bed"
@@ -130,6 +131,21 @@ tracks/9/keys = {
 "method": &"finish_cutscene"
 }]
 }
+tracks/10/type = "audio"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AudioStreamPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_los7a")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/10/use_blend = true
 
 [sub_resource type="Animation" id="Animation_fqtvq"]
 length = 0.001
@@ -275,3 +291,6 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_los7a")
 region_enabled = true
 region_rect = Rect2(89.66666, 559.1282, 861.3334, 479.38464)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=147773975]
+volume_db = -13.121
