@@ -6,12 +6,11 @@ extends Node2D # หรือ Area2D
 @export var next_scene_path: String = ""
 
 var collected_count = 0
-var max_items = 2
+var max_items = 3
 
 # UI nodes - ชี้ไปที่ CanvasLayer/UI ที่เพิ่มใน scene
 @onready var progress_label = $"../UI/ProgressLabel"
 @onready var bar_fill = $"../UI/ProgressBarFill"
-@onready var hint_label = $"../UI/HintLabel"
 
 const BAR_FULL_WIDTH: float = 300.0
 
@@ -32,7 +31,6 @@ func add_item():
 	if collected_count >= max_items:
 		$AudioStreamPlayer.play()
 		Global.minigame_status["backpack"] = true
-		hint_label.text = "All packed! Let's go!"
 
 		await tween.finished
 		anim.play("Full")

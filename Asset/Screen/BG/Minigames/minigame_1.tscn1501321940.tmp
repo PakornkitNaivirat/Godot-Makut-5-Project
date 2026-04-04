@@ -3,16 +3,8 @@
 [ext_resource type="Script" uid="uid://b06jaryy0onmj" path="res://Asset/Script/Re-use/MiniGame/back_pack.gd" id="1_ttxwl"]
 [ext_resource type="Texture2D" uid="uid://cmfkqpebiikxu" path="res://Asset/Spirte/Prop/image_2026-03-04_161653302-Photoroom.png" id="1_ypk68"]
 [ext_resource type="Script" uid="uid://1fryv5yncp1e" path="res://Asset/Script/Re-use/MiniGame/ipad.gd" id="2_ypk68"]
-[ext_resource type="AudioStream" uid="uid://nvcjqpvdhwrb" path="res://Asset/Sounds/wink.mp3" id="3_6t0he"]
-[ext_resource type="AudioStream" uid="uid://bq31iqsvceunu" path="res://Asset/Sounds/pop(หยิบของใส่กระเป๋า).mp3" id="3_ha34s"]
 [ext_resource type="Texture2D" uid="uid://c8angi133juoy" path="res://Asset/Spirte/Prop/image-Photoroom.png" id="3_ttxwl"]
 [ext_resource type="Texture2D" uid="uid://cau42ginq50wb" path="res://Asset/Spirte/Prop/image_2026-03-04_161735370-Photoroom.png" id="4_yrfo1"]
-[ext_resource type="Texture2D" uid="uid://bxnvj68fjv2ys" path="res://Asset/Spirte/Prop/image-Photoroom (8).png" id="6_ha34s"]
-[ext_resource type="Texture2D" uid="uid://chtdio085a6b3" path="res://Asset/Spirte/Prop/image-Photoroom (9).png" id="7_6t0he"]
-[ext_resource type="Texture2D" uid="uid://bdsvhfjswmjef" path="res://Asset/Spirte/Prop/image-Photoroom (7).png" id="8_ohpix"]
-[ext_resource type="Texture2D" uid="uid://5guhv3bitjsf" path="res://Asset/Spirte/Prop/image-Photoroom (11).png" id="9_nopin"]
-[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="10_nyj2t"]
-[ext_resource type="Script" uid="uid://e4kcxkym1gs6" path="res://Asset/Screen/BG/Minigames/checklist_manager.gd" id="11_nopin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a44ql"]
 size = Vector2(262, 287)
@@ -61,23 +53,10 @@ size = Vector2(173, 157)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrfo1"]
 size = Vector2(250, 31)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t0he"]
-size = Vector2(128, 139)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e30m5"]
-size = Vector2(92, 80)
-
-[sub_resource type="LabelSettings" id="LabelSettings_17hlv"]
-font = ExtResource("10_nyj2t")
-font_size = 33
-font_color = Color(0, 0, 0, 1)
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 0
-
 [node name="Minigame1" type="Node2D" unique_id=1415403903]
 
 [node name="BackPack" type="Area2D" parent="." unique_id=1687086712 groups=["backpack"]]
-position = Vector2(199, 437)
+position = Vector2(244.00002, 437)
 scale = Vector2(1.2, 1.2)
 script = ExtResource("1_ttxwl")
 full_texture = ExtResource("1_ypk68")
@@ -97,18 +76,13 @@ shape = SubResource("RectangleShape2D_a44ql")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BackPack" unique_id=900248085]
 libraries/ = SubResource("AnimationLibrary_fo8v7")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BackPack" unique_id=1049309385]
-stream = ExtResource("3_6t0he")
-
 [node name="Items" type="Node2D" parent="." unique_id=417619860]
 position = Vector2(400, 29)
 
 [node name="Ipad" type="Area2D" parent="Items" unique_id=1541300011 node_paths=PackedStringArray("backpack")]
-z_index = 20
-position = Vector2(584, 388)
+position = Vector2(264, 453)
 script = ExtResource("2_ypk68")
 backpack = NodePath("../../BackPack")
-item_id = "ipad"
 
 [node name="Sprite2D" type="Sprite2D" parent="Items/Ipad" unique_id=1661528256]
 scale = Vector2(0.4, 0.4)
@@ -118,17 +92,10 @@ texture = ExtResource("3_ttxwl")
 position = Vector2(-4.5, 22.5)
 shape = SubResource("RectangleShape2D_fo8v7")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Items/Ipad" unique_id=898885108]
-stream = ExtResource("3_ha34s")
-volume_db = -9.751
-pitch_scale = 2.36
-
 [node name="Laptop" type="Area2D" parent="Items" unique_id=1338081611 node_paths=PackedStringArray("backpack")]
-z_index = 20
-position = Vector2(437, 552)
+position = Vector2(476, 526)
 script = ExtResource("2_ypk68")
 backpack = NodePath("../../BackPack")
-item_id = "laptop"
 
 [node name="Sprite2D" type="Sprite2D" parent="Items/Laptop" unique_id=1492256554]
 position = Vector2(-3.9999995, -78.99999)
@@ -138,42 +105,6 @@ texture = ExtResource("4_yrfo1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Laptop" unique_id=1181834497]
 position = Vector2(5, 5.5)
 shape = SubResource("RectangleShape2D_yrfo1")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Items/Laptop" unique_id=1792580566]
-stream = ExtResource("3_ha34s")
-volume_db = -9.751
-pitch_scale = 2.36
-[node name="Mug" type="Area2D" parent="Items" unique_id=1201051716 node_paths=PackedStringArray("backpack")]
-z_index = 20
-position = Vector2(261, 477)
-script = ExtResource("2_ypk68")
-backpack = NodePath("../../BackPack")
-item_id = "mug"
-
-[node name="Sprite2D" type="Sprite2D" parent="Items/Mug" unique_id=1013847346]
-position = Vector2(-3.9999995, -78.99999)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_ha34s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Mug" unique_id=1506315801]
-position = Vector2(7, -59.5)
-shape = SubResource("RectangleShape2D_6t0he")
-
-[node name="Keys" type="Area2D" parent="Items" unique_id=1288354201 node_paths=PackedStringArray("backpack")]
-z_index = 20
-position = Vector2(119, 611)
-script = ExtResource("2_ypk68")
-backpack = NodePath("../../BackPack")
-item_id = "key"
-
-[node name="Sprite2D" type="Sprite2D" parent="Items/Keys" unique_id=1827473716]
-position = Vector2(-3.9999995, -78.99999)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_6t0he")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Items/Keys" unique_id=1759192604]
-position = Vector2(-13, -69)
-shape = SubResource("RectangleShape2D_e30m5")
 
 [node name="BG" type="Node2D" parent="." unique_id=1056575381]
 z_index = -10
@@ -285,74 +216,6 @@ offset_bottom = 100.0
 color = Color(0.85, 0.65, 0.2, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1277545514]
-offset_left = 614.0
-offset_top = -153.0
-offset_right = 1614.0
-offset_bottom = 847.0
-scale = Vector2(0.55, 0.55)
-texture = ExtResource("8_ohpix")
-
-[node name="Check_Laptop" type="TextureRect" parent="TextureRect" unique_id=2041217755]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 241.81815
-offset_top = 269.09082
-offset_right = 1241.8181
-offset_bottom = 1269.0908
-scale = Vector2(0.4, 0.5018182)
-texture = ExtResource("9_nopin")
-
-[node name="Check_Ipad" type="TextureRect" parent="TextureRect" unique_id=1335030140]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 247.27269
-offset_top = 367.2727
-offset_right = 1247.2727
-offset_bottom = 1367.2727
-scale = Vector2(0.4, 0.5018182)
-texture = ExtResource("9_nopin")
-
-[node name="Check_RoomKey" type="TextureRect" parent="TextureRect" unique_id=867825887]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 252.72723
-offset_top = 476.36365
-offset_right = 1252.7273
-offset_bottom = 1476.3636
-scale = Vector2(0.4, 0.5018182)
-texture = ExtResource("9_nopin")
-
-[node name="Lable1" type="Label" parent="TextureRect" unique_id=578837698]
-layout_mode = 0
-offset_left = 483.63635
-offset_top = 483.63635
-offset_right = 600.63635
-offset_bottom = 535.63635
-text = "Laptop"
-label_settings = SubResource("LabelSettings_17hlv")
-
-[node name="Lable2" type="Label" parent="TextureRect" unique_id=855775835]
-layout_mode = 0
-offset_left = 483.63635
-offset_top = 580.0
-offset_right = 600.63635
-offset_bottom = 632.0
-text = "Ipad"
-label_settings = SubResource("LabelSettings_17hlv")
-
-[node name="Lable3" type="Label" parent="TextureRect" unique_id=1767610873]
-layout_mode = 0
-offset_left = 483.63635
-offset_top = 681.8182
-offset_right = 600.63635
-offset_bottom = 733.8182
-text = "Room Key"
-label_settings = SubResource("LabelSettings_17hlv")
-
-[node name="ChecklistManager" type="Node2D" parent="." unique_id=725815011]
-script = ExtResource("11_nopin")
-
 [connection signal="area_entered" from="Items/Ipad" to="Items/Ipad" method="_on_area_entered"]
 [connection signal="area_exited" from="Items/Ipad" to="Items/Ipad" method="_on_area_exited"]
 [connection signal="mouse_entered" from="Items/Ipad" to="Items/Ipad" method="_on_mouse_entered"]
@@ -361,11 +224,3 @@ script = ExtResource("11_nopin")
 [connection signal="area_exited" from="Items/Laptop" to="Items/Laptop" method="_on_area_exited"]
 [connection signal="mouse_entered" from="Items/Laptop" to="Items/Laptop" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Items/Laptop" to="Items/Laptop" method="_on_mouse_exited"]
-[connection signal="area_entered" from="Items/Mug" to="Items/Mug" method="_on_area_entered"]
-[connection signal="area_exited" from="Items/Mug" to="Items/Mug" method="_on_area_exited"]
-[connection signal="mouse_entered" from="Items/Mug" to="Items/Mug" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Items/Mug" to="Items/Mug" method="_on_mouse_exited"]
-[connection signal="area_entered" from="Items/Keys" to="Items/Keys" method="_on_area_entered"]
-[connection signal="area_exited" from="Items/Keys" to="Items/Keys" method="_on_area_exited"]
-[connection signal="mouse_entered" from="Items/Keys" to="Items/Keys" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Items/Keys" to="Items/Keys" method="_on_mouse_exited"]
