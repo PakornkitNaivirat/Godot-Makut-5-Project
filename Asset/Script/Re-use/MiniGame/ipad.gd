@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var backpack: Node2D 
+@export var item_id: String
 
 var is_dragging = false
 var start_position: Vector2
@@ -32,7 +33,6 @@ func _input(event: InputEvent) -> void:
 		elif not event.pressed:
 			if is_dragging:
 				is_dragging = false
-				
 				var tween = get_tree().create_tween()
 				tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.1)
 				
@@ -40,10 +40,24 @@ func _input(event: InputEvent) -> void:
 					var distance_to_bp = global_position.distance_to(backpack.global_position)
 					if distance_to_bp < 200:
 						
-						if backpack.has_method("add_item"):
-							backpack.add_item()
+						# --- [ส่วนที่แก้ใหม่] ---
+						var can_collect = true # ตั้งค่าเริ่มต้นว่า "เก็บได้" ไปก่อน
+						
+						# 1. ถาม ChecklistManager ก่อนว่าอนุญาตให้เก็บไอเทมชิ้นนี้ไหม?
+						if has_node("../../ChecklistManager"):
+							can_collect = get_node("../../ChecklistManager").check_item(item_id)
+						
+						# 2. ดูคำตอบที่ได้มา
+						if can_collect == true:
+							# ถ้าอนุญาต (true) -> ให้เข้ากระเป๋าและทำลายไอเทมทิ้ง
+							if backpack.has_method("add_item"):
+								backpack.add_item()
+							queue_free()
+						else:
+							# ถ้าไม่อนุญาต (false) เช่นเป็น mug -> ให้เด้งกลับที่เดิม
+							return_to_start()
+						# ----------------------
 							
-						queue_free()
 					else:
 						return_to_start()
 				else:

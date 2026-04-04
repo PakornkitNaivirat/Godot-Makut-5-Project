@@ -1,65 +1,81 @@
 extends CanvasLayer
 
 @onready var text_label = $TextLabel
+@onready var color_rect = $ColorRect # ชี้ไปที่ ColorRect (จอดำ)
 	
 var current_tween: Tween
-var typing_tween: Tween # 🌟 เพิ่ม Tween สำหรับคุมการพิมพ์แยกจากตอน Fade-in
+var typing_tween: Tween 
+var bg_tween: Tween 
 var is_speaking = false
 
-@export var typing_speed: float = 0.04 # 🌟 ความเร็วในการพิมพ์ (วินาที/1 ตัวอักษร) ค่าน้อย = พิมพ์เร็ว
+@export var typing_speed: float = 0.04 
 
 func is_typing() -> bool:
 	return is_speaking and text_label.visible_characters < text_label.text.length()
 	
 func force_skip_typing():
 	if typing_tween and typing_tween.is_valid():
-		typing_tween.kill() # สั่งหยุดการพิมพ์ทีละตัว
+		typing_tween.kill() 
 		
 	if current_tween and current_tween.is_valid():
-		current_tween.kill() # สั่งหยุดการ Fade-in
+		current_tween.kill() 
 		
-	text_label.modulate.a = 1.0 # สว่างเต็มที่ 100%
-	text_label.visible_characters = text_label.text.length() # โชว์ตัวอักษรครบทุกตัวทันที
+	text_label.modulate.a = 1.0 
+	text_label.visible_characters = text_label.text.length() 
 
 func _ready():
-	# ซ่อนข้อความไว้ก่อนตอนเริ่มเกม
 	text_label.modulate.a = 0 
+	
+	# เซ็ตให้จอดำโปร่งใสตอนเริ่มเกม
+	if color_rect:
+		color_rect.modulate.a = 0 
+		
 	visible = false
 
-# ฟังก์ชันสำหรับเรียกใช้เมื่อต้องการโชว์ข้อความ
+# 🌟 ใช้ชื่อ speak เหมือนเดิม
 func speak(text_content: String):
 	text_label.text = text_content
-	text_label.visible_characters = 0 # 🌟 รีเซ็ตให้เริ่มแสดงจาก 0 ตัวอักษรก่อน
+	text_label.visible_characters = 0 
 	visible = true
 	is_speaking = true
 	
-	# --- 1. จัดการ Fade-in ความสว่าง (ทำเฉพาะตอนขึ้นประโยคแรก) ---
-	if text_label.modulate.a < 1.0:
-		if current_tween:
-			current_tween.kill() 
-		current_tween = get_tree().create_tween()
-		current_tween.tween_property(text_label, "modulate:a", 1.0, 0.5)
+	# --- 1. จัดการ Fade-in ข้อความและจอดำ ---
+	if current_tween:
+		current_tween.kill() 
+	current_tween = get_tree().create_tween()
+	current_tween.tween_property(text_label, "modulate:a", 1.0, 0.5)
+	
+	if bg_tween:
+		bg_tween.kill()
+	bg_tween = get_tree().create_tween()
+	bg_tween.tween_property(color_rect, "modulate:a", 0.8, 0.5)
 
 	# --- 2. จัดการแอนิเมชัน พิมพ์ดีด ---
 	if typing_tween:
-		typing_tween.kill() # หยุดแอนิเมชันพิมพ์ของประโยคเก่า (ถ้ามี)
+		typing_tween.kill() 
 		
 	typing_tween = get_tree().create_tween()
-	
-	# คำนวณเวลาที่ต้องใช้ทั้งหมด (จำนวนตัวอักษร * ความเร็ว)
 	var type_duration = text_content.length() * typing_speed 
-	
-	# สั่ง Tween ให้ค่อยๆ เพิ่มจำนวนตัวอักษรที่มองเห็นจนครบตามความยาวข้อความ
 	typing_tween.tween_property(text_label, "visible_characters", text_content.length(), type_duration)
+
+	# --- 3. ระบบรอให้พิมพ์เสร็จ แล้วหายไปเอง ---
+	await typing_tween.finished 
+	
+	await get_tree().create_timer(1.5).timeout 
+	
+	if text_label.text == text_content:
+		hide_text()
 
 
 func hide_text():
 	is_speaking = false
 	
-	# ทำแอนิเมชัน Fade-out (ค่อยๆ จางหายไป)
 	var tween = get_tree().create_tween()
-	tween.tween_property(text_label, "modulate:a", 0.0, 0.5)
 	
-	# รอจนกว่าจะจางเสร็จ แล้วค่อยปิด visible
+	# เฟดหายไปพร้อมกันทั้งจอดำและข้อความ
+	tween.tween_property(text_label, "modulate:a", 0.0, 0.5)
+	if color_rect:
+		tween.parallel().tween_property(color_rect, "modulate:a", 0.0, 0.5)
+	
 	await tween.finished
 	visible = false
