@@ -1,6 +1,6 @@
 extends Node
 
-var checked_sprite = preload("res://Asset/Spirte/Prop/image-Photoroom (10).png")
+var checked_sprite = preload("res://Asset/Spirte/Prop/Backpack/image-Photoroom (10).png")
 # 1. เพิ่ม "mug" เข้าไปในลิสต์ของต้องห้าม
 var not_allowed_items = ["gameboy", "snack", "mug"]
 

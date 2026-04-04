@@ -246,7 +246,7 @@ func reset_entire_game():
 			pan_takos[i].z_index = 0
 			pan_takos[i].rotation_degrees = 0
 	
-	status_label.text = "READY!"
+	status_label.text = "START"
 	status_label.modulate = Color.WHITE
 	
 	reset_game()
