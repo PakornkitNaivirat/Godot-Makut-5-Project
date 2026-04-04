@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b1dsh8tk8stw2" path="res://Asset/Spirte/Background/Day4/Stone.sea_bg.png" id="2_cuk6c"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="3_ls15x"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsbu5"]
+size = Vector2(43, 1109)
+
 [node name="Sea shore" type="Node2D" unique_id=1638767410]
 
 [node name="BG" type="Node2D" parent="." unique_id=403258599]
@@ -18,6 +21,16 @@ z_index = 2
 y_sort_enabled = true
 texture = ExtResource("2_cuk6c")
 centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1192940423]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1882239339]
+position = Vector2(11.5, 544.5)
+shape = SubResource("RectangleShape2D_xsbu5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=770936863]
+position = Vector2(5753, 544.5)
+shape = SubResource("RectangleShape2D_xsbu5")
 
 [node name="Player" parent="." unique_id=1775447557 instance=ExtResource("3_ls15x")]
 position = Vector2(95, 627)

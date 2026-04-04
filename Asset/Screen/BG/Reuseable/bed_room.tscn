@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="7_3hubp"]
 [ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/night.gd" id="8_3hubp"]
 [ext_resource type="Script" uid="uid://dqj0yo4gpfnse" path="res://Asset/Script/Re-use/Misc/day_2_night.gd" id="9_jbwfh"]
+[ext_resource type="Script" uid="uid://b3km5m6hr7byd" path="res://Asset/Script/Re-use/Misc/day_3_night.gd" id="10_05888"]
 [ext_resource type="Script" uid="uid://djhjqfxs71x0v" path="res://Asset/Screen/BG/Reuseable/node_2d.gd" id="11_05888"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnxv1"]
@@ -110,16 +111,13 @@ position = Vector2(0, -398)
 script = ExtResource("9_jbwfh")
 next_scene_path = "res://Asset/Screen/BG/Cutscreen/Phone/day_2_phone_2.tscn"
 
-[node name="ColorRect" type="ColorRect" parent="Day2_Night" unique_id=338724232]
-modulate = Color(1, 1, 1, 0.5882353)
-offset_left = 4.0
-offset_top = 9.0
-offset_right = 2310.0
-offset_bottom = 1301.0
-color = Color(0.09411765, 0.09411765, 0.09411765, 1)
-
 [node name="back_cafe" type="Marker2D" parent="Day2_Night" unique_id=269036212]
 position = Vector2(711, 1062)
+
+[node name="Day3_Night" type="Node2D" parent="." unique_id=1326546662]
+script = ExtResource("10_05888")
+next_scene_path = "res://Asset/Screen/BG/Day4/won.tscn"
+target_spawn_point_name = "StartSea"
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1716865412]
 script = ExtResource("11_05888")

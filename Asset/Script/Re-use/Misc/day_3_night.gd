@@ -3,6 +3,7 @@ extends Node2D
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = "" 
 
+@onready var black = $ColorRect
 
 var current_dialogue_block: Array = []
 var current_line = 0
@@ -11,10 +12,9 @@ var is_talking = false
 # 🌟 เพิ่มบทพูดได้ตามสบายเลย
 var all_dialogues = {
 	"part1": [
-		{"speaker": "Narrator", "text": "After getting back, he showered, did his homework, "},
-		{"speaker": "Narrator", "text": " reviewed his lessons, and wound down for the night."},
-		{"speaker": "Narrator", "text": "getting ready for bed, a notification sounded from his phone."},
-		{"speaker": "Narrator", "text": "Hmm? From the club group?"},
+		{"speaker": "Narrator", "text": "After parting ways with Rin, I returned to my room, took care of my routine"},
+		{"speaker": "Narrator", "text": " and went to bed with a heart full of happiness—"},
+		{"speaker": "Narrator", "text": "and a heartbeat at a rhythm I had never felt before"},
 	],
 }
 

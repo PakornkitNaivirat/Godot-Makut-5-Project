@@ -143,6 +143,7 @@ shape = SubResource("RectangleShape2D_yrfo1")
 stream = ExtResource("3_ha34s")
 volume_db = -9.751
 pitch_scale = 2.36
+
 [node name="Mug" type="Area2D" parent="Items" unique_id=1201051716 node_paths=PackedStringArray("backpack")]
 z_index = 20
 position = Vector2(261, 477)
