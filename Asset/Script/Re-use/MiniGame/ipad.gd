@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var backpack: Node2D 
+@onready var pop = $AudioStreamPlayer
 @export var item_id: String
 
 var is_dragging = false
@@ -22,6 +23,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		
 		if event.pressed:
+			if pop != null:
+				pop.play()
 			var distance = get_global_mouse_position().distance_to(global_position)
 			if distance < 100:
 				is_dragging = true

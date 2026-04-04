@@ -29,6 +29,7 @@ func add_item():
 	tween.tween_property(self, "scale", Vector2(1.2, 1.2), 0.1)
 
 	if collected_count >= max_items:
+		$AudioStreamPlayer.play()
 		Global.minigame_status["backpack"] = true
 
 		await tween.finished

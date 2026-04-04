@@ -132,7 +132,7 @@ position = Vector2(-204, -141)
 
 [node name="Dialogue1" parent="Day1_Day" unique_id=4015347 instance=ExtResource("4_ss5p0")]
 position = Vector2(1561, 654)
-dialog_text = Array[String](["player : h", "h"])
+dialog_text = Array[String](["player : Hello.", "Hello.", "Narrator: I don't have anything to talk."])
 
 [node name="speech" parent="Day1_Day/Dialogue1" index="1" unique_id=1384000356]
 position = Vector2(-34, -215)
