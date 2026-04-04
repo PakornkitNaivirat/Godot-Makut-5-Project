@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="7_3hubp"]
 [ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/night.gd" id="8_3hubp"]
 [ext_resource type="Script" uid="uid://dqj0yo4gpfnse" path="res://Asset/Script/Re-use/Misc/day_2_night.gd" id="9_jbwfh"]
-[ext_resource type="Script" uid="uid://djhjqfxs71x0v" path="res://Asset/Screen/BG/Reuseable/node_2d.gd" id="11_05888"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnxv1"]
 size = Vector2(221, 1298.5)
@@ -120,9 +119,6 @@ color = Color(0.09411765, 0.09411765, 0.09411765, 1)
 
 [node name="back_cafe" type="Marker2D" parent="Day2_Night" unique_id=269036212]
 position = Vector2(711, 1062)
-
-[node name="Node2D" type="Node2D" parent="." unique_id=1716865412]
-script = ExtResource("11_05888")
 
 [editable path="Player"]
 [editable path="Day1_Day/Smart_Door"]

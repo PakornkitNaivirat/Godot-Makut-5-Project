@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://doyjcfobr381n"
+path="res://.godot/imported/elevator open.mp3-30014fcbc6939fa742f214cc66f8cbc8.mp3str"
+
+[deps]
+
+source_file="res://Asset/Sounds/elevator open.mp3"
+dest_files=["res://.godot/imported/elevator open.mp3-30014fcbc6939fa742f214cc66f8cbc8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

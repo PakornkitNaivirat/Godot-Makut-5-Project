@@ -6,10 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://ckj2phrnxy2ul" path="res://Asset/Spirte/Background/Ref/cutscene/ไม่มีชื่อ 100_20260314020041.png" id="3_vaujc"]
 [ext_resource type="Texture2D" uid="uid://cym5pne7epqy3" path="res://Asset/Spirte/Background/Ref/cutscene/ไม่มีชื่อ 100_20260314020425.png" id="4_tfrt7"]
 [ext_resource type="Texture2D" uid="uid://doodrh61s0rhn" path="res://Asset/Spirte/Background/CutScreen/Lecture/Classroom_game.png" id="5_ahu38"]
+[ext_resource type="AudioStream" uid="uid://k1mglskficrk" path="res://Asset/Sounds/elevator.mp3" id="5_d3uw5"]
 [ext_resource type="Texture2D" uid="uid://f5lguuw23qlq" path="res://Asset/Spirte/Background/Ref/cutscene/ไม่มีชื่อ 100_20260314015622.png" id="5_tfrt7"]
 [ext_resource type="Texture2D" uid="uid://kkp3kmmcxsn8" path="res://Asset/Spirte/Background/CutScreen/Lecture/Untitled51.png" id="6_31pq2"]
+[ext_resource type="AudioStream" uid="uid://doyjcfobr381n" path="res://Asset/Sounds/elevator open.mp3" id="6_x8bac"]
 [ext_resource type="Texture2D" uid="uid://dhshkjbq3chq2" path="res://Asset/Spirte/Background/CutScreen/Lecture/Untitled48.1.png" id="7_sltha"]
 [ext_resource type="Texture2D" uid="uid://csgbqkfqdbkxj" path="res://Asset/Spirte/Background/CutScreen/Lecture/Classroom_game2.png" id="7_sltko"]
+[ext_resource type="AudioStream" uid="uid://btiyj0raprfyw" path="res://Asset/Sounds/BG lab.mp3" id="7_x8bac"]
 [ext_resource type="Texture2D" uid="uid://b7svgh3qnblx8" path="res://Asset/Spirte/Background/CutScreen/Lecture/ชมรมรักทะเล.png" id="8_5o5sv"]
 [ext_resource type="Texture2D" uid="uid://dptltcflapnkb" path="res://Asset/Spirte/Background/CutScreen/Lecture/br_game.jr hello.png" id="8_ahu38"]
 [ext_resource type="Texture2D" uid="uid://con3vah6jec04" path="res://Asset/Spirte/Background/CutScreen/Lecture/Untitled45.png" id="9_d3uw5"]
@@ -227,6 +230,40 @@ tracks/15/keys = {
 "update": 0,
 "values": [Vector2(0.6, 0.6), Vector2(0.5, 0.5)]
 }
+tracks/16/type = "audio"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AudioStreamPlayer")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_d3uw5")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_x8bac")
+}],
+"times": PackedFloat32Array(24, 28.3)
+}
+tracks/16/use_blend = true
+tracks/17/type = "audio"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("BG")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"clips": [{
+"end_offset": 0.8900001,
+"start_offset": 0.0,
+"stream": ExtResource("7_x8bac")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/17/use_blend = true
 
 [sub_resource type="Animation" id="Animation_soj5p"]
 length = 0.001
@@ -474,3 +511,11 @@ position = Vector2(693, 153)
 [node name="speech" parent="." unique_id=1384000356 instance=ExtResource("2_gig4g")]
 visible = false
 position = Vector2(265, 310)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=317106320]
+volume_db = -0.855
+autoplay = true
+
+[node name="BG" type="AudioStreamPlayer" parent="." unique_id=1131910823]
+volume_db = -16.037
+max_polyphony = 4

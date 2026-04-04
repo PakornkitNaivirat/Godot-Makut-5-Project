@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="1_8r0mk"]
 [ext_resource type="Script" uid="uid://cpom6w61bb543" path="res://Asset/Script/Cutscreen/cut_scene_ring.gd" id="1_rtf7r"]
+[ext_resource type="AudioStream" uid="uid://5ms5cbvh8trm" path="res://Asset/Sounds/IPHONE NOTIFICATION SOUND EFFECT (PINGDING) - SoundsAreUs (128k).mp3" id="2_fnenv"]
 [ext_resource type="Texture2D" uid="uid://b0tn04wpc317m" path="res://Asset/Spirte/Background/CutScreen/Before_Cafe/Untitled58.png" id="2_psdbc"]
 
 [sub_resource type="Animation" id="Animation_scl85"]
@@ -289,6 +290,21 @@ tracks/11/keys = {
 "method": &"finish_cutscene"
 }]
 }
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AudioStreamPlayer")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_fnenv")
+}],
+"times": PackedFloat32Array(2.125)
+}
+tracks/12/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_psdbc"]
 _data = {
@@ -341,3 +357,5 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_psdbc")
 region_enabled = true
 region_rect = Rect2(994.4444, 41.684082, 875.90717, 995.73816)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1004127672]

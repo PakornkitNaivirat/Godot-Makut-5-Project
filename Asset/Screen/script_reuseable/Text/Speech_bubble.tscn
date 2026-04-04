@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c756kw7xrssdd" path="res://Asset/Script/Re-use/Text-Dialogue/speech_box.gd" id="1_24v7o"]
 [ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Asset/font/Lexend-VariableFont_wght.ttf" id="2_24v7o"]
-[ext_resource type="AudioStream" uid="uid://bjttkdb8pr8fk" path="res://Asset/Sounds/chatv2.mp3" id="3_jqfwt"]
+[ext_resource type="AudioStream" uid="uid://vve18ntkunhn" path="res://Asset/Sounds/chatv4.mp3" id="3_jqfwt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk4yj"]
 bg_color = Color(0.9132075, 0.9144128, 0.98478884, 1)
