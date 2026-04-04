@@ -4,11 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://6ma7vpjvn3q8" path="res://Asset/Spirte/Prop/tako/Takoyaki_Background.png" id="2_f4yvr"]
 [ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="3_0ul3a"]
 [ext_resource type="Texture2D" uid="uid://beo8hlofimbdt" path="res://Asset/Spirte/Prop/tako/Takoyaki_tako-chopstick.png" id="3_f4yvr"]
+[ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Asset/font/Lexend-VariableFont_wght.ttf" id="5_6hwa1"]
 [ext_resource type="Texture2D" uid="uid://53upm3ys2wec" path="res://Asset/Spirte/Prop/tako/Takoyaki_ถาดรอง.png" id="5_f4yvr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f4yvr"]
+font = ExtResource("5_6hwa1")
+font_size = 25
+outline_size = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_1lrki"]
 font = ExtResource("3_0ul3a")
-font_size = 40
+font_size = 60
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="MinigameTakoyaki" type="Control" unique_id=1184783639 node_paths=PackedStringArray("pan_takos", "box_markers")]
 layout_mode = 3
@@ -105,20 +113,21 @@ position = Vector2(249, 378)
 position = Vector2(343, 376)
 
 [node name="StatusLabel" type="Label" parent="." unique_id=26571094]
-z_index = 1
+z_index = 200
 layout_mode = 0
-offset_left = 538.0
-offset_top = 259.0
-offset_right = 578.0
-offset_bottom = 282.0
+offset_left = 81.0
+offset_top = 40.0
+offset_right = 121.0
+offset_bottom = 63.0
+label_settings = SubResource("LabelSettings_f4yvr")
 
 [node name="TimerLabel" type="Label" parent="." unique_id=1179329433]
 z_index = 100
 layout_mode = 0
-offset_left = 498.0
-offset_top = 39.0
-offset_right = 538.0
-offset_bottom = 101.0
+offset_left = 477.0
+offset_top = 8.0
+offset_right = 517.0
+offset_bottom = 70.0
 label_settings = SubResource("LabelSettings_1lrki")
 
 [node name="PanTako1" type="Sprite2D" parent="." unique_id=2108978343]

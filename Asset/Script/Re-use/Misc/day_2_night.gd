@@ -26,8 +26,8 @@ func _ready():
 		if player:
 			player.is_locked = true
 		
-	#if InnerVoice:
-		#InnerVoice.hide_text()
+	if InnerVoice:
+		InnerVoice.hide_text()
 	await get_tree().create_timer(1.0).timeout
 		
 	start_talking("part1")
