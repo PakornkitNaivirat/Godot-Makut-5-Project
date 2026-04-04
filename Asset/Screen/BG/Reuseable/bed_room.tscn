@@ -95,6 +95,7 @@ position = Vector2(0, 132.375)
 position = Vector2(225, 895)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/if_f1 Dawn.tscn"
 target_spawn_point_name = "IF Enter"
+dialog_text = Array[String](["Narrator: I've got to get to class."])
 behavior = 1
 
 [node name="box" parent="Day2_Day/Dialogue" index="4" unique_id=97389463]

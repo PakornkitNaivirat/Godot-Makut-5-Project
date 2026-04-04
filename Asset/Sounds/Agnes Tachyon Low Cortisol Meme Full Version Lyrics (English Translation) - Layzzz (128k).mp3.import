@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3bypg05l3d3j"
+path="res://.godot/imported/Agnes Tachyon Low Cortisol Meme Full Version Lyrics (English Translation) - Layzzz (128k).mp3-0f9f91f21eb008934b444d5edb7554a8.mp3str"
+
+[deps]
+
+source_file="res://Asset/Sounds/Agnes Tachyon Low Cortisol Meme Full Version Lyrics (English Translation) - Layzzz (128k).mp3"
+dest_files=["res://.godot/imported/Agnes Tachyon Low Cortisol Meme Full Version Lyrics (English Translation) - Layzzz (128k).mp3-0f9f91f21eb008934b444d5edb7554a8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

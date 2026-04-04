@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dtcvct6ej14y5" path="res://Asset/Script/Cutscreen/cut_screen__before_lab.gd" id="1_kui07"]
 [ext_resource type="Texture2D" uid="uid://l70ofmrtktwj" path="res://Asset/Spirte/Background/CutScreen/Lift/Untitled57.png" id="2_vp7o3"]
 [ext_resource type="PackedScene" uid="uid://c73ny583v40f1" path="res://Asset/Screen/script_reuseable/Text/Speech_bubble.tscn" id="4_j7y27"]
+[ext_resource type="AudioStream" uid="uid://k1mglskficrk" path="res://Asset/Sounds/elevator.mp3" id="4_qlp3a"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kui07"]
 load_path = "res://.godot/imported/Untitled47.png-6fe519f64e2677703b5ac8bba29d90c6.ctex"
@@ -125,6 +126,21 @@ tracks/8/keys = {
 "method": &"finish_cutscene"
 }]
 }
+tracks/9/type = "audio"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_qlp3a")
+}],
+"times": PackedFloat32Array(6.4)
+}
+tracks/9/use_blend = true
 
 [sub_resource type="Animation" id="Animation_j7y27"]
 length = 0.001
@@ -268,3 +284,5 @@ position = Vector2(913, 251)
 
 [node name="left" type="Marker2D" parent="." unique_id=270247914]
 position = Vector2(257, 501)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=955903013]
