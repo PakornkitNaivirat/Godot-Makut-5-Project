@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	
 	#Check Player is lock?
 	if is_locked :
+		message_sound.stop()
 		return
 	
 	#Controll movement

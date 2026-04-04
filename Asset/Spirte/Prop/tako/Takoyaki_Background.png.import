@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxnvj68fjv2ys"
-path="res://.godot/imported/image-Photoroom (8).png-2373732c906150eb424a9c5de455be83.ctex"
+uid="uid://6ma7vpjvn3q8"
+path="res://.godot/imported/Takoyaki_Background.png-a7b5c7b35077855a49a8eb7fad32c572.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Spirte/Prop/image-Photoroom (8).png"
-dest_files=["res://.godot/imported/image-Photoroom (8).png-2373732c906150eb424a9c5de455be83.ctex"]
+source_file="res://Asset/Spirte/Prop/tako/Takoyaki_Background.png"
+dest_files=["res://.godot/imported/Takoyaki_Background.png-a7b5c7b35077855a49a8eb7fad32c572.ctex"]
 
 [params]
 

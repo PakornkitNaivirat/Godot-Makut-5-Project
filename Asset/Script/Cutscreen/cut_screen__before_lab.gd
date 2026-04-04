@@ -39,14 +39,20 @@ func start_talking(dialogue_key: String):
 
 func _process(_delta):
 	if is_talking and Input.is_action_just_pressed("interact"):
-		current_line += 1
-		
-		if current_line < current_dialogue_block.size():
-			update_dialogue()
+		# เช็คก่อนว่ากำลังพิมพ์ตัวหนังสืออยู่ไหม?
+		if speech_bubble.is_typing():
+			# ถ้ากำลังพิมพ์ -> กดแล้วให้แสดงข้อความทั้งหมดทันที (Skip)
+			speech_bubble.force_skip_typing()
 		else:
-			is_talking = false
-			speech_bubble.hide_dialogue()
-			anim.play()
+			# ถ้าพิมพ์จบแล้ว -> กดแล้วเปลี่ยนประโยคต่อไป
+			current_line += 1
+			
+			if current_line < current_dialogue_block.size():
+				update_dialogue()
+			else:
+				is_talking = false
+				speech_bubble.hide_dialogue()
+				anim.play()
 
 func update_dialogue():
 	var line_data = current_dialogue_block[current_line]

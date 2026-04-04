@@ -3,8 +3,6 @@ extends Node2D
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = "" 
 
-@onready var black = $ColorRect
-
 var current_dialogue_block: Array = []
 var current_line = 0
 var is_talking = false

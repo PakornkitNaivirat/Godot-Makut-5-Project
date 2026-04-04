@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://b7tyjekw1oxcr"]
 
 [ext_resource type="Script" uid="uid://bh6klo8j5u2eq" path="res://Asset/Script/Re-use/MiniGame/minigame_takoyaki.gd" id="1_0nvy3"]
-[ext_resource type="Texture2D" uid="uid://duir3rxo7gmu8" path="res://Asset/Spirte/icon/image-Photoroom (4).png" id="2_e32l6"]
+[ext_resource type="Texture2D" uid="uid://6ma7vpjvn3q8" path="res://Asset/Spirte/Prop/tako/Takoyaki_Background.png" id="2_f4yvr"]
 [ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="3_0ul3a"]
-[ext_resource type="Texture2D" uid="uid://drpl0m7enhkyh" path="res://Asset/Spirte/icon/image-Photoroom (6).png" id="5_6hwa1"]
+[ext_resource type="Texture2D" uid="uid://beo8hlofimbdt" path="res://Asset/Spirte/Prop/tako/Takoyaki_tako-chopstick.png" id="3_f4yvr"]
+[ext_resource type="Texture2D" uid="uid://53upm3ys2wec" path="res://Asset/Spirte/Prop/tako/Takoyaki_ถาดรอง.png" id="5_f4yvr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1lrki"]
 font = ExtResource("3_0ul3a")
 font_size = 40
 
-[node name="MinigameTakoyaki" type="Control" unique_id=1184783639]
+[node name="MinigameTakoyaki" type="Control" unique_id=1184783639 node_paths=PackedStringArray("pan_takos", "box_markers")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,14 +19,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0nvy3")
 target_spawn_point_name = "Takoyaki"
+pan_takos = [NodePath("PanTako1"), NodePath("PanTako2"), NodePath("PanTako3"), NodePath("PanTako4"), NodePath("PanTako5"), NodePath("PanTako6")]
+box_markers = [NodePath("Box Tako/Marker4"), NodePath("Box Tako/Marker5"), NodePath("Box Tako/Marker6"), NodePath("Box Tako/Marker1"), NodePath("Box Tako/Marker2"), NodePath("Box Tako/Marker3")]
+plain_tako_region = Rect2(467.705, 471.792, 279.643, 285.5)
+sauce_tako_region = Rect2(133.1, 464.3, 300.3, 298.1)
+burnt_tako_region = Rect2(829.6, 485.5, 280.5, 273.9)
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1833803677]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_f4yvr")
+centered = false
 
 [node name="BackgroundBar" type="ColorRect" parent="." unique_id=539313204]
+z_index = 1
 custom_minimum_size = Vector2(400, 20)
 layout_mode = 0
 offset_left = 375.0
-offset_top = 550.0
+offset_top = 575.0
 offset_right = 775.0
-offset_bottom = 570.0
+offset_bottom = 595.0
 localize_numeral_system = false
 color = Color(1, 0, 0, 1)
 
@@ -45,16 +57,55 @@ offset_top = -5.0
 offset_right = 5.0
 offset_bottom = 25.0
 
-[node name="MovingTakoyaki" type="Sprite2D" parent="." unique_id=2108978343]
-position = Vector2(1000, 500)
-rotation = -6.28319
-scale = Vector2(0.446667, 0.397778)
-texture = ExtResource("2_e32l6")
-
 [node name="BoxLocation" type="Marker2D" parent="." unique_id=412652463]
+z_index = 1
 position = Vector2(200, 500)
 
+[node name="Tongs" type="Sprite2D" parent="." unique_id=1714943530]
+z_index = 15
+position = Vector2(-186.5, -188)
+scale = Vector2(0.27148438, 0.265625)
+texture = ExtResource("3_f4yvr")
+region_enabled = true
+region_rect = Rect2(1120.3029, 205.6559, 643.25793, 1058.778)
+
+[node name="Box Tako" type="Node2D" parent="." unique_id=1028063268]
+
+[node name="Box" type="Sprite2D" parent="Box Tako" unique_id=583111446]
+position = Vector2(237, 399)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_f4yvr")
+region_enabled = true
+region_rect = Rect2(28.564087, 336.2564, 945.1282, 625.53845)
+
+[node name="Box_wall" type="Sprite2D" parent="Box Tako" unique_id=1721574610]
+z_index = 50
+position = Vector2(237, 401)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_f4yvr")
+region_enabled = true
+region_rect = Rect2(931.2821, 308.02563, 945.1282, 609.9487)
+
+[node name="Marker1" type="Marker2D" parent="Box Tako" unique_id=283306574]
+position = Vector2(113, 443)
+
+[node name="Marker2" type="Marker2D" parent="Box Tako" unique_id=1161842128]
+position = Vector2(213, 443)
+
+[node name="Marker3" type="Marker2D" parent="Box Tako" unique_id=1688011352]
+position = Vector2(314, 443)
+
+[node name="Marker4" type="Marker2D" parent="Box Tako" unique_id=777695293]
+position = Vector2(153, 377)
+
+[node name="Marker5" type="Marker2D" parent="Box Tako" unique_id=1371452620]
+position = Vector2(249, 378)
+
+[node name="Marker6" type="Marker2D" parent="Box Tako" unique_id=1185704066]
+position = Vector2(343, 376)
+
 [node name="StatusLabel" type="Label" parent="." unique_id=26571094]
+z_index = 1
 layout_mode = 0
 offset_left = 538.0
 offset_top = 259.0
@@ -62,6 +113,7 @@ offset_right = 578.0
 offset_bottom = 282.0
 
 [node name="TimerLabel" type="Label" parent="." unique_id=1179329433]
+z_index = 100
 layout_mode = 0
 offset_left = 498.0
 offset_top = 39.0
@@ -69,7 +121,44 @@ offset_right = 538.0
 offset_bottom = 101.0
 label_settings = SubResource("LabelSettings_1lrki")
 
-[node name="Tongs" type="Sprite2D" parent="." unique_id=1714943530]
-position = Vector2(-186.5, -188)
-scale = Vector2(0.27148438, 0.265625)
-texture = ExtResource("5_6hwa1")
+[node name="PanTako1" type="Sprite2D" parent="." unique_id=2108978343]
+position = Vector2(640.0001, 473.00003)
+scale = Vector2(0.446667, 0.397778)
+texture = ExtResource("3_f4yvr")
+region_enabled = true
+region_rect = Rect2(829.6001, 485.50006, 280.50012, 273.9001)
+
+[node name="PanTako2" type="Sprite2D" parent="." unique_id=438065279]
+position = Vector2(715, 312)
+scale = Vector2(0.446667, 0.397778)
+texture = ExtResource("3_f4yvr")
+region_enabled = true
+region_rect = Rect2(467.70465, 471.792, 279.6432, 285.49963)
+
+[node name="PanTako3" type="Sprite2D" parent="." unique_id=1059084773]
+position = Vector2(983.0001, 329.00003)
+scale = Vector2(0.446667, 0.397778)
+texture = ExtResource("3_f4yvr")
+region_enabled = true
+region_rect = Rect2(467.70465, 471.792, 279.6432, 285.49963)
+
+[node name="PanTako4" type="Sprite2D" parent="." unique_id=822470570]
+position = Vector2(916.0001, 495.00003)
+scale = Vector2(0.446667, 0.397778)
+texture = ExtResource("3_f4yvr")
+region_enabled = true
+region_rect = Rect2(467.70465, 471.792, 279.6432, 285.49963)
+
+[node name="PanTako5" type="Sprite2D" parent="." unique_id=430792741]
+position = Vector2(1032.0001, 188.00003)
+scale = Vector2(0.446667, 0.397778)
+texture = ExtResource("3_f4yvr")
+region_enabled = true
+region_rect = Rect2(467.70465, 471.792, 279.6432, 285.49963)
+
+[node name="PanTako6" type="Sprite2D" parent="." unique_id=15456697]
+position = Vector2(776.00006, 169)
+scale = Vector2(0.446667, 0.397778)
+texture = ExtResource("3_f4yvr")
+region_enabled = true
+region_rect = Rect2(467.70465, 471.792, 279.6432, 285.49963)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cau42ginq50wb"
-path="res://.godot/imported/image_2026-03-04_161735370-Photoroom.png-c659ba560e63ffe7c624aca237a37277.ctex"
+uid="uid://5guhv3bitjsf"
+path="res://.godot/imported/image-Photoroom (11).png-3c3b6c037101158ef8a12cf375a1c704.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Spirte/Prop/image_2026-03-04_161735370-Photoroom.png"
-dest_files=["res://.godot/imported/image_2026-03-04_161735370-Photoroom.png-c659ba560e63ffe7c624aca237a37277.ctex"]
+source_file="res://Asset/Spirte/Prop/Backpack/image-Photoroom (11).png"
+dest_files=["res://.godot/imported/image-Photoroom (11).png-3c3b6c037101158ef8a12cf375a1c704.ctex"]
 
 [params]
 

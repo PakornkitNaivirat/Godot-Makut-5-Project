@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="7_3hubp"]
 [ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/night.gd" id="8_3hubp"]
 [ext_resource type="Script" uid="uid://dqj0yo4gpfnse" path="res://Asset/Script/Re-use/Misc/day_2_night.gd" id="9_jbwfh"]
-[ext_resource type="Script" uid="uid://b3km5m6hr7byd" path="res://Asset/Script/Re-use/Misc/day_3_night.gd" id="10_05888"]
+[ext_resource type="Script" path="res://Asset/Script/Re-use/Misc/day_3_night.gd" id="10_05888"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnxv1"]
 size = Vector2(221, 1298.5)

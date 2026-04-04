@@ -39,15 +39,28 @@ func show_dialogue(text_to_show: String):
 	current_tween.set_parallel(false) # กลับมาทำทีละขั้นตอนเพื่อคุมจังหวะเสียง
 	
 	# ลูปตามจำนวนตัวอักษรเพื่อเล่นเสียง
-	for i in range(text_to_show.length() + 1):
-		var target_ratio = float(i) / text_to_show.length()
+	current_tween.set_parallel(false) # กลับมาทำทีละขั้นตอน
+	
+	# กำหนดค่าเริ่มต้น
+	label.visible_characters = 0 
+	
+	# คำนวณเวลาทั้งหมดที่ใช้ในการพิมพ์ (จำนวนอักษร x ความเร็ว)
+	var total_duration = text_to_show.length() * typing_speed
+	
+	# สั่ง Tween รวดเดียวจบ! ให้มันนับเลขจาก 0 ไปจนถึงจำนวนอักษรทั้งหมด
+	current_tween.tween_method(type_next_character, 0, text_to_show.length(), total_duration)
+	
+func type_next_character(current_char: int):
+	# เช็คว่าตัวเลขตัวอักษรมันเพิ่มขึ้นจากเดิมไหม (ป้องกันการเล่นเสียงซ้ำในเฟรมเดิม)
+	if current_char > label.visible_characters:
+		label.visible_characters = current_char # อัปเดตให้แสดงข้อความ
 		
-		# เลื่อนค่า visible_ratio ทีละนิด
-		current_tween.tween_property(label, "visible_ratio", target_ratio, typing_speed)
-		
-		# ถ้าตัวอักษรไม่ใช่ช่องว่าง ให้เล่นเสียงคีย์บอร์ด
-		if i < text_to_show.length() and text_to_show[i] != " ":
-			current_tween.tween_callback(play_keyboard_sound)
+		# ดึงตัวอักษรตัวล่าสุดที่เพิ่งโผล่มาเช็ค
+		var char_index = current_char - 1
+		if char_index >= 0 and char_index < label.text.length():
+			# ถ้าไม่ใช่ช่องว่าง ให้เล่นเสียง
+			if label.text[char_index] != " ":
+				play_keyboard_sound()
 
 # ฟังก์ชันสำหรับเล่นเสียงคีย์บอร์ด
 func play_keyboard_sound():

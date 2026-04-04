@@ -7,6 +7,7 @@ extends Node2D
 func _process(delta: float) -> void:
 	#Check is player is locked?
 	if player_movement.is_locked :
+		#animation_player.play("idle") 
 		return
 	
 	#Flipping sprite

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmfkqpebiikxu"
-path="res://.godot/imported/image_2026-03-04_161653302-Photoroom.png-62487971b487bf04a16aac5069a6620e.ctex"
+uid="uid://beo8hlofimbdt"
+path="res://.godot/imported/Takoyaki_tako-chopstick.png-c610be14d7d3210f0488d844424f6031.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Spirte/Prop/image_2026-03-04_161653302-Photoroom.png"
-dest_files=["res://.godot/imported/image_2026-03-04_161653302-Photoroom.png-62487971b487bf04a16aac5069a6620e.ctex"]
+source_file="res://Asset/Spirte/Prop/tako/Takoyaki_tako-chopstick.png"
+dest_files=["res://.godot/imported/Takoyaki_tako-chopstick.png-c610be14d7d3210f0488d844424f6031.ctex"]
 
 [params]
 
