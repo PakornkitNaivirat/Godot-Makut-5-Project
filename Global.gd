@@ -3,7 +3,7 @@ extends Node
 var minigame_status: Dictionary = {
 	"backpack": false,
 	"gobackday1" : false,
-	"takoyaki" : true
+	"takoyaki" : false
 }
 
 var event_flags: Dictionary = {
