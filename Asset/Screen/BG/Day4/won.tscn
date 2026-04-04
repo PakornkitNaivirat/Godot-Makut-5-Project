@@ -1,10 +1,84 @@
 [gd_scene format=3 uid="uid://c6t0r33tuo5at"]
 
 [ext_resource type="Texture2D" uid="uid://ch6byrjqobaaj" path="res://Asset/Spirte/Background/Day4/Wonnapa_game.png" id="1_5agi4"]
+[ext_resource type="Texture2D" uid="uid://bh4euk06jf2wv" path="res://Asset/Spirte/Background/Day4/Fire.png" id="2_cf8s6"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_opcby"]
+[ext_resource type="Texture2D" uid="uid://b3du4hcbl7jxg" path="res://Asset/Spirte/Background/Day4/Coconut.png" id="3_dxo0t"]
+[ext_resource type="PackedScene" uid="uid://dh8runqcexfbq" path="res://Asset/Screen/script_reuseable/Door/door_sideway.tscn" id="5_dxo0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii8mu"]
 size = Vector2(43, 1109)
+
+[sub_resource type="Animation" id="Animation_dxo0t"]
+resource_name = "End?"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5639, 779), Vector2(3378, 779)]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player/Animaton/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("move", "idle"),
+"times": PackedFloat32Array(0, 4.9666667)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player/Animaton/Sprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_n6k60"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5639, 779)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player/Animaton/Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tssaf"]
+_data = {
+&"End?": SubResource("Animation_dxo0t"),
+&"RESET": SubResource("Animation_n6k60")
+}
 
 [node name="Won" type="Node2D" unique_id=1140473724]
 
@@ -14,8 +88,18 @@ size = Vector2(43, 1109)
 texture = ExtResource("1_5agi4")
 centered = false
 
+[node name="Light" type="Sprite2D" parent="BG" unique_id=700978228]
+z_index = 10
+texture = ExtResource("2_cf8s6")
+centered = false
+
+[node name="Tree" type="Sprite2D" parent="BG" unique_id=443663096]
+z_index = 20
+texture = ExtResource("3_dxo0t")
+centered = false
+
 [node name="Player" parent="." unique_id=1775447557 instance=ExtResource("2_opcby")]
-position = Vector2(189, 779)
+position = Vector2(5639, 779)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" parent="Player" index="0" unique_id=266598659]
@@ -30,5 +114,31 @@ shape = SubResource("RectangleShape2D_ii8mu")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1169543960]
 position = Vector2(5753, 544.5)
 shape = SubResource("RectangleShape2D_ii8mu")
+
+[node name="Door_Sideway" parent="." unique_id=1165793304 instance=ExtResource("5_dxo0t")]
+z_index = 50
+position = Vector2(5082, 319)
+next_scene_path = "res://Asset/Screen/BG/Day4/sea_shore.tscn"
+
+[node name="EndSea" type="Marker2D" parent="." unique_id=942903977]
+position = Vector2(5638, 811)
+
+[node name="StartSea" type="Marker2D" parent="." unique_id=1231673974]
+position = Vector2(116, 811)
+
+[node name="Day4_Dawn" type="Node2D" parent="." unique_id=806053153]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Day4_Dawn" unique_id=1271997133]
+libraries/ = SubResource("AnimationLibrary_tssaf")
+
+[node name="ColorRect" type="ColorRect" parent="Day4_Dawn" unique_id=328097912]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="Day4_Dawn" unique_id=1614702911]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Day4_Day" type="Node2D" parent="." unique_id=1296605823]
 
 [editable path="Player"]

@@ -5,7 +5,7 @@ class_name PlayerController
 @export var SPEED: float = 375.0
 
 var direction = 0
-var is_locked = false
+@export var is_locked = false
 
 
 func _ready() -> void:
@@ -23,6 +23,7 @@ func _ready() -> void:
 		Global.target_spawn_name = ""
 		
 func _physics_process(delta: float) -> void:
+	
 	#Check Player is lock?
 	if is_locked :
 		return
