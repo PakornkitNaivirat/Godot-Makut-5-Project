@@ -5,7 +5,8 @@
 [ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="3_0ul3a"]
 [ext_resource type="Texture2D" uid="uid://beo8hlofimbdt" path="res://Asset/Spirte/Prop/tako/Takoyaki_tako-chopstick.png" id="3_f4yvr"]
 [ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Asset/font/Lexend-VariableFont_wght.ttf" id="5_6hwa1"]
-[ext_resource type="Texture2D" uid="uid://53upm3ys2wec" path="res://Asset/Spirte/Prop/tako/Takoyaki_ถาดรอง.png" id="5_f4yvr"]
+[ext_resource type="Texture2D" uid="uid://tqwbncgomw4" path="res://Asset/Spirte/Prop/tako/Takoyaki_ถาด.png" id="5_uvpjj"]
+[ext_resource type="Texture2D" uid="uid://br2hfuofe6aw4" path="res://Asset/Spirte/Prop/tako/Takoyaki_ถาดLayeer.png" id="6_opvx4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f4yvr"]
 font = ExtResource("5_6hwa1")
@@ -27,6 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0nvy3")
 target_spawn_point_name = "Takoyaki"
+custom_floating_font = ExtResource("3_0ul3a")
 pan_takos = [NodePath("PanTako1"), NodePath("PanTako2"), NodePath("PanTako3"), NodePath("PanTako4"), NodePath("PanTako5"), NodePath("PanTako6")]
 box_markers = [NodePath("Box Tako/Marker4"), NodePath("Box Tako/Marker5"), NodePath("Box Tako/Marker6"), NodePath("Box Tako/Marker1"), NodePath("Box Tako/Marker2"), NodePath("Box Tako/Marker3")]
 plain_tako_region = Rect2(467.705, 471.792, 279.643, 285.5)
@@ -80,19 +82,19 @@ region_rect = Rect2(1120.3029, 205.6559, 643.25793, 1058.778)
 [node name="Box Tako" type="Node2D" parent="." unique_id=1028063268]
 
 [node name="Box" type="Sprite2D" parent="Box Tako" unique_id=583111446]
-position = Vector2(237, 399)
+position = Vector2(237, 406)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_f4yvr")
+texture = ExtResource("5_uvpjj")
 region_enabled = true
-region_rect = Rect2(28.564087, 336.2564, 945.1282, 625.53845)
+region_rect = Rect2(566.6174, 289.03894, 954.9692, 615.42456)
 
 [node name="Box_wall" type="Sprite2D" parent="Box Tako" unique_id=1721574610]
 z_index = 50
-position = Vector2(237, 401)
+position = Vector2(235, 401)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_f4yvr")
+texture = ExtResource("6_opvx4")
 region_enabled = true
-region_rect = Rect2(931.2821, 308.02563, 945.1282, 609.9487)
+region_rect = Rect2(601.59204, 272.37317, 950.2532, 643.72)
 
 [node name="Marker1" type="Marker2D" parent="Box Tako" unique_id=283306574]
 position = Vector2(113, 443)

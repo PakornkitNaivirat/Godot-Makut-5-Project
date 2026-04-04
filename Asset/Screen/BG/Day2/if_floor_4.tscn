@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bts0se0x5ml2c"]
 
-[ext_resource type="Script" uid="uid://b4royvvfx70ra" path="res://Asset/Script/Re-use/if_floor_4.gd" id="1_sfd43"]
+[ext_resource type="Script" uid="uid://b4royvvfx70ra" path="res://Asset/Script/Re-use/ETC/if_floor_4.gd" id="1_sfd43"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_sb8iv"]
 [ext_resource type="Texture2D" uid="uid://crinw4u17ut7j" path="res://Asset/Spirte/Background/Day2/Lab_ชั้น_4.png" id="2_sfd43"]
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_sb8iv"]
