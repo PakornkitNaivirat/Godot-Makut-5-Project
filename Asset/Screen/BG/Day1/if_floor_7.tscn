@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_13u2h"]
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="3_cfnm7"]
 [ext_resource type="Texture2D" uid="uid://3mehouhet0tq" path="res://Asset/Spirte/Charactor/Bg.game.character .png" id="4_13u2h"]
-[ext_resource type="Texture2D" uid="uid://c1pybev64nirb" path="res://Asset/Spirte/Charactor/People_ game.png" id="5_qram0"]
+[ext_resource type="Texture2D" uid="uid://c1mt3sof5bck4" path="res://Asset/Spirte/Charactor/secret.png" id="6_n2n6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23kup"]
 size = Vector2(245, 1181.5)
@@ -83,11 +83,11 @@ position = Vector2(-26.37, -283)
 position = Vector2(-151, 153)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dialogue2" unique_id=214984984]
-position = Vector2(17, -30)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("5_qram0")
+position = Vector2(69.9999, 30.000002)
+scale = Vector2(0.61638415, 0.6)
+texture = ExtResource("6_n2n6b")
 region_enabled = true
-region_rect = Rect2(1649.0281, 10.507996, 258.22998, 707.85406)
+region_rect = Rect2(110.80005, 63.600006, 531, 514.80005)
 
 [editable path="Dialogue"]
 [editable path="Dialogue2"]
