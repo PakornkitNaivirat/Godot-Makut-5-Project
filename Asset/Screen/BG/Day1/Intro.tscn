@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://bv2weube832ap"]
+[gd_scene format=3 uid="uid://dwv0fmrdpvwqx"]
 
 [ext_resource type="Script" uid="uid://n46pi0x1bpe2" path="res://Asset/Screen/BG/Day1/IntroManager.gd" id="1_pc1yt"]
 [ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Asset/font/Lexend-VariableFont_wght.ttf" id="2_xmuqp"]
+[ext_resource type="AudioStream" uid="uid://vve18ntkunhn" path="res://Asset/Sounds/chatv4.mp3" id="3_a2icc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a2icc"]
 font = ExtResource("2_xmuqp")
@@ -12,6 +13,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Intro" type="Node2D" unique_id=1140812958]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=484802087]
+visible = false
 script = ExtResource("1_pc1yt")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=992661697]
@@ -26,3 +28,6 @@ offset_top = 48.0
 offset_right = 1071.0
 offset_bottom = 71.0
 label_settings = SubResource("LabelSettings_a2icc")
+
+[node name="KeyboardSound" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=222053615]
+stream = ExtResource("3_a2icc")

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/keyboard_sound.mp3-52546d3649b6ffeabed9adb6dc
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

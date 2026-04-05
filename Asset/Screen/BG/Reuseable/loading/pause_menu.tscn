@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://prtgyggpy8v0" path="res://Asset/Script/Re-use/LoadingScreen/pause_menu.gd" id="1_nwcfo"]
 [ext_resource type="Shader" uid="uid://c2g10voe7kokf" path="res://new_shader.gdshader" id="2_05uyy"]
-[ext_resource type="PackedScene" uid="uid://c7ht8eeybfslj" path="res://Asset/Screen/BG/Reuseable/loading/option.tscn" id="2_g5igy"]
+[ext_resource type="PackedScene" path="res://Asset/Screen/BG/Reuseable/loading/option.tscn" id="2_g5igy"]
 [ext_resource type="FontFile" uid="uid://bsxry52t07gud" path="res://Asset/font/Blue Winter.ttf" id="3_05uyy"]
+[ext_resource type="AudioStream" uid="uid://js2jdiycfn0w" path="res://Asset/Sounds/เสียงกด.mp3" id="5_yk7nr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p81d2"]
 shader = ExtResource("2_05uyy")
@@ -147,3 +148,7 @@ text = "Quit to Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2122360761]
 libraries/ = SubResource("AnimationLibrary_mxa3g")
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=1159642391]
+stream = ExtResource("5_yk7nr")
+volume_db = -23.706
