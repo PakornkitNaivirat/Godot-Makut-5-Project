@@ -1,13 +1,29 @@
 [gd_scene format=3 uid="uid://dwhg8hr31jwtg"]
 
+[ext_resource type="Script" uid="uid://dw7tx4hdox1mb" path="res://Asset/Script/Re-use/LoadingScreen/AssetManagement.gd" id="1_ehvqf"]
 [ext_resource type="Texture2D" uid="uid://dmss760fx04na" path="res://Asset/Spirte/Background/Day4/Sea_nos.bg.png" id="1_xsbu5"]
 [ext_resource type="Texture2D" uid="uid://b1dsh8tk8stw2" path="res://Asset/Spirte/Background/Day4/Stone.sea_bg.png" id="2_cuk6c"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="3_ls15x"]
+[ext_resource type="Texture2D" uid="uid://ct77l57alxd14" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะเปียก.png" id="4_chxdr"]
+[ext_resource type="Texture2D" uid="uid://fbrcg2xyt27i" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะอันตราย.png" id="5_u20f1"]
+[ext_resource type="Texture2D" uid="uid://d2w3dt3wvqc8k" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะรีไซเคิล.png" id="6_ehvqf"]
+[ext_resource type="Texture2D" uid="uid://b0fjoj0pwv6rs" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะทั่วไป.png" id="7_hwdgd"]
+[ext_resource type="Texture2D" uid="uid://bgd85iewk2ewq" path="res://Asset/Spirte/Prop/Trash_Prop/กระดาษลัง.png" id="8_y8kw0"]
+[ext_resource type="Script" uid="uid://duim7wdj8pwsd" path="res://Asset/Script/Re-use/Misc/day_4_daySea.gd" id="9_hwdgd"]
+[ext_resource type="Texture2D" uid="uid://bg30rjf08bov5" path="res://Asset/Spirte/Prop/Trash_Prop/ขวดน้ำ (1).png" id="9_otknv"]
+[ext_resource type="Texture2D" uid="uid://bjdqbyrblrf0m" path="res://Asset/Spirte/Prop/Trash_Prop/ถุงพลาสติก.png" id="10_ihgfv"]
+[ext_resource type="Texture2D" uid="uid://bltgt7g16so5o" path="res://Asset/Spirte/Prop/Trash_Prop/ถ่านไฟฉาย.png" id="11_rnv8b"]
+[ext_resource type="Texture2D" uid="uid://cn3ih4svsl30j" path="res://Asset/Spirte/Prop/Trash_Prop/เปลือกกล้วย.png" id="12_2kl2d"]
+[ext_resource type="Texture2D" uid="uid://c1pybev64nirb" path="res://Asset/Spirte/Charactor/People_ game.png" id="13_fx0yu"]
+[ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="14_2yw4a"]
+[ext_resource type="Texture2D" uid="uid://3mehouhet0tq" path="res://Asset/Spirte/Charactor/Bg.game.character .png" id="15_u20f1"]
+[ext_resource type="Script" uid="uid://blfhg5u0plkas" path="res://Asset/Script/Re-use/Misc/day_4_evening.gd" id="18_y8kw0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsbu5"]
 size = Vector2(43, 1109)
 
 [node name="Sea shore" type="Node2D" unique_id=1638767410]
+script = ExtResource("1_ehvqf")
 
 [node name="BG" type="Node2D" parent="." unique_id=403258599]
 
@@ -17,7 +33,7 @@ texture = ExtResource("1_xsbu5")
 centered = false
 
 [node name="Rock" type="Sprite2D" parent="BG" unique_id=1794145801]
-z_index = 2
+z_index = 30
 y_sort_enabled = true
 texture = ExtResource("2_cuk6c")
 centered = false
@@ -32,11 +48,320 @@ shape = SubResource("RectangleShape2D_xsbu5")
 position = Vector2(5753, 544.5)
 shape = SubResource("RectangleShape2D_xsbu5")
 
-[node name="Player" parent="." unique_id=1775447557 instance=ExtResource("3_ls15x")]
+[node name="Player" parent="." unique_id=1775447557 groups=["player"] instance=ExtResource("3_ls15x")]
+z_index = 2
 position = Vector2(95, 627)
 scale = Vector2(0.3, 0.3)
 
 [node name="Camera2D" parent="Player" index="0" unique_id=266598659]
 zoom = Vector2(0.6, 0.6)
 
+[node name="SeaEnter" type="Marker2D" parent="." unique_id=654290949]
+position = Vector2(95, 644)
+
+[node name="BackFromTrash" type="Marker2D" parent="." unique_id=255090588]
+position = Vector2(3198, 644)
+
+[node name="Bin" type="Node2D" parent="." unique_id=34505965]
+z_index = 20
+
+[node name="G1" type="Sprite2D" parent="Bin" unique_id=1005870262]
+position = Vector2(3454, 817)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_chxdr")
+
+[node name="G2" type="Sprite2D" parent="Bin" unique_id=149670661]
+position = Vector2(3575, 833)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_u20f1")
+
+[node name="G3" type="Sprite2D" parent="Bin" unique_id=2094123846]
+position = Vector2(3697, 828)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_ehvqf")
+
+[node name="G4" type="Sprite2D" parent="Bin" unique_id=581317743]
+position = Vector2(3828, 813)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_hwdgd")
+
+[node name="Day4_Day" type="Node2D" parent="." unique_id=1537834967]
+visible = false
+script = ExtResource("9_hwdgd")
+
+[node name="Trash" type="Node2D" parent="Day4_Day" unique_id=2116312035]
+
+[node name="G1" type="Sprite2D" parent="Day4_Day/Trash" unique_id=473953682]
+position = Vector2(2207, 595)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_y8kw0")
+
+[node name="G2" type="Sprite2D" parent="Day4_Day/Trash" unique_id=805705806]
+position = Vector2(1952, 612)
+rotation = 1.553343
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_otknv")
+
+[node name="G3" type="Sprite2D" parent="Day4_Day/Trash" unique_id=647561332]
+position = Vector2(2343, 834.99994)
+rotation = 2.0158553
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_ihgfv")
+
+[node name="G4" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1925570009]
+position = Vector2(2544, 785)
+rotation = 0.34906584
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_rnv8b")
+
+[node name="G5" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1234164646]
+position = Vector2(2422, 519)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_2kl2d")
+
+[node name="G6" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1921513396]
+position = Vector2(3319.7979, 583.5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_y8kw0")
+
+[node name="G7" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1223917310]
+position = Vector2(3195, 816)
+rotation = 0.41887903
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_otknv")
+
+[node name="G8" type="Sprite2D" parent="Day4_Day/Trash" unique_id=790528169]
+position = Vector2(3455.7979, 823.49994)
+rotation = 2.0158553
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_ihgfv")
+
+[node name="G9" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1766153406]
+position = Vector2(3656.7979, 773.5)
+rotation = 0.34906584
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_rnv8b")
+
+[node name="G10" type="Sprite2D" parent="Day4_Day/Trash" unique_id=2086308380]
+position = Vector2(3534.7979, 507.5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_2kl2d")
+
+[node name="G11" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1240924875]
+position = Vector2(2690.7979, 644.5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_y8kw0")
+
+[node name="G12" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1480732382]
+position = Vector2(2169.0002, 847)
+rotation = -0.6021386
+scale = Vector2(0.19953083, 0.19750519)
+texture = ExtResource("9_otknv")
+
+[node name="G13" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1653009629]
+position = Vector2(2826.7979, 884.49994)
+rotation = 2.0158553
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_ihgfv")
+
+[node name="G14" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1998007153]
+position = Vector2(3027.7979, 834.5)
+rotation = 0.34906584
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_rnv8b")
+
+[node name="G15" type="Sprite2D" parent="Day4_Day/Trash" unique_id=157150788]
+position = Vector2(2905.7979, 568.5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_2kl2d")
+
+[node name="G16" type="Sprite2D" parent="Day4_Day/Trash" unique_id=119004900]
+position = Vector2(3866, 700)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_y8kw0")
+
+[node name="G17" type="Sprite2D" parent="Day4_Day/Trash" unique_id=456797829]
+position = Vector2(3610.7979, 608)
+rotation = 1.553343
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_otknv")
+
+[node name="G18" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1476928302]
+position = Vector2(4001.7979, 830.99994)
+rotation = 2.0158553
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_ihgfv")
+
+[node name="G19" type="Sprite2D" parent="Day4_Day/Trash" unique_id=208707781]
+position = Vector2(4098, 658.9999)
+rotation = 0.34906584
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_rnv8b")
+
+[node name="G20" type="Sprite2D" parent="Day4_Day/Trash" unique_id=2040028123]
+position = Vector2(4325, 862)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_2kl2d")
+
+[node name="G21" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1217811149]
+position = Vector2(4978.5957, 579.5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_y8kw0")
+
+[node name="G22" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1592345503]
+position = Vector2(4723.5957, 596.5)
+rotation = 1.553343
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_otknv")
+
+[node name="G23" type="Sprite2D" parent="Day4_Day/Trash" unique_id=84161785]
+position = Vector2(5436, 575.00006)
+rotation = 2.0158553
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_ihgfv")
+
+[node name="G24" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1336178279]
+position = Vector2(5315.5957, 769.5)
+rotation = 0.34906584
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_rnv8b")
+
+[node name="G25" type="Sprite2D" parent="Day4_Day/Trash" unique_id=154698447]
+position = Vector2(5007, 754)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_2kl2d")
+
+[node name="G26" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1842791592]
+position = Vector2(4349.5957, 640.5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_y8kw0")
+
+[node name="G27" type="Sprite2D" parent="Day4_Day/Trash" unique_id=2065642971]
+position = Vector2(4399, 514)
+rotation = 1.553343
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_otknv")
+
+[node name="G28" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1534278839]
+position = Vector2(4957, 931.99994)
+rotation = 2.0158553
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_ihgfv")
+
+[node name="G29" type="Sprite2D" parent="Day4_Day/Trash" unique_id=200640904]
+position = Vector2(4686.5957, 830.5)
+rotation = 0.34906584
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_rnv8b")
+
+[node name="G30" type="Sprite2D" parent="Day4_Day/Trash" unique_id=1553008728]
+position = Vector2(4564.5957, 564.5)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_2kl2d")
+
+[node name="Done" type="Node2D" parent="Day4_Day" unique_id=62185847]
+position = Vector2(-1194, -92)
+
+[node name="Sprite2D" type="Sprite2D" parent="Day4_Day/Done" unique_id=421736730]
+position = Vector2(2742.115, 574.39)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("13_fx0yu")
+region_enabled = true
+region_rect = Rect2(988.0768, 40.999996, 209.04431, 674.9649)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Day4_Day/Done" unique_id=1240829777]
+z_index = 3
+position = Vector2(2394, 860)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_fx0yu")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(749.8749, 432.6131, 207.75586, 631.3201)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Day4_Day/Done" unique_id=1384123563]
+position = Vector2(2807.115, 590.39)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("13_fx0yu")
+region_enabled = true
+region_rect = Rect2(1347.4741, 411.57944, 203.72974, 648.3915)
+
+[node name="Dialogue" parent="Day4_Day/Done" unique_id=410944203 instance=ExtResource("14_2yw4a")]
+position = Vector2(2660, 623)
+next_scene_path = "res://Asset/Screen/BG/Minigames/beach_game.tscn"
+dialog_text = Array[String](["NPC:Alright, now that everyone is here", "NPC:I’ll explain today's activity", "NPC:Our goal for today is to collect trash along the beach", "NPC:to restore the environment and help our ocean look beautiful again.", "NPC:We’ll be splitting up into small groups of 2 or 3. ", "NPC:Does anyone have any questions?", "Player: Do we need to sort the trash as we collect it?", "Player:And how long will this activity take?\" I asked.
+", "NPC:\"Good questions. First, yes, ", "NPC:we should sort the trash for easier disposal later", "NPC:Second, we’ll spend about 2 to 3 hours on this", "NPC:If there are no more questions, let's start picking groups and get to work!", "Player:Sure", "Narrator:(I should probably go ask Rin....)"])
+
+[node name="PlayerSpot" parent="Day4_Day/Done/Dialogue" index="6" unique_id=301342563]
+position = Vector2(-98, 118)
+
+[node name="PosNPC" parent="Day4_Day/Done/Dialogue" index="7" unique_id=309990384]
+position = Vector2(116, -245)
+
+[node name="PosPlayer" parent="Day4_Day/Done/Dialogue" index="8" unique_id=1232311272]
+position = Vector2(-108, -158)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Day4_Day/Done" unique_id=2002653204]
+z_index = 20
+position = Vector2(2729, 918)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("15_u20f1")
+region_enabled = true
+region_rect = Rect2(1648.9639, 170.09207, 367.59814, 1312.832)
+
+[node name="Day4_Evening" type="Node2D" parent="." unique_id=140324384]
+script = ExtResource("18_y8kw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Day4_Evening" unique_id=1701930847]
+position = Vector2(4183, 459)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("13_fx0yu")
+region_enabled = true
+region_rect = Rect2(988.0768, 40.999996, 209.04431, 674.9649)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Day4_Evening" unique_id=1099669757]
+position = Vector2(4026, 465)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_fx0yu")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(749.8749, 432.6131, 207.75586, 631.3201)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Day4_Evening" unique_id=88594897]
+z_index = 1
+position = Vector2(4269, 501.99997)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("13_fx0yu")
+region_enabled = true
+region_rect = Rect2(1347.4741, 411.57944, 203.72974, 648.3915)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Day4_Evening" unique_id=2057818549]
+position = Vector2(3606, 464)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("15_u20f1")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1648.9639, 170.09207, 367.59814, 1312.832)
+
+[node name="Dialogue" parent="Day4_Evening" unique_id=606458390 instance=ExtResource("14_2yw4a")]
+position = Vector2(3702, 458)
+next_scene_path = "res://Asset/Screen/BG/Day4/won.tscn"
+dialog_text = Array[String](["Player:Hey Rin, are you free? ", "Player:Do you want to go for a walk for a bit?", "Narrator:Before I even knew why, I found myself walking up to ask her", "NPC:Hmm, since we're already at the beach", "NPC:a walk to enjoy the breeze and the view sounds like a good idea"])
+
+[node name="box" parent="Day4_Evening/Dialogue" index="4" unique_id=97389463]
+position = Vector2(-86, -199)
+
+[node name="dot" parent="Day4_Evening/Dialogue" index="5" unique_id=1117769796]
+position = Vector2(-92.37, -201)
+
+[node name="PlayerSpot" parent="Day4_Evening/Dialogue" index="6" unique_id=301342563]
+position = Vector2(56, 139)
+
+[node name="PosNPC" parent="Day4_Evening/Dialogue" index="7" unique_id=309990384]
+position = Vector2(-92, -181)
+
+[node name="PosPlayer" parent="Day4_Evening/Dialogue" index="8" unique_id=1232311272]
+position = Vector2(68, -154)
+
 [editable path="Player"]
+[editable path="Day4_Day/Done/Dialogue"]
+[editable path="Day4_Evening/Dialogue"]

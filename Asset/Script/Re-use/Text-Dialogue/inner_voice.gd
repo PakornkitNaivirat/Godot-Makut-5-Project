@@ -32,8 +32,8 @@ func _ready():
 		
 	visible = false
 
-# 🌟 ใช้ชื่อ speak เหมือนเดิม
-func speak(text_content: String):
+# 🌟 เพิ่ม parameter "auto_hide" เข้ามา
+func speak(text_content: String, auto_hide: bool = true):
 	text_label.text = text_content
 	text_label.visible_characters = 0 
 	visible = true
@@ -58,14 +58,14 @@ func speak(text_content: String):
 	var type_duration = text_content.length() * typing_speed 
 	typing_tween.tween_property(text_label, "visible_characters", text_content.length(), type_duration)
 
-	# --- 3. ระบบรอให้พิมพ์เสร็จ แล้วหายไปเอง ---
+	# --- 3. ระบบรอให้พิมพ์เสร็จ ---
 	await typing_tween.finished 
 	
-	await get_tree().create_timer(1.5).timeout 
-	
-	if text_label.text == text_content:
-		hide_text()
-
+	# 🌟 ล็อกไว้ว่า ถ้าเราสั่งปิด auto_hide (จากคัทซีน) ระบบนี้จะไม่ทำงาน! จอดำก็จะค้างไว้
+	if auto_hide:
+		await get_tree().create_timer(1.5).timeout 
+		if text_label.text == text_content:
+			hide_text()
 
 func hide_text():
 	is_speaking = false
