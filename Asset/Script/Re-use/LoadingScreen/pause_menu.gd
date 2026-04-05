@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var resume_btn = $PanelContainer/VBoxContainer/Resume
 @onready var options_btn = $PanelContainer/VBoxContainer/Options
 @onready var quit_btn = $"PanelContainer/VBoxContainer/Quit Destop"
+@onready var click = $click
 
 @export var option_scene: PackedScene
 
@@ -34,15 +35,18 @@ func toggle_pause():
 # --- ฟังก์ชันการทำงานของปุ่ม ---
 
 func _on_resume_pressed():
+	click.play()
 	# กด Resume ก็แค่สั่งสลับสถานะ Pause กลับเป็นปกติ
 	toggle_pause()
 
 func _on_options_pressed():
+	click.play()
 	if option_scene:
 		var option_instance = option_scene.instantiate()
 		add_child(option_instance)
 
 func _on_quit_pressed():
+	click.play()
 	# 1. สั่งซ่อนหน้าต่างเมนูตัวเองซะก่อน
 	visible = false
 	

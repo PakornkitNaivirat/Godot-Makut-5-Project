@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://c7ht8eeybfslj"]
+[gd_scene format=3 uid="uid://bkok3674qfkk4"]
 
 [ext_resource type="Texture2D" uid="uid://dh3dnicjf3tfp" path="res://Asset/Spirte/Prop/Arrow/667752957_2651369088567921_3847465495172361934_n.jpg" id="1_5v7n4"]
 [ext_resource type="Script" uid="uid://dbscvmat8euw2" path="res://Asset/Script/Re-use/Misc/option.gd" id="1_563x0"]
 [ext_resource type="Texture2D" uid="uid://bgnwcfgp2dxba" path="res://Asset/Spirte/Prop/Arrow/666017549_1622768825591069_8164472156132748582_n.jpg" id="3_mk4om"]
+[ext_resource type="AudioStream" uid="uid://js2jdiycfn0w" path="res://Asset/Sounds/เสียงกด.mp3" id="4_o3fxb"]
 
 [node name="Option" type="CanvasLayer" unique_id=1835000202]
 layer = 60
@@ -28,3 +29,7 @@ offset_right = 1492.0
 offset_bottom = 892.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_mk4om")
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=1855660103]
+stream = ExtResource("4_o3fxb")
+volume_db = -23.324
