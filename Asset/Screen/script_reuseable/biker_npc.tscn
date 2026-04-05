@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://klpt68k5d4re"]
+
+[ext_resource type="Script" uid="uid://bna8uwb5jhv2v" path="res://Asset/Script/Re-use/ETC/biker_npc.gd" id="1_na0n3"]
+[ext_resource type="Texture2D" uid="uid://b611btwbqt2pm" path="res://Asset/Spirte/Charactor/car/Untitled70_20260405044326.png" id="2_tsn6y"]
+
+[node name="BikerNPC" type="Node2D" unique_id=807408317]
+script = ExtResource("1_na0n3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=108721217]
+modulate = Color(0.36025837, 0.44174984, 0.5209446, 0.7294118)
+z_index = 100
+position = Vector2(985, 500)
+texture = ExtResource("2_tsn6y")
+flip_h = true

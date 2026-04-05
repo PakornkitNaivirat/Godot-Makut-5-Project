@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cp4hva5jvc3dn"]
+
+[ext_resource type="Script" uid="uid://bfu4whj3xeie7" path="res://Asset/Script/Re-use/MiniGame/trash_drag.gd" id="1_c2djq"]
+[ext_resource type="Texture2D" uid="uid://bgd85iewk2ewq" path="res://Asset/Spirte/Prop/Trash_Prop/กระดาษลัง.png" id="2_lgosu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7tkw"]
+radius = 58.0
+
+[node name="TrashDrag" type="Area2D" unique_id=641594523]
+script = ExtResource("1_c2djq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=879965627]
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_lgosu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1071168528]
+visible = false
+shape = SubResource("CircleShape2D_i7tkw")

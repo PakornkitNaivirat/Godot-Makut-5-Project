@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://kmbal37ad7cn"]
+
+[ext_resource type="Script" uid="uid://bmf2ovxs7o5bk" path="res://Asset/Script/Re-use/ETC/bike_manager.gd" id="1_2nyg0"]
+[ext_resource type="Texture2D" uid="uid://b611btwbqt2pm" path="res://Asset/Spirte/Charactor/car/Untitled70_20260405044326.png" id="3_0n05d"]
+[ext_resource type="Texture2D" uid="uid://cwgjnxdxvlshp" path="res://Asset/Spirte/Charactor/car/Untitled70_20260405044357.png" id="4_8333s"]
+[ext_resource type="Texture2D" uid="uid://bqoijh0pc4d1" path="res://Asset/Spirte/Charactor/car/Untitled70_20260405115215.png" id="5_itx4w"]
+
+[node name="TrafficManager" type="Node2D" unique_id=1865246062]
+script = ExtResource("1_2nyg0")
+biker_textures = Array[Texture2D]([ExtResource("3_0n05d"), ExtResource("4_8333s"), ExtResource("5_itx4w")])

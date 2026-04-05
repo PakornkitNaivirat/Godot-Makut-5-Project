@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://qvoafkuh7jfs"]
+
+[ext_resource type="Script" uid="uid://bgudjqstm4jlh" path="res://Asset/Script/Re-use/MiniGame/beach_game.gd" id="1_uvgxh"]
+[ext_resource type="Texture2D" uid="uid://dmss760fx04na" path="res://Asset/Spirte/Background/Day4/Sea_nos.bg.png" id="2_oclav"]
+[ext_resource type="PackedScene" uid="uid://ckvx4lxbaqikn" path="res://Asset/Screen/BG/Minigames/Trash/Trash.tscn" id="3_0fa57"]
+[ext_resource type="Texture2D" uid="uid://cn3ih4svsl30j" path="res://Asset/Spirte/Prop/Trash_Prop/เปลือกกล้วย.png" id="4_d3thx"]
+[ext_resource type="Script" uid="uid://cbjr515yn7w2t" path="res://Asset/Script/Re-use/MiniGame/wave_spawner.gd" id="4_pcpfs"]
+[ext_resource type="Texture2D" uid="uid://bgd85iewk2ewq" path="res://Asset/Spirte/Prop/Trash_Prop/กระดาษลัง.png" id="5_he1o6"]
+[ext_resource type="Texture2D" uid="uid://bjdqbyrblrf0m" path="res://Asset/Spirte/Prop/Trash_Prop/ถุงพลาสติก.png" id="5_lid1k"]
+[ext_resource type="Texture2D" uid="uid://bg30rjf08bov5" path="res://Asset/Spirte/Prop/Trash_Prop/ขวดน้ำ (1).png" id="6_nwmdx"]
+[ext_resource type="Texture2D" uid="uid://4b30j3ax03sd" path="res://Asset/Spirte/Prop/Trash_Prop/ขวดน้ำ.png" id="7_e4bbv"]
+[ext_resource type="Texture2D" uid="uid://bltgt7g16so5o" path="res://Asset/Spirte/Prop/Trash_Prop/ถ่านไฟฉาย.png" id="8_0bpux"]
+
+[node name="BeachGame" type="Node2D" unique_id=1596971245]
+script = ExtResource("1_uvgxh")
+
+[node name="SandBackground" type="Sprite2D" parent="." unique_id=1998723790]
+position = Vector2(576.5, 322.29)
+scale = Vector2(1.2106919, 1.65964)
+texture = ExtResource("2_oclav")
+region_enabled = true
+region_rect = Rect2(2519.1855, 513.2811, 954.49756, 518.74866)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=974052880]
+
+[node name="CountLabel" type="Label" parent="CanvasLayer" unique_id=1818069815]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="WaveSpawner" type="Node2D" parent="." unique_id=26906118]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("4_pcpfs")
+trash_scene = ExtResource("3_0fa57")
+trash_textures = Array[Texture2D]([ExtResource("5_he1o6"), ExtResource("6_nwmdx"), ExtResource("7_e4bbv"), ExtResource("5_lid1k"), ExtResource("8_0bpux"), ExtResource("4_d3thx")])
+max_x = 1800.0
+min_y = 100.0
+max_y = 1080.0

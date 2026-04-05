@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b8kpdwe14jaty"]
+
+[ext_resource type="Script" uid="uid://bemitetfpretf" path="res://Asset/Script/Re-use/MiniGame/bin.gd" id="1_knth6"]
+[ext_resource type="Texture2D" uid="uid://b0fjoj0pwv6rs" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะทั่วไป.png" id="2_yxfsh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsuau"]
+size = Vector2(204.125, 311.75)
+
+[node name="Bin" type="Area2D" unique_id=724214166 groups=["bins"]]
+script = ExtResource("1_knth6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=222268512]
+position = Vector2(546, 310)
+scale = Vector2(0.635, 0.635)
+texture = ExtResource("2_yxfsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331399023]
+visible = false
+position = Vector2(544, 331)
+shape = SubResource("RectangleShape2D_jsuau")

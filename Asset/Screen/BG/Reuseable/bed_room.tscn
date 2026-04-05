@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dh8runqcexfbq" path="res://Asset/Screen/script_reuseable/Door/door_sideway.tscn" id="4_mnxv1"]
 [ext_resource type="PackedScene" uid="uid://raijymtl8r4u" path="res://Asset/Screen/script_reuseable/Door/smart_door.tscn" id="5_pnk2q"]
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="7_3hubp"]
-[ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/night.gd" id="8_3hubp"]
+[ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/ETC/night.gd" id="8_3hubp"]
 [ext_resource type="Script" uid="uid://dqj0yo4gpfnse" path="res://Asset/Script/Re-use/Misc/day_2_night.gd" id="9_jbwfh"]
 [ext_resource type="Script" uid="uid://b3km5m6hr7byd" path="res://Asset/Script/Re-use/Misc/day_3_night.gd" id="10_05888"]
 

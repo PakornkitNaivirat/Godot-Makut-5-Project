@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://53upm3ys2wec"
-path="res://.godot/imported/Takoyaki_ถาดรอง.png-097d83c971dff41c0631cf2ebf3e9db2.ctex"
+uid="uid://d2w3dt3wvqc8k"
+path="res://.godot/imported/ถังขยะรีไซเคิล.png-0096fe431a6784b3f9eeacba10e20154.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Spirte/Prop/tako/Takoyaki_ถาดรอง.png"
-dest_files=["res://.godot/imported/Takoyaki_ถาดรอง.png-097d83c971dff41c0631cf2ebf3e9db2.ctex"]
+source_file="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะรีไซเคิล.png"
+dest_files=["res://.godot/imported/ถังขยะรีไซเคิล.png-0096fe431a6784b3f9eeacba10e20154.ctex"]
 
 [params]
 

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ckvx4lxbaqikn"]
+
+[ext_resource type="Script" uid="uid://sfbp6i3qyrcq" path="res://Asset/Script/Re-use/MiniGame/trash.gd" id="1_73f75"]
+[ext_resource type="Texture2D" uid="uid://bgd85iewk2ewq" path="res://Asset/Spirte/Prop/Trash_Prop/กระดาษลัง.png" id="1_tunu6"]
+[ext_resource type="AudioStream" uid="uid://bq31iqsvceunu" path="res://Asset/Sounds/pop(หยิบของใส่กระเป๋า).mp3" id="3_e5q5o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73f75"]
+radius = 39.5064
+
+[node name="Trash" type="Area2D" unique_id=1796411840 groups=["trash_group"]]
+z_index = 10
+script = ExtResource("1_73f75")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1914258918]
+texture = ExtResource("1_tunu6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=385590812]
+visible = false
+scale = Vector2(4.815, 4.815)
+shape = SubResource("CircleShape2D_73f75")
+
+[node name="DustEffect" type="CPUParticles2D" parent="." unique_id=2125023607]
+emitting = false
+amount = 15
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+color = Color(0.67911756, 0.4678064, 0.306731, 1)
+
+[node name="SoundEffect" type="AudioStreamPlayer2D" parent="." unique_id=1025704422]
+stream = ExtResource("3_e5q5o")
+volume_db = -10.0

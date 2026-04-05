@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dmqouiloo66m3"]
+
+[ext_resource type="Script" uid="uid://cctuk3ish5y6d" path="res://Asset/Script/Re-use/MiniGame/sorting_game.gd" id="1_r5ief"]
+[ext_resource type="PackedScene" uid="uid://b8kpdwe14jaty" path="res://Asset/Screen/BG/Minigames/Trash/bin.tscn" id="2_gljw5"]
+[ext_resource type="PackedScene" uid="uid://cp4hva5jvc3dn" path="res://Asset/Screen/BG/Minigames/Trash/trash_drag.tscn" id="2_lgdae"]
+[ext_resource type="Texture2D" uid="uid://ct77l57alxd14" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะเปียก.png" id="4_6deax"]
+[ext_resource type="Texture2D" uid="uid://fbrcg2xyt27i" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะอันตราย.png" id="5_7hlmj"]
+[ext_resource type="Texture2D" uid="uid://d2w3dt3wvqc8k" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะรีไซเคิล.png" id="6_l8ky3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6deax"]
+
+[node name="SortingGame" type="Node2D" unique_id=2076788430]
+script = ExtResource("1_r5ief")
+trash_scene = ExtResource("2_lgdae")
+
+[node name="Bin" parent="." unique_id=1826059152 instance=ExtResource("2_gljw5")]
+position = Vector2(-297, 250)
+scale = Vector2(0.8, 0.8)
+bin_type = "wet"
+
+[node name="Sprite2D" parent="Bin" index="0" unique_id=222268512]
+texture = ExtResource("4_6deax")
+
+[node name="CollisionShape2D" parent="Bin" index="1" unique_id=1331399023]
+position = Vector2(542.5, 317.5)
+
+[node name="Bin2" parent="." unique_id=413138339 instance=ExtResource("2_gljw5")]
+position = Vector2(7, 248)
+scale = Vector2(0.8, 0.8)
+bin_type = "toxic"
+
+[node name="Sprite2D" parent="Bin2" index="0" unique_id=222268512]
+position = Vector2(523.75, 351.25)
+texture = ExtResource("5_7hlmj")
+
+[node name="CollisionShape2D" parent="Bin2" index="1" unique_id=1331399023]
+position = Vector2(525, 323.75)
+
+[node name="Bin3" parent="." unique_id=206628860 instance=ExtResource("2_gljw5")]
+position = Vector2(306, 242)
+scale = Vector2(0.8, 0.8)
+bin_type = "recycle"
+
+[node name="Sprite2D" parent="Bin3" index="0" unique_id=222268512]
+position = Vector2(530, 345)
+texture = ExtResource("6_l8ky3")
+
+[node name="CollisionShape2D" parent="Bin3" index="1" unique_id=1331399023]
+position = Vector2(527.937, 339.625)
+
+[node name="Bin4" parent="." unique_id=1402753704 instance=ExtResource("2_gljw5")]
+position = Vector2(568, 242)
+scale = Vector2(0.8, 0.8)
+bin_type = "general"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=150224666]
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1063610497]
+offset_left = 549.0
+offset_top = 17.0
+offset_right = 751.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 100
+label_settings = SubResource("LabelSettings_6deax")
+
+[editable path="Bin"]
+[editable path="Bin2"]
+[editable path="Bin3"]
+[editable path="Bin4"]

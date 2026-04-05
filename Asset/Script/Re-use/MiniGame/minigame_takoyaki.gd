@@ -5,6 +5,7 @@ extends Control
 @export var win_condition: int = 6 # 🌟 เปลี่ยนเป็น 6 ลูก
 @export var time_limit: float = 30.0
 @export var max_misses: int = 3
+@export var custom_floating_font: Font
 
 var time_left: float
 var miss_count: int = 0
@@ -91,6 +92,9 @@ func on_success():
 	# 🌟 ป้องกันกรณีคีบเกิน 6 ลูก
 	if success_count >= win_condition: return
 	
+	var bar_center = bg_bar.global_position + (bg_bar.size / 2)
+	spawn_floating_text("PERFECT!", Color.GREEN, bar_center)
+	
 	# 🌟 เลือกลูกทาโกะ และ จุดวาง ปัจจุบัน
 	var current_tako = pan_takos[success_count]
 	var target_marker = box_markers[success_count]
@@ -174,6 +178,9 @@ func on_fail():
 	animate_status_label()
 	screen_shake()
 	
+	var bar_center = bg_bar.global_position + (bg_bar.size / 2)
+	spawn_floating_text("MISS!", Color.RED, bar_center)
+	
 	if miss_count >= max_misses:
 		is_game_over = true
 		await get_tree().create_timer(1.0).timeout
@@ -213,11 +220,28 @@ func win_game():
 	status_label.text = "ALL DONE! 🐙"
 	status_label.modulate = Color.WHITE
 	
-	# 🌟 ราดซอสให้ทาโกะทุกลูกที่อยู่ในถาด
+	# 🌟 สร้าง Tween สำหรับ Effect ราดซอส
+	var tween = create_tween()
+	
+	# 🌟 ทำ Effect ไล่ราดซอสทีละลูก
 	for tako in pan_takos:
-		tako.region_rect = sauce_tako_region
+		var original_scale = tako.scale 
 		
-	await get_tree().create_timer(2.0).timeout
+		tween.tween_property(tako, "scale", original_scale * Vector2(1.2, 0.8), 0.1)
+		
+
+		tween.tween_callback(func():
+			tako.region_rect = sauce_tako_region
+		)
+
+		tween.tween_property(tako, "scale", original_scale, 0.3)\
+			.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+
+		tween.tween_interval(0.1)
+		
+	await tween.finished
+	
+	await get_tree().create_timer(1.0).timeout
 	
 	Global.load_exact_pos = false
 	Global.target_spawn_name = target_spawn_point_name
@@ -270,3 +294,37 @@ func screen_shake():
 	for i in range(4):
 		tw.tween_property(self, "position", op + Vector2(randf_range(-5,5), randf_range(-5,5)), 0.05)
 	tw.tween_property(self, "position", op, 0.05)
+	
+func spawn_floating_text(message: String, text_color: Color, spawn_pos: Vector2):
+	var floating_label = Label.new()
+	floating_label.text = message
+	floating_label.modulate = text_color
+	
+	# ตั้งค่าให้ข้อความอยู่ตรงกลางจุดที่เกิด
+	floating_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	floating_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	
+	if custom_floating_font:
+		floating_label.add_theme_font_override("font", custom_floating_font)
+	
+	# เพิ่มขนาดตัวอักษร (ถ้าอยากให้ใหญ่ขึ้น ปรับเลข 32 ได้เลย)
+	floating_label.add_theme_font_size_override("font_size", 48)
+	
+	# เพิ่ม Label เข้าไปใน Scene ปัจจุบัน
+	add_child(floating_label)
+	
+	# จัดตำแหน่งให้อยู่ตรงกลางของพิกัดที่ส่งมา
+	floating_label.global_position = spawn_pos - (floating_label.size / 2)
+	floating_label.z_index = 20 # ให้อยู่บนสุด
+	
+	# --- สร้าง Tween สำหรับ Effect เด้งและ Fade ---
+	var tween = create_tween().set_parallel(true) # ให้ทำงานพร้อมกัน
+	
+	# 1. ลอยขึ้นไปด้านบน 50 พิกเซล ภายใน 0.6 วินาที
+	tween.tween_property(floating_label, "global_position:y", floating_label.global_position.y - 100, 0.6).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	
+	# 2. ค่อยๆ โปร่งใส (Fade out) จนค่า Alpha เป็น 0 ภายใน 0.6 วินาที
+	tween.tween_property(floating_label, "modulate:a", 0.0, 0.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	
+	# 3. พอลอยและเฟดเสร็จ ให้ลบ Label นี้ทิ้งเพื่อไม่ให้กินหน่วยความจำ
+	tween.chain().tween_callback(floating_label.queue_free)

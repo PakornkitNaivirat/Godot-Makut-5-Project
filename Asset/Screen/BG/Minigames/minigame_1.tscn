@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bdsvhfjswmjef" path="res://Asset/Spirte/Prop/Backpack/image-Photoroom (7).png" id="8_ohpix"]
 [ext_resource type="Texture2D" uid="uid://5guhv3bitjsf" path="res://Asset/Spirte/Prop/Backpack/image-Photoroom (11).png" id="9_nopin"]
 [ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="10_nyj2t"]
-[ext_resource type="Script" uid="uid://e4kcxkym1gs6" path="res://Asset/Screen/BG/Minigames/checklist_manager.gd" id="11_nopin"]
+[ext_resource type="Script" uid="uid://e4kcxkym1gs6" path="res://Asset/Script/Re-use/MiniGame/checklist_manager.gd" id="11_nopin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a44ql"]
 size = Vector2(262, 287)
