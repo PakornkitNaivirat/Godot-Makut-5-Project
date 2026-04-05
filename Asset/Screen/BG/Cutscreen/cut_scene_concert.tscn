@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xam2dkeqbl6p" path="res://Asset/Spirte/Background/CutScreen/Concert/con2.png" id="2_ou2vy"]
 [ext_resource type="Texture2D" uid="uid://cp51tgss7gbyh" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled64 3.png" id="3_vg5mk"]
 [ext_resource type="Texture2D" uid="uid://ck6vbhi7o684a" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled63.png" id="4_2o3fn"]
-[ext_resource type="AudioStream" uid="uid://co8n7hres2do4" path="res://Asset/Sounds/BG connn.mp3" id="4_8u00a"]
+[ext_resource type="AudioStream" uid="uid://drv057khcf8pa" path="res://Asset/Sounds/BG conVTrue.mp3" id="4_8u00a"]
 [ext_resource type="Texture2D" uid="uid://cq15h5xkdiyu8" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled64.png" id="5_xfplx"]
 [ext_resource type="Texture2D" uid="uid://chlsoa0ndjvoe" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled64 4.png" id="6_8u00a"]
 [ext_resource type="Texture2D" uid="uid://c0a37l8sgyj6h" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled64 2.png" id="8_c7mop"]
