@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://3q4w1tqulqci"]
+[gd_scene format=3 uid="uid://c6ilo6s5wi513"]
 
-[ext_resource type="Script" uid="uid://cohw7t8p5ydor" path="res://Asset/Script/Re-use/Misc/bridge.gd" id="1_4d4ik"]
+[ext_resource type="Script" path="res://Asset/Script/Re-use/Misc/bridge.gd" id="1_4d4ik"]
 [ext_resource type="Texture2D" uid="uid://ddr32teumdaqh" path="res://Asset/Spirte/Background/Day4/bridge_fish_game.png" id="1_a78hd"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_4d4ik"]
+[ext_resource type="AudioStream" uid="uid://c4m15qa75rqcw" path="res://Asset/Sounds/walk-concrete.mp3" id="4_egumu"]
 
 [sub_resource type="Animation" id="Animation_a78hd"]
 length = 0.001
@@ -44,6 +45,33 @@ tracks/1/keys = {
 "clips": PackedStringArray("move", "idle"),
 "times": PackedFloat32Array(0, 26.9)
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_egumu")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_egumu")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_egumu")
+}, {
+"end_offset": 4.4499984,
+"start_offset": 0.0,
+"stream": ExtResource("4_egumu")
+}],
+"times": PackedFloat32Array(0, 8.033334, 15.966666, 23.2)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egumu"]
 _data = {
@@ -70,5 +98,7 @@ flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1995912654]
 libraries/ = SubResource("AnimationLibrary_egumu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1377064698]
 
 [editable path="Player"]
