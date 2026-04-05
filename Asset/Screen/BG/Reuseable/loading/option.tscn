@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c7ht8eeybfslj"]
+
+[ext_resource type="Texture2D" uid="uid://dh3dnicjf3tfp" path="res://Asset/Spirte/Prop/Arrow/667752957_2651369088567921_3847465495172361934_n.jpg" id="1_5v7n4"]
+[ext_resource type="Script" uid="uid://dbscvmat8euw2" path="res://Asset/Script/Re-use/Misc/option.gd" id="1_563x0"]
+[ext_resource type="Texture2D" uid="uid://bgnwcfgp2dxba" path="res://Asset/Spirte/Prop/Arrow/666017549_1622768825591069_8164472156132748582_n.jpg" id="3_mk4om"]
+
+[node name="Option" type="CanvasLayer" unique_id=1835000202]
+layer = 60
+script = ExtResource("1_563x0")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1922270225]
+offset_right = 1156.0
+offset_bottom = 652.0
+color = Color(0.13333334, 0.13333334, 0.13333334, 0.90588236)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1974042820]
+offset_left = 252.0
+offset_top = 248.0
+offset_right = 1446.0
+offset_bottom = 529.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_5v7n4")
+
+[node name="CloseButton" type="Button" parent="." unique_id=1244321823]
+offset_left = 808.0
+offset_top = 207.0
+offset_right = 1492.0
+offset_bottom = 892.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_mk4om")

@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var options_btn = $PanelContainer/VBoxContainer/Options
 @onready var quit_btn = $"PanelContainer/VBoxContainer/Quit Destop"
 
+@export var option_scene: PackedScene
+
 func _ready():
 	# ซ่อนหน้าเมนูนี้ไว้ก่อนตอนเริ่มเกม
 	visible = false
@@ -36,8 +38,9 @@ func _on_resume_pressed():
 	toggle_pause()
 
 func _on_options_pressed():
-	# โค้ดสำหรับเปิดหน้า Options 
-	print("เปิดหน้า Options (รอใส่โค้ดเพิ่ม)")
+	if option_scene:
+		var option_instance = option_scene.instantiate()
+		add_child(option_instance)
 
 func _on_quit_pressed():
 	# 1. สั่งซ่อนหน้าต่างเมนูตัวเองซะก่อน

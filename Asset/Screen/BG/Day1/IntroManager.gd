@@ -1,65 +1,90 @@
 extends CanvasLayer
 
-@onready var display_label = $DisplayLabel
-@onready var bg = $BG
+@onready var text_label = $TextLabel
+@onready var color_rect = $ColorRect # ชี้ไปที่ ColorRect (จอดำ)
 
-@export var typing_speed: float = 0.05
-@export var fade_duration: float = 1.0
-@export var stay_duration: float = 2.0  # เวลาที่ข้อความค้างไว้ให้คนอ่าน
+var typing_tween: Tween
+@export var typing_speed: float = 0.04
+@export var wait_time: float = 1.5 # เวลาหยุดรอให้คนอ่าน ก่อนจะขึ้นบรรทัดต่อไป
+
+var current_line_index: int = 0
+
+# 🌟 1. ใส่บทพูดทั้งหมดไว้ในนี้ได้เลย! (เพิ่มลดได้ตามใจชอบ)
+var intro_script = [
+	"When I was a kid, I loved sea creatures so much.",
+	"I even dreamed of becoming a marine scientist.",
+	"But I eventually gave up on that dream.",
+	"Even though my life isn't bad now,",
+	"I still secretly wonder what it would be like if I could pursue that dream again.",
+	"Or even just get a little closer to it.",
+	"If that happened, my life might be a little more fun.",
+	"...ring...ring...ring..."
+]
 
 func _ready():
-	# 1. เตรียมหน้าจอให้พร้อม (จอดำสนิท, ข้อความใส)
-	bg.modulate.a = 1.0
-	display_label.modulate.a = 0.0
-	display_label.visible_characters = 0
+	# เซ็ตหน้าจอเริ่มต้น
+	color_rect.modulate.a = 1.0
+	text_label.modulate.a = 1.0
+	text_label.text = ""
+	text_label.visible_characters = 0
 	visible = true
 	
-	# 2. เริ่มรันเนื้อเรื่อง (เขียนบทตรงนี้ได้เลย!)
-	await start_intro_sequence()
+	# 🌟 ล็อกโค้ดไม่ให้ข้อความลอยดันขึ้นไปข้างบน!
+	text_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
+	text_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	
+	# รอ 1 วินาทีก่อนเริ่มเล่าเรื่อง
+	await get_tree().create_timer(1.0).timeout
+	play_next_line()
 
-# --- ส่วนของ "บทเนื้อเรื่อง" ---
-func start_intro_sequence():
-	await get_tree().create_timer(1.0).timeout # รอให้คนดูนิ่งๆ 1 วิ
+func play_next_line():
+	# เช็คว่าพิมพ์จบครบทุกบรรทัดหรือยัง
+	if current_line_index >= intro_script.size():
+		finish_intro()
+		return
+		
+	var new_sentence = intro_script[current_line_index]
+	var start_char_count = text_label.text.length()
 	
-	# ใส่ประโยคที่ต้องการทีละบรรทัด
-	await show_message("When I was a kid, I loved sea creatures so much.")
-	await show_message("I even dreamed of becoming a marine scientist.")
-	await show_message("But I eventually gave up on that dream.")
-	await show_message("Even though my life isn't bad now,")
-	await show_message("I still secretly wonder what it would be like if I could pursue that dream again.")
-	await show_message("Or even just get a little closer to it.")
-	await show_message("If that happened, my life might be a little more fun.")
-	await show_message("...ring...ring...ring...")
+	# 🌟 2. ถ้าไม่ใช่บรรทัดแรก ให้เคาะขึ้นบรรทัดใหม่ (\n\n) แล้วเอาข้อความใหม่ไปต่อท้าย
+	if text_label.text != "":
+		text_label.text += "\n\n" + new_sentence # ใช้ \n\n เพื่อให้มีช่องว่างระหว่างบรรทัด (อ่านง่ายขึ้น)
+		start_char_count += 2 # บวกรวมอักขระ \n เข้าไปด้วย
+	else:
+		text_label.text = new_sentence
+		start_char_count = 0
+		
+	# ล็อกจุดที่โชว์ตัวอักษร ให้อยู่แค่ตรงบรรทัดเก่า
+	text_label.visible_characters = start_char_count
 	
-	# เมื่อจบเนื้อเรื่อง ให้เฟดจอดำออกเพื่อเริ่มเกม
-	await finish_intro()
-
-# --- ฟังก์ชันการทำงานหลัก (ไม่ต้องแก้ส่วนนี้) ---
-
-func show_message(content: String):
-	display_label.text = content
-	display_label.visible_characters = 0
+	# 🌟 3. สร้างแอนิเมชัน พิมพ์ดีด เฉพาะบรรทัดใหม่
+	if typing_tween:
+		typing_tween.kill()
+		
+	typing_tween = get_tree().create_tween()
 	
-	# 1. เฟดตัวอักษรเข้ามา
-	var fade_in = get_tree().create_tween()
-	fade_in.tween_property(display_label, "modulate:a", 1.0, fade_duration)
+	var target_char_count = text_label.text.length()
+	var type_duration = new_sentence.length() * typing_speed
 	
-	# 2. ทำเอฟเฟกต์พิมพ์ดีด
-	var typewriter = get_tree().create_tween()
-	var duration = content.length() * typing_speed
-	typewriter.tween_property(display_label, "visible_characters", content.length(), duration)
+	typing_tween.tween_property(text_label, "visible_characters", target_char_count, type_duration)
 	
-	await typewriter.finished
-	await get_tree().create_timer(stay_duration).timeout
+	# รอจนกว่าจะพิมพ์บรรทัดนี้เสร็จ
+	await typing_tween.finished
 	
-	# 3. เฟดตัวอักษรหายไป (เพื่อเตรียมขึ้นบรรทัดใหม่)
-	var fade_out = get_tree().create_tween()
-	fade_out.tween_property(display_label, "modulate:a", 0.0, fade_duration)
-	await fade_out.finished
+	current_line_index += 1
+	
+	# หยุดรอให้ผู้เล่นอ่านนิดนึง แล้วค่อยเรียกตัวเองเพื่อพิมพ์บรรทัดถัดไป
+	await get_tree().create_timer(wait_time).timeout
+	play_next_line()
 
 func finish_intro():
-	# ค่อยๆ เฟดจอดำออกให้เห็นฉากเกมด้านหลัง
-	var final_fade = get_tree().create_tween()
-	final_fade.tween_property(bg, "modulate:a", 0.0, 2.0)
-	await final_fade.finished
-	visible = false # ปิด Layer นี้ไปเลย
+	var fade_tween = get_tree().create_tween()
+	
+	# เฟดข้อความและจอดำหายไปแบบสวยๆ
+	fade_tween.tween_property(text_label, "modulate:a", 0.0, 1.5)
+	fade_tween.parallel().tween_property(color_rect, "modulate:a", 0.0, 2.0)
+	
+	await fade_tween.finished
+	visible = false
+	
+	LoadingScreen.transition_to_screenfunc("res://Asset/Screen/BG/Reuseable/bed_room.tscn")
