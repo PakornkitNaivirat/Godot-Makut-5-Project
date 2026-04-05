@@ -24,6 +24,8 @@ var is_game_over: bool = false
 @onready var tongs = $Tongs 
 @onready var timer_label = get_node_or_null("TimerLabel")
 
+@onready var space = $space
+@onready var sause = $sause
 # ลาก Sprite2D ทาโกะในกระทะ 6 ตัวมาใส่
 @export var pan_takos: Array[Sprite2D] 
 # ลาก Marker2D ในถาด 6 จุดมาใส่
@@ -75,6 +77,7 @@ func _process(delta):
 		direction = 1
 		
 	if Input.is_action_just_pressed("ui_accept"):
+		if space: space.play()
 		check_hit()
 
 func check_hit():
@@ -228,7 +231,9 @@ func win_game():
 		var original_scale = tako.scale 
 		
 		tween.tween_property(tako, "scale", original_scale * Vector2(1.2, 0.8), 0.1)
-		
+		tween.tween_callback(func():
+			if sause: sause.play()
+		)
 
 		tween.tween_callback(func():
 			tako.region_rect = sauce_tako_region

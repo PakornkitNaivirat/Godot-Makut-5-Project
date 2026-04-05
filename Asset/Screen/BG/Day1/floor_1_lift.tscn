@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dw7tx4hdox1mb" path="res://Asset/Script/Re-use/LoadingScreen/AssetManagement.gd" id="1_hl06d"]
 [ext_resource type="Texture2D" uid="uid://bqtm5a52wy2v3" path="res://Asset/Spirte/Background/Day1/หน้าลิฟต์.png" id="1_q7rnk"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_hl06d"]
+[ext_resource type="AudioStream" uid="uid://b2n5hlolfl8ij" path="res://Asset/Sounds/GOJO VS SUKUNA FULL FIGHT AMV + ENDING SCENE 4K LADY GAGA - JUDAS - LuciferDevV (128k).mp3" id="2_rx8w0"]
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_b6iat"]
 [ext_resource type="PackedScene" uid="uid://dpxp8o3dufld4" path="res://Asset/Screen/script_reuseable/Loading/minigame_interaction.tscn" id="5_27sh4"]
 [ext_resource type="AudioStream" uid="uid://bbkqqj7sxn77o" path="res://Asset/Sounds/city sound.mp3" id="5_b6iat"]
@@ -12,6 +13,7 @@ size = Vector2(40, 1122)
 
 [node name="Floor1 Lift" type="Node2D" unique_id=1610990639]
 script = ExtResource("1_hl06d")
+stage_bgm = ExtResource("2_rx8w0")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=584962915]
 position = Vector2(85, 0)

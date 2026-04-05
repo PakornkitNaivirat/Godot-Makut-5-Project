@@ -4,5 +4,5 @@
 
 [node name="BGMManager" type="AudioStreamPlayer" unique_id=955963505]
 process_mode = 3
-volume_db = -40.529
+volume_db = -35.176
 script = ExtResource("1_y2bcf")

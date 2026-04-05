@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cilcl67752msm"
+path="res://.godot/imported/Jet Set x Daitaku Helios Rap Jet Set Radio x Uma Musume — AMV Edit - CAHHAC (128k).mp3-d01f03a972028f22ff4eb8bfa529e665.mp3str"
+
+[deps]
+
+source_file="res://Asset/Sounds/Jet Set x Daitaku Helios Rap Jet Set Radio x Uma Musume — AMV Edit - CAHHAC (128k).mp3"
+dest_files=["res://.godot/imported/Jet Set x Daitaku Helios Rap Jet Set Radio x Uma Musume — AMV Edit - CAHHAC (128k).mp3-d01f03a972028f22ff4eb8bfa529e665.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

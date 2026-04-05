@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dkrb4hcqj6o04" path="res://Asset/Spirte/Background/Game_.png" id="1_farl7"]
 [ext_resource type="Script" uid="uid://dw7tx4hdox1mb" path="res://Asset/Script/Re-use/LoadingScreen/AssetManagement.gd" id="1_v7ee3"]
+[ext_resource type="AudioStream" uid="uid://3bypg05l3d3j" path="res://Asset/Sounds/Agnes Tachyon Low Cortisol Meme Full Version Lyrics (English Translation) - Layzzz (128k).mp3" id="2_e61gr"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_farl7"]
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_v7ee3"]
 [ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/ETC/night.gd" id="4_farl7"]
@@ -33,6 +34,7 @@ loop = true
 
 [node name="SodSaiDay1 dawn" type="Node2D" unique_id=550629318]
 script = ExtResource("1_v7ee3")
+stage_bgm = ExtResource("2_e61gr")
 
 [node name="standard" type="Node2D" parent="." unique_id=1537590407]
 
