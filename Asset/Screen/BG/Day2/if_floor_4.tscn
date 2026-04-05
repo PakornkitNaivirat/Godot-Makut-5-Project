@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_sb8iv"]
 [ext_resource type="Texture2D" uid="uid://3mehouhet0tq" path="res://Asset/Spirte/Charactor/Bg.game.character .png" id="5_10qlk"]
 [ext_resource type="Script" uid="uid://b57lkdhq6xe04" path="res://Asset/Script/Cutscreen/After_lab/round 2/day_2_evening.gd" id="5_beib7"]
+[ext_resource type="AudioStream" uid="uid://dm5ympff6w8qt" path="res://Asset/Sounds/opendoor.mp3" id="5_i245w"]
 [ext_resource type="PackedScene" uid="uid://clqvrvf2vsdlo" path="res://Asset/Screen/BG/Cutscreen/cut_scene_after_lab.tscn" id="5_sfd43"]
 [ext_resource type="PackedScene" uid="uid://db0kewuqkismm" path="res://Asset/Screen/BG/Cutscreen/cut_scene_after_lab_2.tscn" id="7_02igg"]
 
@@ -130,6 +131,7 @@ position = Vector2(1417, 801)
 [node name="Door" parent="Day2_Day" unique_id=992689307 instance=ExtResource("3_sb8iv")]
 position = Vector2(601, 0)
 next_scene_path = "res://Asset/Screen/BG/Cutscreen/cut_screen_lab.tscn"
+sound = ExtResource("5_i245w")
 behavior = 1
 
 [node name="Day2_Evening" type="Node2D" parent="." unique_id=1700721196 groups=["after_lab"]]
@@ -162,3 +164,5 @@ position = Vector2(1417, 948)
 
 [node name="FL4" type="Marker2D" parent="." unique_id=1918131956]
 position = Vector2(5555, 945)
+
+[editable path="Day2_Day/Door"]

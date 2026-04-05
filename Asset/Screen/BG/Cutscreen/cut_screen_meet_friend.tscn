@@ -261,11 +261,7 @@ tracks/17/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("5_d3uw5")
 }, {
-"end_offset": 1.0699998,
-"start_offset": 0.0,
-"stream": ExtResource("5_d3uw5")
-}, {
-"end_offset": 0.0,
+"end_offset": 1.2499998,
 "start_offset": 0.0,
 "stream": ExtResource("6_x8bac")
 }, {
@@ -273,7 +269,7 @@ tracks/17/keys = {
 "start_offset": 0.0,
 "stream": null
 }],
-"times": PackedFloat32Array(22, 25.3, 28, 45.8)
+"times": PackedFloat32Array(24.1, 28.5, 45.8)
 }
 tracks/17/use_blend = true
 
@@ -529,5 +525,5 @@ volume_db = -0.855
 autoplay = true
 
 [node name="BG" type="AudioStreamPlayer" parent="." unique_id=1131910823]
-volume_db = -16.037
+volume_db = -20.452
 max_polyphony = 4

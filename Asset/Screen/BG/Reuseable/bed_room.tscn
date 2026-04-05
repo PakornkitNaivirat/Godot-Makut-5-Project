@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dw7tx4hdox1mb" path="res://Asset/Script/Re-use/LoadingScreen/AssetManagement.gd" id="1_g4wcj"]
 [ext_resource type="Texture2D" uid="uid://d0jtrspkgi4ts" path="res://Asset/Spirte/Background/Bedroom_game.png" id="1_umbdt"]
+[ext_resource type="AudioStream" uid="uid://dbqoxjqfv6wk4" path="res://Asset/Sounds/bedroomlagun.mp3" id="2_i2muq"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_lq5bo"]
 [ext_resource type="PackedScene" uid="uid://dpxp8o3dufld4" path="res://Asset/Screen/script_reuseable/Loading/minigame_interaction.tscn" id="3_lq5bo"]
 [ext_resource type="PackedScene" uid="uid://dh8runqcexfbq" path="res://Asset/Screen/script_reuseable/Door/door_sideway.tscn" id="4_mnxv1"]
 [ext_resource type="PackedScene" uid="uid://raijymtl8r4u" path="res://Asset/Screen/script_reuseable/Door/smart_door.tscn" id="5_pnk2q"]
+[ext_resource type="AudioStream" uid="uid://dm5ympff6w8qt" path="res://Asset/Sounds/opendoor.mp3" id="6_05888"]
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="7_3hubp"]
 [ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/ETC/night.gd" id="8_3hubp"]
 [ext_resource type="Script" uid="uid://dqj0yo4gpfnse" path="res://Asset/Script/Re-use/Misc/day_2_night.gd" id="9_jbwfh"]
@@ -16,6 +18,7 @@ size = Vector2(221, 1298.5)
 
 [node name="Bed_room" type="Node2D" unique_id=379396278]
 script = ExtResource("1_g4wcj")
+stage_bgm = ExtResource("2_i2muq")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=717797366]
 y_sort_enabled = true
@@ -62,6 +65,7 @@ position = Vector2(176, 1061)
 position = Vector2(92, 886)
 next_scene_path = "res://Asset/Screen/BG/Reuseable/sod_saiDay1 Dawn.tscn"
 target_spawn_point_name = "Fontroom"
+sound = ExtResource("6_05888")
 required_minigame_id = "backpack"
 locked_dialogue = Array[String](["I can't go yet.", "I haven't packed my stuff yet. And I need to wash my face too."])
 
