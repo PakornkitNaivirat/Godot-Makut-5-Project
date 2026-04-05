@@ -155,11 +155,6 @@ func end_talking():
 # 8. จบ Cutscene และเปลี่ยนด่าน (โดนเรียกที่เฟรมสุดท้ายของ Animation)
 # ==========================================
 func finish_cutscene():
-	# ปลดล็อกผู้เล่น
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.set_physics_process(true)
-		player.is_locked = false 
 		
 	# เปลี่ยนด่าน
 	Global.load_exact_pos = false 

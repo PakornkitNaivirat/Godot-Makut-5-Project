@@ -132,7 +132,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_p81d2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2nc7s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d3xb4")
-text = "Options"
+text = "Controlls"
 
 [node name="Quit Destop" type="Button" parent="PanelContainer/VBoxContainer" unique_id=7251485]
 custom_minimum_size = Vector2(100, 100)
