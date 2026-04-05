@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://dm5ympff6w8qt" path="res://Asset/Sounds/opendoor.mp3" id="6_05888"]
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="7_3hubp"]
 [ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/ETC/night.gd" id="8_3hubp"]
+[ext_resource type="Texture2D" uid="uid://bvujyx7ckb3px" path="res://Asset/Spirte/Prop/Arrow/667752957_2651369088567921_3847465495172361934_n-Photoroom.png" id="9_1cj1h"]
+[ext_resource type="Script" uid="uid://brtj55djpp6ey" path="res://Asset/Script/Re-use/Misc/How_to_2d.gd" id="9_i2muq"]
 [ext_resource type="Script" uid="uid://dqj0yo4gpfnse" path="res://Asset/Script/Re-use/Misc/day_2_night.gd" id="9_jbwfh"]
 [ext_resource type="Script" uid="uid://b3km5m6hr7byd" path="res://Asset/Script/Re-use/Misc/day_3_night.gd" id="10_05888"]
 
@@ -18,6 +20,45 @@ loop = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mnxv1"]
 size = Vector2(221, 1298.5)
+
+[sub_resource type="Animation" id="Animation_i2muq"]
+resource_name = "How to"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(941, 261), Vector2(941, 256), Vector2(941, 261), Vector2(941, 256), Vector2(941, 261), Vector2(941, 256), Vector2(941, 261)]
+}
+
+[sub_resource type="Animation" id="Animation_4fibp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(941, 261)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixsh0"]
+_data = {
+&"How to": SubResource("Animation_i2muq"),
+&"RESET": SubResource("Animation_4fibp")
+}
 
 [node name="Bed_room" type="Node2D" unique_id=379396278]
 script = ExtResource("1_g4wcj")
@@ -40,7 +81,7 @@ position = Vector2(2213.5, 593.75)
 shape = SubResource("RectangleShape2D_mnxv1")
 
 [node name="Player" parent="." unique_id=1775447557 groups=["player"] instance=ExtResource("2_lq5bo")]
-position = Vector2(1498, 1059)
+position = Vector2(1106, 1059)
 scale = Vector2(0.6, 0.6)
 SPEED = 400.0
 
@@ -96,6 +137,24 @@ required_event_id = "wash_face"
 [node name="CollisionShape2D" parent="Day1_Day/Minigame-Interact" index="0" unique_id=602244326]
 position = Vector2(0, 132.375)
 
+[node name="How to" type="Node2D" parent="Day1_Day" unique_id=2025101609]
+script = ExtResource("9_i2muq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Day1_Day/How to" unique_id=1788178093]
+libraries/ = SubResource("AnimationLibrary_ixsh0")
+
+[node name="ColorRect" type="ColorRect" parent="Day1_Day/How to" unique_id=1600682660]
+offset_left = 941.0
+offset_top = 261.0
+offset_right = 1516.0
+offset_bottom = 379.0
+color = Color(0.6750143, 0.71477777, 0.8272597, 0.5411765)
+
+[node name="Sprite2D" type="Sprite2D" parent="Day1_Day/How to/ColorRect" unique_id=1108758358]
+position = Vector2(288, 62)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_1cj1h")
+
 [node name="Day2_Day" type="Node2D" parent="." unique_id=1869950888]
 
 [node name="Dialogue" parent="Day2_Day" unique_id=410944203 instance=ExtResource("7_3hubp")]
@@ -122,7 +181,7 @@ script = ExtResource("9_jbwfh")
 next_scene_path = "res://Asset/Screen/BG/Cutscreen/Phone/day_2_phone_2.tscn"
 
 [node name="back_cafe" type="Marker2D" parent="Day2_Night" unique_id=269036212]
-position = Vector2(711, 1062)
+position = Vector2(1107, 1099)
 
 [node name="Day3_Night" type="Node2D" parent="." unique_id=1326546662]
 script = ExtResource("10_05888")
@@ -131,7 +190,7 @@ target_spawn_point_name = "StartSea"
 trigger_next_day = true
 
 [node name="spawnpoint" type="Marker2D" parent="Day3_Night" unique_id=638639372]
-position = Vector2(944, 1106)
+position = Vector2(1107, 1106)
 
 [node name="คุยกับเตียง" parent="." unique_id=1238566672 instance=ExtResource("7_3hubp")]
 position = Vector2(1513, 861)

@@ -83,7 +83,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_qe12f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
-text = "Options"
+text = "Controlls"
 
 [node name="Quit" type="Button" parent="Button Manager" unique_id=2098840798]
 layout_mode = 1

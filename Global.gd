@@ -15,8 +15,8 @@ var event_flags: Dictionary = {
 }
 
 var day_night = false
-var dawn = true
-var current_day = 4
+var dawn = false
+var current_day = 1
 
 var pending_next_scene: String = ""
 

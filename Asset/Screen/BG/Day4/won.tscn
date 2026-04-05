@@ -395,6 +395,7 @@ target_spawn_point_name = "SeaEnter"
 
 [node name="Day4_Evening" type="Node2D" parent="." unique_id=259438747]
 script = ExtResource("6_ejbsl")
+next_scene_path = "res://Asset/Screen/BG/Day4/bridge.tscn"
 
 [node name="Player" type="AnimationPlayer" parent="Day4_Evening" unique_id=1910601756]
 libraries/ = SubResource("AnimationLibrary_tssaf")
