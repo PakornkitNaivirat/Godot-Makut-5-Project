@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://prtgyggpy8v0" path="res://Asset/Script/Re-use/LoadingScreen/pause_menu.gd" id="1_nwcfo"]
 [ext_resource type="Shader" uid="uid://c2g10voe7kokf" path="res://new_shader.gdshader" id="2_05uyy"]
-[ext_resource type="PackedScene" path="res://Asset/Screen/BG/Reuseable/loading/option.tscn" id="2_g5igy"]
+[ext_resource type="PackedScene" uid="uid://c7ht8eeybfslj" path="res://Asset/Screen/BG/Reuseable/loading/option.tscn" id="2_g5igy"]
 [ext_resource type="FontFile" uid="uid://bsxry52t07gud" path="res://Asset/font/Blue Winter.ttf" id="3_05uyy"]
 [ext_resource type="AudioStream" uid="uid://js2jdiycfn0w" path="res://Asset/Sounds/เสียงกด.mp3" id="5_yk7nr"]
 
@@ -133,7 +133,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_p81d2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2nc7s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d3xb4")
-text = "Controlls"
+text = "Controls"
 
 [node name="Quit Destop" type="Button" parent="PanelContainer/VBoxContainer" unique_id=7251485]
 custom_minimum_size = Vector2(100, 100)

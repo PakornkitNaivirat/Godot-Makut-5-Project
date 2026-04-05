@@ -191,6 +191,7 @@ volume_db = -15.295
 [node name="sause" type="AudioStreamPlayer" parent="." unique_id=1893244141]
 stream = ExtResource("9_mmtwa")
 volume_db = -14.912
+
 [node name="Guide" type="Label" parent="." unique_id=653523299]
 z_index = 200
 layout_mode = 0
