@@ -60,7 +60,6 @@ but I only see you as a friend."},
 # ==========================================
 func _ready():
 	
-		
 	if InnerVoice: InnerVoice.hide_text()
 	if speech_bubble: speech_bubble.hide()
 
