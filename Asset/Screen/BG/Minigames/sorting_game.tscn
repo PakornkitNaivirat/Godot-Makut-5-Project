@@ -3,18 +3,29 @@
 [ext_resource type="Script" uid="uid://cctuk3ish5y6d" path="res://Asset/Script/Re-use/MiniGame/sorting_game.gd" id="1_r5ief"]
 [ext_resource type="PackedScene" uid="uid://b8kpdwe14jaty" path="res://Asset/Screen/BG/Minigames/Trash/bin.tscn" id="2_gljw5"]
 [ext_resource type="PackedScene" uid="uid://cp4hva5jvc3dn" path="res://Asset/Screen/BG/Minigames/Trash/trash_drag.tscn" id="2_lgdae"]
+[ext_resource type="Texture2D" uid="uid://dmss760fx04na" path="res://Asset/Spirte/Background/Day4/Sea_nos.bg.png" id="3_wyvjw"]
 [ext_resource type="Texture2D" uid="uid://ct77l57alxd14" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะเปียก.png" id="4_6deax"]
 [ext_resource type="Texture2D" uid="uid://fbrcg2xyt27i" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะอันตราย.png" id="5_7hlmj"]
 [ext_resource type="Texture2D" uid="uid://d2w3dt3wvqc8k" path="res://Asset/Spirte/Prop/Trash_Prop/ถังขยะรีไซเคิล.png" id="6_l8ky3"]
+[ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Asset/font/Lexend-VariableFont_wght.ttf" id="8_jdhnq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6deax"]
+font = ExtResource("8_jdhnq")
+font_size = 30
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="SortingGame" type="Node2D" unique_id=2076788430]
 script = ExtResource("1_r5ief")
 trash_scene = ExtResource("2_lgdae")
+target_spawn_point_name = "BackFromTrash"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1523253205]
+position = Vector2(0, 225)
+texture = ExtResource("3_wyvjw")
 
 [node name="Bin" parent="." unique_id=1826059152 instance=ExtResource("2_gljw5")]
-position = Vector2(-297, 250)
+position = Vector2(-297, 310)
 scale = Vector2(0.8, 0.8)
 bin_type = "wet"
 
@@ -25,7 +36,7 @@ texture = ExtResource("4_6deax")
 position = Vector2(542.5, 317.5)
 
 [node name="Bin2" parent="." unique_id=413138339 instance=ExtResource("2_gljw5")]
-position = Vector2(7, 248)
+position = Vector2(7, 308)
 scale = Vector2(0.8, 0.8)
 bin_type = "toxic"
 
@@ -37,7 +48,7 @@ texture = ExtResource("5_7hlmj")
 position = Vector2(525, 323.75)
 
 [node name="Bin3" parent="." unique_id=206628860 instance=ExtResource("2_gljw5")]
-position = Vector2(306, 242)
+position = Vector2(306, 302)
 scale = Vector2(0.8, 0.8)
 bin_type = "recycle"
 
@@ -49,16 +60,16 @@ texture = ExtResource("6_l8ky3")
 position = Vector2(527.937, 339.625)
 
 [node name="Bin4" parent="." unique_id=1402753704 instance=ExtResource("2_gljw5")]
-position = Vector2(568, 242)
+position = Vector2(568, 302)
 scale = Vector2(0.8, 0.8)
 bin_type = "general"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=150224666]
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1063610497]
-offset_left = 549.0
+offset_left = 486.0
 offset_top = 17.0
-offset_right = 751.0
+offset_right = 688.0
 offset_bottom = 105.0
 theme_override_font_sizes/font_size = 100
 label_settings = SubResource("LabelSettings_6deax")

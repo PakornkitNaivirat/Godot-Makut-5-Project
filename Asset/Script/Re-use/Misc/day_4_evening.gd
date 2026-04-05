@@ -3,7 +3,6 @@ extends Node2D
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = "" 
 
-
 var current_dialogue_block: Array = []
 var current_line = 0
 var is_talking = false
@@ -11,18 +10,17 @@ var is_talking = false
 # 🌟 เพิ่มบทพูดได้ตามสบายเลย
 var all_dialogues = {
 	"part1": [
-		{"speaker": "Narrator", "text": "After getting back, he showered, did his homework, "},
-		{"speaker": "Narrator", "text": " reviewed his lessons, and wound down for the night."},
-		{"speaker": "Narrator", "text": "getting ready for bed, a notification sounded from his phone."},
-		{"speaker": "Narrator", "text": "Hmm? From the club group?"},
+		{"speaker": "Narrator", "text": "(After spending the allotted time collecting trash, we gathered to sort everything out.)"},
+		{"speaker": "Narrator", "text": "(Once finished, everyone came together for a final wrap-up before heading home for the day)"},
+		{"speaker": "Narrator", "text": "Phew.. I already sort it all."},
+		{"speaker": "Narrator", "text": "I need go to Rin and ask her out.."},
 	],
 }
 
 func _ready():
-	
 	var player = get_tree().get_first_node_in_group("player")
 	 
-	if Global.current_day == 2 and Global.day_night == true:
+	if Global.current_day == 4 and Global.dawn == true:
 		if player:
 			player.is_locked = true
 		
@@ -59,11 +57,12 @@ func update_dialogue():
 	var target_node_name = line_data["speaker"] 
 	var text_content = line_data["text"]
 	
+	# 🌟 เช็คว่า "ประโยคต่อไป" ยังเป็น Narrator อยู่ไหม? (แอบดูล่วงหน้า 1 บรรทัด)
 	var next_is_narrator = false
 	if current_line + 1 < current_dialogue_block.size():
 		if current_dialogue_block[current_line + 1]["speaker"] == "Narrator":
 			next_is_narrator = true
-	
+
 	if target_node_name == "Narrator":
 		InnerVoice.speak(text_content, false) 
 	else:
@@ -75,7 +74,7 @@ func finish_cutscene():
 	if player:
 		player.is_locked = false 
 		
-	# ปิด UI ข้อความ
+	# 🌟 พอจบ Cutscene เราค่อยสั่งปิด UI แบบบังคับปิด (จอดำและข้อความจะหายไปพร้อมกันแบบนุ่มนวล)
 	InnerVoice.hide_text()
 	is_talking = false
 	

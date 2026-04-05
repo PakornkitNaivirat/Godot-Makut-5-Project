@@ -9,6 +9,7 @@ func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			dragging = true
+			get_viewport().set_input_as_handled()
 			offset = global_position - get_global_mouse_position()
 			z_index = 100
 			

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bh1kj351qcfd6"]
+
+[ext_resource type="Script" uid="uid://3l0ptr4ukot5" path="res://minigame3/dance_game.gd" id="1_pbs07"]
+[ext_resource type="PackedScene" uid="uid://rq7243aeltby" path="res://minigame3/arrow.tscn" id="2_1pn7b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbs07"]
+size = Vector2(1198, 414)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pbs07"]
+
+[node name="DanceGame" type="Node2D" unique_id=1984474995]
+position = Vector2(3, 39)
+script = ExtResource("1_pbs07")
+arrow_scene = ExtResource("2_1pn7b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1394667646]
+position = Vector2(565, 307)
+scale = Vector2(2.17, 2.17)
+
+[node name="TargetZone" type="Area2D" parent="." unique_id=837672013]
+position = Vector2(578, 100)
+scale = Vector2(10, 0.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetZone" unique_id=596734158]
+position = Vector2(7.5999756, 202)
+shape = SubResource("RectangleShape2D_pbs07")
+
+[node name="Sprite2D" type="Sprite2D" parent="TargetZone" unique_id=2034814227]
+modulate = Color(0, 0, 0, 1)
+texture = SubResource("CompressedTexture2D_pbs07")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1489047887]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1460828992]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=866036634]
+offset_left = 469.0
+offset_top = 15.0
+offset_right = 509.0
+offset_bottom = 38.0
