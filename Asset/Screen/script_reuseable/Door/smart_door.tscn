@@ -20,5 +20,8 @@ position = Vector2(0, -189)
 [node name="speech" parent="." unique_id=1384000356 instance=ExtResource("3_na5js")]
 position = Vector2(248, -488)
 
+[node name="Door" type="AudioStreamPlayer" parent="." unique_id=1066542560]
+volume_db = -20.583
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://daplfn1fud0mq"]
 
 [ext_resource type="Texture2D" uid="uid://bsbrix0pt7btx" path="res://Asset/Spirte/Background/Day1/107_20260305181449.png" id="1_cexfh"]
+[ext_resource type="Script" uid="uid://b61tnqdmk6jpl" path="res://Asset/Screen/BG/Day1/if_floor_7.gd" id="1_n2n6b"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_13u2h"]
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="3_cfnm7"]
 [ext_resource type="Texture2D" uid="uid://3mehouhet0tq" path="res://Asset/Spirte/Charactor/Bg.game.character .png" id="4_13u2h"]
@@ -14,6 +15,7 @@ size = Vector2(81.5, 1109.5)
 
 [node name="IF_Floor7" type="Node2D" unique_id=919270474]
 y_sort_enabled = true
+script = ExtResource("1_n2n6b")
 
 [node name="Backgrounds" type="Node2D" parent="." unique_id=2073316537]
 

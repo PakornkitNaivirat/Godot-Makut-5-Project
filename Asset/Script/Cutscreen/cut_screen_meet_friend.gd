@@ -2,6 +2,7 @@ extends Node2D
 
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = "" 
+@export var stage_bgm: AudioStream 
 
 @onready var anim = $AnimationPlayer
 @onready var speech_bubble = $speech 
@@ -36,6 +37,7 @@ var is_talking = false
 
 func _ready():
 	anim.play("Lecture")
+	play_stage_music()
 
 func start_talking(dialogue_key: String):
 	anim.pause()
@@ -46,6 +48,22 @@ func start_talking(dialogue_key: String):
 	is_talking = true
 	current_line = 0
 	update_dialogue() 
+
+func play_stage_music():
+	# หาโหนด Autoload (เช็คทั้งชื่อ BGM หรือ BGMManager ตามที่คุณอาจจะตั้งไว้)
+	var bgm_node = get_node_or_null("/root/BGM")
+	if not bgm_node:
+		bgm_node = get_node_or_null("/root/BGMManager")
+
+	if bgm_node:
+		if stage_bgm:
+			# กรณีที่ 1: มีการใส่เพลงในช่อง Inspector -> ให้เล่นเพลงนั้น
+			bgm_node.play_music(stage_bgm)
+		else:
+			# กรณีที่ 2: ช่อง Inspector ว่างเปล่า -> ให้หยุดเพลง (เงียบ)
+			bgm_node.stop_music() 
+	else:
+		print("Warning: Autoload BGM/BGMManager not found!")
 
 func _process(_delta):
 	if is_talking and Input.is_action_just_pressed("interact"):

@@ -3,11 +3,13 @@ extends Area2D
 @onready var interact_icon = $interaction
 @onready var message_sound = $AudioStreamPlayer
 @onready var player_spot = $PlayerSpot # 🌟 ดึงตำแหน่งจุดที่จะให้เดินไป
+@onready var Doorsound = $Door
 
 @export_category("Scene Transition")
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = "" 
 @export var disappear_after_event: String = ""
+@export var sound: AudioStream
 
 # 🌟 เพิ่มตัวเลือกให้เลือกว่าจะเดินไปที่จุดก่อนไหม (0 = เดิน, 1 = ไม่เดิน)
 @export_enum("ให้ขยับไปจุด", "ไม่ขยับไปจุด") var behavior: int = 0
@@ -33,9 +35,19 @@ func _ready():
 func _process(_delta):
 	# ถ้ากดปุ่ม และไม่ได้กำลังยุ่งอยู่ (กันกดซ้ำตอนตัวละครกำลังเดิน)
 	if can_interact and not is_busy and Input.is_action_just_pressed("interact"):
+		play_door_sound()
 		is_busy = true
 		start_door_transition()
 
+func play_door_sound():
+	if Doorsound:
+		if sound:
+			Doorsound.stream = sound # เอาไฟล์เสียงที่เลือกไว้มาใส่
+			Doorsound.play()
+		else:
+			# ถ้าไม่ได้ใส่เสียงในช่อง door_close_sound ให้ลองเล่นเสียงที่ค้างอยู่ในโหนด Door
+			Doorsound.play()
+			
 # ==========================================
 # 3. ลำดับการเข้าประตู
 # ==========================================

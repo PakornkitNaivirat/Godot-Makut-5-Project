@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cm6ynt5mq7idv"
+path="res://.godot/imported/ย่าง v4.mp3-583bcd9ee5db28cc87e2ca34cd45ebf3.mp3str"
+
+[deps]
+
+source_file="res://Asset/Sounds/ย่าง v4.mp3"
+dest_files=["res://.godot/imported/ย่าง v4.mp3-583bcd9ee5db28cc87e2ca34cd45ebf3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
