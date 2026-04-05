@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xam2dkeqbl6p" path="res://Asset/Spirte/Background/CutScreen/Concert/con2.png" id="2_ou2vy"]
 [ext_resource type="Texture2D" uid="uid://cp51tgss7gbyh" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled64 3.png" id="3_vg5mk"]
 [ext_resource type="Texture2D" uid="uid://ck6vbhi7o684a" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled63.png" id="4_2o3fn"]
-[ext_resource type="AudioStream" uid="uid://3bypg05l3d3j" path="res://Asset/Sounds/Agnes Tachyon Low Cortisol Meme Full Version Lyrics (English Translation) - Layzzz (128k).mp3" id="4_8u00a"]
+[ext_resource type="AudioStream" uid="uid://co8n7hres2do4" path="res://Asset/Sounds/BG connn.mp3" id="4_8u00a"]
 [ext_resource type="Texture2D" uid="uid://cq15h5xkdiyu8" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled64.png" id="5_xfplx"]
 [ext_resource type="Texture2D" uid="uid://chlsoa0ndjvoe" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled64 4.png" id="6_8u00a"]
 [ext_resource type="Texture2D" uid="uid://c0a37l8sgyj6h" path="res://Asset/Spirte/Background/CutScreen/Concert/Untitled64 2.png" id="8_c7mop"]
@@ -262,7 +262,7 @@ tracks/19/keys = {
 tracks/20/type = "audio"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("AudioStreamPlayer")
+tracks/20/path = NodePath("con")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -562,5 +562,5 @@ texture = ExtResource("2_2o3fn")
 region_enabled = true
 region_rect = Rect2(987.73267, 572.0562, 859.42676, 452.40692)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1921162102]
+[node name="con" type="AudioStreamPlayer" parent="." unique_id=1921162102]
 volume_db = -21.869

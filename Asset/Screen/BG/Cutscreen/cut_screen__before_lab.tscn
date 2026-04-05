@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cvhjmof0khi1r" path="res://Asset/Spirte/Background/CutScreen/Lift/Untitled56.png" id="1_1dxd7"]
 [ext_resource type="Script" uid="uid://dtcvct6ej14y5" path="res://Asset/Script/Cutscreen/cut_screen__before_lab.gd" id="1_kui07"]
 [ext_resource type="Texture2D" uid="uid://l70ofmrtktwj" path="res://Asset/Spirte/Background/CutScreen/Lift/Untitled57.png" id="2_vp7o3"]
+[ext_resource type="AudioStream" uid="uid://wyptfdcciqpx" path="res://Asset/Sounds/ตกใจ.mp3" id="3_qlp3a"]
 [ext_resource type="PackedScene" uid="uid://c73ny583v40f1" path="res://Asset/Screen/script_reuseable/Text/Speech_bubble.tscn" id="4_j7y27"]
 [ext_resource type="AudioStream" uid="uid://k1mglskficrk" path="res://Asset/Sounds/elevator.mp3" id="4_qlp3a"]
 
@@ -129,7 +130,7 @@ tracks/8/keys = {
 tracks/9/type = "audio"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("AudioStreamPlayer")
+tracks/9/path = NodePath("elevator")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -141,6 +142,25 @@ tracks/9/keys = {
 "times": PackedFloat32Array(6.4)
 }
 tracks/9/use_blend = true
+tracks/10/type = "audio"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ตกใจ")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_qlp3a")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}],
+"times": PackedFloat32Array(0, 6.4)
+}
+tracks/10/use_blend = true
 
 [sub_resource type="Animation" id="Animation_j7y27"]
 length = 0.001
@@ -285,4 +305,7 @@ position = Vector2(913, 251)
 [node name="left" type="Marker2D" parent="." unique_id=270247914]
 position = Vector2(257, 501)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=955903013]
+[node name="elevator" type="AudioStreamPlayer" parent="." unique_id=955903013]
+
+[node name="ตกใจ" type="AudioStreamPlayer" parent="." unique_id=939608019]
+volume_db = -11.283
