@@ -1,5 +1,4 @@
 extends Node2D
-
 # 1. เพิ่มช่องใน Inspector สำหรับลากไฟล์เพลงประจำฉากมาใส่
 @export var stage_bgm: AudioStream 
 
