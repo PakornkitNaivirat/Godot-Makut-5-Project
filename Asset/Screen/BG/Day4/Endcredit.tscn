@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://bya8hgxui6g75"]
+[gd_scene format=3 uid="uid://d2ennmehcotis"]
 
-[ext_resource type="Script" uid="uid://dp4pi6q3g32q6" path="res://Asset/Script/Re-use/Misc/endcredit.gd" id="1_04ikq"]
+[ext_resource type="Script" path="res://Asset/Script/Re-use/Misc/endcredit.gd" id="1_04ikq"]
 [ext_resource type="Texture2D" uid="uid://1t7r0rdc3hvx" path="res://Asset/Spirte/Background/Day4/663790690_1988658642042791_1770785305534966054_n.jpg" id="1_buhwb"]
+[ext_resource type="AudioStream" uid="uid://bql8fr8rcd3fi" path="res://Asset/Sounds/Unravel original vs multilanguage #unravel #kaneki #tokyoghoul #kanekikenedit #animeshorts #shorts - Arima Kousei (128k).mp3" id="3_e5e13"]
 
 [sub_resource type="Animation" id="Animation_buhwb"]
 resource_name = "Endcredit"
@@ -32,6 +33,21 @@ tracks/1/keys = {
 "method": &"finish"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("end")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 38.129993,
+"start_offset": 1.19,
+"stream": ExtResource("3_e5e13")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_04ikq"]
 length = 0.001
@@ -64,3 +80,5 @@ texture = ExtResource("1_buhwb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=927105193]
 libraries/ = SubResource("AnimationLibrary_e5e13")
+
+[node name="end" type="AudioStreamPlayer" parent="." unique_id=480901920]

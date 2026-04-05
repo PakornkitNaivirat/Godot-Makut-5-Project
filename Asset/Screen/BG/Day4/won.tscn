@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b3du4hcbl7jxg" path="res://Asset/Spirte/Background/Day4/Coconut.png" id="3_dxo0t"]
 [ext_resource type="PackedScene" uid="uid://dh8runqcexfbq" path="res://Asset/Screen/script_reuseable/Door/door_sideway.tscn" id="5_dxo0t"]
 [ext_resource type="Texture2D" uid="uid://3mehouhet0tq" path="res://Asset/Spirte/Charactor/Bg.game.character .png" id="6_3h12d"]
-[ext_resource type="Script" path="res://Asset/Script/Re-use/Misc/day_4_eveningwon.gd" id="6_ejbsl"]
+[ext_resource type="Script" uid="uid://cb5e6gm0635mf" path="res://Asset/Script/Re-use/Misc/day_4_eveningwon.gd" id="6_ejbsl"]
 [ext_resource type="Script" path="res://Asset/Script/Re-use/Misc/day_4_dayWon.gd" id="6_tssaf"]
 [ext_resource type="Texture2D" uid="uid://bpa4urtu5p2pc" path="res://Asset/Spirte/Charactor/Untitled69_20260405044431.png" id="7_kjqwa"]
 [ext_resource type="PackedScene" uid="uid://c73ny583v40f1" path="res://Asset/Screen/script_reuseable/Text/Speech_bubble.tscn" id="9_kbjgs"]
@@ -119,15 +119,15 @@ tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "clips": [{
-"end_offset": 2.1299994,
+"end_offset": 0.0,
 "start_offset": 0.0,
 "stream": SubResource("AudioStreamMP3_d0ip6")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": SubResource("AudioStreamMP3_d0ip6")
 }],
-"times": PackedFloat32Array(0, 6)
+"times": PackedFloat32Array(0, 8.1)
 }
 tracks/7/use_blend = true
 
@@ -366,9 +366,6 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" parent="Player" index="0" unique_id=266598659]
 zoom = Vector2(0.6, 0.6)
-
-[node name="AudioStreamPlayer" parent="Player" index="3" unique_id=911953732]
-stream = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=434527446]
 
