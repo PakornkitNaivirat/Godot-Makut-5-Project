@@ -345,6 +345,7 @@ region_rect = Rect2(1648.9639, 170.09207, 367.59814, 1312.832)
 [node name="Dialogue" parent="Day4_Evening" unique_id=606458390 instance=ExtResource("14_2yw4a")]
 position = Vector2(3702, 458)
 next_scene_path = "res://Asset/Screen/BG/Day4/won.tscn"
+target_spawn_point_name = "EndSea"
 dialog_text = Array[String](["Player:Hey Rin, are you free? ", "Player:Do you want to go for a walk for a bit?", "Narrator:Before I even knew why, I found myself walking up to ask her", "NPC:Hmm, since we're already at the beach", "NPC:a walk to enjoy the breeze and the view sounds like a good idea"])
 
 [node name="box" parent="Day4_Evening/Dialogue" index="4" unique_id=97389463]

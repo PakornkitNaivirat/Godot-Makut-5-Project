@@ -7,6 +7,7 @@ var current_dialogue_block: Array = []
 var current_line = 0
 var is_talking = false
 
+
 # 🌟 เพิ่มบทพูดได้ตามสบายเลย
 var all_dialogues = {
 	"part1": [

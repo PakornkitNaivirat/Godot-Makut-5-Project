@@ -6,10 +6,8 @@ extends Node2D
 func _ready():
 	# 2. สั่งจัดการเพลง (เล่นเพลงใหม่ หรือ หยุดเพลงถ้าไม่ได้ใส่ไว้)
 	play_stage_music()
-	
-	# ส่วนเดิมของคุณ: จัดการเหตุการณ์ตามวัน/เวลา
+
 	setup_daily_events()
-	print("Scene Ready: BGM and Day/Night system initialized.")
 
 # ฟังก์ชันสำหรับจัดการเพลง
 func play_stage_music():

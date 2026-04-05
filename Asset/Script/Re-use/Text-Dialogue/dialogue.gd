@@ -86,10 +86,11 @@ func end_dialogue():
 	if InnerVoice: InnerVoice.hide_text() # 🌟 ปิดเสียงในใจด้วยตอนคุยจบ
 	
 	if next_scene_path != "":
-		print("กำลังเปลี่ยนฉากไปที่: ", next_scene_path)
 		Global.load_exact_pos = false
 		Global.target_spawn_name = target_spawn_point_name
+		
 		LoadingScreen.transition_to_screenfunc(next_scene_path)
+		
 	else:
 		# ถ้าไม่ได้เปลี่ยนฉาก ให้เดินกลับที่เดิม
 		if current_player:

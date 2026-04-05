@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://prtgyggpy8v0" path="res://Asset/Script/Re-use/LoadingScreen/pause_menu.gd" id="1_nwcfo"]
 [ext_resource type="Shader" uid="uid://c2g10voe7kokf" path="res://new_shader.gdshader" id="2_05uyy"]
+[ext_resource type="PackedScene" uid="uid://b2gvtgweaydit" path="res://Asset/Screen/BG/Reuseable/loading/option.tscn" id="2_g5igy"]
 [ext_resource type="FontFile" uid="uid://bsxry52t07gud" path="res://Asset/font/Blue Winter.ttf" id="3_05uyy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p81d2"]
@@ -70,7 +71,9 @@ _data = {
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=232511245]
 process_mode = 3
+layer = 50
 script = ExtResource("1_nwcfo")
+option_scene = ExtResource("2_g5igy")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=825381444]
 offset_right = 1156.0
@@ -129,7 +132,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_p81d2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2nc7s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d3xb4")
-text = "Options"
+text = "Control"
 
 [node name="Quit Destop" type="Button" parent="PanelContainer/VBoxContainer" unique_id=7251485]
 custom_minimum_size = Vector2(100, 100)
