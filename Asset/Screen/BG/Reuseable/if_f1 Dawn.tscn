@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d15nra0twxhfs"]
 
 [ext_resource type="Script" uid="uid://dw7tx4hdox1mb" path="res://Asset/Script/Re-use/LoadingScreen/AssetManagement.gd" id="1_8jcpt"]
-[ext_resource type="Texture2D" uid="uid://dxybf6k6edots" path="res://Asset/Spirte/Background/Iffloor1_รวม.png" id="1_blow1"]
+[ext_resource type="Texture2D" uid="uid://odymh52t4gmr" path="res://Asset/Spirte/Background/Untitled38.png" id="2_385rw"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_sothe"]
 [ext_resource type="PackedScene" uid="uid://bjkuanxy54akj" path="res://Asset/Screen/script_reuseable/Door/Door.tscn" id="3_m7af1"]
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="4_ss5p0"]
@@ -30,7 +30,7 @@ script = ExtResource("1_8jcpt")
 
 [node name="BG2" type="Sprite2D" parent="Standard" unique_id=93306522]
 y_sort_enabled = true
-texture = ExtResource("1_blow1")
+texture = ExtResource("2_385rw")
 centered = false
 
 [node name="Player" parent="Standard" unique_id=1775447557 groups=["Player"] instance=ExtResource("2_sothe")]

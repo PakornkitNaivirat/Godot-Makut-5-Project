@@ -2,6 +2,7 @@ extends Node2D
 
 @export var next_scene_path: String = ""
 @export var target_spawn_point_name: String = "" 
+@export var trigger_next_day: bool = false
 
 var current_dialogue_block: Array = []
 var current_line = 0
@@ -13,6 +14,7 @@ var all_dialogues = {
 		{"speaker": "Narrator", "text": "After parting ways with Rin, I returned to my room, took care of my routine"},
 		{"speaker": "Narrator", "text": " and went to bed with a heart full of happiness—"},
 		{"speaker": "Narrator", "text": "and a heartbeat at a rhythm I had never felt before"},
+		{"speaker": "Narrator", "text": "Well uhh gotta sleep now.."},
 	],
 }
 
@@ -57,10 +59,15 @@ func update_dialogue():
 	var target_node_name = line_data["speaker"] 
 	var text_content = line_data["text"]
 	
+	var next_is_narrator = false
+	if current_line + 1 < current_dialogue_block.size():
+		if current_dialogue_block[current_line + 1]["speaker"] == "Narrator":
+			next_is_narrator = true
+	
 	if target_node_name == "Narrator":
-		InnerVoice.speak(text_content) 
+		InnerVoice.speak(text_content, false) 
 	else:
-		InnerVoice.hide_text() 
+		InnerVoice.hide_text()
 
 func finish_cutscene():
 	# ปลดล็อกผู้เล่น
@@ -76,4 +83,8 @@ func finish_cutscene():
 	Global.target_spawn_name = target_spawn_point_name
 	
 	if next_scene_path != "":
-		LoadingScreen.transition_to_screenfunc(next_scene_path)
+		if trigger_next_day == true:
+			Global.pending_next_scene = next_scene_path
+			LoadingScreen.transition_to_screenfunc("res://Asset/Screen/script_reuseable/Loading/change_day_night.tscn")
+		else:
+			LoadingScreen.transition_to_screenfunc(next_scene_path)

@@ -118,6 +118,7 @@ position = Vector2(711, 1062)
 script = ExtResource("10_05888")
 next_scene_path = "res://Asset/Screen/BG/Day4/won.tscn"
 target_spawn_point_name = "StartSea"
+trigger_next_day = true
 
 [editable path="Player"]
 [editable path="Day1_Day/Smart_Door"]

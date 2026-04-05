@@ -28,11 +28,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0nvy3")
 target_spawn_point_name = "Takoyaki"
-custom_floating_font = ExtResource("3_0ul3a")
-pan_takos = [NodePath("PanTako1"), NodePath("PanTako2"), NodePath("PanTako3"), NodePath("PanTako4"), NodePath("PanTako5"), NodePath("PanTako6")]
+pan_takos = [NodePath("PanTako1"), NodePath("PanTako4"), NodePath("PanTako2"), NodePath("PanTako3"), NodePath("PanTako6"), NodePath("PanTako5")]
 box_markers = [NodePath("Box Tako/Marker4"), NodePath("Box Tako/Marker5"), NodePath("Box Tako/Marker6"), NodePath("Box Tako/Marker1"), NodePath("Box Tako/Marker2"), NodePath("Box Tako/Marker3")]
 plain_tako_region = Rect2(467.705, 471.792, 279.643, 285.5)
-sauce_tako_region = Rect2(133.1, 464.3, 300.3, 298.1)
+sauce_tako_region = Rect2(124.007, 467.648, 310.389, 304.533)
 burnt_tako_region = Rect2(829.6, 485.5, 280.5, 273.9)
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1833803677]
@@ -137,7 +136,7 @@ position = Vector2(640.0001, 473.00003)
 scale = Vector2(0.446667, 0.397778)
 texture = ExtResource("3_f4yvr")
 region_enabled = true
-region_rect = Rect2(829.6001, 485.50006, 280.50012, 273.9001)
+region_rect = Rect2(124.00738, 467.64838, 310.38934, 304.53296)
 
 [node name="PanTako2" type="Sprite2D" parent="." unique_id=438065279]
 position = Vector2(715, 312)
@@ -173,3 +172,13 @@ scale = Vector2(0.446667, 0.397778)
 texture = ExtResource("3_f4yvr")
 region_enabled = true
 region_rect = Rect2(467.70465, 471.792, 279.6432, 285.49963)
+
+[node name="Guide" type="Label" parent="." unique_id=653523299]
+z_index = 200
+layout_mode = 0
+offset_left = 486.0
+offset_top = 533.0
+offset_right = 666.0
+offset_bottom = 565.0
+text = "Press [ Space ]"
+label_settings = SubResource("LabelSettings_f4yvr")

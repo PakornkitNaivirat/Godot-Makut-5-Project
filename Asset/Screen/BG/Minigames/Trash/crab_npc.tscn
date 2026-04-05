@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cbuexenoqhsuh"]
+
+[ext_resource type="Script" uid="uid://dkou8rotj5sit" path="res://Asset/Script/Re-use/MiniGame/crab_npc.gd" id="1_66dqu"]
+[ext_resource type="Texture2D" uid="uid://cp1joloowpu03" path="res://Asset/Spirte/Prop/Crab/canva-crab-illustration-MAFYNmZPEuY.png" id="1_jyw0e"]
+[ext_resource type="AudioStream" uid="uid://46ia3qweo5pr" path="res://Asset/Sounds/Punch.mp3" id="3_31fdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66dqu"]
+size = Vector2(495, 332)
+
+[node name="CrabNPC" type="Area2D" unique_id=1578003859]
+z_index = 100
+script = ExtResource("1_66dqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=987709144]
+texture = ExtResource("1_jyw0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1557769974]
+position = Vector2(3.5, 12)
+shape = SubResource("RectangleShape2D_66dqu")
+
+[node name="SoundEffect_Hit" type="AudioStreamPlayer2D" parent="." unique_id=1651520066]
+stream = ExtResource("3_31fdy")

@@ -4,34 +4,75 @@
 [ext_resource type="Texture2D" uid="uid://dmss760fx04na" path="res://Asset/Spirte/Background/Day4/Sea_nos.bg.png" id="2_oclav"]
 [ext_resource type="PackedScene" uid="uid://ckvx4lxbaqikn" path="res://Asset/Screen/BG/Minigames/Trash/Trash.tscn" id="3_0fa57"]
 [ext_resource type="Texture2D" uid="uid://cn3ih4svsl30j" path="res://Asset/Spirte/Prop/Trash_Prop/เปลือกกล้วย.png" id="4_d3thx"]
+[ext_resource type="FontFile" uid="uid://b76ougioslkln" path="res://Asset/font/Lexend-VariableFont_wght.ttf" id="4_fpvx2"]
 [ext_resource type="Script" uid="uid://cbjr515yn7w2t" path="res://Asset/Script/Re-use/MiniGame/wave_spawner.gd" id="4_pcpfs"]
 [ext_resource type="Texture2D" uid="uid://bgd85iewk2ewq" path="res://Asset/Spirte/Prop/Trash_Prop/กระดาษลัง.png" id="5_he1o6"]
 [ext_resource type="Texture2D" uid="uid://bjdqbyrblrf0m" path="res://Asset/Spirte/Prop/Trash_Prop/ถุงพลาสติก.png" id="5_lid1k"]
 [ext_resource type="Texture2D" uid="uid://bg30rjf08bov5" path="res://Asset/Spirte/Prop/Trash_Prop/ขวดน้ำ (1).png" id="6_nwmdx"]
 [ext_resource type="Texture2D" uid="uid://4b30j3ax03sd" path="res://Asset/Spirte/Prop/Trash_Prop/ขวดน้ำ.png" id="7_e4bbv"]
 [ext_resource type="Texture2D" uid="uid://bltgt7g16so5o" path="res://Asset/Spirte/Prop/Trash_Prop/ถ่านไฟฉาย.png" id="8_0bpux"]
+[ext_resource type="PackedScene" uid="uid://cbuexenoqhsuh" path="res://Asset/Screen/BG/Minigames/Trash/crab_npc.tscn" id="11_cxivn"]
 
-[node name="BeachGame" type="Node2D" unique_id=1596971245]
+[sub_resource type="LabelSettings" id="LabelSettings_288hj"]
+font = ExtResource("4_fpvx2")
+font_size = 35
+font_color = Color(0.88235295, 0.47843137, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fpvx2"]
+font = ExtResource("4_fpvx2")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+
+[node name="BeachGame" type="Node2D" unique_id=248979001]
 script = ExtResource("1_uvgxh")
 
-[node name="SandBackground" type="Sprite2D" parent="." unique_id=1998723790]
+[node name="SandBackground" type="Sprite2D" parent="." unique_id=1564855559]
 position = Vector2(576.5, 322.29)
 scale = Vector2(1.2106919, 1.65964)
 texture = ExtResource("2_oclav")
 region_enabled = true
 region_rect = Rect2(2519.1855, 513.2811, 954.49756, 518.74866)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=974052880]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020618317]
 
-[node name="CountLabel" type="Label" parent="CanvasLayer" unique_id=1818069815]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="UI_Panel" type="ColorRect" parent="CanvasLayer" unique_id=1788901024]
+offset_right = 506.0
+offset_bottom = 92.0
+color = Color(0.7137255, 0.9490196, 0.95686275, 0.5764706)
 
-[node name="WaveSpawner" type="Node2D" parent="." unique_id=26906118]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI_Panel" unique_id=854643077]
+layout_mode = 0
+offset_right = 264.0
+offset_bottom = 92.0
+
+[node name="TrashIcon" type="TextureRect" parent="CanvasLayer/UI_Panel/HBoxContainer" unique_id=646617774]
+z_index = 8
+layout_mode = 2
+texture = ExtResource("6_nwmdx")
+expand_mode = 2
+
+[node name="CountLabel" type="Label" parent="CanvasLayer/UI_Panel/HBoxContainer" unique_id=1738581184]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_288hj")
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=279794998]
+offset_left = 520.0
+offset_top = 564.0
+offset_right = 521.0
+offset_bottom = 596.0
+label_settings = SubResource("LabelSettings_fpvx2")
+
+[node name="WaveSpawner" type="Node2D" parent="." unique_id=677413874]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("4_pcpfs")
 trash_scene = ExtResource("3_0fa57")
 trash_textures = Array[Texture2D]([ExtResource("5_he1o6"), ExtResource("6_nwmdx"), ExtResource("7_e4bbv"), ExtResource("5_lid1k"), ExtResource("8_0bpux"), ExtResource("4_d3thx")])
+crab_scene = ExtResource("11_cxivn")
 max_x = 1800.0
-min_y = 100.0
-max_y = 1080.0
+min_y = 150.0
+max_y = 900.0
+max_trash_per_wave = 3
+crab_spawn_chance = 0.8
