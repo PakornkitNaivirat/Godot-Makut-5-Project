@@ -1,4 +1,4 @@
-extends Node2D # หรือ Area2D
+extends Node2D
 
 @onready var anim = $AnimationPlayer
 
@@ -8,7 +8,6 @@ extends Node2D # หรือ Area2D
 var collected_count = 0
 var max_items = 3
 
-# UI nodes - ชี้ไปที่ CanvasLayer/UI ที่เพิ่มใน scene
 @onready var progress_label = $"../UI/ProgressLabel"
 @onready var bar_fill = $"../UI/ProgressBarFill"
 

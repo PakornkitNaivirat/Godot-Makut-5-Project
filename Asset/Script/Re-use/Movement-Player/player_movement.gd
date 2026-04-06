@@ -7,7 +7,6 @@ class_name PlayerController
 var direction = 0
 @export var is_locked = false
 
-
 func _ready() -> void:
 	# Check old position
 	if Global.load_exact_pos == true:
@@ -39,5 +38,5 @@ func _physics_process(delta: float) -> void:
 	else:
 		message_sound.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		
 	move_and_slide()

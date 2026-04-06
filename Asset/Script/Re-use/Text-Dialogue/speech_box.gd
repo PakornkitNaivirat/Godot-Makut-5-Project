@@ -1,6 +1,5 @@
 extends Node2D
 
-# ดึงโหนดเสียงมาใช้งาน (ต้องมีโหนดชื่อ KeyboardSound ใน Scene)
 @onready var keyboard_sound = $KeyboardSound
 @onready var panel = $PanelContainer
 @onready var label = $PanelContainer/MarginContainer/Label
@@ -13,7 +12,6 @@ func _ready():
 	scale = Vector2.ZERO 
 
 func show_dialogue(text_to_show: String):
-	# ถ้ามีแอนิเมชันเก่ารันอยู่ให้หยุดก่อน
 	if current_tween and current_tween.is_valid():
 		current_tween.kill()
 		
@@ -27,19 +25,17 @@ func show_dialogue(text_to_show: String):
 	label.visible_ratio = 0.0 
 	show()
 	
-	# สร้าง Tween ใหม่
 	current_tween = create_tween()
 	
-	# 1. ให้กล่องขยายตัว (Scale) พร้อมกับเริ่มพิมพ์ (ใช้ set_parallel)
 	current_tween.set_parallel(true)
 	current_tween.tween_property(self, "scale", Vector2.ONE, 0.3)\
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	
 	# 2. ส่วนการพิมพ์ข้อความทีละตัวอักษร
-	current_tween.set_parallel(false) # กลับมาทำทีละขั้นตอนเพื่อคุมจังหวะเสียง
+	current_tween.set_parallel(false)
 	
 	# ลูปตามจำนวนตัวอักษรเพื่อเล่นเสียง
-	current_tween.set_parallel(false) # กลับมาทำทีละขั้นตอน
+	current_tween.set_parallel(false)
 	
 	# กำหนดค่าเริ่มต้น
 	label.visible_characters = 0 
@@ -47,13 +43,12 @@ func show_dialogue(text_to_show: String):
 	# คำนวณเวลาทั้งหมดที่ใช้ในการพิมพ์ (จำนวนอักษร x ความเร็ว)
 	var total_duration = text_to_show.length() * typing_speed
 	
-	# สั่ง Tween รวดเดียวจบ! ให้มันนับเลขจาก 0 ไปจนถึงจำนวนอักษรทั้งหมด
 	current_tween.tween_method(type_next_character, 0, text_to_show.length(), total_duration)
 	
 func type_next_character(current_char: int):
-	# เช็คว่าตัวเลขตัวอักษรมันเพิ่มขึ้นจากเดิมไหม (ป้องกันการเล่นเสียงซ้ำในเฟรมเดิม)
+	# เช็คว่าตัวเลขตัวอักษรมันเพิ่มขึ้นจากเดิมไหม
 	if current_char > label.visible_characters:
-		label.visible_characters = current_char # อัปเดตให้แสดงข้อความ
+		label.visible_characters = current_char
 		
 		# ดึงตัวอักษรตัวล่าสุดที่เพิ่งโผล่มาเช็ค
 		var char_index = current_char - 1

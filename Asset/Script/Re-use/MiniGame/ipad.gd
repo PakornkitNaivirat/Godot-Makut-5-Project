@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 	if is_dragging:
 		global_position = get_global_mouse_position()
 		
-		# ระบบขอบเขต (ลากทะลุจอไม่ได้)
 		var screen_size = get_viewport_rect().size
 		global_position.x = clamp(global_position.x, 0, screen_size.x)
 		global_position.y = clamp(global_position.y, 0, screen_size.y)
@@ -43,24 +42,18 @@ func _input(event: InputEvent) -> void:
 					var distance_to_bp = global_position.distance_to(backpack.global_position)
 					if distance_to_bp < 200:
 						
-						# --- [ส่วนที่แก้ใหม่] ---
-						var can_collect = true # ตั้งค่าเริ่มต้นว่า "เก็บได้" ไปก่อน
+						var can_collect = true
 						
-						# 1. ถาม ChecklistManager ก่อนว่าอนุญาตให้เก็บไอเทมชิ้นนี้ไหม?
+						# ChecklistManager ก่อนว่าอนุญาตให้เก็บไอเทมชิ้นนี้ไหม
 						if has_node("../../ChecklistManager"):
 							can_collect = get_node("../../ChecklistManager").check_item(item_id)
 						
-						# 2. ดูคำตอบที่ได้มา
 						if can_collect == true:
-							# ถ้าอนุญาต (true) -> ให้เข้ากระเป๋าและทำลายไอเทมทิ้ง
 							if backpack.has_method("add_item"):
 								backpack.add_item()
 							queue_free()
 						else:
-							# ถ้าไม่อนุญาต (false) เช่นเป็น mug -> ให้เด้งกลับที่เดิม
 							return_to_start()
-						# ----------------------
-							
 					else:
 						return_to_start()
 				else:

@@ -1,34 +1,27 @@
 extends Node2D
 
-# 1. เพิ่มช่องใน Inspector สำหรับลากไฟล์เพลงประจำฉากมาใส่
 @export var stage_bgm: AudioStream 
 
 func _ready():
-	# 2. สั่งจัดการเพลง (เล่นเพลงใหม่ หรือ หยุดเพลงถ้าไม่ได้ใส่ไว้)
 	play_stage_music()
-	
-	# ส่วนเดิมของคุณ: จัดการเหตุการณ์ตามวัน/เวลา
 	setup_daily_events()
-	print("Scene Ready: BGM and Day/Night system initialized.")
 
 # ฟังก์ชันสำหรับจัดการเพลง
 func play_stage_music():
-	# หาโหนด Autoload (เช็คทั้งชื่อ BGM หรือ BGMManager ตามที่คุณอาจจะตั้งไว้)
+	
 	var bgm_node = get_node_or_null("/root/BGM")
 	if not bgm_node:
 		bgm_node = get_node_or_null("/root/BGMManager")
 
 	if bgm_node:
 		if stage_bgm:
-			# กรณีที่ 1: มีการใส่เพลงในช่อง Inspector -> ให้เล่นเพลงนั้น
 			bgm_node.play_music(stage_bgm)
 		else:
-			# กรณีที่ 2: ช่อง Inspector ว่างเปล่า -> ให้หยุดเพลง (เงียบ)
 			bgm_node.stop_music() 
 	else:
 		print("Warning: Autoload BGM/BGMManager not found!")
 
-# ฟังก์ชันเดิมของคุณ (คงไว้เหมือนเดิม)
+# ฟังก์ชันจัดการ Event 
 func setup_daily_events():
 	var today = Global.current_day
 	var is_night = Global.day_night

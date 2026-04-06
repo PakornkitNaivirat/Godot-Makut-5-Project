@@ -1,8 +1,7 @@
 extends Control
-
-# --- ตั้งค่าเกม ---
+# Setting Game
 @export var target_spawn_point_name: String = ""
-@export var win_condition: int = 6 # 🌟 เปลี่ยนเป็น 6 ลูก
+@export var win_condition: int = 6
 @export var time_limit: float = 30.0
 @export var max_misses: int = 3
 @export var custom_floating_font: Font
@@ -12,11 +11,10 @@ var miss_count: int = 0
 var success_count: int = 0
 var speed: float = 400.0
 var direction: int = 1
-
 var is_active: bool = true
 var is_game_over: bool = false
 
-# --- 🌟 อ้างอิง Node ระบบใหม่ (Arrays และ Region) ---
+# Texture Array
 @onready var bg_bar = $BackgroundBar
 @onready var target_zone = $BackgroundBar/TargetZone
 @onready var arrow = $BackgroundBar/Arrow
@@ -26,31 +24,28 @@ var is_game_over: bool = false
 
 @onready var space = $space
 @onready var sause = $sause
-# ลาก Sprite2D ทาโกะในกระทะ 6 ตัวมาใส่
+
 @export var pan_takos: Array[Sprite2D] 
-# ลาก Marker2D ในถาด 6 จุดมาใส่
 @export var box_markers: Array[Marker2D]
 
-# ช่องใส่ค่าตัดรูป (Region Rect) ของทาโกะแต่ละแบบ
 @export var plain_tako_region: Rect2 
 @export var sauce_tako_region: Rect2 
 @export var burnt_tako_region: Rect2 
 
-# เก็บตำแหน่งเดิมของทาโกะในกระทะ เอาไว้ตอนรีเซ็ต
+# OG Positon
 var pan_start_positions: Array[Vector2]
 
 func _ready():
 	status_label.pivot_offset = status_label.size / 2
 	
-	# จำตำแหน่งเริ่มต้นของทาโกะทั้ง 6 ลูก
 	for tako in pan_takos:
 		pan_start_positions.append(tako.global_position)
 		
-	# ตั้งค่า Z-index ให้ไม้คีบอยู่บนสุดเสมอ
+	# Z-index ให้ไม้คีบอยู่บนสุดเสมอ
 	if tongs: tongs.z_index = 10
 	
 	print("Global Takoyaki Status: ", Global.minigame_status["takoyaki"])
-	reset_entire_game() # ใช้ฟังก์ชันรีเซ็ตใหญ่ตอนเริ่มเลย
+	reset_entire_game()
 
 func _process(delta):
 	if not is_game_over:
@@ -59,13 +54,12 @@ func _process(delta):
 			timer_label.text = "Time: %.2f" % max(0.0, time_left)
 			
 		if time_left <= 0:
-			# 🌟 ถ้าหมดเวลา เรียกฟังก์ชัน time_out แทน
 			time_out()
 			return
 			
 	if not is_active: return
 		
-	#ลูกศรวิ่ง (ระบบเดิม)
+	#QTE Arrow
 	arrow.position.x += speed * delta * direction
 	var max_x = bg_bar.size.x - arrow.size.x
 	
@@ -92,13 +86,11 @@ func check_hit():
 		on_fail()
 
 func on_success():
-	# 🌟 ป้องกันกรณีคีบเกิน 6 ลูก
 	if success_count >= win_condition: return
 	
 	var bar_center = bg_bar.global_position + (bg_bar.size / 2)
 	spawn_floating_text("PERFECT!", Color.GREEN, bar_center)
 	
-	# 🌟 เลือกลูกทาโกะ และ จุดวาง ปัจจุบัน
 	var current_tako = pan_takos[success_count]
 	var target_marker = box_markers[success_count]
 	
@@ -106,68 +98,64 @@ func on_success():
 	status_label.modulate = Color.GREEN
 	animate_status_label()
 	
-	# --- 🛠️ ตั้งค่าฉากก่อนเริ่ม Animation ---
-	var pickup_height_offset = Vector2(0, -300) # ระยะลอยขึ้น (ใช้ global_position ดีกว่า)
+	var pickup_height_offset = Vector2(0, -300)
 	
 	current_tako.z_index = tongs.z_index 
 	
-	# ตั้งค่าไม้คีบให้เกิด "เหนือ" ทาโกะลูกที่จะคีบ
 	tongs.show()
 	tongs.global_position = current_tako.global_position + pickup_height_offset
 	tongs.rotation_degrees = 0
 
-	# --- 🏗️ สร้างสายพาน Animation (Tween Chain) ---
+	#Animation
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
-	# STEP 1: คีบลงไปหาลูกทาโกะ
+	#คีบลงไปหาลูกทาโกะ
 	tween.tween_property(tongs, "global_position", current_tako.global_position , 0.3)
 	
-	# STEP 1.9: เปลี่ยนโหนดแม่ (Reparent) แบบรักษาตำแหน่งเดิมไว้เป๊ะๆ
 	tween.tween_callback(func():
-		current_tako.reparent(tongs, true) # true คือ keep_global_transform (สะดวกมาก!)
+		current_tako.reparent(tongs, true)
 	)
 
-	# STEP 2: คีบขึ้น
+	#คีบขึ้น
 	var raised_pos = current_tako.global_position + pickup_height_offset
 	tween.tween_property(tongs, "global_position", raised_pos, 0.3)
 
-	# STEP 3: ลากไปอยู่เหนือจุดเป้าหมาย (target_marker) และหมุนโชว์
+	# ลากไปอยู่เหนือจุดเป้าหมาย
 	var target_raised_pos = target_marker.global_position + pickup_height_offset
 	tween.tween_property(tongs, "global_position", target_raised_pos, 0.8).set_trans(Tween.TRANS_SINE)
 	
 
-	# STEP 4: คีบลงจ่อที่ถาด
+	#คีบลงจ่อที่ถาด
 	tween.tween_property(tongs, "global_position", target_marker.global_position + Vector2(0, -20), 0.3)
 
-	# STEP 5.9: ปล่อย Tako กลับคืน Scene หลัก
+	# ปล่อย Tako กลับคืน Scene หลัก
 	tween.tween_callback(func():
 		current_tako.reparent(get_node("."), true)
-		current_tako.z_index = 0 # 🌟 ให้มันมุดอยู่หลัง Box_wall (สมมติ Box_wall z_index = 2)
+		current_tako.z_index = 0
 	)
 
-	# STEP 6: ทาโกะยากิลงถาด
+	#ทาโกะยากิลงถาด
 	tween.tween_property(current_tako, "global_position", target_marker.global_position, 0.1)
 
-	# STEP 7: เด้งดึ๋งในถาด
 	tween.tween_callback(func():
 		var bounce_tw = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 		bounce_tw.tween_property(current_tako, "global_position:y", current_tako.global_position.y - 10, 0.15)
 		bounce_tw.tween_property(current_tako, "global_position:y", current_tako.global_position.y, 0.15)
 	)
 
-	# STEP 8: ไม้คีบเลื่อนกลับไปด้านบนกระทะ
+	#ไม้คีบเลื่อนกลับไปด้านบนกระทะ
 	var origin_raised_pos = pan_start_positions[success_count] + pickup_height_offset
 	tween.tween_property(tongs, "global_position", origin_raised_pos, 0.5)
 	tween.parallel().tween_property(tongs, "rotation_degrees", 0.0, 0.5)
 	
-	# STEP 9: ซ่อนไม้คีบ
+	#ซ่อนไม้คีบ
 	tween.tween_callback(tongs.hide)
 
 	await tween.finished
 	
-	success_count += 1 # 🌟 นับความสำเร็จ
+	success_count += 1
 	
-	# เช็คว่าครบ 6 ลูกหรือยัง
+	# เช็คว่าครบ 6 ลูก
 	if success_count >= win_condition:
 		win_game()
 	else:
@@ -198,7 +186,7 @@ func time_out():
 	is_active = false
 	timer_label.text = "Time: 0.00"
 	
-	# 🌟 ทาโกะที่ยังอยู่ในกระทะ (ยังไม่ได้คีบ) เปลี่ยนเป็นลูกไหม้
+	# ทาโกะที่ยังอยู่ในกระทะเปลี่ยนเป็นลูกไหม้
 	for i in range(success_count, win_condition):
 		if i < pan_takos.size():
 			pan_takos[i].region_rect = burnt_tako_region
@@ -223,10 +211,9 @@ func win_game():
 	status_label.text = "ALL DONE! 🐙"
 	status_label.modulate = Color.WHITE
 	
-	# 🌟 สร้าง Tween สำหรับ Effect ราดซอส
 	var tween = create_tween()
 	
-	# 🌟 ทำ Effect ไล่ราดซอสทีละลูก
+	# Effect ราดซอสทีละลูก
 	for tako in pan_takos:
 		var original_scale = tako.scale 
 		
@@ -255,7 +242,6 @@ func win_game():
 	LoadingScreen.transition_to_screenfunc("res://Asset/Screen/BG/Day3/park_in.tscn")
 	queue_free()
 
-# 🌟 เอาไว้รีเซ็ตเวลากดพลาด 3 ครั้ง หรือหมดเวลา
 func reset_entire_game():
 	success_count = 0
 	miss_count = 0
@@ -263,10 +249,10 @@ func reset_entire_game():
 	is_game_over = false
 	tongs.hide()
 	
-	# จับทาโกะทุกตัววาร์ปกลับกระทะ และคืนร่างเป็นลูกธรรมดา
+	# Reset Tako ทุกตัว
 	for i in range(win_condition):
 		if i < pan_takos.size():
-			# ถอนตัวออกจากการเป็นลูกของ tongs เผื่อติดอยู่
+
 			if pan_takos[i].get_parent() == tongs:
 				pan_takos[i].reparent(get_node("."))
 				
@@ -280,7 +266,6 @@ func reset_entire_game():
 	
 	reset_game()
 
-# 🌟 เอาไว้สุ่มเป้าหมายใหม่ตอนคีบสำเร็จ 1 ลูก หรือพลาดไม่ถึง 3 ครั้ง
 func reset_game():
 	is_active = true
 	speed = randf_range(350.0, 650.0)
@@ -300,36 +285,29 @@ func screen_shake():
 		tw.tween_property(self, "position", op + Vector2(randf_range(-5,5), randf_range(-5,5)), 0.05)
 	tw.tween_property(self, "position", op, 0.05)
 	
+#ข้อความ Text
 func spawn_floating_text(message: String, text_color: Color, spawn_pos: Vector2):
 	var floating_label = Label.new()
 	floating_label.text = message
 	floating_label.modulate = text_color
 	
-	# ตั้งค่าให้ข้อความอยู่ตรงกลางจุดที่เกิด
 	floating_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	floating_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	
 	if custom_floating_font:
 		floating_label.add_theme_font_override("font", custom_floating_font)
 	
-	# เพิ่มขนาดตัวอักษร (ถ้าอยากให้ใหญ่ขึ้น ปรับเลข 32 ได้เลย)
 	floating_label.add_theme_font_size_override("font_size", 48)
 	
-	# เพิ่ม Label เข้าไปใน Scene ปัจจุบัน
 	add_child(floating_label)
 	
-	# จัดตำแหน่งให้อยู่ตรงกลางของพิกัดที่ส่งมา
 	floating_label.global_position = spawn_pos - (floating_label.size / 2)
-	floating_label.z_index = 20 # ให้อยู่บนสุด
+	floating_label.z_index = 20
 	
-	# --- สร้าง Tween สำหรับ Effect เด้งและ Fade ---
-	var tween = create_tween().set_parallel(true) # ให้ทำงานพร้อมกัน
+	var tween = create_tween().set_parallel(true)
 	
-	# 1. ลอยขึ้นไปด้านบน 50 พิกเซล ภายใน 0.6 วินาที
 	tween.tween_property(floating_label, "global_position:y", floating_label.global_position.y - 100, 0.6).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
-	# 2. ค่อยๆ โปร่งใส (Fade out) จนค่า Alpha เป็น 0 ภายใน 0.6 วินาที
 	tween.tween_property(floating_label, "modulate:a", 0.0, 0.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	
-	# 3. พอลอยและเฟดเสร็จ ให้ลบ Label นี้ทิ้งเพื่อไม่ให้กินหน่วยความจำ
 	tween.chain().tween_callback(floating_label.queue_free)
