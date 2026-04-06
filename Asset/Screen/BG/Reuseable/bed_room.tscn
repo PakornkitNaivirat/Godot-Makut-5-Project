@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://sdstcnrm1avd" path="res://Asset/Screen/script_reuseable/Text/dialogue.tscn" id="7_3hubp"]
 [ext_resource type="Script" uid="uid://dd8cg0q47kxik" path="res://Asset/Script/Re-use/ETC/night.gd" id="8_3hubp"]
 [ext_resource type="Texture2D" uid="uid://bvujyx7ckb3px" path="res://Asset/Spirte/Prop/Arrow/667752957_2651369088567921_3847465495172361934_n-Photoroom.png" id="9_1cj1h"]
-[ext_resource type="Script" path="res://Asset/Script/Re-use/Misc/How_to_2d.gd" id="9_i2muq"]
+[ext_resource type="Script" uid="uid://brtj55djpp6ey" path="res://Asset/Script/Re-use/Misc/How_to_2d.gd" id="9_i2muq"]
 [ext_resource type="Script" uid="uid://dqj0yo4gpfnse" path="res://Asset/Script/Re-use/Misc/day_2_night.gd" id="9_jbwfh"]
 [ext_resource type="Script" uid="uid://b3km5m6hr7byd" path="res://Asset/Script/Re-use/Misc/day_3_night.gd" id="10_05888"]
 
