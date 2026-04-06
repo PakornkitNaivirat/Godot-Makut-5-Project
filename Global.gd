@@ -16,7 +16,7 @@ var event_flags: Dictionary = {
 
 var day_night = false
 var dawn = false
-var current_day = 3
+var current_day = 1
 
 var D1bed = false
 var D1sod = false

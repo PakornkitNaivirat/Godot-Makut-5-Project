@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dp4pi6q3g32q6" path="res://Asset/Script/Re-use/Misc/endcredit.gd" id="1_04ikq"]
 [ext_resource type="Texture2D" uid="uid://1t7r0rdc3hvx" path="res://Asset/Spirte/Background/Day4/663790690_1988658642042791_1770785305534966054_n.jpg" id="1_buhwb"]
-[ext_resource type="AudioStream" uid="uid://bql8fr8rcd3fi" path="res://Asset/Sounds/Unravel original vs multilanguage #unravel #kaneki #tokyoghoul #kanekikenedit #animeshorts #shorts - Arima Kousei (128k).mp3" id="3_e5e13"]
+[ext_resource type="AudioStream" uid="uid://dvvnade5pavej" path="res://Asset/Sounds/why cant you remember.mp3" id="3_e5e13"]
 
 [sub_resource type="Animation" id="Animation_buhwb"]
 resource_name = "Endcredit"
-length = 17.0
+length = 33.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,7 +14,7 @@ tracks/0/path = NodePath("End:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 15),
+"times": PackedFloat32Array(0, 30),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(582, 1334), Vector2(582, -225)]
@@ -26,7 +26,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(17),
+"times": PackedFloat32Array(32.933334),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -41,8 +41,8 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": [{
-"end_offset": 38.129993,
-"start_offset": 1.19,
+"end_offset": 83.57999,
+"start_offset": 0.0,
 "stream": ExtResource("3_e5e13")
 }],
 "times": PackedFloat32Array(0)
