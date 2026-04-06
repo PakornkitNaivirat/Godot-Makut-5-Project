@@ -9,7 +9,7 @@ func check_item(item_name: String) -> bool:
 	
 	# ถ้าไอเทมที่ลากมา ดันอยู่ในรายชื่อของห้ามเอาไป
 	if item_name in not_allowed_items:
-		InnerVoice.speak("I don't think i need tihs.")
+		InnerVoice.speak("I don't think i need this.")
 		# ตอบกลับไปว่า false (ไม่อนุญาต)
 		return false 
 	
