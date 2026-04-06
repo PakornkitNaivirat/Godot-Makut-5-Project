@@ -40,7 +40,7 @@ y_sort_enabled = true
 texture = ExtResource("2_385rw")
 centered = false
 
-[node name="Player" parent="Standard" unique_id=1775447557 groups=["Player"] instance=ExtResource("2_sothe")]
+[node name="Player" parent="Standard" unique_id=1775447557 groups=["player"] instance=ExtResource("2_sothe")]
 z_index = 1
 position = Vector2(252, 859)
 scale = Vector2(0.4, 0.4)

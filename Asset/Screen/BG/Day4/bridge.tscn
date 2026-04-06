@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6ilo6s5wi513"]
 
-[ext_resource type="Script" path="res://Asset/Script/Re-use/Misc/bridge.gd" id="1_4d4ik"]
+[ext_resource type="Script" uid="uid://cohw7t8p5ydor" path="res://Asset/Script/Re-use/Misc/bridge.gd" id="1_4d4ik"]
 [ext_resource type="Texture2D" uid="uid://ddr32teumdaqh" path="res://Asset/Spirte/Background/Day4/bridge_fish_game.png" id="1_a78hd"]
 [ext_resource type="PackedScene" uid="uid://b63b3yeurta4d" path="res://Asset/Screen/script_reuseable/player.tscn" id="2_4d4ik"]
 [ext_resource type="AudioStream" uid="uid://c4m15qa75rqcw" path="res://Asset/Sounds/walk-concrete.mp3" id="4_egumu"]
@@ -72,6 +72,20 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 8.033334, 15.966666, 23.2)
 }
 tracks/2/use_blend = true
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(27),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_cutscene"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egumu"]
 _data = {
@@ -81,6 +95,7 @@ _data = {
 
 [node name="Bridge" type="Node2D" unique_id=983153832]
 script = ExtResource("1_4d4ik")
+next_scene_path = "res://Asset/Screen/BG/Day4/sitting_end.tscn"
 
 [node name="BG" type="Node2D" parent="." unique_id=918487441]
 

@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://crk6vjbblmn5r"]
+
+[ext_resource type="Script" uid="uid://bgitye3ntapt2" path="res://Asset/Script/Re-use/Misc/sitting_end.gd" id="1_pnuo4"]
+[ext_resource type="Texture2D" uid="uid://dna4mvxoqm573" path="res://Asset/Spirte/Background/Day4/Untitled65.png" id="2_4dl0d"]
+[ext_resource type="FontFile" uid="uid://cypwugaklep21" path="res://Asset/font/MiPancakeBold.ttf" id="3_mxxle"]
+[ext_resource type="Texture2D" uid="uid://bat65nmje0i5r" path="res://Asset/Spirte/icon/5.png" id="4_4dl0d"]
+
+[sub_resource type="Animation" id="Animation_nf5i0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("THE END:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("THANK FOR PLAYING:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3veu1"]
+resource_name = "THE_END"
+length = 9.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0000002, 6.0333333, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("THE END:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.0333333, 6.0333333, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["part1"],
+"method": &"start_talking"
+}, {
+"args": [],
+"method": &"finish_cutscene"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("THANK FOR PLAYING:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.5, 8.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(6.5, 8.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(6.5, 8.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wc5cp"]
+_data = {
+&"RESET": SubResource("Animation_nf5i0"),
+&"THE_END": SubResource("Animation_3veu1")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_pu7ts"]
+font = ExtResource("3_mxxle")
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxxle"]
+font = ExtResource("3_mxxle")
+font_size = 60
+
+[node name="Sitting_End" type="Node2D" unique_id=259916127]
+script = ExtResource("1_pnuo4")
+next_scene_path = "res://Asset/Screen/BG/Day4/Endcredit.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1061090555]
+offset_right = 1155.0
+offset_bottom = 652.0
+color = Color(0.080783494, 0.080783255, 0.08078336, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1674223427]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(332, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4dl0d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1962143530]
+libraries/ = SubResource("AnimationLibrary_wc5cp")
+
+[node name="THE END" type="Label" parent="." unique_id=610648062]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.0
+offset_top = 220.0
+offset_right = 1056.0
+offset_bottom = 406.0
+text = "THE END"
+label_settings = SubResource("LabelSettings_pu7ts")
+
+[node name="THANK FOR PLAYING" type="Label" parent="." unique_id=1236549301]
+offset_left = 109.0
+offset_top = 152.0
+offset_right = 1159.0
+offset_bottom = 338.0
+text = "THANK FOR PLAYING"
+label_settings = SubResource("LabelSettings_pu7ts")
+
+[node name="Label" type="Label" parent="." unique_id=499413198]
+offset_left = 288.0
+offset_top = 399.0
+offset_right = 593.0
+offset_bottom = 492.0
+text = "BY CLUSTER 5"
+label_settings = SubResource("LabelSettings_mxxle")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1091142815]
+position = Vector2(694, 447)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("4_4dl0d")
+region_rect = Rect2(104.71805, 41.938522, 784.5537, 775.9793)

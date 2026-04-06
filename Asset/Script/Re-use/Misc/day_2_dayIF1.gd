@@ -24,6 +24,7 @@ func _ready():
 		if Global.current_day == 2 and Global.day_night == false:
 			if player:
 				player.is_locked = true
+				print(player.is_locked == true)
 		
 	if InnerVoice:
 		InnerVoice.hide_text()

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dh8runqcexfbq" path="res://Asset/Screen/script_reuseable/Door/door_sideway.tscn" id="5_dxo0t"]
 [ext_resource type="Texture2D" uid="uid://3mehouhet0tq" path="res://Asset/Spirte/Charactor/Bg.game.character .png" id="6_3h12d"]
 [ext_resource type="Script" uid="uid://cb5e6gm0635mf" path="res://Asset/Script/Re-use/Misc/day_4_eveningwon.gd" id="6_ejbsl"]
-[ext_resource type="Script" path="res://Asset/Script/Re-use/Misc/day_4_dayWon.gd" id="6_tssaf"]
+[ext_resource type="Script" uid="uid://d4ixmtk2035l2" path="res://Asset/Script/Re-use/Misc/day_4_dayWon.gd" id="6_tssaf"]
 [ext_resource type="Texture2D" uid="uid://bpa4urtu5p2pc" path="res://Asset/Spirte/Charactor/Untitled69_20260405044431.png" id="7_kjqwa"]
 [ext_resource type="PackedScene" uid="uid://c73ny583v40f1" path="res://Asset/Screen/script_reuseable/Text/Speech_bubble.tscn" id="9_kbjgs"]
 

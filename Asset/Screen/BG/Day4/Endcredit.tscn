@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2ennmehcotis"]
 
-[ext_resource type="Script" path="res://Asset/Script/Re-use/Misc/endcredit.gd" id="1_04ikq"]
+[ext_resource type="Script" uid="uid://dp4pi6q3g32q6" path="res://Asset/Script/Re-use/Misc/endcredit.gd" id="1_04ikq"]
 [ext_resource type="Texture2D" uid="uid://1t7r0rdc3hvx" path="res://Asset/Spirte/Background/Day4/663790690_1988658642042791_1770785305534966054_n.jpg" id="1_buhwb"]
 [ext_resource type="AudioStream" uid="uid://bql8fr8rcd3fi" path="res://Asset/Sounds/Unravel original vs multilanguage #unravel #kaneki #tokyoghoul #kanekikenedit #animeshorts #shorts - Arima Kousei (128k).mp3" id="3_e5e13"]
 
@@ -73,6 +73,11 @@ _data = {
 [node name="Endcredit" type="Node2D" unique_id=962231619]
 script = ExtResource("1_04ikq")
 next_scene_path = "res://Asset/Screen/BG/Reuseable/loading/main_menu.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=625392698]
+offset_right = 1151.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
 
 [node name="End" type="Sprite2D" parent="." unique_id=1157553577]
 position = Vector2(582, 875)

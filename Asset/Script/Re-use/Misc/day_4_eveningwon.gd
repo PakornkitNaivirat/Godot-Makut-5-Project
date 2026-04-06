@@ -29,7 +29,7 @@ var all_dialogues = {
 	"part1": [
 		{"speaker": "Narrator", "text": "So Rin and I walked along the beach sidewalk,"},
 		{"speaker": "Narrator", "text": "talking about everything that had happened today."},
-		{"speaker": "Me", "text": "Today was fun, wasn't it, Time?"},
+		{"speaker": "Me", "text": "Today was fun, wasn't it, Rin?"},
 		{"speaker": "Rin", "text": "Yeah, definitely. We got so much done."},
 		{"speaker": "Rin", "text": "Oh, and you almost tripped while we were collecting trash earlier, lol~"},
 		{"speaker": "Me", "text": "Hey, stop it -////-"},

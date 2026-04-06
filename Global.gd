@@ -16,12 +16,13 @@ var event_flags: Dictionary = {
 
 var day_night = false
 var dawn = false
-var current_day = 1
+var current_day = 3
 
 var D1bed = false
 var D1sod = false
 var D1IF1LIFT = false
 var D2IF1 = false
+var D3F = false
 
 var pending_next_scene: String = ""
 
