@@ -87,3 +87,4 @@ texture = ExtResource("1_buhwb")
 libraries/ = SubResource("AnimationLibrary_e5e13")
 
 [node name="end" type="AudioStreamPlayer" parent="." unique_id=480901920]
+volume_db = -10.0
